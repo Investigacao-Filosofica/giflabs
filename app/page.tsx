@@ -453,7 +453,7 @@ export default function GifLabsSite() {
                 </div>
                 <div className="mt-6 flex justify-center gap-4">
                   <a
-                    href="#"
+                    href="https://github.com/ctrlshiftOFF"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-500 hover:text-neutral-900 transition-colors"
@@ -461,7 +461,7 @@ export default function GifLabsSite() {
                     <Github size={20} />
                   </a>
                   <a
-                    href="#"
+                    href="https://x.com/ctrlshiftOFF"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-500 hover:opacity-75 transition-opacity"
@@ -495,7 +495,7 @@ export default function GifLabsSite() {
                 </div>
                 <div className="mt-6 flex justify-center gap-4">
                   <a
-                    href="#"
+                    href="https://github.com/ThePhilosopherX"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-500 hover:text-neutral-900 transition-colors"
@@ -503,7 +503,7 @@ export default function GifLabsSite() {
                     <Github size={20} />
                   </a>
                   <a
-                    href="#"
+                    href="https://x.com/ThePhilosopherX"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-500 hover:opacity-75 transition-opacity"
