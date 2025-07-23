@@ -1,37 +1,118 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
-  ExternalLink,
-  Mail,
-  Users,
-  BookOpen,
-  Cpu,
+  Briefcase,
   ChevronDown,
-  Menu,
-  X,
-  Palette,
-  Code,
-  Globe,
-  Database,
+  Eye,
   FileSignature,
-  GraduationCap,
+  Gem,
   Github,
+  Globe,
+  GraduationCap,
+  Mail,
+  Menu,
+  Palette,
+  Rocket,
+  Users,
+  X,
+  BookOpen,
   PlayCircle,
   Library,
   Newspaper,
-  Briefcase,
-  Rocket,
-  Eye,
-  Gem,
+  Database,
+  ExternalLink,
+  ArrowUpRight,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ProjectsScrollytelling } from "@/components/projects-scrollytelling"
+
+const projects = [
+  {
+    id: "education-app",
+    icon: <GraduationCap className="text-neutral-900" size={32} />,
+    title: "Digital Education App",
+    description:
+      "Combinamos educação gamificada, certificação blockchain e curadoria colaborativa para criar um ecossistema de aprendizagem descentralizado, verificável e acessível.",
+    link: "/digital-education-app",
+  },
+  {
+    id: "serie-if",
+    icon: <BookOpen className="text-neutral-900" size={32} />,
+    title: "Série IF",
+    description:
+      "Pesquisa e traducao de verbetes da Stanford Encyclopedia of Philosophy e publicação na forma de livros de acesso gratuito pela UFPel.",
+    link: "https://wp.ufpel.edu.br/nepfil/serie-investigacao-filosofica/",
+  },
+  {
+    id: "dao-channel",
+    icon: <PlayCircle className="text-neutral-900" size={32} />,
+    title: "Canal The Philosophers DAO",
+    description: "Canal de youtube para divulgacao de vídeos e podcasts de interesse filosófico.",
+    link: "https://www.youtube.com/@ThePhilosophersDAOpt",
+  },
+  {
+    id: "near-library",
+    icon: <Library className="text-neutral-900" size={32} />,
+    title: "Near Alexandria Library",
+    description: "Biblioteca no Metaverso com os livros publicados pelo NEPFIL/UFPel.",
+    link: "https://www.cryptovoxels.com/play?coords=SW@1789E,1180N",
+  },
+  {
+    id: "virtualia",
+    icon: <Newspaper className="text-neutral-900" size={32} />,
+    title: "Virtualia Magazine/Journal",
+    description: "Magazine and Academic Journal on Art, Technology, and Philosophy.",
+    link: "https://www.virtualiajournal.com/",
+  },
+]
+
+function Projects() {
+  return (
+    <section id="projetos" className="bg-neutral-900 py-24 sm:py-32">
+      <div className="container mx-auto px-6">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            Nossos <span className="font-normal">Projetos</span>
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-neutral-300">
+            Desenvolvemos pesquisas filosóficas aplicadas às tecnologias digitais, com foco especial em blockchain,
+            descentralização, inteligência artificial, comunicação digital, educação, publicação e processos editoriais.
+          </p>
+        </div>
+
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <a
+              key={project.id}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block h-full"
+            >
+              <div className="flex h-full flex-col items-center border border-transparent bg-neutral-800/50 p-8 text-center transition-all duration-300 hover:border-white/10 hover:bg-neutral-800">
+                <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100">
+                  {React.cloneElement(project.icon, { size: 40, className: "text-neutral-900" })}
+                </div>
+                <h3 className="mb-3 text-xl font-bold text-white">{project.title}</h3>
+                <p className="flex-grow text-sm leading-relaxed text-neutral-400">{project.description}</p>
+                <div className="mt-6 flex items-center font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <span>Acessar Projeto</span>
+                  <ArrowUpRight className="ml-2 h-4 w-4" />
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function GifLabsSite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -291,7 +372,7 @@ export default function GifLabsSite() {
       </section>
 
       {/* Áreas de Atuação */}
-      <ProjectsScrollytelling />
+      <Projects />
 
       {/* Equipe */}
       <section id="equipe" className="py-24 bg-white">
@@ -305,19 +386,19 @@ export default function GifLabsSite() {
             </p>
           </div>
 
-          <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto transition-all duration-1000 delay-300 ${isVisible('equipe') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <Card className="border border-neutral-200 hover:border-neutral-300 transition-all duration-200 shadow-sm">
-              <CardContent className="p-8 text-center">
-                <div className="w-24 h-24 mx-auto mb-6 bg-neutral-100 border border-neutral-200 flex items-center justify-center">
-                  <Users className="text-neutral-600" size={40} />
+          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-7xl mx-auto transition-all duration-1000 delay-300 ${isVisible('equipe') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
+              <div className="p-4 text-center flex flex-col flex-grow">
+                <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                  <Users className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Prof. Dr. Rodrigo Cid</h3>
-                <p className="text-neutral-600 mb-4 font-medium">Líder</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
+                <h3 className="text-lg font-bold mb-2">Prof. Dr. Rodrigo Cid</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-sm">Líder</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
                   Pesquisador em metafísica da ciência, filosofia das leis da natureza, e tecnologias digitais e
                   editoriais para a educação e a governança. Responsável pela definição estratégica do GIF LABS.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center mt-auto">
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
                     Filosofia da Ciência
                   </Badge>
@@ -327,7 +408,7 @@ export default function GifLabsSite() {
                 </div>
                 <div className="mt-6 flex justify-center gap-4">
                   <a
-                    href="#"
+                    href="http://lattes.cnpq.br/0847832636263404"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-500 hover:text-neutral-900 transition-colors"
@@ -335,7 +416,15 @@ export default function GifLabsSite() {
                     <GraduationCap size={20} />
                   </a>
                   <a
-                    href="#"
+                    href="https://github.com/ThePhilosopherX"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                  >
+                    <Github size={20} />
+                  </a>
+                  <a
+                    href="https://x.com/ThePhilosopherX"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-500 hover:opacity-75 transition-opacity"
@@ -343,22 +432,22 @@ export default function GifLabsSite() {
                     <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
                   </a>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="border border-neutral-200 hover:border-neutral-300 transition-all duration-200 shadow-sm">
-              <CardContent className="p-8 text-center">
-                <div className="w-24 h-24 mx-auto mb-6 bg-neutral-100 border border-neutral-200 flex items-center justify-center">
-                  <Briefcase className="text-neutral-600" size={40} />
+            <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
+              <div className="p-4 text-center flex flex-col flex-grow">
+                <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                  <Briefcase className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Roseline Crippa</h3>
-                <p className="text-neutral-600 mb-4 font-medium">Secretária-Executiva</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
+                <h3 className="text-lg font-bold mb-2">Roseline Crippa</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-sm">Secretária-Executiva</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
                   Vice-diretora escolar, formada em Letras e estudante de Especialização em Educação a Distância pela UFF.
                   Responsável pelas funções administrativas e organizacionais do GIF LABS, com papel central na captação
                   de recursos e no apoio institucional ao grupo.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center mt-auto">
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
                     Gestão Educacional
                   </Badge>
@@ -368,7 +457,7 @@ export default function GifLabsSite() {
                 </div>
                 <div className="mt-6 flex justify-center gap-4">
                   <a
-                    href="#"
+                    href="http://lattes.cnpq.br/3386107553390218"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-500 hover:text-neutral-900 transition-colors"
@@ -384,21 +473,21 @@ export default function GifLabsSite() {
                     <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
                   </a>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="border border-neutral-200 hover:border-neutral-300 transition-all duration-200 shadow-sm">
-              <CardContent className="p-8 text-center">
-                <div className="w-24 h-24 mx-auto mb-6 bg-neutral-100 border border-neutral-200 flex items-center justify-center">
-                  <FileSignature className="text-neutral-600" size={40} />
+            <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
+              <div className="p-4 text-center flex flex-col flex-grow">
+                <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                  <FileSignature className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Prof. Dr. Rafael Martins</h3>
-                <p className="text-neutral-600 mb-4 font-medium">Editor Acadêmico</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
+                <h3 className="text-lg font-bold mb-2">Prof. Dr. Rafael Martins</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-sm">Editor Acadêmico</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
                   Professor de Filosofia na UNIMAX e UNIFAJ, pesquisador em ética, filosofia política e filosofia
                   aplicada. Editor da Virtualia Journal e co-coordenador da Série Investigação Filosófica.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center mt-auto">
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
                     Filosofia Política
                   </Badge>
@@ -411,7 +500,7 @@ export default function GifLabsSite() {
                 </div>
                 <div className="mt-6 flex justify-center gap-4">
                   <a
-                    href="#"
+                    href="http://lattes.cnpq.br/2938081719142401"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-500 hover:text-neutral-900 transition-colors"
@@ -427,20 +516,20 @@ export default function GifLabsSite() {
                     <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
                   </a>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="border border-neutral-200 hover:border-neutral-300 transition-all duration-200 shadow-sm">
-              <CardContent className="p-8 text-center">
-                <div className="w-24 h-24 mx-auto mb-6 bg-neutral-100 border border-neutral-200 flex items-center justify-center">
-                  <Palette className="text-neutral-600" size={40} />
+            <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
+              <div className="p-4 text-center flex flex-col flex-grow">
+                <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                  <Palette className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Mateus Rodrigues</h3>
-                <p className="text-neutral-600 mb-4 font-medium">Artista Visual e Desenvolvedor Frontend</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
+                <h3 className="text-lg font-bold mb-2">Mateus Rodrigues</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-sm">Artista Visual e Desenvolvedor Frontend</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
                   Pesquisador em arte digital e modelos educacionais descentralizados, responsável pelo desenvolvimento de projetos experimentais do GIF LABS na interface entre Web3, educação e arte.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center mt-auto">
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
                     Arte Digital
                   </Badge>
@@ -469,20 +558,20 @@ export default function GifLabsSite() {
                     <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
                   </a>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="border border-neutral-200 hover:border-neutral-300 transition-all duration-200 shadow-sm">
-              <CardContent className="p-8 text-center">
-                <div className="w-24 h-24 mx-auto mb-6 bg-neutral-100 border border-neutral-200 flex items-center justify-center">
-                  <Database className="text-neutral-600" size={40} />
+            <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
+              <div className="p-4 text-center flex flex-col flex-grow">
+                <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                  <Database className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-xl font-bold mb-3">Alexandre Eduardo</h3>
-                <p className="text-neutral-600 mb-4 font-medium">Desenvolvedor Backend</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
+                <h3 className="text-lg font-bold mb-2">Alexandre Eduardo</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-sm">Desenvolvedor Backend</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
                   Especialista em arquitetura de dados e sistemas descentralizados, responsável pela infraestrutura de análise de dados do GIF LABS e sua integração com protocolos Web3.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center mt-auto">
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
                     Backend
                   </Badge>
@@ -511,8 +600,8 @@ export default function GifLabsSite() {
                     <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
                   </a>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
