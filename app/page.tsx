@@ -4,7 +4,34 @@ import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Mail, Users, BookOpen, Cpu, ChevronDown, Menu, X, Palette, Code, Globe, Database } from "lucide-react"
+import {
+  ExternalLink,
+  Mail,
+  Users,
+  BookOpen,
+  Cpu,
+  ChevronDown,
+  Menu,
+  X,
+  Palette,
+  Code,
+  Globe,
+  Database,
+  FileSignature,
+  GraduationCap,
+  Github,
+  PlayCircle,
+  Library,
+  Newspaper,
+  Briefcase,
+  Rocket,
+  Eye,
+  Gem,
+} from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { ProjectsScrollytelling } from "@/components/projects-scrollytelling"
 
 export default function GifLabsSite() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -96,10 +123,10 @@ export default function GifLabsSite() {
                 Sobre
               </button>
               <button
-                onClick={() => scrollToSection("pesquisas")}
+                onClick={() => scrollToSection("projetos")}
                 className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 font-medium"
               >
-                Pesquisas
+                Projetos
               </button>
               <button
                 onClick={() => scrollToSection("equipe")}
@@ -115,7 +142,7 @@ export default function GifLabsSite() {
               </button>
               <Button
                 className="bg-neutral-900 hover:bg-neutral-800 text-white transition-all duration-200 border-0"
-                onClick={() => window.open("https://virtualiamagazine.blogspot.com", "_blank")}
+                onClick={() => window.open("https://www.virtualiajournal.com/", "_blank")}
               >
                 Acesse a Web3
               </Button>
@@ -138,10 +165,10 @@ export default function GifLabsSite() {
                   Sobre
                 </button>
                 <button
-                  onClick={() => scrollToSection("pesquisas")}
+                  onClick={() => scrollToSection("projetos")}
                   className="text-left text-neutral-700 hover:text-neutral-900 font-medium"
                 >
-                  Pesquisas
+                  Projetos
                 </button>
                 <button onClick={() => scrollToSection("equipe")} className="text-left text-neutral-700 hover:text-neutral-900 font-medium">
                   Equipe
@@ -151,7 +178,7 @@ export default function GifLabsSite() {
                 </button>
                 <Button
                   className="bg-neutral-900 hover:bg-neutral-800 text-white w-full border-0"
-                  onClick={() => window.open("https://virtualiamagazine.blogspot.com", "_blank")}
+                  onClick={() => window.open("https://www.virtualiajournal.com/", "_blank")}
                 >
                   Acesse a Web3
                 </Button>
@@ -170,16 +197,15 @@ export default function GifLabsSite() {
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible('home') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h1 className="text-5xl md:text-7xl font-bold mb-8 font-light leading-tight tracking-tight">
-              Laboratório de pesquisa <br /> 
-              <span className="text-neutral-900 font-normal">Grupo Investigações Filosóficas</span>
+              Grupo Investigação Filosófica
             </h1>
             <p className="text-xl md:text-2xl text-neutral-600 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-              Desenvolvendo educação crítica com blockchain, IA e Web3 através de uma abordagem filosófica rigorosa
+              Desenvolvendo a educação crítica para um mundo descentralizado.
             </p>
             <Button
               size="lg"
               className="bg-neutral-900 hover:bg-neutral-800 text-white px-10 py-6 text-lg transition-all duration-300 border-0 font-medium"
-              onClick={() => scrollToSection("pesquisas")}
+              onClick={() => scrollToSection("projetos")}
             >
               Conheça nossos projetos
             </Button>
@@ -194,9 +220,12 @@ export default function GifLabsSite() {
       {/* Sobre Section */}
       <section id="sobre" className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <div className={`grid lg:grid-cols-2 gap-12 items-start transition-all duration-1000 ${isVisible('sobre') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            {/* Texto Sobre */}
-            <div>
+          <div
+            className={`transition-all duration-1000 ${
+              isVisible("sobre") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
+            <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
                 Sobre o <span className="text-neutral-900 font-normal">GIF LABS</span>
               </h2>
@@ -207,52 +236,41 @@ export default function GifLabsSite() {
               </p>
             </div>
 
-            {/* Cards Missão, Visão e Valores */}
-            <div className="space-y-4">
-              <Card className="group border border-neutral-200 hover:border-neutral-400 transition-all duration-300 shadow-sm hover:shadow-md">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-neutral-900 flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-lg font-bold">M</span>
+            <div className="grid md:grid-cols-3 gap-10 mt-20 max-w-6xl mx-auto">
+              <div className="text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center">
+                    <Rocket className="w-8 h-8 text-neutral-700" />
+                  </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold mb-2">Missão</h3>
+                <h3 className="text-xl font-bold mb-3">Missão</h3>
                       <p className="text-neutral-600 font-light leading-relaxed text-sm">
-                        Promover investigação filosófica associada ao desenvolvimento tecnológico para a educação,
-                        fomentando práticas pedagógicas inclusivas, críticas e colaborativas.
+                  Promover investigação filosófica associada ao desenvolvimento tecnológico para a educação, fomentando
+                  práticas pedagógicas inclusivas, críticas e colaborativas.
                       </p>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
 
-              <Card className="group border border-neutral-200 hover:border-neutral-400 transition-all duration-300 shadow-sm hover:shadow-md">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-neutral-900 flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-lg font-bold">V</span>
+              <div className="text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center">
+                    <Eye className="w-8 h-8 text-neutral-700" />
+                  </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold mb-2">Visão</h3>
+                <h3 className="text-xl font-bold mb-3">Visão</h3>
                       <p className="text-neutral-600 font-light leading-relaxed text-sm">
-                        Ser reconhecido como referência em pesquisa e desenvolvimento de soluções educacionais integradas
-                        às tecnologias digitais emergentes, com destaque para blockchain, Web3 e arquiteturas
-                        descentralizadas.
+                  Ser reconhecido como referência em pesquisa e desenvolvimento de soluções educacionais integradas às
+                  tecnologias digitais emergentes, com destaque para blockchain, Web3 e arquiteturas descentralizadas.
                       </p>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
 
-              <Card className="group border border-neutral-200 hover:border-neutral-400 transition-all duration-300 shadow-sm hover:shadow-md">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-neutral-900 flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-lg font-bold">V</span>
+              <div className="text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center">
+                    <Gem className="w-8 h-8 text-neutral-700" />
+                  </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-bold mb-2">Valores</h3>
-                      <div className="flex flex-wrap gap-2">
+                <h3 className="text-xl font-bold mb-3">Valores</h3>
+                <div className="flex flex-wrap gap-2 justify-center">
                         <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
                           Transparência
                         </Badge>
@@ -267,69 +285,13 @@ export default function GifLabsSite() {
                         </Badge>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
       </section>
 
       {/* Áreas de Atuação */}
-      <section id="pesquisas" className="py-24 bg-neutral-50">
-        <div className="container mx-auto px-6">
-          <div className={`text-center mb-20 transition-all duration-1000 ${isVisible('pesquisas') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
-              Áreas de <span className="text-neutral-900 font-normal">Atuação</span>
-            </h2>
-            <p className="text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed text-lg">
-              Desenvolvemos pesquisas filosóficas aplicadas às tecnologias digitais, com foco especial em blockchain,
-              descentralização e inteligência artificial.
-            </p>
-          </div>
-
-          <div className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${isVisible('pesquisas') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <Card className="group border border-neutral-200 hover:border-neutral-400 transition-all duration-300 shadow-sm hover:shadow-md">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-neutral-900 flex items-center justify-center">
-                  <Globe className="text-white" size={32} />
-                </div>
-                <h3 className="text-xl font-bold mb-4">Blockchain</h3>
-                <p className="text-neutral-600 font-light leading-relaxed">
-                  Pesquisa e desenvolvimento de soluções educacionais baseadas em tecnologia blockchain, certificação
-                  digital e aprendizagem verificável.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group border border-neutral-200 hover:border-neutral-400 transition-all duration-300 shadow-sm hover:shadow-md">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-neutral-900 flex items-center justify-center">
-                  <Cpu className="text-white" size={32} />
-                </div>
-                <h3 className="text-xl font-bold mb-4">Inteligência Artificial</h3>
-                <p className="text-neutral-600 font-light leading-relaxed">
-                  Investigação filosófica sobre IA aplicada à educação, explorando questões éticas e epistemológicas das
-                  tecnologias emergentes.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="group border border-neutral-200 hover:border-neutral-400 transition-all duration-300 shadow-sm hover:shadow-md">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-neutral-900 flex items-center justify-center">
-                  <Code className="text-white" size={32} />
-                </div>
-                <h3 className="text-xl font-bold mb-4">Gamificação</h3>
-                <p className="text-neutral-600 font-light leading-relaxed">
-                  Desenvolvimento de plataformas educacionais híbridas que integram tecnologias Web2 e Web3 com ênfase
-                  em gamificação.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+      <ProjectsScrollytelling />
 
       {/* Equipe */}
       <section id="equipe" className="py-24 bg-white">
@@ -350,18 +312,120 @@ export default function GifLabsSite() {
                   <Users className="text-neutral-600" size={40} />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Prof. Dr. Rodrigo Cid</h3>
-                <p className="text-neutral-600 mb-4 font-medium">Coordenador</p>
+                <p className="text-neutral-600 mb-4 font-medium">Líder</p>
                 <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
-                  Pesquisador em filosofia da tecnologia e epistemologia digital, responsável pela definição estratégica
-                  e pedagógica do GIF LABS.
+                  Pesquisador em metafísica da ciência, filosofia das leis da natureza, e tecnologias digitais e
+                  editoriais para a educação e a governança. Responsável pela definição estratégica do GIF LABS.
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center">
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    UFOP
+                    Filosofia da Ciência
                   </Badge>
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Filosofia da Tecnologia
+                    Tecnologia Educacional
                   </Badge>
+                </div>
+                <div className="mt-6 flex justify-center gap-4">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                  >
+                    <GraduationCap size={20} />
+                  </a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:opacity-75 transition-opacity"
+                  >
+                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-neutral-200 hover:border-neutral-300 transition-all duration-200 shadow-sm">
+              <CardContent className="p-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-6 bg-neutral-100 border border-neutral-200 flex items-center justify-center">
+                  <Briefcase className="text-neutral-600" size={40} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Roseline Crippa</h3>
+                <p className="text-neutral-600 mb-4 font-medium">Secretária-Executiva</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
+                  Vice-diretora escolar, formada em Letras e estudante de Especialização em Educação a Distância pela UFF.
+                  Responsável pelas funções administrativas e organizacionais do GIF LABS, com papel central na captação
+                  de recursos e no apoio institucional ao grupo.
+                </p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                    Gestão Educacional
+                  </Badge>
+                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                    Letras
+                  </Badge>
+                </div>
+                <div className="mt-6 flex justify-center gap-4">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                  >
+                    <GraduationCap size={20} />
+                  </a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:opacity-75 transition-opacity"
+                  >
+                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-neutral-200 hover:border-neutral-300 transition-all duration-200 shadow-sm">
+              <CardContent className="p-8 text-center">
+                <div className="w-24 h-24 mx-auto mb-6 bg-neutral-100 border border-neutral-200 flex items-center justify-center">
+                  <FileSignature className="text-neutral-600" size={40} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Prof. Dr. Rafael Martins</h3>
+                <p className="text-neutral-600 mb-4 font-medium">Editor Acadêmico</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
+                  Professor de Filosofia na UNIMAX e UNIFAJ, pesquisador em ética, filosofia política e filosofia
+                  aplicada. Editor da Virtualia Journal e co-coordenador da Série Investigação Filosófica.
+                </p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                    Filosofia Política
+                  </Badge>
+                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                    Ética
+                  </Badge>
+                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                    Editor Acadêmico
+                  </Badge>
+                </div>
+                <div className="mt-6 flex justify-center gap-4">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                  >
+                    <GraduationCap size={20} />
+                  </a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:opacity-75 transition-opacity"
+                  >
+                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -387,6 +451,24 @@ export default function GifLabsSite() {
                     Frontend
                   </Badge>
                 </div>
+                <div className="mt-6 flex justify-center gap-4">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                  >
+                    <Github size={20} />
+                  </a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:opacity-75 transition-opacity"
+                  >
+                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                  </a>
+                </div>
               </CardContent>
             </Card>
 
@@ -410,6 +492,24 @@ export default function GifLabsSite() {
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
                     Web3
                   </Badge>
+                </div>
+                <div className="mt-6 flex justify-center gap-4">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                  >
+                    <Github size={20} />
+                  </a>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-neutral-500 hover:opacity-75 transition-opacity"
+                  >
+                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -448,7 +548,7 @@ export default function GifLabsSite() {
                 <div className="flex items-center">
                   <BookOpen className="mr-3 text-neutral-400" size={16} />
                   <a
-                    href="https://virtualiamagazine.blogspot.com"
+                    href="https://www.virtualiajournal.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-neutral-300 hover:text-white transition-colors font-light text-sm"
