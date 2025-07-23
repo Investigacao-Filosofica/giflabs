@@ -207,18 +207,18 @@ function DesktopProjects() {
 }
 
 export function ProjectsScrollytelling() {
-  const [hasMounted, setHasMounted] = useState(false)
+  const [isClient, setIsClient] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    setHasMounted(true)
+    setIsClient(true)
     const checkIsMobile = () => setIsMobile(window.innerWidth < 768)
     checkIsMobile()
     window.addEventListener("resize", checkIsMobile)
     return () => window.removeEventListener("resize", checkIsMobile)
   }, [])
 
-  if (!hasMounted) {
+  if (!isClient) {
     return <section id="projetos" className="bg-neutral-900 min-h-screen" />
   }
 
