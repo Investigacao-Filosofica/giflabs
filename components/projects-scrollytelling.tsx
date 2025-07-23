@@ -207,20 +207,36 @@ function DesktopProjects() {
 }
 
 export function ProjectsScrollytelling() {
-  const [isClient, setIsClient] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+  // We default to a placeholder state on the server and initial client render.
+  const [renderMode, setRenderMode] = useState<"placeholder" | "mobile" | "desktop">("placeholder")
 
   useEffect(() => {
-    setIsClient(true)
-    const checkIsMobile = () => setIsMobile(window.innerWidth < 768)
-    checkIsMobile()
-    window.addEventListener("resize", checkIsMobile)
-    return () => window.removeEventListener("resize", checkIsMobile)
-  }, [])
+    // This effect runs only on the client, after the component has mounted.
+    const checkWidth = () => {
+      if (window.innerWidth < 768) {
+        setRenderMode("mobile")
+      } else {
+        setRenderMode("desktop")
+      }
+    }
 
-  if (!isClient) {
-    return <section id="projetos" className="bg-neutral-900 min-h-screen" />
+    // Set the initial render mode and add a listener for window resize.
+    checkWidth()
+    window.addEventListener("resize", checkWidth)
+
+    // Cleanup the event listener when the component unmounts.
+    return () => window.removeEventListener("resize", checkWidth)
+  }, []) // The empty dependency array ensures this effect runs only once on mount.
+
+  // Render the appropriate component based on the renderMode state.
+  switch (renderMode) {
+    case "mobile":
+      return <MobileProjects />
+    case "desktop":
+      return <DesktopProjects />
+    case "placeholder":
+    default:
+      // This placeholder prevents hydration mismatches and layout shifts.
+      return <section id="projetos" className="bg-neutral-900 min-h-screen" />
   }
-
-  return isMobile ? <MobileProjects /> : <DesktopProjects />
 } 
