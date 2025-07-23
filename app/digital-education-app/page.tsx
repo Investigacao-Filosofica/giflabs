@@ -20,7 +20,7 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Digital Education App | GIF LABS",
+  title: "Digital Education App | GIFLABS",
   description:
     "Uma plataforma educacional híbrida para construir o futuro da aprendizagem com certificação on-chain, gamificação e curadoria colaborativa.",
 }
@@ -71,7 +71,7 @@ export default function DigitalEducationAppPage() {
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold text-neutral-900 tracking-tight flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-neutral-500" />
-            <span>GIF LABS</span>
+            <span>GIFLABS</span>
           </Link>
           <Button asChild>
             <Link href="/#contato">Fale Conosco</Link>
@@ -82,7 +82,7 @@ export default function DigitalEducationAppPage() {
       <main>
         <div className="space-y-20 md:space-y-28">
           {/* Hero Section */}
-          <section className="bg-white pt-20 md:pt-32">
+          <section className="bg-white py-20 md:py-28">
             <div className="container mx-auto px-6 text-center max-w-4xl">
               <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 mb-6 leading-tight tracking-tighter">
                 Onde a Educação Encontra a Descentralização
@@ -107,7 +107,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* O Desafio */}
-          <section>
+          <section className="py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight">O Descompasso Atual</h2>
@@ -134,7 +134,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* Nossa Solução */}
-          <section className="bg-white">
+          <section className="bg-white py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight">
@@ -167,7 +167,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* Roadmap */}
-          <section id="roadmap">
+          <section id="roadmap" className="py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight">Roteiro de Desenvolvimento</h2>
@@ -202,7 +202,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* Seção de Tecnologia */}
-          <section className="bg-neutral-900 text-white">
+          <section className="bg-neutral-900 text-white py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-3xl mx-auto mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Tecnologia Aberta e Robusta</h2>
@@ -237,7 +237,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* CTA */}
-          <section id="cta" className="pb-20 md:pb-28">
+          <section id="cta" className="py-20 md:py-28">
             <div className="container mx-auto px-6 text-center">
               <div className="bg-white rounded-lg shadow-xl p-8 md:p-16 max-w-4xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4 tracking-tight">
@@ -269,7 +269,7 @@ export default function DigitalEducationAppPage() {
       <footer className="bg-white border-t border-neutral-200">
         <div className="container mx-auto px-6 py-6 text-center text-neutral-500 text-sm">
           <p>
-            © {new Date().getFullYear()} GIF LABS - Grupo de Investigação Filosófica. Um projeto de ciência aberta.
+            © {new Date().getFullYear()} GIFLABS - Grupo Investigação Filosófica e Artes. Um projeto de ciência aberta.
           </p>
         </div>
       </footer>

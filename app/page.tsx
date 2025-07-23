@@ -82,7 +82,7 @@ function Projects() {
           </h2>
           <p className="mt-6 text-lg leading-8 text-neutral-300">
             Desenvolvemos pesquisas filosóficas aplicadas às tecnologias digitais, com foco especial em blockchain,
-            descentralização, inteligência artificial, comunicação digital, educação, publicação e processos editoriais.
+            descentralização, inteligência artificial, comunicação digital, artes, educação, publicação e processos editoriais.
           </p>
         </div>
 
@@ -185,8 +185,8 @@ export default function GifLabsSite() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="text-2xl font-bold text-neutral-900 tracking-tight">GIF LABS</div>
-              <div className="hidden md:block text-sm text-neutral-600 font-light">Filosofia, Tecnologia e Educação</div>
+              <div className="text-2xl font-bold text-neutral-900 tracking-tight">GIFLABS</div>
+              <div className="hidden md:block text-sm text-neutral-600 font-light">Filosofia, Tecnologia, Artes e Educação</div>
             </div>
 
             {/* Desktop Menu */}
@@ -308,11 +308,11 @@ export default function GifLabsSite() {
           >
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
-                Sobre o <span className="text-neutral-900 font-normal">GIF LABS</span>
+                Sobre o <span className="text-neutral-900 font-normal">GIFLABS</span>
               </h2>
               <p className="text-neutral-600 font-light leading-relaxed text-lg">
-                O GIF LABS é um grupo interdisciplinar sediado na Universidade Federal de Ouro Preto, dedicado à
-                investigação filosófica aplicada à tecnologia e à educação. O grupo se posiciona como um espaço aberto
+                O GIFLABS é um grupo interdisciplinar sediado na Universidade Federal de Ouro Preto, dedicado à
+                investigação filosófica aplicada à tecnologia, às artes e à educação. O grupo se posiciona como um espaço aberto
                 ao diálogo e ao desenvolvimento crítico frente às transformações digitais contemporâneas.
               </p>
             </div>
@@ -326,7 +326,7 @@ export default function GifLabsSite() {
                     </div>
                 <h3 className="text-xl font-bold mb-3">Missão</h3>
                       <p className="text-neutral-600 font-light leading-relaxed text-sm">
-                  Promover investigação filosófica associada ao desenvolvimento tecnológico para a educação, fomentando
+                  Promover investigação filosófica associada ao desenvolvimento tecnológico para as artes e a educação, fomentando
                   práticas pedagógicas inclusivas, críticas e colaborativas.
                       </p>
                     </div>
@@ -352,16 +352,16 @@ export default function GifLabsSite() {
                     </div>
                 <h3 className="text-xl font-bold mb-3">Valores</h3>
                 <div className="flex flex-wrap gap-2 justify-center">
-                        <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                        <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs px-3 py-1">
                           Transparência
                         </Badge>
-                        <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                        <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs px-3 py-1">
                           Inclusão
                         </Badge>
-                        <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                        <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs px-3 py-1">
                           Colaboração
                         </Badge>
-                        <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                        <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs px-3 py-1">
                           Inovação Responsável
                         </Badge>
                       </div>
@@ -382,7 +382,7 @@ export default function GifLabsSite() {
               Nossa <span className="text-neutral-900 font-normal">Equipe</span>
             </h2>
             <p className="text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed text-lg">
-              Pesquisadores dedicados à intersecção entre filosofia, tecnologia e educação.
+              Pesquisadores dedicados à intersecção entre filosofia, tecnologia, artes e educação.
             </p>
           </div>
 
@@ -392,11 +392,11 @@ export default function GifLabsSite() {
                 <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
                   <Users className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-lg font-bold mb-2">Prof. Dr. Rodrigo Cid</h3>
-                <p className="text-neutral-600 mb-3 font-medium text-sm">Líder</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
+                <h3 className="text-xl font-bold mb-2">Prof. Dr. Rodrigo Cid</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-base">Líder</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
                   Pesquisador em metafísica da ciência, filosofia das leis da natureza, e tecnologias digitais e
-                  editoriais para a educação e a governança. Responsável pela definição estratégica do GIF LABS.
+                  editoriais para a educação e a governança. Responsável pela definição estratégica do GIFLABS.
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center mt-auto">
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
@@ -440,11 +440,11 @@ export default function GifLabsSite() {
                 <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
                   <Briefcase className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-lg font-bold mb-2">Roseline Crippa</h3>
-                <p className="text-neutral-600 mb-3 font-medium text-sm">Secretária-Executiva</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
+                <h3 className="text-xl font-bold mb-2">Roseline Crippa</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-base">Secretária-Executiva</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
                   Vice-diretora escolar, formada em Letras e estudante de Especialização em Educação a Distância pela UFF.
-                  Responsável pelas funções administrativas e organizacionais do GIF LABS, com papel central na captação
+                  Responsável pelas funções administrativas e organizacionais do GIFLABS, com papel central na captação
                   de recursos e no apoio institucional ao grupo.
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center mt-auto">
@@ -481,9 +481,9 @@ export default function GifLabsSite() {
                 <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
                   <FileSignature className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-lg font-bold mb-2">Prof. Dr. Rafael Martins</h3>
-                <p className="text-neutral-600 mb-3 font-medium text-sm">Editor Acadêmico</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
+                <h3 className="text-xl font-bold mb-2">Prof. Dr. Rafael Martins</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-base">Editor Acadêmico</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
                   Professor de Filosofia na UNIMAX e UNIFAJ, pesquisador em ética, filosofia política e filosofia
                   aplicada. Editor da Virtualia Journal e co-coordenador da Série Investigação Filosófica.
                 </p>
@@ -524,10 +524,10 @@ export default function GifLabsSite() {
                 <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
                   <Palette className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-lg font-bold mb-2">Mateus Rodrigues</h3>
-                <p className="text-neutral-600 mb-3 font-medium text-sm">Artista Visual e Desenvolvedor Frontend</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
-                  Pesquisador em arte digital e modelos educacionais descentralizados, responsável pelo desenvolvimento de projetos experimentais do GIF LABS na interface entre Web3, educação e arte.
+                <h3 className="text-xl font-bold mb-2">Mateus Rodrigues</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-base">Artista Visual e Desenvolvedor Frontend</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
+                  Pesquisador em arte digital e modelos educacionais descentralizados, responsável pelo desenvolvimento de projetos experimentais do GIFLABS na interface entre Web3, educação e arte.
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center mt-auto">
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
@@ -566,10 +566,10 @@ export default function GifLabsSite() {
                 <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
                   <Database className="text-neutral-600" size={32} />
                 </div>
-                <h3 className="text-lg font-bold mb-2">Alexandre Eduardo</h3>
-                <p className="text-neutral-600 mb-3 font-medium text-sm">Desenvolvedor Backend</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-xs flex-grow">
-                  Especialista em arquitetura de dados e sistemas descentralizados, responsável pela infraestrutura de análise de dados do GIF LABS e sua integração com protocolos Web3.
+                <h3 className="text-xl font-bold mb-2">Alexandre Eduardo</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-base">Desenvolvedor Backend</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
+                  Especialista em arquitetura de dados e sistemas descentralizados, responsável pela infraestrutura de análise de dados do GIFLABS e sua integração com protocolos Web3.
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center mt-auto">
                   <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
@@ -620,8 +620,8 @@ export default function GifLabsSite() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="text-xl font-bold mb-4 font-light tracking-tight text-white">GIF LABS</div>
-              <p className="text-neutral-300 mb-2 font-light text-sm">Grupo de Pesquisa em Investigação Filosófica</p>
+              <div className="text-xl font-bold mb-4 font-light tracking-tight text-white">GIFLABS</div>
+              <p className="text-neutral-300 mb-2 font-light text-sm">Grupo de Pesquisa em Investigação Filosófica e Artes</p>
               <p className="text-neutral-300 font-light text-sm">Universidade Federal de Ouro Preto (UFOP)</p>
             </div>
 
@@ -687,7 +687,7 @@ export default function GifLabsSite() {
           <div className="border-t border-neutral-800 mt-8 pt-6 text-center">
             <p className="text-neutral-400 font-light text-sm mb-3">"Pensar é revolucionário."</p>
             <p className="text-neutral-500 text-xs font-light">
-              © {new Date().getFullYear()} GIF LABS - Grupo de Investigação Filosófica vinculado a Universidade Federal de Ouro Preto. Todos os direitos reservados.
+              © {new Date().getFullYear()} GIFLABS - Grupo Investigação Filosófica e Artes vinculado a Universidade Federal de Ouro Preto. Todos os direitos reservados.
             </p>
           </div>
         </div>
