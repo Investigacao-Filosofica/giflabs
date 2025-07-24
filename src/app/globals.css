@@ -163,8 +163,18 @@ h2 {
 /* Focus states for accessibility */
 button:focus,
 a:focus {
-  outline: 2px solid #404040;
-  outline-offset: 2px;
+  outline: none;
+}
+
+/* Remove focus outline from links */
+a:focus-visible {
+  outline: none;
+}
+
+/* Remove default link styling */
+a {
+  outline: none;
+  text-decoration: none;
 }
 
 /* Selection color */

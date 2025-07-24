@@ -67,13 +67,13 @@ const projects = [
 
 function Projects() {
   return (
-    <section id="projetos" className="bg-white py-24 sm:py-32">
+    <section id="projetos" className="bg-neutral-900 py-24 sm:py-32">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-6 text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
+          <h2 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Nossos <span className="font-normal">Projetos</span>
           </h2>
-          <p className="text-lg leading-8 text-neutral-600">
+          <p className="text-lg leading-8 text-neutral-300">
             Desenvolvemos pesquisas filosóficas aplicadas às tecnologias digitais, com foco especial em blockchain,
             descentralização, inteligência artificial, comunicação digital, artes, educação, publicação e processos editoriais.
           </p>
@@ -88,14 +88,14 @@ function Projects() {
               rel="noopener noreferrer"
               className="group block h-full"
             >
-              <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg h-full">
+              <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
                 <div className="p-8 text-center flex flex-col flex-grow">
                   <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
                     {React.cloneElement(project.icon, { size: 40, className: "text-neutral-900" })}
                   </div>
-                  <h3 className="mb-3 text-xl font-bold text-neutral-900">{project.title}</h3>
-                  <p className="flex-grow text-sm leading-relaxed text-neutral-600">{project.description}</p>
-                  <div className="mt-6 flex items-center font-semibold text-neutral-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <h3 className="mb-3 text-xl font-bold text-white">{project.title}</h3>
+                  <p className="flex-grow text-sm leading-relaxed text-neutral-400">{project.description}</p>
+                  <div className="mt-6 flex items-center font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <span>Acessar Projeto</span>
                     <ArrowUpRight className="ml-2 h-4 w-4" />
                   </div>
