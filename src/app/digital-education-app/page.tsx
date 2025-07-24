@@ -269,7 +269,7 @@ export default function DigitalEducationAppPage() {
                 </h2>
                 <p className="text-neutral-600 max-w-2xl mx-auto mb-8 leading-relaxed">
                   O Digital Education App é um convite à colaboração. Estamos em busca de parceiros, apoiadores e
-                  instituições que compartilham da nossa visão de criar uma ecologia de saberes livre, verificável e
+                  instituições que compartilham da nossa  de criar uma ecologia de saberes livre, verificável e
                   distribuída.
                 </p>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
