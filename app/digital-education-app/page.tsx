@@ -115,14 +115,14 @@ export default function DigitalEducationAppPage() {
           <section className="py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div>
-                <div className="max-w-3xl mx-auto text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight">O Descompasso Atual</h2>
-                  <p className="text-lg text-neutral-600 mt-4 leading-relaxed">
+                <div className="max-w-3xl mx-auto text-center">
+                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">O Descompasso Atual</h2>
+                  <p className="text-lg text-neutral-600 leading-relaxed">
                     Sistemas educacionais tradicionais e a economia do conhecimento digital operam em mundos separados.
                     Nascemos para construir a ponte.
                   </p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mt-20">
                   <Feature icon={<Globe className="text-neutral-500" />} title="Plataformas Centralizadas">
                     Custo elevado, falta de transparência e controle restrito sobre o conhecimento.
                   </Feature>
@@ -144,16 +144,16 @@ export default function DigitalEducationAppPage() {
           <section className="bg-white py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div>
-                <div className="max-w-3xl mx-auto text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight">
+                <div className="max-w-3xl mx-auto text-center">
+                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">
                     Uma Infraestrutura de Aprendizagem para o Futuro
                   </h2>
-                  <p className="text-lg text-neutral-600 mt-4 leading-relaxed">
+                  <p className="text-lg text-neutral-600 leading-relaxed">
                     Criamos um ecossistema que combina o melhor da academia e da cultura Web3, baseado em quatro pilares
                     fundamentais.
                   </p>
                 </div>
-                <div className="grid md:grid-cols-2 gap-x-10 gap-y-12 max-w-4xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-x-10 gap-y-12 max-w-4xl mx-auto mt-20">
                   <Feature icon={<Rocket className="h-8 w-8 text-neutral-500" />} title="Aprendizagem Gamificada e Prática">
                     Jornadas de conhecimento baseadas em missões interativas que unem teoria e prática. Aprenda criando,
                     experimentando e refletindo.
@@ -179,14 +179,14 @@ export default function DigitalEducationAppPage() {
           <section className="bg-neutral-900 py-20 text-white md:py-28">
             <div className="container mx-auto px-6">
               <div>
-                <div className="mx-auto mb-16 max-w-3xl text-center">
-                  <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Tecnologia Aberta e Robusta</h2>
-                  <p className="mt-4 text-lg leading-relaxed text-neutral-300">
+                <div className="mx-auto max-w-3xl text-center">
+                  <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-6">Tecnologia Aberta e Robusta</h2>
+                  <p className="text-lg leading-relaxed text-neutral-300">
                     Nossa plataforma é construída sobre uma base de tecnologias modernas e de código aberto, garantindo
                     escalabilidade, segurança e transparência.
                   </p>
                 </div>
-                <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 text-center sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 text-center sm:grid-cols-2 lg:grid-cols-4 mt-20">
                   <div className="flex flex-col items-center">
                     <Code className="mb-4 h-10 w-10" />
                     <h3 className="mb-2 font-semibold">Next.js & React</h3>
@@ -238,13 +238,13 @@ export default function DigitalEducationAppPage() {
           <section id="roadmap" className="py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div>
-                <div className="max-w-3xl mx-auto text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight">Roteiro de Desenvolvimento</h2>
-                  <p className="text-lg text-neutral-600 mt-4 leading-relaxed">
+                <div className="max-w-3xl mx-auto text-center">
+                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">Roteiro de Desenvolvimento</h2>
+                  <p className="text-lg text-neutral-600 leading-relaxed">
                     Nossa Fase 1 está planejada para ser executada em 12 meses, com entregas claras a cada trimestre.
                   </p>
                 </div>
-                <div className="max-w-2xl mx-auto">
+                <div className="max-w-2xl mx-auto mt-20">
                   <RoadmapStep
                     phase="Q1"
                     title="Arquitetura e Conteúdo"
@@ -275,7 +275,7 @@ export default function DigitalEducationAppPage() {
           <section id="cta" className="py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div className="bg-white rounded-lg shadow-xl p-8 md:p-16 max-w-4xl mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4 tracking-tight">
+                <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 tracking-tight">
                   Construa o Futuro da Educação Conosco
                 </h2>
                 <p className="text-neutral-600 max-w-2xl mx-auto mb-8 leading-relaxed">
