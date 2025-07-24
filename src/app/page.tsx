@@ -67,13 +67,13 @@ const projects = [
 
 function Projects() {
   return (
-    <section id="projetos" className="bg-neutral-900 py-24 sm:py-32">
+    <section id="projetos" className="bg-white py-24 sm:py-32">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h2 className="mb-6 text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
             Nossos <span className="font-normal">Projetos</span>
           </h2>
-          <p className="text-lg leading-8 text-neutral-300">
+          <p className="text-lg leading-8 text-neutral-600">
             Desenvolvemos pesquisas filosóficas aplicadas às tecnologias digitais, com foco especial em blockchain,
             descentralização, inteligência artificial, comunicação digital, artes, educação, publicação e processos editoriais.
           </p>
@@ -88,15 +88,17 @@ function Projects() {
               rel="noopener noreferrer"
               className="group block h-full"
             >
-              <div className="flex h-full flex-col items-center border border-transparent bg-neutral-800/50 p-8 text-center transition-all duration-300 hover:border-white/10 hover:bg-neutral-800">
-                <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100">
-                  {React.cloneElement(project.icon, { size: 40, className: "text-neutral-900" })}
-                </div>
-                <h3 className="mb-3 text-xl font-bold text-white">{project.title}</h3>
-                <p className="flex-grow text-sm leading-relaxed text-neutral-400">{project.description}</p>
-                <div className="mt-6 flex items-center font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <span>Acessar Projeto</span>
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
+              <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg h-full">
+                <div className="p-8 text-center flex flex-col flex-grow">
+                  <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
+                    {React.cloneElement(project.icon, { size: 40, className: "text-neutral-900" })}
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-neutral-900">{project.title}</h3>
+                  <p className="flex-grow text-sm leading-relaxed text-neutral-600">{project.description}</p>
+                  <div className="mt-6 flex items-center font-semibold text-neutral-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <span>Acessar Projeto</span>
+                    <ArrowUpRight className="ml-2 h-4 w-4" />
+                  </div>
                 </div>
               </div>
             </a>
@@ -425,7 +427,7 @@ export default function GifLabsSite() {
                 <h3 className="text-xl font-bold mb-2">Alexandre Eduardo</h3>
                 <p className="text-neutral-600 mb-3 font-medium text-base">Desenvolvedor Backend</p>
                 <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
-                  Especialista em arquitetura de dados e sistemas descentralizados, responsável pela infraestrutura de análise de dados do GIFLABS e sua integração com protocolos Web3.
+                  Pesquisador em arquitetura de dados e sistemas descentralizados, responsável pela infraestrutura de análise de dados do GIFLABS e sua integração com protocolos Web3.
                 </p>
                 <div className="mt-auto pt-4">
                   <div className="flex flex-wrap gap-2 justify-center">
@@ -449,7 +451,7 @@ export default function GifLabsSite() {
                       <Github size={20} />
                     </a>
                     <a
-                      href="https://x.com/ThePhilosopherX"
+                      href="https://x.com/aleedu_avelino"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-500 hover:opacity-75 transition-opacity"
