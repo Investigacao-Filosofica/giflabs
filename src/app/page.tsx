@@ -26,14 +26,7 @@ import Link from "next/link"
 import Image from "next/image"
 
 const projects = [
-  {
-    id: "education-app",
-    icon: <GraduationCap className="text-neutral-900" size={32} />,
-    title: "Digital Education App",
-    description:
-      "Combinamos educação gamificada, certificação blockchain e curadoria colaborativa para criar um ecossistema de aprendizagem descentralizado, verificável e acessível.",
-    link: "/digital-education-app",
-  },
+
   {
     id: "serie-if",
     icon: <BookOpen className="text-neutral-900" size={32} />,
@@ -63,6 +56,14 @@ const projects = [
     description: "Magazine and Academic Journal on Art, Technology, and Philosophy.",
     link: "https://www.virtualiajournal.com/",
   },
+  {
+    id: "education-app",
+    icon: <GraduationCap className="text-neutral-900" size={32} />,
+    title: "Digital Education App",
+    description:
+      "Combinamos educação gamificada, certificação blockchain e curadoria colaborativa para criar um ecossistema de aprendizagem descentralizado, verificável e acessível.",
+    link: "/digital-education-app",
+  }
 ]
 
 function Projects() {
