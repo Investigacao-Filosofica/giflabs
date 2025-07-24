@@ -130,7 +130,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* Nossa Solução */}
-          <section className="bg-white py-20 md:py-28">
+          <section id="solucao" className="bg-white py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div>
                 <div className="max-w-3xl mx-auto text-center">
@@ -165,7 +165,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* Seção de Tecnologia */}
-          <section className="bg-neutral-900 py-20 text-white md:py-28">
+          <section id="tecnologia" className="bg-neutral-900 py-20 text-white md:py-28">
             <div className="container mx-auto px-6">
               <div>
                 <div className="mx-auto max-w-3xl text-center">

@@ -18,17 +18,22 @@ const lora = Lora({
 })
 
 export const metadata: Metadata = {
-  title: "GIFLABS - Grupo Investigação Filosófica | UFOP",
+  title: "GIFLABS",
   description:
     "Grupo interdisciplinar dedicado à investigação filosófica aplicada à tecnologia, artes e educação, com foco em blockchain, Web3 e IA.",
   keywords: "filosofia, tecnologia, artes, educação, blockchain, Web3, IA, UFOP, pesquisa",
   authors: [{ name: "GIFLABS - UFOP" }],
   openGraph: {
-    title: "GIFLABS - Filosofia, Tecnologia, Artes e Educação",
+    title: "GIFLABS - Filosofia, Artes, Tecnologia e Educação",
     description: "Desenvolvendo educação crítica com blockchain, IA e Web3",
     type: "website",
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/GIF-LABS-LOGO.gif',
+    shortcut: '/GIF-LABS-LOGO.gif',
+    apple: '/GIF-LABS-LOGO.gif',
+  },
 }
 
 export default function RootLayout({

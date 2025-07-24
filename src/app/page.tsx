@@ -161,7 +161,7 @@ export default function GifLabsSite() {
               </h2>
               <p className="text-neutral-600 font-light leading-relaxed text-lg">
                 O GIFLABS é um grupo interdisciplinar sediado na Universidade Federal de Ouro Preto, dedicado à
-                investigação filosófica aplicada à tecnologia, às artes e à educação. O grupo se posiciona como um espaço aberto
+                investigação filosófica aplicada às artes, à tecnologia e à educação. O grupo se posiciona como um espaço aberto
                 ao diálogo e ao desenvolvimento crítico frente às transformações digitais contemporâneas.
               </p>
             </div>
@@ -235,7 +235,7 @@ export default function GifLabsSite() {
             </p>
           </div>
 
-          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-7xl mx-auto`}>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-12 max-w-7xl mx-auto`}>
             <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
               <div className="p-4 text-center flex flex-col flex-grow">
                 <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
@@ -286,49 +286,7 @@ export default function GifLabsSite() {
               </div>
             </div>
 
-            <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
-              <div className="p-4 text-center flex flex-col flex-grow">
-                <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
-                  <Briefcase className="text-neutral-600" size={32} />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Roseline Crippa</h3>
-                <p className="text-neutral-600 mb-3 font-medium text-base">Secretária-Executiva</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
-                  Vice-diretora escolar, formada em Letras e estudante de Especialização em Educação a Distância pela UFF.
-                  Responsável pelas funções administrativas e organizacionais do GIFLABS, com papel central na captação
-                  de recursos e no apoio institucional ao grupo.
-                </p>
-                <div className="mt-auto pt-4">
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                      Gestão Educacional
-                    </Badge>
-                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                      Letras
-                    </Badge>
-                  </div>
-                  <div className="mt-4 flex justify-center gap-4">
-                    <a
-                      href="http://lattes.cnpq.br/3386107553390218"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                    >
-                      <GraduationCap size={20} />
-                    </a>
-                    <a
-                      href="#"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-neutral-500 hover:opacity-75 transition-opacity"
-                    >
-                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          
             <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
               <div className="p-4 text-center flex flex-col flex-grow">
                 <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
@@ -355,6 +313,47 @@ export default function GifLabsSite() {
                   <div className="mt-4 flex justify-center gap-4">
                     <a
                       href="http://lattes.cnpq.br/2938081719142401"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <GraduationCap size={20} />
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:opacity-75 transition-opacity"
+                    >
+                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
+              <div className="p-4 text-center flex flex-col flex-grow">
+                <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                  <Briefcase className="text-neutral-600" size={32} />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Roseline Crippa</h3>
+                <p className="text-neutral-600 mb-3 font-medium text-base">Secretária-Executiva</p>
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
+                  Vice-diretora escolar, formada em Letras e estudante de Especialização em Educação a Distância pela UFF.
+                  Responsável pelas funções administrativas e organizacionais do GIFLABS.
+                </p>
+                <div className="mt-auto pt-4">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Gestão Educacional
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Letras
+                    </Badge>
+                  </div>
+                  <div className="mt-4 flex justify-center gap-4">
+                    <a
+                      href="http://lattes.cnpq.br/3386107553390218"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-500 hover:text-neutral-900 transition-colors"
@@ -442,7 +441,7 @@ export default function GifLabsSite() {
                   </div>
                   <div className="mt-4 flex justify-center gap-4">
                     <a
-                      href="https://github.com/ThePhilosopherX"
+                      href="https://github.com/aleedu-art"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-500 hover:text-neutral-900 transition-colors"
