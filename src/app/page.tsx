@@ -26,7 +26,14 @@ import Link from "next/link"
 import Image from "next/image"
 
 const projects = [
-
+  {
+    id: "education-app",
+    icon: <GraduationCap className="text-neutral-900" size={32} />,
+    title: "Digital Education App",
+    description:
+      "Combinamos educação gamificada, certificação blockchain e curadoria colaborativa para criar um ecossistema de aprendizagem descentralizado, verificável e acessível.",
+    link: "/digital-education-app",
+  },
   {
     id: "serie-if",
     icon: <BookOpen className="text-neutral-900" size={32} />,
@@ -34,6 +41,13 @@ const projects = [
     description:
       "Pesquisa e traducao de verbetes da Stanford Encyclopedia of Philosophy e publicação na forma de livros de acesso gratuito pela UFPel.",
     link: "https://wp.ufpel.edu.br/nepfil/serie-investigacao-filosofica/",
+  },
+  {
+    id: "virtualia",
+    icon: <Newspaper className="text-neutral-900" size={32} />,
+    title: "Virtualia Magazine/Journal",
+    description: "Magazine and Academic Journal on Art, Technology, and Philosophy.",
+    link: "https://www.virtualiajournal.com/",
   },
   {
     id: "dao-channel",
@@ -48,22 +62,8 @@ const projects = [
     title: "Near Alexandria Library",
     description: "Biblioteca no Metaverso com os livros publicados pelo NEPFIL/UFPel.",
     link: "https://www.cryptovoxels.com/play?coords=SW@1789E,1180N",
-  },
-  {
-    id: "virtualia",
-    icon: <Newspaper className="text-neutral-900" size={32} />,
-    title: "Virtualia Magazine/Journal",
-    description: "Magazine and Academic Journal on Art, Technology, and Philosophy.",
-    link: "https://www.virtualiajournal.com/",
-  },
-  {
-    id: "education-app",
-    icon: <GraduationCap className="text-neutral-900" size={32} />,
-    title: "Digital Education App",
-    description:
-      "Combinamos educação gamificada, certificação blockchain e curadoria colaborativa para criar um ecossistema de aprendizagem descentralizado, verificável e acessível.",
-    link: "/digital-education-app",
   }
+
 ]
 
 function Projects() {
