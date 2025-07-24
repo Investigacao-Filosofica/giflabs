@@ -75,8 +75,9 @@ function Projects() {
             Nossos <span className="font-normal">Projetos</span>
           </h2>
           <p className="text-lg leading-8 text-neutral-300">
-            Desenvolvemos pesquisas filosóficas aplicadas às tecnologias digitais, com foco especial em blockchain,
-            descentralização, inteligência artificial, comunicação digital, artes, educação, publicação e processos editoriais.
+          Desenvolvemos pesquisas filosóficas, artísticas e culturais aplicadas às tecnologias digitais, 
+          com foco especial em blockchain, descentralização, inteligência artificial, comunicação digital, 
+          educação, publicação e produção editorial e cultural.
           </p>
         </div>
 
@@ -178,8 +179,8 @@ export default function GifLabsSite() {
                     </div>
                 <h3 className="text-xl font-bold mb-3">Missão</h3>
                       <p className="text-neutral-600 font-light leading-relaxed text-sm">
-                  Promover investigação filosófica associada ao desenvolvimento tecnológico para as artes e a educação, fomentando
-                  práticas pedagógicas inclusivas, críticas e colaborativas.
+                      Promover investigação filosófica e artística associada ao desenvolvimento tecnológico para a 
+                      educação, fomentando práticas pedagógicas inclusivas, críticas e colaborativas.
                       </p>
                     </div>
 
@@ -191,8 +192,8 @@ export default function GifLabsSite() {
                     </div>
                 <h3 className="text-xl font-bold mb-3">Visão</h3>
                       <p className="text-neutral-600 font-light leading-relaxed text-sm">
-                  Ser reconhecido como referência em pesquisa e desenvolvimento de soluções educacionais integradas às
-                  tecnologias digitais emergentes, com destaque para blockchain, Web3 e arquiteturas descentralizadas.
+                      Ser reconhecido como referência em pesquisa e desenvolvimento de soluções educacionais integradas às tecnologias digitais emergentes, com destaque para blockchain, 
+                      Web3 e arquiteturas descentralizadas, e em produções editoriais acadêmicas e culturais de alta qualidade em filosofia e arte.
                       </p>
                     </div>
 
