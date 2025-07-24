@@ -71,17 +71,6 @@ function RoadmapStep({
 export default function DigitalEducationAppPage() {
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
-      <header className="bg-white border-b border-neutral-200 sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-neutral-900 tracking-tight">
-            <span>GIFLABS</span>
-          </Link>
-          <Button asChild>
-            <Link href="/#contato">Fale Conosco</Link>
-          </Button>
-        </div>
-      </header>
-
       <main>
         <div className="space-y-20 md:space-y-28">
           {/* Hero Section */}
@@ -300,14 +289,6 @@ export default function DigitalEducationAppPage() {
           </section>
         </div>
       </main>
-
-      <footer className="bg-white border-t border-neutral-200">
-        <div className="container mx-auto px-6 py-6 text-center text-neutral-500 text-sm">
-          <p>
-            © {new Date().getFullYear()} GIFLABS - Grupo Investigação Filosófica. Um projeto de ciência aberta.
-          </p>
-        </div>
-      </footer>
     </div>
   )
 } 
