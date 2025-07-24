@@ -269,7 +269,7 @@ export default function DigitalEducationAppPage() {
       <footer className="bg-white border-t border-neutral-200">
         <div className="container mx-auto px-6 py-6 text-center text-neutral-500 text-sm">
           <p>
-            © {new Date().getFullYear()} GIFLABS - Grupo Investigação Filosófica e Artes. Um projeto de ciência aberta.
+            © {new Date().getFullYear()} GIFLABS - Grupo Investigação Filosófica. Um projeto de ciência aberta.
           </p>
         </div>
       </footer>

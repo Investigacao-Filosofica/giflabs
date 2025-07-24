@@ -76,17 +76,17 @@ function Projects() {
   return (
     <section id="projetos" className="bg-neutral-900 py-24 sm:py-32">
       <div className="container mx-auto px-6">
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Nossos <span className="font-normal">Projetos</span>
           </h2>
-          <p className="mt-6 text-lg leading-8 text-neutral-300">
+          <p className="text-lg leading-8 text-neutral-300">
             Desenvolvemos pesquisas filosóficas aplicadas às tecnologias digitais, com foco especial em blockchain,
             descentralização, inteligência artificial, comunicação digital, artes, educação, publicação e processos editoriais.
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-20 grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <a
               key={project.id}
@@ -394,43 +394,45 @@ export default function GifLabsSite() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Prof. Dr. Rodrigo Cid</h3>
                 <p className="text-neutral-600 mb-3 font-medium text-base">Líder</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
                   Pesquisador em metafísica da ciência, filosofia das leis da natureza, e tecnologias digitais e
                   editoriais para a educação e a governança. Responsável pela definição estratégica do GIFLABS.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-auto">
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Filosofia da Ciência
-                  </Badge>
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Tecnologia Educacional
-                  </Badge>
-                </div>
-                <div className="mt-6 flex justify-center gap-4">
-                  <a
-                    href="http://lattes.cnpq.br/0847832636263404"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                  >
-                    <GraduationCap size={20} />
-                  </a>
-                  <a
-                    href="https://github.com/ThePhilosopherX"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                  >
-                    <Github size={20} />
-                  </a>
-                  <a
-                    href="https://x.com/ThePhilosopherX"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:opacity-75 transition-opacity"
-                  >
-                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
-                  </a>
+                <div className="mt-auto pt-4">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Filosofia da Ciência
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Tecnologia Educacional
+                    </Badge>
+                  </div>
+                  <div className="mt-4 flex justify-center gap-4">
+                    <a
+                      href="http://lattes.cnpq.br/0847832636263404"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <GraduationCap size={20} />
+                    </a>
+                    <a
+                      href="https://github.com/ThePhilosopherX"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <Github size={20} />
+                    </a>
+                    <a
+                      href="https://x.com/ThePhilosopherX"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:opacity-75 transition-opacity"
+                    >
+                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -442,36 +444,38 @@ export default function GifLabsSite() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Roseline Crippa</h3>
                 <p className="text-neutral-600 mb-3 font-medium text-base">Secretária-Executiva</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
                   Vice-diretora escolar, formada em Letras e estudante de Especialização em Educação a Distância pela UFF.
                   Responsável pelas funções administrativas e organizacionais do GIFLABS, com papel central na captação
                   de recursos e no apoio institucional ao grupo.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-auto">
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Gestão Educacional
-                  </Badge>
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Letras
-                  </Badge>
-                </div>
-                <div className="mt-6 flex justify-center gap-4">
-                  <a
-                    href="http://lattes.cnpq.br/3386107553390218"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                  >
-                    <GraduationCap size={20} />
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:opacity-75 transition-opacity"
-                  >
-                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
-                  </a>
+                <div className="mt-auto pt-4">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Gestão Educacional
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Letras
+                    </Badge>
+                  </div>
+                  <div className="mt-4 flex justify-center gap-4">
+                    <a
+                      href="http://lattes.cnpq.br/3386107553390218"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <GraduationCap size={20} />
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:opacity-75 transition-opacity"
+                    >
+                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -483,38 +487,40 @@ export default function GifLabsSite() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Prof. Dr. Rafael Martins</h3>
                 <p className="text-neutral-600 mb-3 font-medium text-base">Editor Acadêmico</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
                   Professor de Filosofia na UNIMAX e UNIFAJ, pesquisador em ética, filosofia política e filosofia
                   aplicada. Editor da Virtualia Journal e co-coordenador da Série Investigação Filosófica.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-auto">
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Filosofia Política
-                  </Badge>
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Ética
-                  </Badge>
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Editor Acadêmico
-                  </Badge>
-                </div>
-                <div className="mt-6 flex justify-center gap-4">
-                  <a
-                    href="http://lattes.cnpq.br/2938081719142401"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                  >
-                    <GraduationCap size={20} />
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:opacity-75 transition-opacity"
-                  >
-                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
-                  </a>
+                <div className="mt-auto pt-4">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Filosofia Política
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Ética
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Editor Acadêmico
+                    </Badge>
+                  </div>
+                  <div className="mt-4 flex justify-center gap-4">
+                    <a
+                      href="http://lattes.cnpq.br/2938081719142401"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <GraduationCap size={20} />
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:opacity-75 transition-opacity"
+                    >
+                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -526,37 +532,39 @@ export default function GifLabsSite() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Mateus Rodrigues</h3>
                 <p className="text-neutral-600 mb-3 font-medium text-base">Artista Visual e Desenvolvedor Frontend</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
                   Pesquisador em arte digital e modelos educacionais descentralizados, responsável pelo desenvolvimento de projetos experimentais do GIFLABS na interface entre Web3, educação e arte.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-auto">
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Arte Digital
-                  </Badge>
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Web3
-                  </Badge>
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Frontend
-                  </Badge>
-                </div>
-                <div className="mt-6 flex justify-center gap-4">
-                  <a
-                    href="https://github.com/ctrlshiftOFF"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                  >
-                    <Github size={20} />
-                  </a>
-                  <a
-                    href="https://x.com/ctrlshiftOFF"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:opacity-75 transition-opacity"
-                  >
-                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
-                  </a>
+                <div className="mt-auto pt-4">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Arte Digital
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Web3
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Frontend
+                    </Badge>
+                  </div>
+                  <div className="mt-4 flex justify-center gap-4">
+                    <a
+                      href="https://github.com/ctrlshiftOFF"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <Github size={20} />
+                    </a>
+                    <a
+                      href="https://x.com/ctrlshiftOFF"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:opacity-75 transition-opacity"
+                    >
+                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -568,37 +576,39 @@ export default function GifLabsSite() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Alexandre Eduardo</h3>
                 <p className="text-neutral-600 mb-3 font-medium text-base">Desenvolvedor Backend</p>
-                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm flex-grow">
+                <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
                   Especialista em arquitetura de dados e sistemas descentralizados, responsável pela infraestrutura de análise de dados do GIFLABS e sua integração com protocolos Web3.
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center mt-auto">
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Backend
-                  </Badge>
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Arquitetura de Dados
-                  </Badge>
-                  <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
-                    Web3
-                  </Badge>
-                </div>
-                <div className="mt-6 flex justify-center gap-4">
-                  <a
-                    href="https://github.com/ThePhilosopherX"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                  >
-                    <Github size={20} />
-                  </a>
-                  <a
-                    href="https://x.com/ThePhilosopherX"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-500 hover:opacity-75 transition-opacity"
-                  >
-                    <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
-                  </a>
+                <div className="mt-auto pt-4">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Backend
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Arquitetura de Dados
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-300 text-neutral-700 bg-neutral-50 text-xs">
+                      Web3
+                    </Badge>
+                  </div>
+                  <div className="mt-4 flex justify-center gap-4">
+                    <a
+                      href="https://github.com/ThePhilosopherX"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <Github size={20} />
+                    </a>
+                    <a
+                      href="https://x.com/ThePhilosopherX"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:opacity-75 transition-opacity"
+                    >
+                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -621,7 +631,7 @@ export default function GifLabsSite() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="text-xl font-bold mb-4 font-light tracking-tight text-white">GIFLABS</div>
-              <p className="text-neutral-300 mb-2 font-light text-sm">Grupo de Pesquisa em Investigação Filosófica e Artes</p>
+              <p className="text-neutral-300 mb-2 font-light text-sm">Grupo Investigação Filosófica</p>
               <p className="text-neutral-300 font-light text-sm">Universidade Federal de Ouro Preto (UFOP)</p>
             </div>
 
@@ -687,7 +697,7 @@ export default function GifLabsSite() {
           <div className="border-t border-neutral-800 mt-8 pt-6 text-center">
             <p className="text-neutral-400 font-light text-sm mb-3">"Pensar é revolucionário."</p>
             <p className="text-neutral-500 text-xs font-light">
-              © {new Date().getFullYear()} GIFLABS - Grupo Investigação Filosófica e Artes vinculado a Universidade Federal de Ouro Preto. Todos os direitos reservados.
+              © {new Date().getFullYear()} GIFLABS - Grupo Investigação Filosófica vinculado a Universidade Federal de Ouro Preto. Todos os direitos reservados.
             </p>
           </div>
         </div>
