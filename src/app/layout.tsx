@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   generator: 'v0.dev',
   icons: {
-    icon: '/GIF-LABS-LOGO.gif',
-    shortcut: '/GIF-LABS-LOGO.gif',
-    apple: '/GIF-LABS-LOGO.gif',
+    icon: '/images/icons/favico.gif',
+    shortcut: '/images/icons/favico.gif',
+    apple: '/images/icons/favico.gif',
   },
 }
 

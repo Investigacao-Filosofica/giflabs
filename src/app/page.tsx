@@ -23,6 +23,7 @@ import {
   ArrowUpRight,
   Archive,
   Puzzle,
+  Linkedin,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -289,12 +290,20 @@ export default function GifLabsSite() {
                       <Github size={20} />
                     </a>
                     <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <Linkedin size={20} />
+                    </a>
+                    <a
                       href="https://x.com/ThePhilosopherX"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-500 hover:opacity-75 transition-opacity"
                     >
-                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                      <Image src="/images/logos/x-logo.png" alt="X logo" width={20} height={20} />
                     </a>
                   </div>
                 </div>
@@ -340,7 +349,15 @@ export default function GifLabsSite() {
                       rel="noopener noreferrer"
                       className="text-neutral-500 hover:opacity-75 transition-opacity"
                     >
-                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                      <Linkedin size={20} />
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:opacity-75 transition-opacity"
+                    >
+                      <Image src="/images/logos/x-logo.png" alt="X logo" width={20} height={20} />
                     </a>
                   </div>
                 </div>
@@ -381,7 +398,15 @@ export default function GifLabsSite() {
                       rel="noopener noreferrer"
                       className="text-neutral-500 hover:opacity-75 transition-opacity"
                     >
-                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                      <Linkedin size={20} />
+                    </a>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:opacity-75 transition-opacity"
+                    >
+                      <Image src="/images/logos/x-logo.png" alt="X logo" width={20} height={20} />
                     </a>
                   </div>
                 </div>
@@ -420,12 +445,20 @@ export default function GifLabsSite() {
                       <Github size={20} />
                     </a>
                     <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <Linkedin size={20} />
+                    </a>
+                    <a
                       href="https://x.com/ctrlshiftOFF"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-500 hover:opacity-75 transition-opacity"
                     >
-                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                      <Image src="/images/logos/x-logo.png" alt="X logo" width={20} height={20} />
                     </a>
                   </div>
                 </div>
@@ -464,12 +497,20 @@ export default function GifLabsSite() {
                       <Github size={20} />
                     </a>
                     <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                    >
+                      <Linkedin size={20} />
+                    </a>
+                    <a
                       href="https://x.com/aleedu_avelino"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-neutral-500 hover:opacity-75 transition-opacity"
                     >
-                      <Image src="/logo-black.png" alt="X logo" width={20} height={20} />
+                      <Image src="/images/logos/x-logo.png" alt="X logo" width={20} height={20} />
                     </a>
                   </div>
                 </div>
