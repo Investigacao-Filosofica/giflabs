@@ -46,8 +46,8 @@ const projects = [
     id: "virtualia",
     icon: <Newspaper className="text-neutral-900" size={32} />,
     title: "Virtualia Magazine/Journal",
-    description: "Magazine and Academic Journal on Art, Technology, and Philosophy.",
-    link: "https://www.virtualiajournal.com/",
+    description: "Revista e Periódico Acadêmico sobre Arte, Tecnologia e Filosofia.",
+    link: "/virtualia",
   },
   {
     id: "dao-channel",
@@ -129,7 +129,7 @@ export default function GifLabsSite() {
       </div>
 
       {/* Hero Section */}
-      <section id="home" className="pt-24 min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section id="home" className="pt-24 min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-24">
         <div
           className="absolute inset-0 bg-gradient-to-br from-neutral-100 to-neutral-200 opacity-50"
         />
@@ -156,7 +156,7 @@ export default function GifLabsSite() {
       </section>
 
       {/* Sobre Section */}
-      <section id="sobre" className="py-24 bg-white">
+      <section id="sobre" className="py-24 bg-white scroll-mt-24">
         <div className="container mx-auto px-6">
           <div>
             <div className="text-center max-w-3xl mx-auto">
@@ -229,7 +229,7 @@ export default function GifLabsSite() {
       <Projects />
 
       {/* Equipe */}
-      <section id="equipe" className="py-24 bg-white">
+      <section id="equipe" className="py-24 bg-white scroll-mt-24">
         <div className="container mx-auto px-6">
           <div className={`text-center mb-20`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">

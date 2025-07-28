@@ -130,7 +130,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* Nossa Solução */}
-          <section id="solucao" className="bg-white py-20 md:py-28">
+          <section id="solucao" className="bg-white py-20 md:py-28 scroll-mt-24">
             <div className="container mx-auto px-6">
               <div>
                 <div className="max-w-3xl mx-auto text-center">
@@ -165,7 +165,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* Seção de Tecnologia */}
-          <section id="tecnologia" className="bg-neutral-900 py-20 text-white md:py-28">
+          <section id="tecnologia" className="bg-neutral-900 py-20 text-white md:py-28 scroll-mt-24">
             <div className="container mx-auto px-6">
               <div>
                 <div className="mx-auto max-w-3xl text-center">
@@ -224,7 +224,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* Roadmap */}
-          <section id="roadmap" className="py-20 md:py-28">
+          <section id="roadmap" className="py-20 md:py-28 scroll-mt-24">
             <div className="container mx-auto px-6">
               <div>
                 <div className="max-w-3xl mx-auto text-center">
@@ -261,7 +261,7 @@ export default function DigitalEducationAppPage() {
           </section>
 
           {/* CTA */}
-          <section id="cta" className="py-20 md:py-28">
+          <section id="cta" className="py-20 md:py-28 scroll-mt-24">
             <div className="container mx-auto px-6">
               <div className="bg-white rounded-lg shadow-xl p-8 md:p-16 max-w-4xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 tracking-tight">

@@ -1,53 +1,60 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { usePathname } from "next/navigation"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+
+interface NavLink {
+  label: string;
+  href: string;
+}
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-  const scrollToSection = (id: string) => {
-    if (pathname !== "/" && (id === "home" || id === "sobre" || id === "projetos" || id === "equipe" || id === "contato")) {
-      window.location.href = `/#${id}`
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsMenuOpen(false)
-  }
-
-  const getNavLinks = () => {
+  const getNavLinks = (): NavLink[] => {
     switch (pathname) {
       case "/":
         return [
-          { id: "home", label: "Home" },
-          { id: "sobre", label: "Sobre" },
-          { id: "projetos", label: "Projetos" },
-          { id: "equipe", label: "Equipe" },
-          { id: "contato", label: "Contato" },
+          { href: "#home", label: "Home" },
+          { href: "#sobre", label: "Sobre" },
+          { href: "#projetos", label: "Projetos" },
+          { href: "#equipe", label: "Equipe" },
+          { href: "#contato", label: "Contato" },
         ];
       case "/serie-if":
         return [
-            { id: "sobre", label: "Sobre" },
-            { id: "detalhes", label: "O Projeto" },
-            { id: "colaboradores", label: "Colaboradores" },
+          { href: "/", label: "Home" },
+          { href: "#detalhes", label: "O Projeto" },
+          { href: "#colaboradores", label: "Colaboradores" },
         ];
       case "/digital-education-app":
         return [
-          { id: "solucao", label: "Solução" },
-          { id: "tecnologia", label: "Tecnologia" },
-          { id: "roadmap", label: "Roteiro" },
-          { id: "cta", label: "Participe" },
+          { href: "/", label: "Home" },
+          { href: "#solucao", label: "Solução" },
+          { href: "#tecnologia", label: "Tecnologia" },
+          { href: "#roadmap", label: "Roteiro" },
+          { href: "#cta", label: "Participe" },
+        ];
+      case "/virtualia":
+        return [
+          { href: "/", label: "Home" },
+          { href: "#publicacoes", label: "Publicações" },
+          { href: "#virtualia-equipe", label: "Colaboradores" },
+          { href: "#apoiadores", label: "Apoiadores" },
         ];
       default:
         return [];
     }
-  }
+  };
 
   const navLinks = getNavLinks();
-  const isHomePage = pathname === "/"
+  const isHomePage = pathname === "/";
+
+  const navItemClasses = "text-neutral-700 hover:text-neutral-900 transition-colors duration-200 font-medium";
+  const mobileNavItemClasses = "text-left text-neutral-700 hover:text-neutral-900 font-medium w-full";
 
   return (
     <header className="fixed top-0 w-full bg-neutral-50/95 backdrop-blur-md border-b border-neutral-200 z-50">
@@ -67,13 +74,9 @@ export function Header() {
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className="text-neutral-700 hover:text-neutral-900 transition-colors duration-200 font-medium"
-              >
+              <Link key={link.label} href={link.href} className={navItemClasses} onClick={() => setIsMenuOpen(false)}>
                 {link.label}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -88,18 +91,14 @@ export function Header() {
           <nav className="md:hidden mt-4 pb-4 border-t border-neutral-200">
             <div className="flex flex-col space-y-4 pt-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="text-left text-neutral-700 hover:text-neutral-900 font-medium"
-                >
+                <Link key={link.label} href={link.href} className={mobileNavItemClasses} onClick={() => setIsMenuOpen(false)}>
                   {link.label}
-                </button>
+                </Link>
               ))}
             </div>
           </nav>
         )}
       </div>
     </header>
-  )
+  );
 } 

@@ -83,7 +83,7 @@ export default function SerieIFPage() {
           </section>
 
           {/* Details Section */}
-          <section id="detalhes" className="py-20 md:py-28">
+          <section id="detalhes" className="py-20 md:py-28 scroll-mt-24">
             <div className="container mx-auto px-6">
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
@@ -156,7 +156,7 @@ export default function SerieIFPage() {
           </section>
 
           {/* About Section */}
-          <section id="sobre" className="bg-neutral-900 py-20 md:py-28">
+          <section id="sobre" className="bg-neutral-900 py-20 md:py-28 scroll-mt-24">
             <div className="container mx-auto px-6">
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
@@ -214,13 +214,13 @@ export default function SerieIFPage() {
           </section>
 
           {/* Colaboradores Section */}
-          <section id="colaboradores" className="bg-white py-20 md:py-28">
+          <section id="colaboradores" className="bg-white py-20 md:py-28 scroll-mt-24">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-4xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">
                   Nossos Colaboradores
                 </h2>
-                <p className="text-lg text-neutral-600 leading-relaxed mb-12">
+                <p className="text-lg text-neutral-600 leading-relaxed mb-16">
                   A SIF é construída por uma rede de pesquisadores de todo o
                   Brasil. Conheça os organizadores, tradutores, revisores e os
                   membros do Grupo Investigação Filosófica que tornam este
@@ -239,7 +239,7 @@ export default function SerieIFPage() {
                 </div>
               </div>
 
-              <div className="mt-16">
+              <div className="mt-24">
                 <CollaboratorsList />
               </div>
             </div>
