@@ -60,6 +60,12 @@ export function Header() {
           { href: "#pilares", label: "Pilares" },
           { href: "#jogos-galerias", label: "Jogos & Galerias" },
         ];
+      case "/the-philosophers-dao":
+        return [
+          { href: "/", label: "Home" },
+          { href: "#conteudo", label: "Sobre" },
+          { href: "#formatos", label: "Formatos" },
+        ];
       default:
         return [];
     }

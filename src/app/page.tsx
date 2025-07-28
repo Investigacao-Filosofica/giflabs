@@ -65,7 +65,7 @@ const projects = [
     icon: <PlayCircle className="text-neutral-900" size={32} />,
     title: "Canal The Philosophers DAO",
     description: "Canal de youtube para divulgacao de vídeos e podcasts de interesse filosófico.",
-    link: "https://www.youtube.com/@ThePhilosophersDAOpt",
+    link: "/the-philosophers-dao",
   },
   {
     id: "metaverso",
