@@ -45,6 +45,13 @@ export function Header() {
           { href: "#virtualia-equipe", label: "Colaboradores" },
           { href: "#apoiadores", label: "Apoiadores" },
         ];
+      case "/arqueologia-digital":
+        return [
+          { href: "/", label: "Home" },
+          { href: "#projeto", label: "O Projeto" },
+          { href: "#colecao", label: "Coleção" },
+          { href: "#parceiros", label: "Parceiros" },
+        ];
       default:
         return [];
     }
@@ -61,8 +68,16 @@ export function Header() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Link href="/" className="text-2xl font-bold text-neutral-900 tracking-tight">
-              GIFLABS
+            <Link href="/" className="text-2xl font-bold tracking-tight">
+              <span className="text-neutral-900">GIF</span>
+              <span
+                className="text-white"
+                style={{
+                  WebkitTextStroke: "1px #171717",
+                }}
+              >
+                LABS
+              </span>
             </Link>
             {isHomePage && (
               <div className="hidden md:block text-sm text-neutral-600 font-light">

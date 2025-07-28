@@ -21,6 +21,7 @@ import {
   Newspaper,
   Database,
   ArrowUpRight,
+  Archive,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -62,6 +63,14 @@ const projects = [
     title: "Near Alexandria Library",
     description: "Biblioteca no Metaverso com os livros publicados pelo NEPFIL/UFPel.",
     link: "https://www.cryptovoxels.com/play?coords=SW@1789E,1180N",
+  },
+  {
+    id: "arqueologia-digital",
+    icon: <Archive className="text-neutral-900" size={32} />,
+    title: "Arqueologia Digital",
+    description:
+      "Recuperação e preservação do periódico acadêmico 'Investigação Filosófica' utilizando tecnologias de armazenamento descentralizado como Arweave e blockchain Base.",
+    link: "/arqueologia-digital",
   }
 
 ]
