@@ -85,7 +85,7 @@ export default function DigitalEducationAppPage() {
                   rigor acadêmico e cultura open-source.
                 </p>
                 <div className="flex justify-center gap-4">
-                  <Button size="lg" asChild>
+                  <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white">
                     <Link href="#cta">
                       Junte-se a Nós <ChevronRight className="ml-2 h-4 w-4" />
                     </Link>
@@ -273,7 +273,7 @@ export default function DigitalEducationAppPage() {
                   distribuída.
                 </p>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-                  <Button size="lg" className="w-full md:w-auto" asChild>
+                  <Button size="lg" className="w-full md:w-auto bg-neutral-900 hover:bg-neutral-800 text-white" asChild>
                     <Link href="/#contato">
                       <Handshake className="mr-2 h-5 w-5" /> Quero ser um Parceiro
                     </Link>

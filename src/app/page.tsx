@@ -40,7 +40,7 @@ const projects = [
     title: "Série IF",
     description:
       "Pesquisa e traducao de verbetes da Stanford Encyclopedia of Philosophy e publicação na forma de livros de acesso gratuito pela UFPel.",
-    link: "https://wp.ufpel.edu.br/nepfil/serie-investigacao-filosofica/",
+    link: "/serie-if",
   },
   {
     id: "virtualia",
@@ -192,8 +192,9 @@ export default function GifLabsSite() {
                     </div>
                 <h3 className="text-xl font-bold mb-3">Visão</h3>
                       <p className="text-neutral-600 font-light leading-relaxed text-sm">
-                      Ser reconhecido como referência em pesquisa e desenvolvimento de soluções educacionais integradas às tecnologias digitais emergentes, com destaque para blockchain, 
-                      Web3 e arquiteturas descentralizadas, e em produções editoriais acadêmicas e culturais de alta qualidade em filosofia e arte.
+                      Ser reconhecido como referência em pesquisa e desenvolvimento de soluções educacionais integradas às tecnologias
+                       digitais emergentes, com destaque para blockchain, Web3 e arquiteturas descentralizadas, e em produções 
+                       editoriais acadêmicas e culturais de alta qualidade.
                       </p>
                     </div>
 

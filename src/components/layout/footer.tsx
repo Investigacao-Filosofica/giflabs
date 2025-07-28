@@ -44,7 +44,7 @@ export function Footer() {
               <div className="flex items-center">
                 <ExternalLink className="mr-3 text-neutral-400" size={16} />
                 <a
-                  href="http://dgp.cnpq.br/dgp/espelhogrupo/513418"
+                  href="http://dgp.cnpq.br/dgp/espelhogrupo/821202"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-neutral-300 hover:text-white transition-colors font-light text-sm"

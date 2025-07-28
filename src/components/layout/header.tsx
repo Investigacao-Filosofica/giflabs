@@ -10,32 +10,44 @@ export function Header() {
   const pathname = usePathname()
 
   const scrollToSection = (id: string) => {
-    // If we are not on the home page and the link is for a section, navigate to home with hash
     if (pathname !== "/" && (id === "home" || id === "sobre" || id === "projetos" || id === "equipe" || id === "contato")) {
       window.location.href = `/#${id}`
     } else {
-      // Otherwise, scroll to the section on the current page
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
     }
     setIsMenuOpen(false)
   }
 
-  const isHomePage = pathname === "/"
+  const getNavLinks = () => {
+    switch (pathname) {
+      case "/":
+        return [
+          { id: "home", label: "Home" },
+          { id: "sobre", label: "Sobre" },
+          { id: "projetos", label: "Projetos" },
+          { id: "equipe", label: "Equipe" },
+          { id: "contato", label: "Contato" },
+        ];
+      case "/serie-if":
+        return [
+            { id: "sobre", label: "Sobre" },
+            { id: "detalhes", label: "O Projeto" },
+            { id: "colaboradores", label: "Colaboradores" },
+        ];
+      case "/digital-education-app":
+        return [
+          { id: "solucao", label: "Solução" },
+          { id: "tecnologia", label: "Tecnologia" },
+          { id: "roadmap", label: "Roteiro" },
+          { id: "cta", label: "Participe" },
+        ];
+      default:
+        return [];
+    }
+  }
 
-  const navLinks = isHomePage
-    ? [
-        { id: "home", label: "Home" },
-        { id: "sobre", label: "Sobre" },
-        { id: "projetos", label: "Projetos" },
-        { id: "equipe", label: "Equipe" },
-        { id: "contato", label: "Contato" },
-      ]
-    : [
-        { id: "solucao", label: "Solução" },
-        { id: "tecnologia", label: "Tecnologia" },
-        { id: "roadmap", label: "Roteiro" },
-        { id: "cta", label: "Participe" },
-      ]
+  const navLinks = getNavLinks();
+  const isHomePage = pathname === "/"
 
   return (
     <header className="fixed top-0 w-full bg-neutral-50/95 backdrop-blur-md border-b border-neutral-200 z-50">
