@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Users } from "lucide-react";
+import {
+  ExternalLink,
+  Users,
+  Feather,
+  BookCopy,
+  Scale,
+  Sparkles,
+} from "lucide-react";
 import { StaffList } from "./_components/staff-list";
 import { Badge } from "@/components/ui/badge";
 
@@ -102,6 +109,52 @@ export default function VirtualiaPage() {
                           Acessar Magazine <ExternalLink className="ml-2 h-4 w-4" />
                       </Link>
                   </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pillars Section */}
+        <section id="pilares" className="bg-neutral-900 py-20 md:py-28 text-white scroll-mt-24">
+          <div className="container mx-auto px-6">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                  Nossos Princípios Editoriais
+                </h2>
+                <p className="text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
+                  A Virtualia se baseia em quatro pilares que garantem a qualidade, a relevância e o impacto de nossas publicações.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+                <div className="flex flex-col items-center">
+                  <Feather className="h-10 w-10 text-neutral-400 mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">Pesquisa Original</h3>
+                  <p className="text-neutral-400 font-light leading-relaxed">
+                    Publicamos trabalhos inéditos que impulsionam o debate em arte, filosofia e tecnologia.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Users className="h-10 w-10 text-neutral-400 mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">Debate Interdisciplinar</h3>
+                  <p className="text-neutral-400 font-light leading-relaxed">
+                    Promovemos o diálogo entre diferentes áreas do conhecimento para gerar novas perspectivas.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Scale className="h-10 w-10 text-neutral-400 mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">Rigor Acadêmico</h3>
+                  <p className="text-neutral-400 font-light leading-relaxed">
+                    Garantimos a qualidade de nossas publicações através de um criterioso processo de revisão por pares.
+                  </p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Sparkles className="h-10 w-10 text-neutral-400 mb-4" />
+                  <h3 className="font-semibold text-lg mb-2">Inovação Editorial</h3>
+                  <p className="text-neutral-400 font-light leading-relaxed">
+                    Exploramos formatos digitais e modelos de publicação que ampliam o alcance e o impacto da pesquisa.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

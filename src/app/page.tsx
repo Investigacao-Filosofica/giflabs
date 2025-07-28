@@ -22,6 +22,7 @@ import {
   Database,
   ArrowUpRight,
   Archive,
+  Puzzle,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -51,6 +52,14 @@ const projects = [
     link: "/virtualia",
   },
   {
+    id: "arqueologia-digital",
+    icon: <Archive className="text-neutral-900" size={32} />,
+    title: "Arqueologia Digital",
+    description:
+      "Recuperação e preservação do periódico acadêmico 'Investigação Filosófica' utilizando tecnologias de armazenamento descentralizado como Arweave e blockchain Base.",
+    link: "/arqueologia-digital",
+  },
+  {
     id: "dao-channel",
     icon: <PlayCircle className="text-neutral-900" size={32} />,
     title: "Canal The Philosophers DAO",
@@ -58,22 +67,14 @@ const projects = [
     link: "https://www.youtube.com/@ThePhilosophersDAOpt",
   },
   {
-    id: "near-library",
-    icon: <Library className="text-neutral-900" size={32} />,
-    title: "Near Alexandria Library",
-    description: "Biblioteca no Metaverso com os livros publicados pelo NEPFIL/UFPel.",
-    link: "https://www.cryptovoxels.com/play?coords=SW@1789E,1180N",
-  },
-  {
-    id: "arqueologia-digital",
-    icon: <Archive className="text-neutral-900" size={32} />,
-    title: "Arqueologia Digital",
+    id: "metaverso",
+    icon: <Puzzle className="text-neutral-900" size={32} />,
+    title: "Metaverso",
     description:
-      "Recuperação e preservação do periódico acadêmico 'Investigação Filosófica' utilizando tecnologias de armazenamento descentralizado como Arweave e blockchain Base.",
-    link: "/arqueologia-digital",
-  }
-
-]
+      "Exploramos a estetica, a etica e as narrativas de ambientes digitais com jogos experimentais, galerias de arte e a biblioteca Near Alexandria.",
+    link: "/metaverso",
+  },
+];
 
 function Projects() {
   return (

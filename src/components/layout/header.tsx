@@ -42,6 +42,7 @@ export function Header() {
         return [
           { href: "/", label: "Home" },
           { href: "#publicacoes", label: "Publicações" },
+          { href: "#pilares", label: "Princípios" },
           { href: "#virtualia-equipe", label: "Colaboradores" },
           { href: "#apoiadores", label: "Apoiadores" },
         ];
@@ -51,6 +52,13 @@ export function Header() {
           { href: "#projeto", label: "O Projeto" },
           { href: "#colecao", label: "Coleção" },
           { href: "#parceiros", label: "Parceiros" },
+        ];
+      case "/metaverso":
+        return [
+          { href: "/", label: "Home" },
+          { href: "#biblioteca", label: "Biblioteca" },
+          { href: "#pilares", label: "Pilares" },
+          { href: "#jogos-galerias", label: "Jogos & Galerias" },
         ];
       default:
         return [];
