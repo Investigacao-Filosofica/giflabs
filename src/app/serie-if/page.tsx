@@ -32,8 +32,8 @@ function Feature({
     <div className="flex flex-col items-center text-center">
       <div className="flex-shrink-0 mb-4">{icon}</div>
       <div>
-        <h3 className="font-semibold text-lg text-neutral-800 mb-2">{title}</h3>
-        <p className="text-neutral-600 font-light leading-relaxed">
+        <h3 className="font-semibold text-lg text-white mb-2">{title}</h3>
+        <p className="text-neutral-300 font-light leading-relaxed">
           {children}
         </p>
       </div>
@@ -82,66 +82,8 @@ export default function SerieIFPage() {
             </div>
           </section>
 
-          {/* About Section */}
-          <section id="sobre" className="py-20 md:py-28">
-            <div className="container mx-auto px-6">
-              <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-4">
-                    Excelência e Colaboração na Filosofia Brasileira
-                  </h2>
-                  <p className="text-lg text-neutral-600 leading-relaxed max-w-3xl mx-auto">
-                    A SIF tem como objetivo central publicar obras que
-                    contribuam para o desenvolvimento crítico e rigoroso da
-                    filosofia, unindo uma vasta rede de acadêmicos e o apoio
-                    de instituições de renome.
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-12">
-                   <Feature
-                    icon={<Award className="h-10 w-10 text-neutral-500" />}
-                    title="Qualidade e Rigor Acadêmico"
-                  >
-                    As obras passam por um rigoroso processo de revisão,
-                    assegurando a qualidade técnica e científica das
-                    publicações, com a colaboração de uma vasta rede de
-                    tradutores e revisores.
-                  </Feature>
-                   <Feature
-                    icon={<Network className="h-10 w-10 text-neutral-500" />}
-                    title="Rede de Colaboração Nacional"
-                  >
-                    A produção conta com organizadores e pesquisadores de mais
-                    de cinquenta universidades de excelência no Brasil,
-                    garantindo diversas perspectivas acadêmicas.
-                  </Feature>
-                  <Feature
-                    icon={
-                      <Library className="h-10 w-10 text-neutral-500" />
-                    }
-                    title="Apoio da John Templeton Foundation"
-                  >
-                    Com o apoio financeiro da fundação, a série é distribuída
-                    gratuitamente em formato digital e impressa para dezenas
-                    de bibliotecas e centros de pesquisa.
-                  </Feature>
-                  <Feature
-                    icon={<Book className="h-10 w-10 text-neutral-500" />}
-                    title="Inovação e Acesso Ampliado"
-                  >
-                    Estamos integrando as publicações a um app de
-                    aprendizagem com cursos online, unindo o material impresso
-                    a novas tecnologias para uma experiência educacional
-                    completa.
-                  </Feature>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Details Section */}
-          <section id="detalhes" className="bg-white py-20 md:py-28">
+          <section id="detalhes" className="py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
@@ -157,30 +99,25 @@ export default function SerieIFPage() {
                     pesquisa filosófica no contexto acadêmico brasileiro. A
                     série tem como objetivo central a publicação de obras que
                     contribuam para o desenvolvimento crítico e rigoroso das
-                    diferentes áreas da filosofia. A produção da SIF conta com a
-                    colaboração de uma rede composta por organizadores,
-                    tradutores e revisores vinculados a mais de cinquenta
-                    universidades de qualidade distribuídas em diversas regiões
-                    do Brasil. Essa articulação institucional permite que a
-                    série incorpore múltiplas perspectivas acadêmicas e
-                    assegure a qualidade técnica e científica das publicações.
+                    diferentes áreas da filosofia.
                   </p>
                   <p>
-                    O projeto contou com o apoio financeiro da{" "}
-                    <a
-                      href="https://www.templeton.org/grant/serie-investigacao-filosofica-improving-knowledge-and-philosophical-competences-of-brazilian-researchers-and-students"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-neutral-900 hover:underline"
-                    >
-                      John Templeton Foundation
-                    </a>
-                    , cuja parceria tem sido fundamental para viabilizar a ampla
-                    distribuição da série em bibliotecas e centros de pesquisa
-                    de referência em todo o país. Atualmente, a Série
-                    Investigação Filosófica foi distribuída em cerca de
-                    cinquenta instituições de ensino superior, de modo
-                    impresso, ampliando seu alcance e impacto na comunidade
+                    A produção da SIF conta com a colaboração de uma rede
+                    composta por organizadores, tradutores e revisores
+                    vinculados a mais de cinquenta universidades de qualidade
+                    distribuídas em diversas regiões do Brasil. Essa
+                    articulação institucional permite que a série incorpore
+                    múltiplas perspectivas acadêmicas e assegure a qualidade
+                    técnica e científica das publicações.
+                  </p>
+                  <p>
+                    O projeto contou com o apoio financeiro da John Templeton
+                    Foundation, cuja parceria tem sido fundamental para
+                    viabilizar a ampla distribuição da série em bibliotecas e
+                    centros de pesquisa de referência em todo o país.
+                    Atualmente, a Série Investigação Filosófica foi distribuída
+                    em cerca de cinquenta instituições de ensino superior, de
+                    modo impresso, ampliando seu alcance e impacto na comunidade
                     acadêmica, e é também distribuída digitalmente de modo
                     gratuito.
                   </p>
@@ -190,12 +127,14 @@ export default function SerieIFPage() {
                     proporcionar uma experiência de aprendizado ampliada em
                     cursos online feitos e curados pelos organizadores dos
                     livros da série, com a temática dos mesmos e os utilizando
-                    como referência. Por meio dessa interface entre o material
-                    impresso e as novas tecnologias, a Série Investigação
-                    Filosóf-ica consolida-se como um projeto de vanguarda no
-                    cenário filosófico brasileiro, articulando excelência
-                    acadêmica, diversidade institucional e inovação
-                    metodológica.
+                    como referência.
+                  </p>
+                  <p>
+                    Por meio dessa interface entre o material impresso e as
+                    novas tecnologias, a Série Investigação Filosófica
+                    consolida-se como um projeto de vanguarda no cenário
+                    filosófico brasileiro, articulando excelência acadêmica,
+                    diversidade institucional e inovação metodológica.
                   </p>
                 </div>
                 <div className="mt-16 text-center">
@@ -216,8 +155,66 @@ export default function SerieIFPage() {
             </div>
           </section>
 
+          {/* About Section */}
+          <section id="sobre" className="bg-neutral-900 py-20 md:py-28">
+            <div className="container mx-auto px-6">
+              <div className="max-w-4xl mx-auto">
+                <div className="text-center mb-16">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
+                    Excelência e Colaboração na Filosofia Brasileira
+                  </h2>
+                  <p className="text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
+                    A SIF tem como objetivo central publicar obras que
+                    contribuam para o desenvolvimento crítico e rigoroso da
+                    filosofia, unindo uma vasta rede de acadêmicos e o apoio
+                    de instituições de renome.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-12">
+                  <Feature
+                    icon={<Award className="h-10 w-10 text-neutral-400" />}
+                    title="Qualidade e Rigor Acadêmico"
+                  >
+                    As obras passam por um rigoroso processo de revisão,
+                    assegurando a qualidade técnica e científica das
+                    publicações, com a colaboração de uma vasta rede de
+                    tradutores e revisores.
+                  </Feature>
+                  <Feature
+                    icon={<Network className="h-10 w-10 text-neutral-400" />}
+                    title="Rede de Colaboração Nacional"
+                  >
+                    A produção conta com organizadores e pesquisadores de mais
+                    de cinquenta universidades de excelência no Brasil,
+                    garantindo diversas perspectivas acadêmicas.
+                  </Feature>
+                  <Feature
+                    icon={
+                      <Library className="h-10 w-10 text-neutral-400" />
+                    }
+                    title="Apoio da John Templeton Foundation"
+                  >
+                    Com o apoio financeiro da fundação, a série é distribuída
+                    gratuitamente em formato digital e impressa para dezenas
+                    de bibliotecas e centros de pesquisa.
+                  </Feature>
+                  <Feature
+                    icon={<Book className="h-10 w-10 text-neutral-400" />}
+                    title="Inovação e Acesso Ampliado"
+                  >
+                    Estamos integrando as publicações a um app de
+                    aprendizagem com cursos online, unindo o material impresso
+                    a novas tecnologias para uma experiência educacional
+                    completa.
+                  </Feature>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Colaboradores Section */}
-          <section id="colaboradores" className="py-20 md:py-28">
+          <section id="colaboradores" className="bg-white py-20 md:py-28">
             <div className="container mx-auto px-6">
               <div className="text-center max-w-4xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">
