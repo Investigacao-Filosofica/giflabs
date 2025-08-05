@@ -17,7 +17,6 @@ import {
   Palette,
   Rocket,
   Users,
-  X,
   BookOpen,
   PlayCircle,
   Library,
@@ -109,7 +108,7 @@ const teamMembers = [
   {
     id: "mateus_rodrigues",
     iconName: "Palette",
-    lattes: "#",
+    lattes: "http://lattes.cnpq.br/0000000000000000",
     github: "https://github.com/ctrlshiftOFF",
     linkedin: "#",
     twitter: "https://x.com/ctrlshiftOFF",
@@ -118,7 +117,7 @@ const teamMembers = [
   {
     id: "alexandre_eduardo",
     iconName: "Database",
-    lattes: "#",
+    lattes: "http://lattes.cnpq.br/0000000000000000",
     github: "https://github.com/aleedu-art",
     linkedin: "#",
     twitter: "https://x.com/aleedu_avelino",
@@ -323,48 +322,59 @@ export default function GifLabsSite() {
                          </Badge>
                        ))}
                      </div>
-                     <div className="mt-4 flex justify-center gap-4">
-                       {member.lattes !== "#" && (
-                         <a
-                           href={member.lattes}
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                         >
-                           <GraduationCap size={20} />
-                         </a>
-                       )}
-                       {member.github !== "#" && (
-                         <a
-                           href={member.github}
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                         >
-                           <Github size={20} />
-                         </a>
-                       )}
-                       {member.linkedin !== "#" && (
-                         <a
-                           href={member.linkedin}
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="text-neutral-500 hover:text-neutral-900 transition-colors"
-                         >
-                           <Linkedin size={20} />
-                         </a>
-                       )}
-                       {member.twitter !== "#" && (
-                         <a
-                           href={member.twitter}
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           className="text-neutral-500 hover:opacity-75 transition-opacity"
-                         >
-                           <Image src="/images/logos/x-logo.png" alt="X logo" width={20} height={20} />
-                         </a>
-                       )}
-                     </div>
+                                           <div className="mt-4 flex justify-center gap-4">
+                        {member.lattes && member.lattes !== "#" && (
+                          <a
+                            href={member.lattes}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                            aria-label="Currículo Lattes"
+                          >
+                            <GraduationCap size={20} />
+                          </a>
+                        )}
+                        {member.github && member.github !== "#" && (
+                          <a
+                            href={member.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                            aria-label="GitHub"
+                          >
+                            <Github size={20} />
+                          </a>
+                        )}
+                        {member.linkedin && member.linkedin !== "#" && (
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                            aria-label="LinkedIn"
+                          >
+                            <Linkedin size={20} />
+                          </a>
+                        )}
+                        {member.twitter && member.twitter !== "#" && (
+                          <a
+                            href={member.twitter}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-neutral-500 hover:text-neutral-900 transition-colors"
+                            aria-label="X (Twitter)"
+                          >
+                                                         <Image 
+                               src="/images/logos/x-logo.png" 
+                               alt="X logo" 
+                               width={16} 
+                               height={16}
+                               className="filter grayscale hover:grayscale-0 transition-all duration-200 opacity-80 hover:opacity-100"
+                               style={{ marginTop: '2px' }}
+                             />
+                          </a>
+                        )}
+                      </div>
                    </div>
                  </div>
                </div>
