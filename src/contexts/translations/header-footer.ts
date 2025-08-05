@@ -36,9 +36,9 @@ export const headerFooterTranslations = {
         "university": "Universidade Federal de Ouro Preto",
         "contact_info": {
           "title": "Informações de Contato",
-          "email": "contacto@giflabs.io",
+          "email": "rodrigorlcid@gmail.com",
           "virtualia": "Virtualia Magazine",
-          "cnpq": "GIF (DGP/CNPq)"
+          "cnpq": "Grupo registrado no CNPq"
         },
         "research_areas": {
           "title": "Áreas de Pesquisa",
@@ -90,7 +90,7 @@ export const headerFooterTranslations = {
         "university": "Federal University of Ouro Preto",
         "contact_info": {
           "title": "Contact Information",
-          "email": "contacto@giflabs.io",
+          "email": "rodrigorlcid@gmail.com",
           "virtualia": "Virtualia Magazine",
           "cnpq": "GIF (DGP/CNPq)"
         },

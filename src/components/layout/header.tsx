@@ -128,6 +128,9 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
+              <div className="pt-2 border-t border-neutral-200">
+                <LanguageSwitcher />
+              </div>
             </div>
           </nav>
         )}
