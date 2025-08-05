@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ExternalLink,
   Puzzle,
@@ -11,8 +13,10 @@ import {
 import Link from "next/link";
 import { Header } from "@/components/layout/header";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function MetaversoPage() {
+  const { t } = useLanguage();
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
       <Header />
@@ -164,4 +168,4 @@ export default function MetaversoPage() {
       </main>
     </div>
   );
-} 
+}

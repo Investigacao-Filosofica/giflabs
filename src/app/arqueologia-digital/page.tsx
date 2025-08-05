@@ -1,7 +1,10 @@
+"use client";
+
 import { ExternalLink, Archive, Group, Building } from "lucide-react";
 import Link from "next/link";
 import { Header } from "@/components/layout/header";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Partner {
   name: string;
@@ -17,6 +20,8 @@ const partners: Partner[] = [
 ];
 
 export default function ArqueologiaDigitalPage() {
+  const { t } = useLanguage();
+  
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
       <Header />
@@ -126,4 +131,4 @@ export default function ArqueologiaDigitalPage() {
       </main>
     </div>
   );
-} 
+}

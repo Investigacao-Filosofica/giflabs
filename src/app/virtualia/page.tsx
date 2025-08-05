@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,11 +12,8 @@ import {
 } from "lucide-react";
 import { StaffList } from "./_components/staff-list";
 import { Badge } from "@/components/ui/badge";
-
-export const metadata: Metadata = {
-  title: "Virtualia Magazine/Journal | GIFLABS",
-  description: "Revista e Periódico Acadêmico sobre Arte, Tecnologia e Filosofia.",
-};
+import { Header } from "@/components/layout/header";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ogSupporters = [
   "@0xJetski", "@UnitedSaints", "@HuemansUniverse", "@thephilo_sopher",
@@ -30,8 +28,11 @@ const institutionalSupporters = [
 ];
 
 export default function VirtualiaPage() {
+  const { t } = useLanguage();
+  
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
+      <Header />
       <main className="space-y-20 md:space-y-28 pb-20">
         {/* Hero Section */}
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white">
@@ -41,8 +42,7 @@ export default function VirtualiaPage() {
                 Virtualia Magazine/Journal
               </h1>
               <p className="mb-8 text-lg leading-relaxed text-neutral-600 md:text-xl">
-                Explorando as fronteiras entre arte, filosofia e tecnologia
-                na era digital e descentralizada.
+                Explorando as fronteiras entre arte, filosofia e tecnologia na era digital e descentralizada.
               </p>
               <div className="flex justify-center gap-4">
                 <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white">
@@ -227,4 +227,4 @@ export default function VirtualiaPage() {
       </main>
     </div>
   );
-} 
+}
