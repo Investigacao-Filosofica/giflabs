@@ -24,6 +24,7 @@ export function Header() {
           { href: "#home", label: t("navigation.home") },
           { href: "#sobre", label: t("navigation.about") },
           { href: "#projetos", label: t("navigation.projects") },
+          { href: "#equipe", label: t("navigation.team") },
           { href: "#contato", label: t("navigation.contact") },
         ];
       case "/serie-if":

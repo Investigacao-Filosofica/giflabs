@@ -10,42 +10,25 @@ export const thePhilosophersDaoTranslations = {
       },
       "content": {
         "title": "Diálogos sobre Arte, Filosofia e Tecnologia",
-        "description": "O canal The Philosophers DAO é uma plataforma dedicada à criação e divulgação de conteúdos audiovisuais que exploram as intersecções entre filosofia, arte e tecnologia. Através de diferentes formatos, buscamos promover diálogos críticos e reflexivos sobre as transformações contemporâneas.",
-        "mission": {
-          "title": "Nossa Missão",
-          "description": "Democratizar o acesso ao conhecimento filosófico e promover discussões críticas sobre o impacto das tecnologias emergentes na sociedade, arte e educação."
-        },
-        "vision": {
-          "title": "Nossa Visão",
-          "description": "Ser uma referência em conteúdo audiovisual filosófico de qualidade, contribuindo para a formação de uma comunidade global de pensadores críticos."
-        }
+        "description_1": "O canal The Philosophers DAO é uma iniciativa vinculada ao GIF Labs dedicada à produção e disseminação de conteúdos audiovisuais focados em arte, filosofia e tecnologia. Com ênfase em vídeos de entrevistas, cursos, podcasts e debates temáticos, o canal promove o diálogo crítico e o aprofundamento das principais questões contemporâneas nesses campos.",
+        "description_2": "Voltado para pesquisadores, estudantes e público interessado, The Philosophers DAO oferece uma plataforma estruturada para a troca de conhecimento entre especialistas nacionais e internacionais, abordando temas como inteligência artificial, ética digital, práticas artísticas digitais e governança descentralizada por meio das DAOs.",
+        "description_3": "A curadoria acadêmica rigorosa garante a qualidade dos conteúdos, que complementam e ampliam as atividades do GIF Labs, conectando a comunidade acadêmica às novas formas de comunicação e aprendizado no ambiente digital."
       },
       "formats": {
-        "title": "Formatos de Conteúdo",
-        "description": "Produzimos diversos tipos de conteúdo para atender diferentes públicos e contextos de aprendizagem.",
+        "title": "Nossos Formatos",
+        "description": "Produzimos uma variedade de conteúdos para aprofundar o debate e a disseminação do conhecimento.",
         "interviews": {
-          "title": "Entrevistas",
-          "description": "Conversas com pesquisadores, artistas e tecnólogos sobre temas contemporâneos relevantes."
+          "title": "Entrevistas e Debates",
+          "description": "Conversas com especialistas sobre temas emergentes na intersecção da filosofia com a tecnologia."
         },
-        "lectures": {
-          "title": "Palestras",
-          "description": "Apresentações didáticas sobre conceitos fundamentais de filosofia, arte e tecnologia."
+        "courses": {
+          "title": "Cursos e Tutoriais",
+          "description": "Conteúdos didáticos sobre ferramentas, conceitos e práticas da Web3 e da arte digital."
         },
         "podcasts": {
           "title": "Podcasts",
-          "description": "Discussões aprofundadas em formato de áudio sobre questões filosóficas e tecnológicas atuais."
-        },
-        "documentaries": {
-          "title": "Mini-documentários",
-          "description": "Explorações visuais de temas complexos através de narrativas documentais envolventes."
+          "description": "Análises aprofundadas e discussões sobre as últimas tendências e pesquisas acadêmicas."
         }
-      },
-      "community": {
-        "title": "Comunidade",
-        "description": "Junte-se à nossa comunidade de pensadores, criadores e entusiastas interessados em explorar as fronteiras do conhecimento.",
-        "subscribe": "Inscreva-se",
-        "follow": "Siga-nos",
-        "participate": "Participe das Discussões"
       }
     }
   },
@@ -60,42 +43,25 @@ export const thePhilosophersDaoTranslations = {
       },
       "content": {
         "title": "Dialogues on Art, Philosophy and Technology",
-        "description": "The Philosophers DAO channel is a platform dedicated to creating and disseminating audiovisual content that explores the intersections between philosophy, art and technology. Through different formats, we seek to promote critical and reflective dialogues about contemporary transformations.",
-        "mission": {
-          "title": "Our Mission",
-          "description": "Democratize access to philosophical knowledge and promote critical discussions about the impact of emerging technologies on society, art and education."
-        },
-        "vision": {
-          "title": "Our Vision",
-          "description": "To be a reference in quality philosophical audiovisual content, contributing to the formation of a global community of critical thinkers."
-        }
+        "description_1": "The Philosophers DAO channel is an initiative linked to GIF Labs dedicated to producing and disseminating audiovisual content focused on art, philosophy and technology. With emphasis on interview videos, courses, podcasts and thematic debates, the channel promotes critical dialogue and deepening of major contemporary issues in these fields.",
+        "description_2": "Aimed at researchers, students and interested public, The Philosophers DAO offers a structured platform for knowledge exchange between national and international experts, addressing topics such as artificial intelligence, digital ethics, digital artistic practices and decentralized governance through DAOs.",
+        "description_3": "Rigorous academic curation ensures the quality of content, which complements and expands GIF Labs activities, connecting the academic community to new forms of communication and learning in the digital environment."
       },
       "formats": {
-        "title": "Content Formats",
-        "description": "We produce various types of content to serve different audiences and learning contexts.",
+        "title": "Our Formats",
+        "description": "We produce a variety of content to deepen debate and knowledge dissemination.",
         "interviews": {
-          "title": "Interviews",
-          "description": "Conversations with researchers, artists and technologists about relevant contemporary themes."
+          "title": "Interviews and Debates",
+          "description": "Conversations with experts on emerging topics at the intersection of philosophy and technology."
         },
-        "lectures": {
-          "title": "Lectures",
-          "description": "Didactic presentations on fundamental concepts of philosophy, art and technology."
+        "courses": {
+          "title": "Courses and Tutorials",
+          "description": "Educational content about Web3 tools, concepts and practices and digital art."
         },
         "podcasts": {
           "title": "Podcasts",
-          "description": "In-depth discussions in audio format about current philosophical and technological issues."
-        },
-        "documentaries": {
-          "title": "Mini-documentaries",
-          "description": "Visual explorations of complex themes through engaging documentary narratives."
+          "description": "In-depth analysis and discussions about the latest trends and academic research."
         }
-      },
-      "community": {
-        "title": "Community",
-        "description": "Join our community of thinkers, creators and enthusiasts interested in exploring the frontiers of knowledge.",
-        "subscribe": "Subscribe",
-        "follow": "Follow Us",
-        "participate": "Participate in Discussions"
       }
     }
   }

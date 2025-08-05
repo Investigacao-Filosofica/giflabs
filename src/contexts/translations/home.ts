@@ -60,7 +60,6 @@ export const homeTranslations = {
       "team": {
         "title": "Nossa Equipe",
         "description": "Pesquisadores dedicados à intersecção entre filosofia, tecnologia, artes e educação.",
-        "subtitle": "Equipe",
         "members": {
           "rodrigo_cid": {
             "name": "Prof. Dr. Rodrigo Cid",
@@ -175,7 +174,6 @@ export const homeTranslations = {
       "team": {
         "title": "Our Team",
         "description": "Researchers dedicated to the intersection between philosophy, technology, arts, and education.",
-        "subtitle": "Team",
         "members": {
           "rodrigo_cid": {
             "name": "Prof. Dr. Rodrigo Cid",

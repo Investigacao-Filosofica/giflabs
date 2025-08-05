@@ -8,7 +8,7 @@ export function Footer() {
   const { t } = useLanguage();
   
   return (
-    <footer id="contato" className="bg-neutral-900 text-white py-12">
+    <footer id="contato" className="bg-neutral-900 text-white py-12 scroll-mt-32">
       <div className="container mx-auto px-6">
         <div className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 font-light tracking-tight">

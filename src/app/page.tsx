@@ -31,35 +31,49 @@ import {
 import Link from "next/link"
 import Image from "next/image"
 
+const iconMap = {
+  GraduationCap,
+  BookOpen,
+  Newspaper,
+  Archive,
+  PlayCircle,
+  Puzzle,
+  Users,
+  FileSignature,
+  Briefcase,
+  Palette,
+  Database,
+};
+
 const projects = [
   {
     id: "education-app",
-    icon: <GraduationCap className="text-neutral-900" size={32} />,
+    iconName: "GraduationCap",
     link: "/digital-education-app",
   },
   {
     id: "serie-if",
-    icon: <BookOpen className="text-neutral-900" size={32} />,
+    iconName: "BookOpen",
     link: "/serie-if",
   },
   {
     id: "virtualia",
-    icon: <Newspaper className="text-neutral-900" size={32} />,
+    iconName: "Newspaper",
     link: "/virtualia",
   },
   {
     id: "arqueologia-digital",
-    icon: <Archive className="text-neutral-900" size={32} />,
+    iconName: "Archive",
     link: "/arqueologia-digital",
   },
   {
     id: "dao-channel",
-    icon: <PlayCircle className="text-neutral-900" size={32} />,
+    iconName: "PlayCircle",
     link: "/the-philosophers-dao",
   },
   {
     id: "metaverso",
-    icon: <Puzzle className="text-neutral-900" size={32} />,
+    iconName: "Puzzle",
     link: "/metaverso",
   },
 ];
@@ -67,7 +81,7 @@ const projects = [
 const teamMembers = [
   {
     id: "rodrigo_cid",
-    icon: <Users className="text-neutral-600" size={32} />,
+    iconName: "Users",
     lattes: "http://lattes.cnpq.br/0847832636263404",
     github: "https://github.com/ThePhilosopherX",
     linkedin: "#",
@@ -76,7 +90,7 @@ const teamMembers = [
   },
   {
     id: "rafael_martins",
-    icon: <FileSignature className="text-neutral-600" size={32} />,
+    iconName: "FileSignature",
     lattes: "http://lattes.cnpq.br/2938081719142401",
     github: "#",
     linkedin: "#",
@@ -85,7 +99,7 @@ const teamMembers = [
   },
   {
     id: "roseline_crippa",
-    icon: <Briefcase className="text-neutral-600" size={32} />,
+    iconName: "Briefcase",
     lattes: "http://lattes.cnpq.br/3386107553390218",
     github: "#",
     linkedin: "#",
@@ -94,7 +108,7 @@ const teamMembers = [
   },
   {
     id: "mateus_rodrigues",
-    icon: <Palette className="text-neutral-600" size={32} />,
+    iconName: "Palette",
     lattes: "#",
     github: "https://github.com/ctrlshiftOFF",
     linkedin: "#",
@@ -103,7 +117,7 @@ const teamMembers = [
   },
   {
     id: "alexandre_eduardo",
-    icon: <Database className="text-neutral-600" size={32} />,
+    iconName: "Database",
     lattes: "#",
     github: "https://github.com/aleedu-art",
     linkedin: "#",
@@ -116,7 +130,7 @@ function Projects() {
   const { t } = useLanguage();
   
   return (
-    <section id="projetos" className="bg-neutral-900 py-24 sm:py-32">
+    <section id="projetos" className="bg-neutral-900 py-24 sm:py-32 scroll-mt-18">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -139,7 +153,10 @@ function Projects() {
               <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
                 <div className="p-8 text-center flex flex-col flex-grow">
                   <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
-                    {React.cloneElement(project.icon, { size: 40, className: "text-neutral-900" })}
+                    {React.createElement(iconMap[project.iconName as keyof typeof iconMap], { 
+                      size: 40, 
+                      className: "text-neutral-900" 
+                    })}
                   </div>
                   <h3 className="mb-3 text-xl font-bold text-white">{t(`home.projects.cards.${project.id.replace('-', '_')}.title`)}</h3>
                   <p className="flex-grow text-sm leading-relaxed text-neutral-400">{t(`home.projects.cards.${project.id.replace('-', '_')}.description`)}</p>
@@ -177,7 +194,7 @@ export default function GifLabsSite() {
       </div>
 
       {/* Hero Section */}
-      <section id="home" className="pt-24 min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-24">
+      <section id="home" className="pt-24 min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-32">
         <div
           className="absolute inset-0 bg-gradient-to-br from-neutral-100 to-neutral-200 opacity-50"
         />
@@ -204,7 +221,7 @@ export default function GifLabsSite() {
       </section>
 
       {/* Sobre Section */}
-      <section id="sobre" className="py-24 bg-white scroll-mt-24">
+      <section id="sobre" className="py-24 bg-white scroll-mt-19">
         <div className="container mx-auto px-6">
           <div>
             <div className="text-center max-w-3xl mx-auto">
@@ -272,11 +289,11 @@ export default function GifLabsSite() {
       <Projects />
 
       {/* Equipe */}
-      <section id="equipe" className="py-24 bg-white scroll-mt-24">
+      <section id="equipe" className="py-24 bg-white scroll-mt-19">
         <div className="container mx-auto px-6">
           <div className={`text-center mb-20`}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
-              {t("home.team.title")} <span className="text-neutral-900 font-normal">{t("home.team.subtitle")}</span>
+              {t("home.team.title")}
             </h2>
             <p className="text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed text-lg">
               {t("home.team.description")}
@@ -288,7 +305,10 @@ export default function GifLabsSite() {
                <div key={member.id} className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
                  <div className="p-4 text-center flex flex-col flex-grow">
                    <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
-                     {React.cloneElement(member.icon, { size: 32, className: "text-neutral-600" })}
+                     {React.createElement(iconMap[member.iconName as keyof typeof iconMap], { 
+                       size: 32, 
+                       className: "text-neutral-600" 
+                     })}
                    </div>
                    <h3 className="text-xl font-bold mb-2">{t(`home.team.members.${member.id}.name`)}</h3>
                    <p className="text-neutral-600 mb-3 font-medium text-base">{t(`home.team.members.${member.id}.role`)}</p>
