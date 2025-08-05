@@ -48,6 +48,20 @@ export const headerFooterTranslations = {
           "blockchain": "Blockchain",
           "ai": "IA",
           "digital_art": "Arte Digital"
+        },
+        "form": {
+          "name": "Nome",
+          "name_placeholder": "Seu nome completo",
+          "title_field": "Título da Mensagem",
+          "title_placeholder": "Título da sua mensagem",
+          "email": "E-mail",
+          "email_placeholder": "seu.email@exemplo.com",
+          "message": "Mensagem",
+          "message_placeholder": "Conte-nos sobre seu projeto ou ideia de colaboração...",
+          "submit": "Enviar Mensagem",
+          "sending": "Enviando...",
+          "success": "Mensagem enviada com sucesso! Entraremos em contato em breve.",
+          "error": "Erro ao enviar mensagem. Tente novamente."
         }
       },
       "quote": "Pensar é revolucionário."
@@ -102,6 +116,20 @@ export const headerFooterTranslations = {
           "blockchain": "Blockchain",
           "ai": "AI",
           "digital_art": "Digital Art"
+        },
+        "form": {
+          "name": "Name",
+          "name_placeholder": "Your full name",
+          "title_field": "Message Title",
+          "title_placeholder": "Title of your message",
+          "email": "Email",
+          "email_placeholder": "your.email@example.com",
+          "message": "Message",
+          "message_placeholder": "Tell us about your project or collaboration idea...",
+          "submit": "Send Message",
+          "sending": "Sending...",
+          "success": "Message sent successfully! We'll get back to you soon.",
+          "error": "Error sending message. Please try again."
         }
       },
       "quote": "Thinking is revolutionary."
