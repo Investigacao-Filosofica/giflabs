@@ -115,9 +115,9 @@ export default function LiteraturaPage() {
                   size="lg"
                   variant="outline"
                   asChild
-                  className="border-neutral-300 bg-white hover:bg-neutral-100 text-neutral-900 px-10 py-6 text-lg transition-all duration-300 font-medium"
+                  className="border-neutral-300 bg-white hover:bg-neutral-900 hover:text-white text-neutral-900 px-10 py-6 text-lg transition-all duration-300 font-medium"
                 >
-                  <Link href="https://www.spatial.io/s/Matzatea-6883c8a6d3dc62a2d89e63e9?share=4470873216324075548" target="_blank">
+                  <Link href="https://www.spatial.io/s/Matzatea-6883c8a6d3dc62a2d89d63e9?share=4470873216324075548" target="_blank">
                     {t("literatura.hero.cta_gallery")} <ExternalLink className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
