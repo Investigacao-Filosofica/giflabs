@@ -193,6 +193,7 @@ export default function SerieIFPage() {
                 <CollaboratorsList />
               </div>
             </div>
+            
           </section>
         </div>
       </main>

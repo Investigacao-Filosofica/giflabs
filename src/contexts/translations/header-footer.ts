@@ -86,7 +86,7 @@ export const headerFooterTranslations = {
       "contact": {
         "title": "Contact",
         "description": "Get in touch with us for collaborations, research, or more information about our projects.",
-        "group_name": "Philosophical Investigation Group",
+        "group_name": "Grupo Investigação Filosófica",
         "university": "Federal University of Ouro Preto",
         "contact_info": {
           "title": "Contact Information",

@@ -15,8 +15,6 @@ interface Partner {
 const partners: Partner[] = [
   { name: "UFOP - IFAC - DEFIL", url: "https://ifac.ufop.br/" },
   { name: "UFPel - NEPFIL", url: "https://wp.ufpel.edu.br/nepfil/" },
-  { name: "John Templeton Foundation", url: "http://templeton.org/" },
-  { name: "Stanford Encyclopedia of Philosophy", url: "https://plato.stanford.edu/" },
 ];
 
 export default function ArqueologiaDigitalPage() {

@@ -46,7 +46,7 @@ export const virtualiaTranslations = {
         "description": "A Virtualia é impulsionada por uma equipe dedicada de editores, um conselho editorial de especialistas e escritores permanentes que contribuem com suas diversas perspectivas. Conheça os indivíduos que dão vida à nossa revista e periódico.",
         "main_team": "Equipe Principal",
         "editorial_board": "Conselho Editorial",
-        "permanent_writers": "Escritores Permanentes"
+        "permanent_writers": "Escritores Permanentes da Revista"
       },
       "supporters": {
         "title": "Nossos Apoiadores",
@@ -74,7 +74,7 @@ export const virtualiaTranslations = {
       },
       "magazine": {
         "title": "Virtualia Magazine",
-        "description_1": "The Virtualia Magazine is a digital publication linked to GIF Labs, dedicated to critical reflection and interdisciplinary debate in the fields of contemporary art, philosophy and technology. The magazine seeks to articulate theoretical and practical perspectives that dialogue with the challenges and transformations brought by digital culture and emerging technologies, including Web3 platforms, artificial intelligence and the metaverse.",
+        "description_1": "Virtualia Magazine is a digital publication linked to GIF Labs, dedicated to critical reflection and interdisciplinary debate in the fields of contemporary art, philosophy and technology. The magazine seeks to articulate theoretical and practical perspectives that dialogue with the challenges and transformations brought by digital culture and emerging technologies, including Web3 platforms, artificial intelligence and the metaverse.",
         "description_2": "With semiannual periodicity, the Virtualia Magazine publishes articles, essays, interviews and reviews prepared by researchers, artists and thinkers linked to various academic and cultural institutions, composing a plural and innovative space for the circulation of ideas. Its editorial board brings together national and international specialists who guarantee the critical rigor and diversity of approaches present in the magazine. The Virtualia Magazine integrates with research and innovation projects developed within GIFLABS, strengthening the dialogue between the academic field and contemporary artistic practices, especially those involving advanced digital technologies and emerging narratives.",
         "cta": "Access Magazine"
       },
@@ -103,7 +103,7 @@ export const virtualiaTranslations = {
         "description": "Virtualia is driven by a dedicated team of editors, an editorial board of specialists and permanent writers who contribute with their diverse perspectives. Meet the individuals who bring our magazine and journal to life.",
         "main_team": "Main Team",
         "editorial_board": "Editorial Board",
-        "permanent_writers": "Permanent Writers"
+        "permanent_writers": "Permanent Writers of the Magazine"
       },
       "supporters": {
         "title": "Our Supporters",

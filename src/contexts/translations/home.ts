@@ -116,8 +116,8 @@ export const homeTranslations = {
   en: {
     "home": {
       "hero": {
-        "title": "Philosophical Investigation Group",
-        "subtitle": "Philosophical Investigation Laboratory",
+        "title": "Grupo Investigação Filosófica",
+        "subtitle": "Grupo Investigação Filosófica",
         "description": "Developing critical education for a decentralized world.",
         "cta": "Discover our projects"
       },
@@ -155,7 +155,7 @@ export const homeTranslations = {
           },
           "virtualia": {
             "title": "Virtualia Magazine/Journal",
-            "description": "Academic Magazine and Journal about Art, Technology and Philosophy."
+            "description": "Magazine and Academic Journal about Art, Technology and Philosophy."
           },
           "arqueologia_digital": {
             "title": "Digital Archaeology",

@@ -24,7 +24,7 @@ const ogSupporters = [
 ];
 
 const institutionalSupporters = [
-  "Grupo Investigação Filosófica", "UFOP", "NEPFIL/UFPEL"
+  "Grupo Investigação Filosófica", "UFOP"
 ];
 
 export default function VirtualiaPage() {
