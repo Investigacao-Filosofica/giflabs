@@ -226,7 +226,7 @@ O projeto é compatível com:
 
 ## 🔗 Links Importantes
 
-- **Website**: [GIFLABS](http://localhost:3000)
+- **Website**: [GIFLABS](http://giflabs.xyz)
 - **Virtualia Journal**: [virtualiajournal.com](https://www.virtualiajournal.com/)
 - **Canal YouTube**: [The Philosophers DAO](https://www.youtube.com/@ThePhilosophersDAOpt)
 - **Série IF**: [UFPel](https://wp.ufpel.edu.br/nepfil/serie-investigacao-filosofica/)

@@ -11,6 +11,7 @@ import { virtualiaTranslations } from './translations/virtualia';
 import { metaversoTranslations } from './translations/metaverso';
 import { arqueologiaDigitalTranslations } from './translations/arqueologia-digital';
 import { thePhilosophersDaoTranslations } from './translations/the-philosophers-dao';
+import { matzateaTranslations } from './translations/matzatea';
 
 interface LanguageContextType {
   language: string;
@@ -46,7 +47,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         ...virtualiaTranslations.pt,
         ...metaversoTranslations.pt,
         ...arqueologiaDigitalTranslations.pt,
-        ...thePhilosophersDaoTranslations.pt
+        ...thePhilosophersDaoTranslations.pt,
+        ...matzateaTranslations.pt
       },
       en: {
         ...headerFooterTranslations.en,
@@ -56,7 +58,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         ...virtualiaTranslations.en,
         ...metaversoTranslations.en,
         ...arqueologiaDigitalTranslations.en,
-        ...thePhilosophersDaoTranslations.en
+        ...thePhilosophersDaoTranslations.en,
+        ...matzateaTranslations.en
       }
     };
 

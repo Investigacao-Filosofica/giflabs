@@ -54,6 +54,10 @@ export const homeTranslations = {
           "metaverso": {
             "title": "Metaverso",
             "description": "Exploramos a estetica, a etica e as narrativas de ambientes digitais com jogos experimentais, galerias de arte e a biblioteca Near Alexandria."
+          },
+          "matzatea": {
+            "title": "Matzatea: um thriller filosófico que desafia a realidade",
+            "description": "Experiência literária imersiva que combina literatura, artes visuais e tecnologia, criando espaços para pensamento filosófico e sensibilidade artística."
           }
         }
       },
@@ -168,6 +172,10 @@ export const homeTranslations = {
           "metaverso": {
             "title": "Metaverse",
             "description": "We explore the aesthetics, ethics, and narratives of digital environments with experimental games, art galleries, and the Near Alexandria library."
+          },
+          "matzatea": {
+            "title": "Matzatea: a philosophical thriller that challenges reality",
+            "description": "Immersive literary experience that combines literature, visual arts, and technology, creating spaces for philosophical thought and artistic sensibility."
           }
         }
       },
