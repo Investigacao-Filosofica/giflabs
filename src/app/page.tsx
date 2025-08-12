@@ -75,6 +75,11 @@ const projects = [
     iconName: "Puzzle",
     link: "/metaverso",
   },
+  {
+    id: "matzatea",
+    iconName: "BookOpen",
+    link: "/matzatea",
+  },
 ];
 
 const teamMembers = [

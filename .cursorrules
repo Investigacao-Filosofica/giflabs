@@ -1,0 +1,103 @@
+# GIFLABS - Regras de Desenvolvimento para Cursor
+
+## Visão Geral do Projeto
+Este é um site institucional do GIFLABS desenvolvido com Next.js 14 (App Router), TypeScript, Tailwind CSS e Shadcn UI. O projeto implementa um sistema de internacionalização completo (Português/Inglês) e segue padrões modernos de desenvolvimento web.
+
+## Filosofia de Design Atual
+- **ESTILO ATUAL**: Site extremamente simples e clean, focado em simplicidade e legibilidade
+- **FUTURO**: Serão adicionados efeitos visuais, imagens e vídeos gradualmente
+- **PRINCÍPIO**: Manter a elegância e simplicidade como base, expandindo com cuidado
+
+## Estrutura do Projeto
+O código-fonte está organizado em `/src/` com a seguinte estrutura:
+
+- `/src/app/` - Páginas do App Router
+- `/src/components/` - Componentes reutilizáveis
+- `/src/contexts/` - Contextos React (incluindo internacionalização)
+- `/src/contexts/translations/` - Arquivos de tradução (PT/EN)
+- `/src/lib/` - Utilitários e configurações
+
+## Sistema de Internacionalização
+- Usa Context API customizado (LanguageContext)
+- Função `t(key)` para traduções
+- Arquivos de tradução em TypeScript (não JSON)
+- Idiomas: Português (pt) e Inglês (en)
+- Português é o idioma padrão
+
+## Estrutura da Página Principal
+- **Hero Section**: Título principal, descrição e CTA
+- **Sobre Section**: Descrição do GIFLABS, Missão, Visão e Valores
+- **Projetos Section**: Grid de cards dos projetos atuais
+- **Equipe Section**: Perfis dos membros com badges e links sociais
+
+## Sistema de Projetos
+Cada projeto tem:
+- Card na página inicial com ícone, título e descrição
+- Página dedicada em `/src/app/[nome-projeto]/page.tsx`
+- Arquivo de traduções específico
+- Link direto do card para a página
+
+## Regras para Modificações
+
+### Ao Adicionar Novos Projetos:
+1. Adicionar entrada no array `projects` em `src/app/page.tsx`
+2. Adicionar traduções em `src/contexts/translations/home.ts` para ambos os idiomas
+3. Criar página do projeto em `src/app/[nome-projeto]/page.tsx`
+4. Criar arquivo de traduções em `translations/`
+5. Importar novas traduções em `LanguageContext.tsx`
+
+### Ao Modificar Componentes:
+1. Sempre usar TypeScript com tipagem adequada
+2. Usar função `t()` para todos os textos (internacionalização)
+3. Seguir padrão mobile-first com Tailwind CSS
+4. Manter padrões de acessibilidade ARIA
+5. **PRESERVAR** o design simples e clean atual
+
+### Ao Adicionar Novos Recursos Visuais:
+1. **IMAGENS**: Usar Next.js Image com otimização automática
+2. **VÍDEOS**: Implementar lazy loading e controles responsivos
+3. **EFEITOS**: Manter sutis e não interferir na legibilidade
+4. **PERFORMANCE**: Sempre otimizar para não comprometer a velocidade
+
+### Convenções de Nomenclatura:
+- Arquivos: kebab-case (`digital-education-app.ts`)
+- Componentes: PascalCase (`GifLabsSite`)
+- Funções: camelCase (`useLanguage`)
+- Constantes: camelCase (`homeTranslations`)
+
+## Padrões Técnicos
+- Next.js 14 com App Router
+- TypeScript estrito
+- Tailwind CSS para estilização
+- Shadcn UI para componentes base
+- Lucide React para ícones
+- Context API para estado global
+
+## Estrutura de Traduções
+```typescript
+// Exemplo de chave: t("home.projects.cards.education_app.title")
+export const homeTranslations = {
+  pt: { home: { projects: { cards: { education_app: { title: "..." } } } } },
+  en: { home: { projects: { cards: { education_app: { title: "..." } } } } }
+}
+```
+
+## Navegação e UX
+- **Navegação interna**: Scroll suave entre seções com IDs
+- **Navegação entre páginas**: Links diretos para projetos
+- **Responsividade**: Mobile-first approach
+- **Acessibilidade**: Sempre manter padrões ARIA
+
+## Considerações de Performance
+- **Atual**: Site estático e rápido
+- **Futuro**: Manter otimizações ao adicionar mídia
+- **Lazy Loading**: Implementar para imagens e vídeos
+- **Bundle Size**: Monitorar ao adicionar bibliotecas
+
+## IMPORTANTE
+- NUNCA alterar textos originais - sempre usar sistema de tradução
+- Sempre manter responsividade mobile-first
+- Sempre testar em ambos os idiomas
+- **PRESERVAR** a simplicidade e elegância atual do design
+- **EXPANDIR** gradualmente com novos recursos visuais
+- Consultar PROJECT_STRUCTURE.md para detalhes técnicos completos
