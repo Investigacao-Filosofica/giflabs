@@ -76,9 +76,9 @@ const projects = [
     link: "/metaverso",
   },
   {
-    id: "matzatea",
+    id: "literatura",
     iconName: "BookOpen",
-    link: "/matzatea",
+    link: "/literatura",
   },
 ];
 

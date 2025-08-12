@@ -69,6 +69,22 @@ export function Header() {
           { href: "#conteudo", label: t("navigation.content") },
           { href: "#formatos", label: t("navigation.formats") },
         ];
+      case "/literatura":
+        return [
+          { href: "/", label: "Home" },
+          { href: "#projeto", label: t("navigation.project_details") },
+          { href: "#criadores", label: t("navigation.collaborators") },
+          { href: "#relevancia", label: t("navigation.cultural_relevance") },
+          { href: "#financiamento", label: t("navigation.funding") },
+          { href: "#capitulos", label: t("navigation.chapters") },
+        ];
+      case "/matzatea":
+        return [
+          { href: "/", label: "Home" },
+          { href: "#projeto", label: t("navigation.project_details") },
+          { href: "#relevancia", label: t("navigation.cultural_relevance") },
+          { href: "#financiamento", label: t("navigation.funding") },
+        ];
       default:
         return [];
     }

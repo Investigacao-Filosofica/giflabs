@@ -20,7 +20,11 @@ export const headerFooterTranslations = {
       "pillars": "Pilares",
       "games_galleries": "Jogos & Galerias",
       "content": "Sobre",
-      "formats": "Formatos"
+      "formats": "Formatos",
+      "cultural_relevance": "Relevância Cultural",
+      "funding": "Financiamento",
+      "chapters": "Capítulos",
+      "collaborators": "Os Criadores"
     },
     "header": {
       "title": "GIF Labs",
@@ -74,7 +78,11 @@ export const headerFooterTranslations = {
       "pillars": "Pillars",
       "games_galleries": "Games & Galleries",
       "content": "About",
-      "formats": "Formats"
+      "formats": "Formats",
+      "cultural_relevance": "Cultural Relevance",
+      "funding": "Funding",
+      "chapters": "Chapters",
+      "collaborators": "The Creators"
     },
     "header": {
       "title": "GIF Labs",
