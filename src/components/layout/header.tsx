@@ -4,6 +4,8 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LanguageSwitcher } from "./language-switcher";
 
 interface NavLink {
   label: string;
@@ -13,58 +15,59 @@ interface NavLink {
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   const getNavLinks = (): NavLink[] => {
     switch (pathname) {
       case "/":
         return [
-          { href: "#home", label: "Home" },
-          { href: "#sobre", label: "Sobre" },
-          { href: "#projetos", label: "Projetos" },
-          { href: "#equipe", label: "Equipe" },
-          { href: "#contato", label: "Contato" },
+          { href: "#home", label: t("navigation.home") },
+          { href: "#sobre", label: t("navigation.about") },
+          { href: "#projetos", label: t("navigation.projects") },
+          { href: "#equipe", label: t("navigation.team") },
+          { href: "#contato", label: t("navigation.contact") },
         ];
       case "/serie-if":
         return [
           { href: "/", label: "Home" },
-          { href: "#detalhes", label: "O Projeto" },
-          { href: "#colaboradores", label: "Colaboradores" },
+          { href: "#detalhes", label: t("navigation.project_details") },
+          { href: "#colaboradores", label: t("navigation.collaborators") },
         ];
       case "/digital-education-app":
         return [
           { href: "/", label: "Home" },
-          { href: "#solucao", label: "Solução" },
-          { href: "#tecnologia", label: "Tecnologia" },
-          { href: "#roadmap", label: "Roteiro" },
-          { href: "#cta", label: "Participe" },
+          { href: "#solucao", label: t("navigation.solution") },
+          { href: "#tecnologia", label: t("navigation.technology") },
+          { href: "#roadmap", label: t("navigation.roadmap") },
+          { href: "#cta", label: t("navigation.participate") },
         ];
       case "/virtualia":
         return [
           { href: "/", label: "Home" },
-          { href: "#publicacoes", label: "Publicações" },
-          { href: "#pilares", label: "Princípios" },
-          { href: "#virtualia-equipe", label: "Colaboradores" },
-          { href: "#apoiadores", label: "Apoiadores" },
+          { href: "#publicacoes", label: t("navigation.publications") },
+          { href: "#pilares", label: t("navigation.principles") },
+          { href: "#virtualia-equipe", label: t("navigation.team") },
+          { href: "#apoiadores", label: t("navigation.supporters") },
         ];
       case "/arqueologia-digital":
         return [
           { href: "/", label: "Home" },
-          { href: "#projeto", label: "O Projeto" },
-          { href: "#colecao", label: "Coleção" },
-          { href: "#parceiros", label: "Parceiros" },
+          { href: "#projeto", label: t("navigation.project_details") },
+          { href: "#colecao", label: t("navigation.collection") },
+          { href: "#parceiros", label: t("navigation.partners") },
         ];
       case "/metaverso":
         return [
           { href: "/", label: "Home" },
-          { href: "#biblioteca", label: "Biblioteca" },
-          { href: "#pilares", label: "Pilares" },
-          { href: "#jogos-galerias", label: "Jogos & Galerias" },
+          { href: "#biblioteca", label: t("navigation.library") },
+          { href: "#pilares", label: t("navigation.pillars") },
+          { href: "#jogos-galerias", label: t("navigation.games_galleries") },
         ];
       case "/the-philosophers-dao":
         return [
           { href: "/", label: "Home" },
-          { href: "#conteudo", label: "Sobre" },
-          { href: "#formatos", label: "Formatos" },
+          { href: "#conteudo", label: t("navigation.content") },
+          { href: "#formatos", label: t("navigation.formats") },
         ];
       default:
         return [];
@@ -95,7 +98,7 @@ export function Header() {
             </Link>
             {isHomePage && (
               <div className="hidden md:block text-sm text-neutral-600 font-light">
-                Filosofia, Artes, Tecnologia e Educação
+                {t("header.subtitle")}
               </div>
             )}
           </div>
@@ -107,6 +110,7 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
+            <LanguageSwitcher />
           </nav>
 
           {/* Mobile Menu Button */}
@@ -124,6 +128,9 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
+              <div className="pt-2 border-t border-neutral-200">
+                <LanguageSwitcher />
+              </div>
             </div>
           </nav>
         )}

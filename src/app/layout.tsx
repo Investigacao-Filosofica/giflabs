@@ -4,6 +4,7 @@ import { Inter, Lora } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { LanguageProvider } from "@/contexts/LanguageContext"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,9 +45,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${inter.variable} ${lora.variable}`}>
       <body className={inter.className}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   )

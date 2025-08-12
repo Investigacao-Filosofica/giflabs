@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   BookOpen,
   Users,
@@ -12,12 +14,6 @@ import {
   Book,
 } from "lucide-react";
 import { CollaboratorsList } from "./_components/collaborators-list";
-
-export const metadata: Metadata = {
-  title: "Série Investigação Filosófica | GIFLABS",
-  description:
-    "Uma iniciativa editorial dedicada à promoção e difusão da pesquisa filosófica no contexto acadêmico brasileiro.",
-};
 
 function Feature({
   icon,
@@ -42,6 +38,8 @@ function Feature({
 }
 
 export default function SerieIFPage() {
+  const { t } = useLanguage();
+  
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
       <main>
@@ -51,13 +49,10 @@ export default function SerieIFPage() {
             <div className="container relative z-10 mx-auto px-6 text-center">
               <div className="mx-auto max-w-4xl">
                 <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tighter text-neutral-900 md:text-6xl">
-                  Série Investigação Filosófica (SIF)
+                  {t("projects.serie_if.hero.title")}
                 </h1>
                 <p className="mb-8 text-lg leading-relaxed text-neutral-600 md:text-xl">
-                  Uma iniciativa editorial vinculada ao Grupo de Investigação
-                  Filosófica (GIF Labs), à UFPel e à UFOP, dedicada à promoção
-                  e à difusão da pesquisa filosófica no contexto acadêmico
-                  brasileiro.
+                  {t("projects.serie_if.hero.description")}
                 </p>
                 <div className="flex justify-center gap-4">
                   <Button
@@ -69,12 +64,12 @@ export default function SerieIFPage() {
                       href="https://wp.ufpel.edu.br/nepfil/serie-investigacao-filosofica/"
                       target="_blank"
                     >
-                      Conheça a Série <BookOpen className="ml-2 h-4 w-4" />
+                      {t("projects.serie_if.hero.cta_series")} <BookOpen className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
                     <Link href="#colaboradores">
-                      Colaboradores <Users className="ml-2 h-4 w-4" />
+                      {t("projects.serie_if.hero.cta_collaborators")} <Users className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -88,53 +83,24 @@ export default function SerieIFPage() {
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-4">
-                    O Projeto em Detalhes
+                    {t("projects.serie_if.details.title")}
                   </h2>
                 </div>
                 <div className="space-y-6 text-neutral-700 leading-relaxed text-lg text-left">
                   <p>
-                    A Série Investigação Filosófica (SIF) é uma iniciativa
-                    editorial vinculada ao Grupo de Investigação Filosófica (GIF
-                    Labs), à UFPel e à UFOP, dedicada à promoção e à difusão da
-                    pesquisa filosófica no contexto acadêmico brasileiro. A
-                    série tem como objetivo central a publicação de obras que
-                    contribuam para o desenvolvimento crítico e rigoroso das
-                    diferentes áreas da filosofia.
+                    {t("projects.serie_if.details.paragraphs.p1")}
                   </p>
                   <p>
-                    A produção da SIF conta com a colaboração de uma rede
-                    composta por organizadores, tradutores e revisores
-                    vinculados a mais de cinquenta universidades de qualidade
-                    distribuídas em diversas regiões do Brasil. Essa
-                    articulação institucional permite que a série incorpore
-                    múltiplas perspectivas acadêmicas e assegure a qualidade
-                    técnica e científica das publicações.
+                    {t("projects.serie_if.details.paragraphs.p2")}
                   </p>
                   <p>
-                    O projeto contou com o apoio financeiro da John Templeton
-                    Foundation, cuja parceria tem sido fundamental para
-                    viabilizar a ampla distribuição da série em bibliotecas e
-                    centros de pesquisa de referência em todo o país.
-                    Atualmente, a Série Investigação Filosófica foi distribuída
-                    em cerca de cinquenta instituições de ensino superior, de
-                    modo impresso, ampliando seu alcance e impacto na comunidade
-                    acadêmica, e é também distribuída digitalmente de modo
-                    gratuito.
+                    {t("projects.serie_if.details.paragraphs.p3")}
                   </p>
                   <p>
-                    Além das publicações tradicionais, a série está em processo
-                    de integração com um aplicativo digital desenvolvido para
-                    proporcionar uma experiência de aprendizado ampliada em
-                    cursos online feitos e curados pelos organizadores dos
-                    livros da série, com a temática dos mesmos e os utilizando
-                    como referência.
+                    {t("projects.serie_if.details.paragraphs.p4")}
                   </p>
                   <p>
-                    Por meio dessa interface entre o material impresso e as
-                    novas tecnologias, a Série Investigação Filosófica
-                    consolida-se como um projeto de vanguarda no cenário
-                    filosófico brasileiro, articulando excelência acadêmica,
-                    diversidade institucional e inovação metodológica.
+                    {t("projects.serie_if.details.paragraphs.p5")}
                   </p>
                 </div>
                 <div className="mt-16 text-center">
@@ -147,7 +113,7 @@ export default function SerieIFPage() {
                       target="_blank"
                     >
                       <BookMarked className="mr-3" />
-                      Acessar todas as publicações
+                      {t("projects.serie_if.details.cta")}
                     </Link>
                   </Button>
                 </div>
@@ -161,52 +127,39 @@ export default function SerieIFPage() {
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
-                    Excelência e Colaboração na Filosofia Brasileira
+                    {t("projects.serie_if.about.title")}
                   </h2>
                   <p className="text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
-                    A SIF tem como objetivo central publicar obras que
-                    contribuam para o desenvolvimento crítico e rigoroso da
-                    filosofia, unindo uma vasta rede de acadêmicos e o apoio
-                    de instituições de renome.
+                    {t("projects.serie_if.about.description")}
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-12">
                   <Feature
                     icon={<Award className="h-10 w-10 text-neutral-400" />}
-                    title="Qualidade e Rigor Acadêmico"
+                    title={t("projects.serie_if.about.features.quality.title")}
                   >
-                    As obras passam por um rigoroso processo de revisão,
-                    assegurando a qualidade técnica e científica das
-                    publicações, com a colaboração de uma vasta rede de
-                    tradutores e revisores.
+                    {t("projects.serie_if.about.features.quality.description")}
                   </Feature>
                   <Feature
                     icon={<Network className="h-10 w-10 text-neutral-400" />}
-                    title="Rede de Colaboração Nacional"
+                    title={t("projects.serie_if.about.features.network.title")}
                   >
-                    A produção conta com organizadores e pesquisadores de mais
-                    de cinquenta universidades de excelência no Brasil,
-                    garantindo diversas perspectivas acadêmicas.
+                    {t("projects.serie_if.about.features.network.description")}
                   </Feature>
                   <Feature
                     icon={
                       <Library className="h-10 w-10 text-neutral-400" />
                     }
-                    title="Apoio da John Templeton Foundation"
+                    title={t("projects.serie_if.about.features.support.title")}
                   >
-                    Com o apoio financeiro da fundação, a série é distribuída
-                    gratuitamente em formato digital e impressa para dezenas
-                    de bibliotecas e centros de pesquisa.
+                    {t("projects.serie_if.about.features.support.description")}
                   </Feature>
                   <Feature
                     icon={<Book className="h-10 w-10 text-neutral-400" />}
-                    title="Inovação e Acesso Ampliado"
+                    title={t("projects.serie_if.about.features.innovation.title")}
                   >
-                    Estamos integrando as publicações a um app de
-                    aprendizagem com cursos online, unindo o material impresso
-                    a novas tecnologias para uma experiência educacional
-                    completa.
+                    {t("projects.serie_if.about.features.innovation.description")}
                   </Feature>
                 </div>
               </div>
@@ -218,13 +171,10 @@ export default function SerieIFPage() {
             <div className="container mx-auto px-6">
               <div className="text-center max-w-4xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">
-                  Nossos Colaboradores
+                  {t("projects.serie_if.collaborators.title")}
                 </h2>
                 <p className="text-lg text-neutral-600 leading-relaxed mb-16">
-                  A SIF é construída por uma rede de pesquisadores de todo o
-                  Brasil. Conheça os organizadores, tradutores, revisores e os
-                  membros do Grupo Investigação Filosófica que tornam este
-                  projeto possível.
+                  {t("projects.serie_if.collaborators.description")}
                 </p>
                 <div className="flex justify-center gap-4">
                   <Button asChild variant="outline">
@@ -232,7 +182,7 @@ export default function SerieIFPage() {
                       href="http://dgp.cnpq.br/dgp/espelhogrupo/821202"
                       target="_blank"
                     >
-                      Membros do GIF (DGP/CNPq)
+                      {t("projects.serie_if.collaborators.cta")}
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -243,6 +193,7 @@ export default function SerieIFPage() {
                 <CollaboratorsList />
               </div>
             </div>
+            
           </section>
         </div>
       </main>

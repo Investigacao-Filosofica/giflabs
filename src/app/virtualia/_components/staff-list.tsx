@@ -1,11 +1,14 @@
 "use client"
 import { GraduationCap } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
+
 interface StaffMember {
   role: string
   name: string
   affiliation: string
   lattes?: string | null
 }
+
 const staff: StaffMember[] = [
   { role: "MAGAZINE EDITOR", name: "Prof. Rodrigo Reis Lastra Cid, PhD", affiliation: "UNIFAP" },
   { role: "ACADEMIC EDITOR", name: "Prof. Rafael Martins, PhD", affiliation: "UNIMAX & UNIFAJ" },
@@ -20,6 +23,7 @@ const staff: StaffMember[] = [
   { role: "Former Designer", name: "Rafaela Nóbrega, MA", affiliation: "ESDI/UERJ" },
   { role: "TECHNOLOGIC REVIEWER", name: "Thiago Cotting", affiliation: "Autoscriber" },
 ]
+
 const editorialBoard: StaffMember[] = [
   { role: "Editorial Board", name: "Prof. Rodrigo Reis Lastra Cid, PhD", affiliation: "UNIFAP" },
   { role: "Editorial Board", name: "Prof. Rafael Martins, PhD", affiliation: "UNIMAX & UNIFAJ" },
@@ -28,6 +32,7 @@ const editorialBoard: StaffMember[] = [
   { role: "Editorial Board", name: "Prof. Dr. David Tamez, PhD", affiliation: "University of Kansas" },
   { role: "Editorial Board", name: "Daniel Filipe G. Farinha, PhD", affiliation: "Un. of Saint Joseph - Macau" },
 ]
+
 const permanentWriters: StaffMember[] = [
   { role: "Literature", name: "Emanuel Souza, MSC", affiliation: "UFF" },
   { role: "Art & Culture", name: "Van Ameneyro, BA", affiliation: "Universidad de Guadalajara" },
@@ -38,6 +43,7 @@ const permanentWriters: StaffMember[] = [
   { role: "Long Wei & NFT Projects", name: "Valerie Geerken, B.S.", affiliation: "" },
   { role: "Culture & Social Economy", name: "Edvam Filho", affiliation: "UNICAP" },
 ]
+
 function MemberDisplay({ member }: { member: StaffMember }) {
   return (
     <div className="bg-transparent group">
@@ -62,6 +68,7 @@ function MemberDisplay({ member }: { member: StaffMember }) {
     </div>
   )
 }
+
 function Section({ title, members }: { title: string; members: StaffMember[] }) {
   return (
     <div>
@@ -74,12 +81,15 @@ function Section({ title, members }: { title: string; members: StaffMember[] }) 
     </div>
   )
 }
+
 export function StaffList() {
+  const { t } = useLanguage();
+  
   return (
     <div className="space-y-20">
-      <Section title="Equipe Principal" members={staff} />
-      <Section title="Conselho Editorial" members={editorialBoard} />
-      <Section title="Escritores Permanentes" members={permanentWriters} />
+      <Section title={t("virtualia.team.main_team")} members={staff} />
+      <Section title={t("virtualia.team.editorial_board")} members={editorialBoard} />
+      <Section title={t("virtualia.team.permanent_writers")} members={permanentWriters} />
     </div>
   )
 } 

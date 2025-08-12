@@ -1,9 +1,13 @@
+"use client";
+
 import { ExternalLink, PlayCircle, Youtube, Mic, Clapperboard } from "lucide-react";
 import Link from "next/link";
 import { Header } from "@/components/layout/header";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ThePhilosophersDaoPage() {
+  const { t } = useLanguage();
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
       <Header />
@@ -16,21 +20,21 @@ export default function ThePhilosophersDaoPage() {
                 <PlayCircle className="h-16 w-16 text-neutral-800" />
               </div>
               <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tighter text-neutral-900 md:text-6xl">
-                The Philosophers DAO
+                {t("philosophers_dao.hero.title")}
               </h1>
               <p className="mb-8 text-lg leading-relaxed text-neutral-600 md:text-xl">
-                Produção e disseminação de conteúdos audiovisuais focados em arte, filosofia e tecnologia.
+                {t("philosophers_dao.hero.description")}
               </p>
               <div className="flex justify-center gap-4">
                 <Button size="lg" asChild className="bg-red-600 hover:bg-red-700 text-white">
                   <Link href="https://www.youtube.com/@ThePhilosophersDAOpt" target="_blank">
                     <Youtube className="mr-2 h-5 w-5" />
-                    Inscreva-se no Canal
+                    {t("philosophers_dao.hero.cta_main")}
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="#conteudo">
-                    Sobre o Canal
+                    {t("philosophers_dao.hero.cta_secondary")}
                   </Link>
                 </Button>
               </div>
@@ -44,18 +48,18 @@ export default function ThePhilosophersDaoPage() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-4">
-                  Diálogos sobre Arte, Filosofia e Tecnologia
+                  {t("philosophers_dao.content.title")}
                 </h2>
               </div>
               <div className="space-y-6 text-neutral-700 leading-relaxed text-lg text-left">
                 <p>
-                  O canal The Philosophers DAO é uma iniciativa vinculada ao GIF Labs dedicada à produção e disseminação de conteúdos audiovisuais focados em arte, filosofia e tecnologia. Com ênfase em vídeos de entrevistas, cursos, podcasts e debates temáticos, o canal promove o diálogo crítico e o aprofundamento das principais questões contemporâneas nesses campos.
+                  {t("philosophers_dao.content.description_1")}
                 </p>
                 <p>
-                  Voltado para pesquisadores, estudantes e público interessado, The Philosophers DAO oferece uma plataforma estruturada para a troca de conhecimento entre especialistas nacionais e internacionais, abordando temas como inteligência artificial, ética digital, práticas artísticas digitais e governança descentralizada por meio das DAOs.
+                  {t("philosophers_dao.content.description_2")}
                 </p>
                 <p>
-                  A curadoria acadêmica rigorosa garante a qualidade dos conteúdos, que complementam e ampliam as atividades do GIF Labs, conectando a comunidade acadêmica às novas formas de comunicação e aprendizado no ambiente digital.
+                  {t("philosophers_dao.content.description_3")}
                 </p>
               </div>
             </div>
@@ -68,32 +72,32 @@ export default function ThePhilosophersDaoPage() {
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                  Nossos Formatos
+                  {t("philosophers_dao.formats.title")}
                 </h2>
                 <p className="text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
-                  Produzimos uma variedade de conteúdos para aprofundar o debate e a disseminação do conhecimento.
+                  {t("philosophers_dao.formats.description")}
                 </p>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
                 <div className="flex flex-col items-center">
                   <Mic className="h-10 w-10 text-neutral-400 mb-4" />
-                  <h3 className="font-semibold text-lg mb-2">Entrevistas e Debates</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t("philosophers_dao.formats.interviews.title")}</h3>
                   <p className="text-neutral-400 font-light leading-relaxed">
-                    Conversas com especialistas sobre temas emergentes na intersecção da filosofia com a tecnologia.
+                    {t("philosophers_dao.formats.interviews.description")}
                   </p>
                 </div>
                 <div className="flex flex-col items-center">
                   <Clapperboard className="h-10 w-10 text-neutral-400 mb-4" />
-                  <h3 className="font-semibold text-lg mb-2">Cursos e Tutoriais</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t("philosophers_dao.formats.courses.title")}</h3>
                   <p className="text-neutral-400 font-light leading-relaxed">
-                    Conteúdos didáticos sobre ferramentas, conceitos e práticas da Web3 e da arte digital.
+                    {t("philosophers_dao.formats.courses.description")}
                   </p>
                 </div>
                 <div className="flex flex-col items-center">
                   <PlayCircle className="h-10 w-10 text-neutral-400 mb-4" />
-                  <h3 className="font-semibold text-lg mb-2">Podcasts</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t("philosophers_dao.formats.podcasts.title")}</h3>
                   <p className="text-neutral-400 font-light leading-relaxed">
-                    Análises aprofundadas e discussões sobre as últimas tendências e pesquisas acadêmicas.
+                    {t("philosophers_dao.formats.podcasts.description")}
                   </p>
                 </div>
               </div>
@@ -103,4 +107,4 @@ export default function ThePhilosophersDaoPage() {
       </main>
     </div>
   );
-} 
+}
