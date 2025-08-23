@@ -24,6 +24,9 @@ import {
   Database,
   Cloud,
   Archive,
+  FileSignature,
+  Briefcase,
+  Palette,
 } from "lucide-react"
 
 function Feature({ icon, title, children }: { icon: React.ReactNode; title: string; children: React.ReactNode }) {
@@ -247,6 +250,67 @@ export default function DigitalEducationAppPage() {
                     description={t("digital_education.roadmap.q4.description")}
                     isLast
                   />
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+          {/* Equipe de Desenvolvimento */}
+          <section className="py-20 md:py-28 scroll-mt-24 bg-neutral-900">
+            <div className="container mx-auto px-6">
+              <div className="max-w-3xl mx-auto text-center mb-20">
+                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Equipe de Desenvolvimento</h2>
+                <p className="text-lg text-neutral-300 leading-relaxed">
+                  Especialistas técnicos responsáveis pela implementação do projeto
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                {/* Mateus - Desenvolvimento */}
+                <div className="bg-neutral-800 border border-neutral-700 rounded-lg p-8 text-center hover:bg-neutral-700 transition-colors">
+                  <div className="w-20 h-20 mx-auto mb-6 bg-neutral-700 rounded-full flex items-center justify-center">
+                    <Palette size={32} className="text-white" />
+                  </div>
+                  <h3 className="font-bold text-white mb-3 text-xl">Mateus Rodrigues</h3>
+                  <p className="text-neutral-300 mb-4 font-medium">Desenvolvedor Frontend</p>
+                  <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                    Idealizador e desenvolvedor principal do projeto. Responsável pela interface, experiência do usuário e integração Web3.
+                  </p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                      Frontend
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                      Web3
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                      UX/UI
+                    </Badge>
+                  </div>
+                </div>
+
+                {/* Alexandre - Desenvolvimento */}
+                <div className="bg-neutral-800 border border-neutral-700 rounded-lg p-8 text-center hover:bg-neutral-700 transition-colors">
+                  <div className="w-20 h-20 mx-auto mb-6 bg-neutral-700 rounded-full flex items-center justify-center">
+                    <Database size={32} className="text-white" />
+                  </div>
+                  <h3 className="font-bold text-white mb-3 text-xl">Alexandre Eduardo</h3>
+                  <p className="text-neutral-300 mb-4 font-medium">Desenvolvedor Backend</p>
+                  <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                    Especialista em arquitetura de dados e sistemas descentralizados. Responsável pela infraestrutura backend e integração blockchain.
+                  </p>
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                      Backend
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                      Blockchain
+                    </Badge>
+                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                      Data Architecture
+                    </Badge>
+                  </div>
                 </div>
               </div>
             </div>

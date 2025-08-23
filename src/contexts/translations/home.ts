@@ -67,7 +67,7 @@ export const homeTranslations = {
         "members": {
           "rodrigo_cid": {
             "name": "Prof. Dr. Rodrigo Cid",
-            "role": "Líder",
+            "role": "Coordenador Geral",
             "description": "Pesquisador em metafísica da ciência, filosofia das leis da natureza, e tecnologias digitais e editoriais para a educação e a governança. Responsável pela definição estratégica do GIFLABS.",
             "badges": {
               "philosophy_science": "Filosofia da Ciência",
@@ -76,7 +76,7 @@ export const homeTranslations = {
           },
           "rafael_martins": {
             "name": "Prof. Dr. Rafael Martins",
-            "role": "Editor Acadêmico",
+            "role": "Coordenador Editorial",
             "description": "Professor de Filosofia na UNIMAX e UNIFAJ, pesquisador em ética, filosofia política e filosofia aplicada. Editor da Virtualia Journal e co-coordenador da Série Investigação Filosófica.",
             "badges": {
               "political_philosophy": "Filosofia Política",
@@ -86,33 +86,54 @@ export const homeTranslations = {
           },
           "roseline_crippa": {
             "name": "Roseline Crippa",
-            "role": "Secretária-Executiva",
+            "role": "Coordenadora Executiva",
             "description": "Vice-diretora escolar, formada em Letras e estudante de Especialização em Educação a Distância pela UFF. Responsável pelas funções administrativas e organizacionais do GIFLABS.",
             "badges": {
               "educational_management": "Gestão Educacional",
-              "letters": "Letras"
+              "letters": "Letras",
+              "distance_education": "Educação a Distância"
             }
           },
           "mateus_rodrigues": {
             "name": "Mateus Rodrigues",
-            "role": "Artista Visual e Desenvolvedor Frontend",
+            "role": "Coordenador de Tecnologia e Inovação",
             "description": "Pesquisador em arte digital e modelos educacionais descentralizados, responsável pelo desenvolvimento de projetos experimentais do GIFLABS na interface entre Web3, educação e arte.",
             "badges": {
               "digital_art": "Arte Digital",
               "web3": "Web3",
               "frontend": "Frontend"
             }
-          },
-          "alexandre_eduardo": {
-            "name": "Alexandre Eduardo",
-            "role": "Desenvolvedor Backend",
-            "description": "Pesquisador em arquitetura de dados e sistemas descentralizados, responsável pela infraestrutura de análise de dados do GIFLABS e sua integração com protocolos Web3.",
-            "badges": {
-              "backend": "Backend",
-              "data_architecture": "Arquitetura de Dados",
-              "web3": "Web3"
-            }
           }
+        }
+      },
+      "collaborators": {
+        "title": "Nossa Rede",
+        "description": "Uma comunidade vibrante de pesquisadores, estudantes e colaboradores que contribuem para o desenvolvimento do GIFLABS.",
+        "stats": {
+          "researchers": {
+            "title": "Pesquisadores",
+            "count": "109",
+            "description": "Ativos em pesquisa"
+          },
+          "students": {
+            "title": "Estudantes",
+            "count": "36",
+            "description": "Em formação"
+          },
+          "technicians": {
+            "title": "Técnicos",
+            "count": "2",
+            "description": "Especialistas"
+          },
+          "international": {
+            "title": "Internacionais",
+            "count": "1",
+            "description": "Colaborador"
+          }
+        },
+        "cta": {
+          "title": "Conheça Nossa Rede Completa",
+          "button": "Ver Rede Completa"
         }
       }
     }
@@ -185,7 +206,7 @@ export const homeTranslations = {
         "members": {
           "rodrigo_cid": {
             "name": "Prof. Dr. Rodrigo Cid",
-            "role": "Leader",
+            "role": "General Coordinator",
             "description": "Researcher in metaphysics of science, philosophy of laws of nature, and digital and editorial technologies for education and governance. Responsible for the strategic definition of GIFLABS.",
             "badges": {
               "philosophy_science": "Philosophy of Science",
@@ -194,7 +215,7 @@ export const homeTranslations = {
           },
           "rafael_martins": {
             "name": "Prof. Dr. Rafael Martins",
-            "role": "Academic Editor",
+            "role": "Editorial Coordinator",
             "description": "Professor of Philosophy at UNIMAX and UNIFAJ, researcher in ethics, political philosophy, and applied philosophy. Editor of Virtualia Journal and co-coordinator of the Philosophical Investigation Series.",
             "badges": {
               "political_philosophy": "Political Philosophy",
@@ -204,33 +225,54 @@ export const homeTranslations = {
           },
           "roseline_crippa": {
             "name": "Roseline Crippa",
-            "role": "Executive Secretary",
+            "role": "Executive Coordinator",
             "description": "Vice school director, graduated in Letters and student of Specialization in Distance Education at UFF. Responsible for the administrative and organizational functions of GIFLABS.",
             "badges": {
               "educational_management": "Educational Management",
-              "letters": "Letters"
+              "letters": "Letters",
+              "distance_education": "Distance Education"
             }
           },
           "mateus_rodrigues": {
             "name": "Mateus Rodrigues",
-            "role": "Visual Artist and Frontend Developer",
+            "role": "Technology & Innovation Coordinator",
             "description": "Researcher in digital art and decentralized educational models, responsible for the development of experimental projects at GIFLABS at the interface between Web3, education, and art.",
             "badges": {
               "digital_art": "Digital Art",
               "web3": "Web3",
               "frontend": "Frontend"
             }
-          },
-          "alexandre_eduardo": {
-            "name": "Alexandre Eduardo",
-            "role": "Backend Developer",
-            "description": "Researcher in data architecture and decentralized systems, responsible for GIFLABS data analysis infrastructure and its integration with Web3 protocols.",
-            "badges": {
-              "backend": "Backend",
-              "data_architecture": "Data Architecture",
-              "web3": "Web3"
-            }
           }
+        }
+      },
+      "collaborators": {
+        "title": "Our Network",
+        "description": "A vibrant community of researchers, students, and collaborators contributing to GIFLABS development.",
+        "stats": {
+          "researchers": {
+            "title": "Researchers",
+            "count": "109",
+            "description": "Active in research"
+          },
+          "students": {
+            "title": "Students",
+            "count": "36",
+            "description": "In training"
+          },
+          "technicians": {
+            "title": "Technicians",
+            "count": "2",
+            "description": "Specialists"
+          },
+          "international": {
+            "title": "International",
+            "count": "1",
+            "description": "Collaborator"
+          }
+        },
+        "cta": {
+          "title": "Meet Our Complete Network",
+          "button": "View Complete Network"
         }
       }
     }

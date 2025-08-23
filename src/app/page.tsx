@@ -26,6 +26,7 @@ import {
   Archive,
   Puzzle,
   Linkedin,
+  Globe,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -108,7 +109,7 @@ const teamMembers = [
     github: "#",
     linkedin: "#",
     twitter: "#",
-    badges: ["educational_management", "letters"]
+    badges: ["educational_management", "letters", "distance_education"]
   },
   {
     id: "mateus_rodrigues",
@@ -118,15 +119,6 @@ const teamMembers = [
     linkedin: "#",
     twitter: "https://x.com/ctrlshiftOFF",
     badges: ["digital_art", "web3", "frontend"]
-  },
-  {
-    id: "alexandre_eduardo",
-    iconName: "Database",
-    lattes: "http://lattes.cnpq.br/0000000000000000",
-    github: "https://github.com/aleedu-art",
-    linkedin: "#",
-    twitter: "https://x.com/aleedu_avelino",
-    badges: ["backend", "data_architecture", "web3"]
   }
 ];
 
@@ -304,18 +296,18 @@ export default function GifLabsSite() {
             </p>
           </div>
 
-                     <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-12 max-w-7xl mx-auto`}>
+                     <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-16 max-w-6xl mx-auto`}>
              {teamMembers.map((member) => (
                <div key={member.id} className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
-                 <div className="p-4 text-center flex flex-col flex-grow">
+                 <div className="p-4   text-center flex flex-col flex-grow">
                    <div className="w-20 h-20 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
                      {React.createElement(iconMap[member.iconName as keyof typeof iconMap], { 
                        size: 32, 
                        className: "text-neutral-600" 
                      })}
                    </div>
-                   <h3 className="text-xl font-bold mb-2">{t(`home.team.members.${member.id}.name`)}</h3>
-                   <p className="text-neutral-600 mb-3 font-medium text-base">{t(`home.team.members.${member.id}.role`)}</p>
+                   <h3 className="text-lg font-bold mb-2 leading-tight">{t(`home.team.members.${member.id}.name`)}</h3>
+                   <p className="text-neutral-600 mb-3 font-medium text-sm leading-tight">{t(`home.team.members.${member.id}.role`)}</p>
                    <p className="text-neutral-600 mb-4 font-light leading-relaxed text-sm">
                      {t(`home.team.members.${member.id}.description`)}
                    </p>
@@ -385,6 +377,109 @@ export default function GifLabsSite() {
                </div>
              ))}
            </div>
+        </div>
+      </section>
+
+      {/* Colaboradores */}
+      <section id="colaboradores" className="py-24 bg-neutral-50 scroll-mt-19">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
+              {t("home.collaborators.title")}
+            </h2>
+            <p className="text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed text-lg">
+              {t("home.collaborators.description")}
+            </p>
+          </div>
+
+          {/* Estatísticas */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
+            {/* Pesquisadores */}
+            <div className="bg-white border border-neutral-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                <Users size={24} className="text-neutral-600" />
+              </div>
+              <div className="text-3xl font-bold text-neutral-900 mb-2">
+                {t("home.collaborators.stats.researchers.count")}
+              </div>
+              <h3 className="text-lg font-semibold text-neutral-800 mb-2">
+                {t("home.collaborators.stats.researchers.title")}
+              </h3>
+              <p className="text-sm text-neutral-600">
+                {t("home.collaborators.stats.researchers.description")}
+              </p>
+            </div>
+
+            {/* Estudantes */}
+            <div className="bg-white border border-neutral-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                <GraduationCap size={24} className="text-neutral-600" />
+              </div>
+              <div className="text-3xl font-bold text-neutral-900 mb-2">
+                {t("home.collaborators.stats.students.count")}
+              </div>
+              <h3 className="text-lg font-semibold text-neutral-800 mb-2">
+                {t("home.collaborators.stats.students.title")}
+              </h3>
+              <p className="text-sm text-neutral-600">
+                {t("home.collaborators.stats.students.description")}
+              </p>
+            </div>
+
+            {/* Técnicos */}
+            <div className="bg-white border border-neutral-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                <Database size={24} className="text-neutral-600" />
+              </div>
+              <div className="text-3xl font-bold text-neutral-900 mb-2">
+                {t("home.collaborators.stats.technicians.count")}
+              </div>
+              <h3 className="text-lg font-semibold text-neutral-800 mb-2">
+                {t("home.collaborators.stats.technicians.title")}
+              </h3>
+              <p className="text-sm text-neutral-600">
+                {t("home.collaborators.stats.technicians.description")}
+              </p>
+            </div>
+
+            {/* Colaboradores Internacionais */}
+            <div className="bg-white border border-neutral-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                <Globe size={24} className="text-neutral-600" />
+              </div>
+              <div className="text-3xl font-bold text-neutral-900 mb-2">
+                {t("home.collaborators.stats.international.count")}
+              </div>
+              <h3 className="text-lg font-semibold text-neutral-800 mb-2">
+                {t("home.collaborators.stats.international.title")}
+              </h3>
+              <p className="text-sm text-neutral-600">
+                {t("home.collaborators.stats.international.description")}
+              </p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <div className="max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold text-neutral-900 mb-8">
+                {t("home.collaborators.cta.title")}
+              </h3>
+              <Button
+                size="lg"
+                className="bg-neutral-900 hover:bg-neutral-800 text-white px-8 py-4 text-lg transition-all duration-300 border-0 font-medium"
+                asChild
+              >
+                <Link 
+                  href="http://dgp.cnpq.br/dgp/espelhogrupo/821202"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t("home.collaborators.cta.button")}
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </div>
