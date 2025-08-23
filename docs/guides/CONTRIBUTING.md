@@ -1,16 +1,17 @@
 # 🤝 GIFLABS - Guia de Contribuição
 
+> **Guia completo para contribuir com o projeto GIFLABS**
+
 ## 📋 Índice
 1. [Como Contribuir](#como-contribuir)
 2. [Configuração do Ambiente](#configuração-do-ambiente)
 3. [Fluxo de Trabalho](#fluxo-de-trabalho)
 4. [Padrões de Código](#padrões-de-código)
 5. [Sistema de Traduções](#sistema-de-traduções)
-6. [Testes](#testes)
-7. [Pull Requests](#pull-requests)
-8. [Reportando Bugs](#reportando-bugs)
-9. [Solicitando Features](#solicitando-features)
-10. [Código de Conduta](#código-de-conduta)
+6. [Pull Requests](#pull-requests)
+7. [Reportando Bugs](#reportando-bugs)
+8. [Solicitando Features](#solicitando-features)
+9. [Código de Conduta](#código-de-conduta)
 
 ---
 
@@ -22,8 +23,8 @@
 - 📚 **Documentation**: Melhorias na documentação
 - 🎨 **UI/UX Improvements**: Melhorias visuais e de experiência
 - 🌐 **Translations**: Traduções para novos idiomas
-- 🧪 **Tests**: Adição ou melhoria de testes
 - 🔧 **Refactoring**: Melhorias na estrutura do código
+- ⚙️ **Configuration**: Melhorias nas configurações de build
 
 ### Pré-requisitos
 - Conhecimento básico de React, TypeScript e Next.js
@@ -63,6 +64,8 @@ Recomendamos o **VS Code** com as seguintes extensões:
 - Prettier - Code formatter
 - ESLint
 
+⚠️ **Nota sobre Configurações**: O projeto atualmente tem algumas configurações que ignoram erros. Estamos trabalhando para corrigi-las.
+
 ---
 
 ## 🔄 Fluxo de Trabalho
@@ -82,6 +85,8 @@ git push origin main
 git checkout -b feature/nome-da-feature
 # ou
 git checkout -b fix/nome-do-fix
+# ou
+git checkout -b docs/nome-da-doc
 ```
 
 ### 3. Desenvolvimento
@@ -90,7 +95,6 @@ git checkout -b fix/nome-do-fix
 # Teste localmente
 pnpm dev
 pnpm build
-pnpm lint
 
 # Commit suas alterações
 git add .
@@ -175,7 +179,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 // 4. Utilitários
 import { cn } from "@/lib/utils";
 
-// 5. Tipos
+// 5. Tipos (se necessário)
 interface Props {
   // ...
 }
@@ -204,11 +208,18 @@ const homeTranslations = {};
 
 ## 🌐 Sistema de Traduções
 
+### Estrutura Atual
+O projeto usa um sistema customizado com Context API. **Importante**: Há uma inconsistência atual entre IDs de projetos (com hífen) e chaves de tradução (com underscore).
+
 ### Adicionando Novos Projetos
 1. **Criar arquivo de traduções** em `src/contexts/translations/`
 2. **Importar no LanguageContext** e adicionar ao merge
 3. **Adicionar entrada no array** `projects` em `src/app/page.tsx`
 4. **Criar página do projeto** em `src/app/[nome-projeto]/page.tsx`
+
+⚠️ **Atenção à Inconsistência**: 
+- Projeto: `{ id: "novo-projeto" }` (com hífen)
+- Tradução: `"novo_projeto"` (com underscore)
 
 ### Estrutura de Traduções
 ```typescript
@@ -269,69 +280,6 @@ const allTranslations = {
 
 ---
 
-## 🧪 Testes
-
-### Estrutura de Testes
-```
-tests/
-├── components/           # Testes de componentes
-├── pages/               # Testes de páginas
-├── utils/               # Testes de utilitários
-└── __mocks__/           # Mocks para testes
-```
-
-### Testes de Componentes
-```typescript
-// tests/components/NovoComponente.test.tsx
-import { render, screen } from '@testing-library/react';
-import { NovoComponente } from '@/components/novo-componente';
-
-describe('NovoComponente', () => {
-  it('renders correctly', () => {
-    render(<NovoComponente>Test content</NovoComponente>);
-    expect(screen.getByText('Test content')).toBeInTheDocument();
-  });
-});
-```
-
-### Testes de Integração
-```typescript
-// tests/pages/novo-projeto.test.tsx
-import { render, screen } from '@testing-library/react';
-import NovoProjetoPage from '@/app/novo-projeto/page';
-
-// Mock do contexto de idioma
-jest.mock('@/contexts/LanguageContext', () => ({
-  useLanguage: () => ({
-    t: (key: string) => key
-  })
-}));
-
-describe('NovoProjetoPage', () => {
-  it('displays hero section', () => {
-    render(<NovoProjetoPage />);
-    expect(screen.getByText('novo_projeto.hero.title')).toBeInTheDocument();
-  });
-});
-```
-
-### Executando Testes
-```bash
-# Executar todos os testes
-pnpm test
-
-# Executar testes em modo watch
-pnpm test:watch
-
-# Executar testes com coverage
-pnpm test:coverage
-
-# Executar testes específicos
-pnpm test NovoComponente
-```
-
----
-
 ## 🔀 Pull Requests
 
 ### Template de Pull Request
@@ -344,6 +292,7 @@ Breve descrição das alterações realizadas.
 - [ ] New feature (nova funcionalidade)
 - [ ] Breaking change (mudança que quebra compatibilidade)
 - [ ] Documentation (documentação)
+- [ ] Configuration (configurações)
 
 ## 🔧 Alterações Realizadas
 - [ ] Adiciona nova funcionalidade X
@@ -355,10 +304,15 @@ Breve descrição das alterações realizadas.
 - [ ] Testei localmente
 - [ ] Testei em diferentes dispositivos
 - [ ] Testei em ambos os idiomas (PT/EN)
-- [ ] Adicionei/atualizei testes
+- [ ] Verifiquei responsividade
 
 ## 📸 Screenshots
 Se aplicável, adicione screenshots das mudanças visuais.
+
+## ⚠️ Notas Especiais
+- Mencione qualquer configuração especial necessária
+- Indique se há breaking changes
+- Liste dependências adicionadas/removidas
 
 ## ✅ Checklist
 - [ ] Código segue padrões do projeto
@@ -366,12 +320,12 @@ Se aplicável, adicione screenshots das mudanças visuais.
 - [ ] Componentes são responsivos
 - [ ] Acessibilidade mantida
 - [ ] Performance não degradou
-- [ ] Build sem erros
+- [ ] Build sem erros (ignorando configurações atuais)
 ```
 
 ### Processo de Review
 1. **Auto-review**: Revise seu próprio código antes de submeter
-2. **Testes**: Execute todos os testes localmente
+2. **Testes**: Execute todos os comandos localmente
 3. **Build**: Verifique se o build está funcionando
 4. **Documentação**: Atualize documentação se necessário
 5. **Submissão**: Crie o PR com descrição clara
@@ -379,8 +333,7 @@ Se aplicável, adicione screenshots das mudanças visuais.
 ### Critérios de Aprovação
 - ✅ Código segue padrões do projeto
 - ✅ Funcionalidade funciona conforme esperado
-- ✅ Testes passam
-- ✅ Build sem erros
+- ✅ Build funciona (considerando configurações atuais)
 - ✅ Responsividade mantida
 - ✅ Acessibilidade mantida
 - ✅ Traduções implementadas
@@ -410,20 +363,30 @@ O que está acontecendo.
 - **Dispositivo**: [ex: iPhone 12, Desktop]
 - **Navegador**: [ex: Chrome 91, Safari 14]
 - **Sistema Operacional**: [ex: iOS 14.6, Windows 10]
-- **Versão**: [ex: 1.0.0]
+- **Resolução**: [ex: 1920x1080]
 
 ## 📸 Screenshots
 Se aplicável, adicione screenshots.
 
-## 📝 Logs
-Se aplicável, adicione logs de erro.
+## 📝 Console Logs
+Se aplicável, adicione logs de erro do console.
+
+## 🔗 URL
+URL onde o bug ocorre.
+
+## 📊 Impacto
+- [ ] Crítico (quebra funcionalidade principal)
+- [ ] Alto (prejudica experiência significativamente)
+- [ ] Médio (problema perceptível mas contornável)
+- [ ] Baixo (problema menor)
 ```
 
 ### Informações Úteis para Bugs
-- **URL da página** onde o bug ocorre
+- **URL específica** onde o bug ocorre
 - **Ações específicas** que causam o problema
 - **Frequência** do bug (sempre, às vezes, raramente)
 - **Impacto** na experiência do usuário
+- **Console errors** se houver
 
 ---
 
@@ -452,7 +415,19 @@ Qualquer contexto adicional, screenshots, mockups, etc.
 - [ ] Performance
 - [ ] Acessibilidade
 - [ ] Internacionalização
+- [ ] Configuração
 - [ ] Outro
+
+## 📊 Prioridade
+- [ ] Crítica (essencial para o projeto)
+- [ ] Alta (muito importante)
+- [ ] Média (seria útil)
+- [ ] Baixa (nice to have)
+
+## 🎯 Critérios de Aceitação
+- [ ] Critério 1
+- [ ] Critério 2
+- [ ] Critério 3
 ```
 
 ### Critérios para Features
@@ -476,12 +451,14 @@ Qualquer contexto adicional, screenshots, mockups, etc.
 - ✅ Aceitar feedback construtivo
 - ✅ Focar no código e nas ideias, não nas pessoas
 - ✅ Demonstrar empatia para com outros contribuidores
+- ✅ Ajudar novos contribuidores
 
 ### Comportamentos Inaceitáveis
 - ❌ Linguagem ofensiva ou discriminatória
 - ❌ Comportamento assediador ou intimidatório
 - ❌ Trollagem ou comportamento disruptivo
 - ❌ Publicar informações privadas de outros
+- ❌ Ataques pessoais
 
 ### Aplicação
 - Violações serão investigadas pela equipe do projeto
@@ -492,22 +469,21 @@ Qualquer contexto adicional, screenshots, mockups, etc.
 
 ## 🎯 Checklist de Contribuição
 
-### Antes de Submeter
+### Antes de Submeter PR
 - [ ] Código segue padrões do projeto
 - [ ] Funcionalidade testada localmente
-- [ ] Testes passam
-- [ ] Build sem erros
+- [ ] Build funciona (pnpm build)
 - [ ] Traduções implementadas (PT/EN)
 - [ ] Responsividade mantida
 - [ ] Acessibilidade mantida
-- [ ] Documentação atualizada
+- [ ] Documentação atualizada (se necessário)
 
 ### Para Pull Requests
 - [ ] Branch criada a partir de `main` atualizada
 - [ ] Commits com mensagens descritivas
 - [ ] PR com descrição clara e template preenchido
 - [ ] Screenshots adicionados (se aplicável)
-- [ ] Testes adicionados/atualizados
+- [ ] Considera as configurações atuais do projeto
 
 ### Para Bug Reports
 - [ ] Bug reproduzível
@@ -518,19 +494,39 @@ Qualquer contexto adicional, screenshots, mockups, etc.
 
 ---
 
+## ⚠️ Notas Importantes
+
+### Configurações Atuais que Afetam Contribuições
+
+1. **TypeScript não estrito**: `"strict": false` no tsconfig.json
+2. **ESLint ignorado no build**: `ignoreDuringBuilds: true`
+3. **Erros TypeScript ignorados**: `ignoreBuildErrors: true`
+4. **Falta autoprefixer**: Não configurado no PostCSS
+5. **Inconsistência de IDs**: Hífen vs underscore
+
+### Como Lidar com Essas Configurações
+
+1. **Desenvolva com qualidade** mesmo com configurações permissivas
+2. **Use TypeScript corretamente** apesar do modo não estrito
+3. **Teste manualmente** já que algumas verificações estão desabilitadas
+4. **Documente problemas** que encontrar relacionados às configurações
+
+---
+
 ## 📞 Comunicação
 
 ### Canais de Comunicação
 - **GitHub Issues**: Para bugs e feature requests
 - **GitHub Discussions**: Para discussões gerais
 - **Pull Requests**: Para discussões sobre código
-- **Email**: Para assuntos privados ou urgentes
+- **Email**: rodrigorlcid@gmail.com para assuntos urgentes
 
 ### Boas Práticas de Comunicação
 - **Seja claro e conciso** nas descrições
 - **Use exemplos** quando possível
 - **Responda prontamente** a comentários e feedback
 - **Mantenha o foco** no projeto e nas contribuições
+- **Seja paciente** com novos contribuidores
 
 ### Etiqueta no GitHub
 - **Mencione pessoas** usando `@username` quando relevante
@@ -549,7 +545,7 @@ Qualquer contexto adicional, screenshots, mockups, etc.
 
 ### Tipos de Contribuição
 - **Contribuidor**: Qualquer pessoa que contribuiu com o projeto
-- **Colaborador**: Contribuidor com acesso de escrita
+- **Colaborador**: Contribuidor com múltiplas contribuições aceitas
 - **Mantenedor**: Membro da equipe principal do projeto
 
 ### Como se Tornar um Colaborador
@@ -563,22 +559,22 @@ Qualquer contexto adicional, screenshots, mockups, etc.
 ## 📚 Recursos Adicionais
 
 ### Documentação
-- [DEVELOPMENT_GUIDE.md](./DEVELOPMENT_GUIDE.md) - Guia de desenvolvimento
-- [ARCHITECTURE_GUIDE.md](./ARCHITECTURE_GUIDE.md) - Guia de arquitetura
-- [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) - Sistema de design
-- [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) - Estrutura do projeto
+- **[Guia de Desenvolvimento](./DEVELOPMENT_GUIDE.md)** - Padrões técnicos
+- **[Guia de Arquitetura](./ARCHITECTURE_GUIDE.md)** - Arquitetura técnica
+- **[Sistema de Design](./DESIGN_SYSTEM.md)** - Componentes e design
+- **[Estrutura do Projeto](../reference/PROJECT_STRUCTURE.md)** - Organização
 
 ### Ferramentas Úteis
 - **VS Code Extensions**: TypeScript, Tailwind CSS IntelliSense
 - **Browser DevTools**: React DevTools, Performance tab
-- **Testing**: Jest, React Testing Library
-- **Performance**: Lighthouse, WebPageTest
+- **Git**: Para controle de versão
+- **GitHub CLI**: Para facilitar workflow
 
-### Comunidade
-- **GitHub**: [giflabs](https://github.com/Investigacao-Filosofica/giflabs)
-- **Issues**: Para bugs e feature requests
-- **Discussions**: Para discussões gerais
-- **Wiki**: Documentação adicional
+### Aprendizado
+- **Next.js**: [Documentação Oficial](https://nextjs.org/docs)
+- **React**: [Documentação Oficial](https://react.dev/)
+- **TypeScript**: [Handbook](https://www.typescriptlang.org/docs/)
+- **Tailwind CSS**: [Documentação](https://tailwindcss.com/docs)
 
 ---
 
@@ -596,4 +592,5 @@ Sua contribuição é valiosa para:
 
 ---
 
-**Para dúvidas ou sugestões sobre este guia, abra uma issue no GitHub ou entre em contato com a equipe de desenvolvimento.**
+**Para dúvidas sobre contribuições, abra uma issue no GitHub ou entre em contato com a equipe de desenvolvimento.**
+

@@ -27,15 +27,15 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 
 ### 🔬 Pesquisas em Andamento
 
-| Projeto | Descrição | Status |
-|---------|-----------|---------|
-| **Digital Education App** | Educação gamificada com certificação blockchain | 🟢 Ativo |
-| **Série IF** | Tradução de verbetes da Stanford Encyclopedia of Philosophy | 🟢 Ativo |
-| **Virtualia** | Revista acadêmica sobre Arte, Tecnologia e Filosofia | 🟢 Ativo |
-| **Arqueologia Digital** | Preservação digital de periódicos acadêmicos | 🟡 Em desenvolvimento |
-| **The Philosophers DAO** | Canal de conteúdo filosófico descentralizado | 🟢 Ativo |
-| **Metaverso** | Exploração de ambientes digitais e biblioteca Near Alexandria | 🟡 Em desenvolvimento |
-| **Literatura** | Experiência literária imersiva com Matzatea | 🟢 Ativo |
+| Projeto | Descrição | Status | Link |
+|---------|-----------|---------|------|
+| **Digital Education App** | Educação gamificada com certificação blockchain | 🟢 Ativo | [Ver projeto](/digital-education-app) |
+| **Série IF** | Tradução de verbetes da Stanford Encyclopedia of Philosophy | 🟢 Ativo | [Ver projeto](/serie-if) |
+| **Virtualia** | Revista acadêmica sobre Arte, Tecnologia e Filosofia | 🟢 Ativo | [Ver projeto](/virtualia) |
+| **Literatura** | Experiência literária imersiva com Matzatea | 🟢 Ativo | [Ver projeto](/literatura) |
+| **The Philosophers DAO** | Canal de conteúdo filosófico descentralizado | 🟢 Ativo | [Ver projeto](/the-philosophers-dao) |
+| **Metaverso** | Exploração de ambientes digitais e biblioteca Near Alexandria | 🟡 Em desenvolvimento | [Ver projeto](/metaverso) |
+| **Arqueologia Digital** | Preservação digital de periódicos acadêmicos | 🟡 Em desenvolvimento | [Ver projeto](/arqueologia-digital) |
 
 ### 🌐 Tecnologias Utilizadas
 - **Blockchain & Web3**: Arweave, Base, NFTs
@@ -62,7 +62,7 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 ## 🛠️ Tecnologia
 
 ### 🏗️ Stack Principal
-- **Frontend**: Next.js 14 (App Router), React 19, TypeScript 5
+- **Framework**: Next.js 15.2.4 (App Router), React 19, TypeScript 5
 - **Estilização**: Tailwind CSS 3.4, Shadcn UI
 - **Internacionalização**: Sistema customizado PT/EN
 - **Deploy**: Vercel, Netlify, ou auto-hosting
@@ -75,24 +75,28 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 
 ### 🔧 Ferramentas de Desenvolvimento
 - **Package Manager**: pnpm (recomendado)
-- **Linting**: ESLint + Prettier
 - **Versionamento**: Git + GitHub
 - **CI/CD**: GitHub Actions (futuro)
 
 ## 📚 Documentação
 
 ### 🚀 Guias de Desenvolvimento
-- **[DEVELOPMENT_GUIDE.md](./DEVELOPMENT_GUIDE.md)** - Guia completo de desenvolvimento
-- **[ARCHITECTURE_GUIDE.md](./ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
-- **[DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)** - Sistema de design e componentes
-- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Como contribuir com o projeto
+- **[📖 Documentação Completa](./docs/README.md)** - Índice principal da documentação
+- **[🛠️ Guia de Desenvolvimento](./docs/guides/DEVELOPMENT_GUIDE.md)** - Configuração, padrões e boas práticas
+- **[🏗️ Guia de Arquitetura](./docs/guides/ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
+- **[🎨 Sistema de Design](./docs/guides/DESIGN_SYSTEM.md)** - Componentes, cores e tipografia
+- **[🤝 Guia de Contribuição](./docs/guides/CONTRIBUTING.md)** - Como contribuir com o projeto
 
-### 📁 Estrutura do Projeto
-- **[PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)** - Documentação da estrutura atual
-- **`/src/app/`** - Páginas do App Router
-- **`/src/components/`** - Componentes reutilizáveis
-- **`/src/contexts/`** - Contextos React (i18n)
-- **`/src/lib/`** - Utilitários e configurações
+### 📖 Referência Técnica
+- **[📁 Estrutura do Projeto](./docs/reference/PROJECT_STRUCTURE.md)** - Organização de arquivos e pastas
+- **[🔧 Configurações](./docs/reference/CONFIGURATIONS.md)** - Configurações de build, linting e deploy
+- **[🌐 Internacionalização](./docs/reference/INTERNATIONALIZATION.md)** - Sistema de traduções
+- **[⚡ Performance](./docs/reference/PERFORMANCE.md)** - Otimizações e benchmarks
+
+### 💡 Exemplos e Tutoriais
+- **[🧩 Criando Componentes](./docs/examples/CREATING_COMPONENTS.md)** - Como criar novos componentes
+- **[📝 Adicionando Projetos](./docs/examples/ADDING_PROJECTS.md)** - Como adicionar novos projetos
+- **[🌍 Adicionando Idiomas](./docs/examples/ADDING_LANGUAGES.md)** - Como adicionar novos idiomas
 
 ## 🚀 Começando
 
@@ -144,12 +148,12 @@ pnpm lint         # Verificação de código
 - 📚 **Documentation**: Melhorias na documentação
 - 🎨 **UI/UX**: Melhorias visuais e de experiência
 - 🌐 **Translations**: Traduções para novos idiomas
-- 🧪 **Tests**: Adição ou melhoria de testes
+- 🔧 **Refactoring**: Melhorias na estrutura do código
 
 ### 📖 Leia Mais
-- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Guia completo de contribuição
-- **[DEVELOPMENT_GUIDE.md](./DEVELOPMENT_GUIDE.md)** - Padrões de desenvolvimento
-- **[DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md)** - Sistema de design
+- **[Como Contribuir](./docs/guides/CONTRIBUTING.md)** - Guia completo de contribuição
+- **[Padrões de Desenvolvimento](./docs/guides/DEVELOPMENT_GUIDE.md)** - Padrões técnicos
+- **[Sistema de Design](./docs/guides/DESIGN_SYSTEM.md)** - Componentes e design
 
 ## 🌍 Internacionalização
 
@@ -168,30 +172,6 @@ pnpm lint         # Verificação de código
 2. Importar no `LanguageContext.tsx`
 3. Adicionar ao merge de traduções
 4. Testar em ambos os idiomas
-
-## 🧪 Testes
-
-### 🏗️ Estrutura de Testes
-```
-tests/
-├── components/           # Testes de componentes
-├── pages/               # Testes de páginas
-├── utils/               # Testes de utilitários
-└── __mocks__/           # Mocks para testes
-```
-
-### 🚀 Executando Testes
-```bash
-pnpm test              # Executar todos os testes
-pnpm test:watch        # Modo watch
-pnpm test:coverage     # Com coverage
-```
-
-### 📝 Escrevendo Testes
-- **React Testing Library** para testes de componentes
-- **Jest** como framework de testes
-- **Mocks** para contextos e dependências externas
-- **Coverage** mínimo de 80%
 
 ## 🚀 Deploy
 
@@ -214,18 +194,17 @@ NEXT_PUBLIC_API_URL=https://api.giflabs.com
 NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
 ```
 
-### 📊 Monitoramento
-- **Performance**: Web Vitals, Lighthouse
-- **Analytics**: Google Analytics, Vercel Analytics
-- **Errors**: Sentry, Vercel Error Tracking
+⚠️ **Nota**: Algumas configurações precisam ser ajustadas para produção. Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md).
 
 ## 🔮 Roadmap
 
 ### 🎯 Fase 1: Consolidação (Atual)
-- [x] Estrutura base com Next.js 14
+- [x] Estrutura base com Next.js 15.2.4
 - [x] Sistema de internacionalização
 - [x] Component library com Shadcn UI
 - [x] Responsividade mobile-first
+- [x] Documentação completa
+- [ ] **Corrigir configurações de produção**
 
 ### 🚀 Fase 2: Otimização (Próximo)
 - [ ] Implementação de testes
@@ -251,14 +230,15 @@ NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
 - **Contribuidores**: 5+ ativos
 - **Projetos**: 7 em desenvolvimento
 - **Páginas**: 8+ implementadas
-- **Componentes**: 20+ reutilizáveis
+- **Componentes**: 45+ disponíveis (Shadcn UI)
 - **Traduções**: 2 idiomas (PT/EN)
+- **Documentação**: 95% de cobertura
 
-### 🎯 Objetivos
+### 🎯 Objetivos de Qualidade
 - **Performance**: Lighthouse Score > 90
 - **Acessibilidade**: WCAG 2.1 AA compliance
 - **SEO**: Core Web Vitals otimizados
-- **Testes**: Coverage > 80%
+- **Testes**: Coverage > 80% (futuro)
 
 ## 🤝 Parceiros e Colaboradores
 
@@ -316,8 +296,22 @@ Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](./LICENSE) p
 
 ---
 
+## ⚠️ Notas Importantes
+
+### Status das Configurações
+Este projeto contém algumas configurações que precisam ser ajustadas para produção:
+
+- **TypeScript**: Modo não estrito (`"strict": false`)
+- **ESLint**: Ignorado durante builds
+- **Images**: Otimização desabilitada
+- **PostCSS**: Falta autoprefixer
+
+Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md) para detalhes sobre como corrigir esses problemas.
+
+---
+
 **🌟 Se este projeto foi útil para você, considere dar uma ⭐ no GitHub e compartilhar com outros pesquisadores e desenvolvedores!**
 
 ---
 
-**📚 Para mais informações, consulte nossa [documentação completa](./DEVELOPMENT_GUIDE.md) ou entre em contato conosco.** 
+**📚 Para mais informações, consulte nossa [documentação completa](./docs/README.md) ou entre em contato conosco.**

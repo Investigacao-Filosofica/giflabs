@@ -1,5 +1,7 @@
 # 🚀 GIFLABS - Guia de Desenvolvimento
 
+> **Guia completo para desenvolvedores do projeto GIFLABS**
+
 ## 📋 Índice
 1. [Configuração do Ambiente](#configuração-do-ambiente)
 2. [Estrutura do Projeto](#estrutura-do-projeto)
@@ -9,9 +11,8 @@
 6. [Roteamento e Páginas](#roteamento-e-páginas)
 7. [Estilização](#estilização)
 8. [Performance e Otimização](#performance-e-otimização)
-9. [Testes](#testes)
-10. [Deploy](#deploy)
-11. [Troubleshooting](#troubleshooting)
+9. [Deploy](#deploy)
+10. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -25,6 +26,7 @@
   - TypeScript Importer
   - Tailwind CSS IntelliSense
   - ES7+ React/Redux/React-Native snippets
+  - Prettier - Code formatter
 
 ### Instalação
 ```bash
@@ -44,8 +46,10 @@ pnpm dev
 pnpm dev          # Servidor de desenvolvimento
 pnpm build        # Build de produção
 pnpm start        # Servidor de produção
-pnpm lint         # Verificação de código
+pnpm lint         # Verificação de código (ESLint)
 ```
+
+⚠️ **Nota**: O projeto atualmente tem algumas configurações que precisam ser ajustadas para produção.
 
 ---
 
@@ -71,8 +75,8 @@ src/
 ```
 
 ### Convenções de Nomenclatura
-- **Arquivos**: kebab-case (`digital-education-app.ts`)
-- **Componentes**: PascalCase (`GifLabsSite`)
+- **Arquivos**: kebab-case (`digital-education-app.tsx`)
+- **Componentes**: PascalCase (`LanguageSwitcher`)
 - **Funções**: camelCase (`useLanguage`)
 - **Constantes**: camelCase (`homeTranslations`)
 - **Diretórios**: kebab-case (`_components/`)
@@ -146,7 +150,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 // 4. Utilitários
 import { cn } from "@/lib/utils";
 
-// 5. Tipos
+// 5. Tipos (se necessário)
 interface Props {
   // ...
 }
@@ -155,6 +159,9 @@ interface Props {
 ---
 
 ## 🌐 Sistema de Internacionalização
+
+### Estrutura Atual
+O projeto usa um sistema customizado com Context API para gerenciar traduções entre Português (pt) e Inglês (en).
 
 ### Adicionando Novos Projetos
 1. **Criar arquivo de traduções** em `src/contexts/translations/`
@@ -193,13 +200,21 @@ const { t } = useLanguage();
 <h1>{t("novo_projeto.hero.title")}</h1>
 <p>{t("novo_projeto.hero.description")}</p>
 
-// ❌ Evite chaves muito longas
-// t("novo_projeto.hero.section.subsection.element.title")
+// ⚠️ IMPORTANTE: IDs devem ser consistentes
+// Projeto: { id: "novo-projeto" } (com hífen)
+// Tradução: "novo_projeto" (com underscore)
 ```
 
 ---
 
 ## 🧩 Componentes e UI
+
+### Shadcn UI Disponíveis
+O projeto inclui uma ampla gama de componentes Shadcn UI. Os mais utilizados são:
+
+- **Button** - Botões com variantes
+- **Badge** - Tags e labels
+- **Card** - Cards de conteúdo (disponível mas pouco usado)
 
 ### Criando Novos Componentes
 ```typescript
@@ -243,22 +258,12 @@ const { t } = useLanguage();
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
 ```
 
-### Shadcn UI
-```typescript
-// ✅ Use variantes do Shadcn UI
-<Button variant="outline" size="lg">
-  {t("button.text")}
-</Button>
-
-// ✅ Customize com className quando necessário
-<Button className="bg-custom-color hover:bg-custom-color-dark">
-  Custom Button
-</Button>
-```
-
 ---
 
 ## 🛣️ Roteamento e Páginas
+
+### Estrutura App Router
+O projeto usa Next.js 14 com App Router. Cada projeto tem sua própria página em `/src/app/[nome-projeto]/`.
 
 ### Criando Novas Páginas
 ```typescript
@@ -283,8 +288,6 @@ export default function NovoProjetoPage() {
             </h1>
           </div>
         </section>
-        
-        {/* Outras seções */}
       </main>
     </div>
   );
@@ -327,6 +330,16 @@ export default function NovoProjetoPage() {
 "space-y-6" "gap-8" "py-20 md:py-28"
 ```
 
+### Sistema de Cores
+O projeto usa principalmente tons neutros:
+
+```css
+/* Cores principais definidas no Tailwind config */
+neutral-50: #fafafa   /* Background mais claro */
+neutral-100: #f5f5f5  /* Background claro */
+neutral-900: #171717  /* Background mais escuro */
+```
+
 ### CSS Customizado
 ```css
 /* ✅ Adicione estilos customizados em globals.css */
@@ -335,28 +348,6 @@ export default function NovoProjetoPage() {
     @apply bg-neutral-900 hover:bg-neutral-800 text-white;
   }
 }
-
-/* ✅ Use variáveis CSS para consistência */
-:root {
-  --color-primary: #171717;
-  --color-secondary: #f5f5f5;
-}
-```
-
-### Animações
-```typescript
-// ✅ Use classes de animação do Tailwind
-<div className="
-  opacity-0 group-hover:opacity-100 
-  transition-opacity duration-300
-">
-  Hover effect
-</div>
-
-// ✅ Animações CSS customizadas
-<div className="animate-fade-in-up">
-  Fade in animation
-</div>
 ```
 
 ---
@@ -365,7 +356,8 @@ export default function NovoProjetoPage() {
 
 ### Next.js Otimizações
 ```typescript
-// ✅ Use Image component para otimização
+// ⚠️ ATENÇÃO: Atualmente images.unoptimized: true
+// Recomendado alterar para false em produção
 import Image from "next/image";
 
 <Image
@@ -389,66 +381,8 @@ const LazyComponent = dynamic(() => import("./LazyComponent"), {
 // ✅ Importe apenas o que precisar do Lucide
 import { ChevronDown, Menu, X } from "lucide-react";
 
-// ✅ Use tree shaking para bibliotecas grandes
+// ✅ Use tree shaking para bibliotecas
 import { Button } from "@/components/ui/button";
-```
-
-### CSS Optimization
-```css
-/* ✅ Use @apply para classes complexas */
-.custom-card {
-  @apply bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow;
-}
-
-/* ✅ Evite CSS inline quando possível */
-```
-
----
-
-## 🧪 Testes
-
-### Estrutura de Testes
-```
-tests/
-├── components/           # Testes de componentes
-├── pages/               # Testes de páginas
-├── utils/               # Testes de utilitários
-└── __mocks__/           # Mocks para testes
-```
-
-### Testes de Componentes
-```typescript
-// tests/components/NovoComponente.test.tsx
-import { render, screen } from '@testing-library/react';
-import { NovoComponente } from '@/components/novo-componente';
-
-describe('NovoComponente', () => {
-  it('renders correctly', () => {
-    render(<NovoComponente>Test content</NovoComponente>);
-    expect(screen.getByText('Test content')).toBeInTheDocument();
-  });
-});
-```
-
-### Testes de Integração
-```typescript
-// tests/pages/novo-projeto.test.tsx
-import { render, screen } from '@testing-library/react';
-import NovoProjetoPage from '@/app/novo-projeto/page';
-
-// Mock do contexto de idioma
-jest.mock('@/contexts/LanguageContext', () => ({
-  useLanguage: () => ({
-    t: (key: string) => key
-  })
-}));
-
-describe('NovoProjetoPage', () => {
-  it('displays hero section', () => {
-    render(<NovoProjetoPage />);
-    expect(screen.getByText('novo_projeto.hero.title')).toBeInTheDocument();
-  });
-});
 ```
 
 ---
@@ -462,23 +396,26 @@ pnpm build
 
 # Verificar build
 pnpm start
-
-# Análise de bundle (opcional)
-pnpm analyze
 ```
 
-### Variáveis de Ambiente
-```bash
-# .env.local
-NEXT_PUBLIC_API_URL=https://api.giflabs.com
-NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
+⚠️ **Configurações Atuais que Precisam de Atenção**:
+
+```typescript
+// next.config.mjs - REVISAR PARA PRODUÇÃO
+eslint: { ignoreDuringBuilds: true },     // ❌ Remove para produção
+typescript: { ignoreBuildErrors: true },  // ❌ Remove para produção
+images: { unoptimized: true },            // ❌ Mude para false
 ```
 
-### Deploy Platforms
+```json
+// tsconfig.json - REVISAR PARA PRODUÇÃO
+"strict": false,                          // ❌ Mude para true
+```
+
+### Plataformas Recomendadas
 - **Vercel** (recomendado para Next.js)
 - **Netlify**
 - **AWS Amplify**
-- **Docker + VPS**
 
 ---
 
@@ -495,32 +432,17 @@ pnpm build
 ```
 
 #### Problemas de TypeScript
+⚠️ **Atenção**: O projeto está configurado com `"strict": false`, o que pode mascarar erros.
+
 ```bash
-# Verificar tipos
-pnpm type-check
-
-# Regenerar tipos
-pnpm types:generate
+# Verificar tipos manualmente
+npx tsc --noEmit
 ```
 
-#### Problemas de CSS
-```bash
-# Limpar cache do Tailwind
-pnpm tailwind:clean
-
-# Rebuild CSS
-pnpm tailwind:build
-```
-
-### Debug
-```typescript
-// ✅ Use console.log para debug
-console.log('Debug info:', { data, loading });
-
-// ✅ Use React DevTools para inspecionar componentes
-// ✅ Use Network tab para verificar requests
-// ✅ Use Performance tab para análise de performance
-```
+#### Problemas de Configuração
+1. **PostCSS**: Falta autoprefixer
+2. **Components.json**: Caminho CSS incorreto
+3. **TypeScript**: Não estrito
 
 ---
 
@@ -534,14 +456,8 @@ console.log('Debug info:', { data, loading });
 
 ### Ferramentas Úteis
 - **VS Code Extensions**: TypeScript, Tailwind CSS IntelliSense
-- **Browser Extensions**: React DevTools, Redux DevTools
+- **Browser Extensions**: React DevTools
 - **Performance**: Lighthouse, WebPageTest
-- **Accessibility**: axe DevTools, WAVE
-
-### Comunidade
-- **GitHub Issues**: Para bugs e feature requests
-- **Discord/Slack**: Para discussões técnicas
-- **Stack Overflow**: Para perguntas específicas
 
 ---
 
@@ -553,18 +469,36 @@ console.log('Debug info:', { data, loading });
 - [ ] Traduções estão implementadas (PT/EN)
 - [ ] Acessibilidade básica implementada
 - [ ] Performance não degradou
-- [ ] Testes passam (se aplicável)
 
 ### Antes do Deploy
+- [ ] Corrigir configurações de produção
 - [ ] Build sem erros
-- [ ] Testes de integração passam
 - [ ] Performance auditado
 - [ ] Acessibilidade verificada
-- [ ] SEO otimizado
-- [ ] Analytics configurado
 
 ---
 
-**🎉 Parabéns! Você está pronto para contribuir com o projeto GIFLABS!**
+## ⚠️ Itens que Precisam de Atenção
 
-Para dúvidas ou sugestões, abra uma issue no GitHub ou entre em contato com a equipe de desenvolvimento.
+### Configurações de Produção
+1. **next.config.mjs**: Remover flags que ignoram erros
+2. **tsconfig.json**: Habilitar strict mode
+3. **postcss.config.mjs**: Adicionar autoprefixer
+4. **components.json**: Corrigir caminho CSS
+
+### Inconsistências
+1. **IDs de projetos**: Padronizar hífens vs underscores
+2. **Rotas inexistentes**: Remover `/matzatea` do header
+3. **Componentes não utilizados**: Limpar ou implementar
+
+### Melhorias Futuras
+1. **Testes**: Implementar Jest + React Testing Library
+2. **Linting**: Configurar ESLint + Prettier adequadamente
+3. **CI/CD**: GitHub Actions para build/deploy automático
+
+---
+
+**🎉 Agora você está pronto para contribuir com o projeto GIFLABS!**
+
+Para dúvidas específicas, consulte os outros guias na pasta `/docs/` ou abra uma issue no GitHub.
+
