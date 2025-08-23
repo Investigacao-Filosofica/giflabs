@@ -51,6 +51,7 @@ export default function SerieIFPage() {
                 <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tighter text-neutral-900 md:text-6xl">
                   {t("projects.serie_if.hero.title")}
                 </h1>
+                
                 <p className="mb-8 text-lg leading-relaxed text-neutral-600 md:text-xl">
                   {t("projects.serie_if.hero.description")}
                 </p>
@@ -86,6 +87,7 @@ export default function SerieIFPage() {
                     {t("projects.serie_if.details.title")}
                   </h2>
                 </div>
+                
                 <div className="space-y-6 text-neutral-700 leading-relaxed text-lg text-left">
                   <p>
                     {t("projects.serie_if.details.paragraphs.p1")}
@@ -103,7 +105,9 @@ export default function SerieIFPage() {
                     {t("projects.serie_if.details.paragraphs.p5")}
                   </p>
                 </div>
-                <div className="mt-16 text-center">
+                
+                {/* CTA Explorar Série - Movido para cima */}
+                <div className="mt-20 text-center">
                   <Button
                     asChild
                     className="text-lg px-8 py-6 bg-neutral-900 hover:bg-neutral-800 text-white"
@@ -116,6 +120,36 @@ export default function SerieIFPage() {
                       {t("projects.serie_if.details.cta")}
                     </Link>
                   </Button>
+                </div>
+                
+                {/* Grant Templeton Context - Reposicionado */}
+                <div className="bg-gradient-to-r from-neutral-50 to-neutral-100 border-l-4 border-neutral-300 rounded-r-lg p-8 my-24">
+                  <div className="max-w-3xl mx-auto">
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-semibold text-neutral-900 mb-4">
+                        🏆 Reconhecimento Internacional
+                      </h3>
+                      <p className="text-lg text-neutral-700 leading-relaxed">
+                        A Série Investigação Filosófica recebeu o prestigioso apoio da Fundação John Templeton através de um grant que reconhece a importância de democratizar o conhecimento filosófico de qualidade no Brasil.
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="border-neutral-400 text-neutral-700 hover:bg-neutral-200 hover:border-neutral-500 px-8 py-4 text-base transition-all duration-300 font-medium shadow-sm"
+                        asChild
+                      >
+                        <Link 
+                          href="https://www.templeton.org/grant/serie-investigacao-filosofica-improving-knowledge-and-philosophical-competences-of-brazilian-researchers-and-students"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Ver Grant Templeton →
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
