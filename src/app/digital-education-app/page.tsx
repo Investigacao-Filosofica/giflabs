@@ -275,7 +275,7 @@ export default function DigitalEducationAppPage() {
                   <h3 className="font-bold text-white mb-3 text-xl">Mateus Rodrigues</h3>
                   <p className="text-neutral-300 mb-4 font-medium">Desenvolvedor Frontend</p>
                   <p className="text-sm text-neutral-400 leading-relaxed mb-6">
-                    Idealizador e desenvolvedor principal do projeto. Responsável pela interface, experiência do usuário e integração Web3.
+                    Desenvolvedor frontend responsável pela interface, experiência do usuário e gamificação.
                   </p>
                   <div className="flex flex-wrap gap-2 justify-center">
                     <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
@@ -285,7 +285,7 @@ export default function DigitalEducationAppPage() {
                       Web3
                     </Badge>
                     <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
-                      UX/UI
+                      Gamificação
                     </Badge>
                   </div>
                 </div>
