@@ -67,7 +67,7 @@ export const homeTranslations = {
         "members": {
           "rodrigo_cid": {
             "name": "Prof. Dr. Rodrigo Cid",
-            "role": "Coordenador Geral",
+            "role": "Líder da Equipe",
             "description": "Pesquisador em metafísica da ciência, filosofia das leis da natureza, e tecnologias digitais e editoriais para a educação e a governança. Responsável pela definição estratégica do GIFLABS.",
             "badges": {
               "philosophy_science": "Filosofia da Ciência",
@@ -76,7 +76,7 @@ export const homeTranslations = {
           },
           "rafael_martins": {
             "name": "Prof. Dr. Rafael Martins",
-            "role": "Coordenador Editorial",
+            "role": "Coordenador de Internacionalização",
             "description": "Professor de Filosofia na UNIMAX e UNIFAJ, pesquisador em ética, filosofia política e filosofia aplicada. Editor da Virtualia Journal e co-coordenador da Série Investigação Filosófica.",
             "badges": {
               "political_philosophy": "Filosofia Política",
@@ -86,7 +86,7 @@ export const homeTranslations = {
           },
           "roseline_crippa": {
             "name": "Roseline Crippa",
-            "role": "Coordenadora Executiva",
+            "role": "Secretária Executiva",
             "description": "Vice-diretora escolar, formada em Letras e estudante de Especialização em Educação a Distância pela UFF. Responsável pelas funções administrativas e organizacionais do GIFLABS.",
             "badges": {
               "educational_management": "Gestão Educacional",
@@ -96,7 +96,7 @@ export const homeTranslations = {
           },
           "mateus_rodrigues": {
             "name": "Mateus Rodrigues",
-            "role": "Coordenador de Tecnologia e Inovação",
+            "role": "Responsável pela Infraestrutura Tecnológica",
             "description": "Pesquisador em arte digital e modelos educacionais descentralizados, responsável pelo desenvolvimento de projetos experimentais do GIFLABS na interface entre Web3, educação e arte.",
             "badges": {
               "digital_art": "Arte Digital",
@@ -206,7 +206,7 @@ export const homeTranslations = {
         "members": {
           "rodrigo_cid": {
             "name": "Prof. Dr. Rodrigo Cid",
-            "role": "General Coordinator",
+            "role": "Team Leader",
             "description": "Researcher in metaphysics of science, philosophy of laws of nature, and digital and editorial technologies for education and governance. Responsible for the strategic definition of GIFLABS.",
             "badges": {
               "philosophy_science": "Philosophy of Science",
@@ -215,7 +215,7 @@ export const homeTranslations = {
           },
           "rafael_martins": {
             "name": "Prof. Dr. Rafael Martins",
-            "role": "Editorial Coordinator",
+            "role": "Internationalization Coordinator",
             "description": "Professor of Philosophy at UNIMAX and UNIFAJ, researcher in ethics, political philosophy, and applied philosophy. Editor of Virtualia Journal and co-coordinator of the Philosophical Investigation Series.",
             "badges": {
               "political_philosophy": "Political Philosophy",
@@ -225,7 +225,7 @@ export const homeTranslations = {
           },
           "roseline_crippa": {
             "name": "Roseline Crippa",
-            "role": "Executive Coordinator",
+            "role": "Executive Secretary",
             "description": "Vice school director, graduated in Letters and student of Specialization in Distance Education at UFF. Responsible for the administrative and organizational functions of GIFLABS.",
             "badges": {
               "educational_management": "Educational Management",
@@ -235,7 +235,7 @@ export const homeTranslations = {
           },
           "mateus_rodrigues": {
             "name": "Mateus Rodrigues",
-            "role": "Technology & Innovation Coordinator",
+            "role": "Technology Infrastructure Manager",
             "description": "Researcher in digital art and decentralized educational models, responsible for the development of experimental projects at GIFLABS at the interface between Web3, education, and art.",
             "badges": {
               "digital_art": "Digital Art",
