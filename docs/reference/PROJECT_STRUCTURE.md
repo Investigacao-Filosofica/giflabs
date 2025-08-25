@@ -534,3 +534,4 @@ src/
 **📁 Esta estrutura foi projetada para ser escalável e manutenível, permitindo crescimento organizado do projeto GIFLABS.**
 
 
+
