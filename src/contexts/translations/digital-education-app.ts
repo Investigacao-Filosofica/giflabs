@@ -76,6 +76,32 @@ export const digitalEducationAppTranslations = {
           "description": "Integração completa dos módulos Web2 e Web3, publicação da documentação e lançamento da versão MVP."
         }
       },
+      "team": {
+        "title": "Equipe de Desenvolvimento",
+        "description": "Especialistas técnicos responsáveis pela implementação do projeto",
+        "members": {
+          "mateus": {
+            "name": "Mateus Rodrigues",
+            "role": "Desenvolvedor Frontend",
+            "description": "Desenvolvedor frontend responsável pela interface, experiência do usuário e gamificação.",
+            "badges": {
+              "frontend": "Frontend",
+              "web3": "Web3",
+              "gamification": "Gamificação"
+            }
+          },
+          "alexandre": {
+            "name": "Alexandre Eduardo",
+            "role": "Desenvolvedor Backend",
+            "description": "Especialista em arquitetura de dados e sistemas descentralizados. Responsável pela infraestrutura backend e integração blockchain.",
+            "badges": {
+              "backend": "Backend",
+              "blockchain": "Blockchain",
+              "data_architecture": "Data Architecture"
+            }
+          }
+        }
+      },
       "cta": {
         "title": "Construa o Futuro da Educação Conosco",
         "description": "O Digital Education App é um convite à colaboração. Estamos em busca de parceiros, apoiadores e instituições que compartilham da nossa visão de criar uma ecologia de saberes livre, verificável e distribuída.",
@@ -159,6 +185,32 @@ export const digitalEducationAppTranslations = {
         "q4": {
           "title": "MVP Launch",
           "description": "Complete integration of Web2 and Web3 modules, documentation publication and MVP version launch."
+        }
+      },
+      "team": {
+        "title": "Development Team",
+        "description": "Technical specialists responsible for project implementation",
+        "members": {
+          "mateus": {
+            "name": "Mateus Rodrigues",
+            "role": "Frontend Developer",
+            "description": "Frontend developer responsible for interface, user experience and gamification.",
+            "badges": {
+              "frontend": "Frontend",
+              "web3": "Web3",
+              "gamification": "Gamification"
+            }
+          },
+          "alexandre": {
+            "name": "Alexandre Eduardo",
+            "role": "Backend Developer",
+            "description": "Specialist in data architecture and decentralized systems. Responsible for backend infrastructure and blockchain integration.",
+            "badges": {
+              "backend": "Backend",
+              "blockchain": "Blockchain",
+              "data_architecture": "Data Architecture"
+            }
+          }
         }
       },
       "cta": {
