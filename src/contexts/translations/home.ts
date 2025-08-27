@@ -58,6 +58,10 @@ export const homeTranslations = {
           "literatura": {
             "title": "Literatura",
             "description": "Experiência literária imersiva que combina literatura, artes visuais e tecnologia, criando espaços para pensamento filosófico e sensibilidade artística."
+          },
+          "internacionalizacao": {
+            "title": "Internacionalização",
+            "description": "Programa internacional em Filosofia e Ética da Inteligência Artificial, promovendo colaboração acadêmica entre UniEduK, University of Kansas e Ryukoku University de Kyoto."
           }
         }
       },
@@ -203,6 +207,10 @@ export const homeTranslations = {
           "literatura": {
             "title": "Literature",
             "description": "Immersive literary experience that combines literature, visual arts, and technology, creating spaces for philosophical thought and artistic sensibility."
+          },
+          "internacionalizacao": {
+            "title": "Internationalization",
+            "description": "International program in Philosophy and Ethics of Artificial Intelligence, promoting academic collaboration between UniEduK, University of Kansas and Ryukoku University of Kyoto."
           }
         }
       },

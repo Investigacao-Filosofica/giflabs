@@ -24,7 +24,9 @@ export const headerFooterTranslations = {
       "cultural_relevance": "Relevância Cultural",
       "funding": "Financiamento",
       "chapters": "Capítulos",
-      "collaborators": "Os Criadores"
+      "collaborators": "Os Criadores",
+      "objectives": "Objetivos",
+      "methodology": "Metodologia"
     },
     "header": {
       "title": "GIF Labs",
@@ -82,7 +84,9 @@ export const headerFooterTranslations = {
       "cultural_relevance": "Cultural Relevance",
       "funding": "Funding",
       "chapters": "Chapters",
-      "collaborators": "The Creators"
+      "collaborators": "The Creators",
+      "objectives": "Objectives",
+      "methodology": "Methodology"
     },
     "header": {
       "title": "GIF Labs",

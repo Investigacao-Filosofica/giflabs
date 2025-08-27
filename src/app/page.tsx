@@ -43,6 +43,7 @@ const iconMap = {
   Briefcase,
   Palette,
   Database,
+  Globe,
 };
 
 const projects = [
@@ -80,6 +81,11 @@ const projects = [
     id: "metaverso",
     iconName: "Puzzle",
     link: "/metaverso",
+  },
+  {
+    id: "internacionalizacao",
+    iconName: "Globe",
+    link: "/internacionalizacao",
   },
 ];
 
@@ -301,11 +307,9 @@ function Projects() {
 
         <div className="mx-auto mt-20 flex flex-wrap justify-center gap-8 max-w-7xl">
           {projects.map((project) => (
-            <a
+            <Link
               key={project.id}
               href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
               className="group block w-full sm:w-80 lg:w-72"
             >
               <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
@@ -324,7 +328,7 @@ function Projects() {
                    </div>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
