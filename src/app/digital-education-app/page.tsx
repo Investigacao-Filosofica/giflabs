@@ -27,6 +27,9 @@ import {
   FileSignature,
   Briefcase,
   Palette,
+  GraduationCap,
+  FileText,
+  Settings,
 } from "lucide-react"
 
 function Feature({ icon, title, children }: { icon: React.ReactNode; title: string; children: React.ReactNode }) {
@@ -262,54 +265,134 @@ export default function DigitalEducationAppPage() {
             <div className="container mx-auto px-6">
               <div className="max-w-3xl mx-auto text-center mb-20">
                 <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t("digital_education.team.title")}</h2>
-                <p className="text-lg text-neutral-300 leading-relaxed">
-                  {t("digital_education.team.description")}
-                </p>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                {/* Mateus - Desenvolvimento */}
-                <div className="bg-neutral-800 border border-neutral-700 rounded-lg p-8 text-center hover:bg-neutral-700 transition-colors">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-neutral-700 rounded-full flex items-center justify-center">
-                    <Palette size={32} className="text-white" />
+              {/* Setor: Coordenação e Administrativo */}
+              <div className="mb-16">
+                <div className="text-center mb-12">
+                  <h3 className="text-2xl font-bold text-white mb-4">{t("digital_education.team.sections.coordination.title")}</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                  {/* Rodrigo - Coordenação */}
+                  <div className="bg-neutral-800 border border-neutral-700 rounded-lg p-8 text-center hover:bg-neutral-700 transition-colors">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-neutral-700 rounded-full flex items-center justify-center">
+                      <GraduationCap size={32} className="text-white" />
+                    </div>
+                    <h3 className="font-bold text-white mb-3 text-xl">{t("digital_education.team.members.rodrigo.name")}</h3>
+                    <p className="text-neutral-300 mb-4 font-medium">{t("digital_education.team.members.rodrigo.role")}</p>
+                    <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                      {t("digital_education.team.members.rodrigo.description")}
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.rodrigo.badges.academic")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.rodrigo.badges.coordination")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.rodrigo.badges.founder")}
+                      </Badge>
+                    </div>
                   </div>
-                  <h3 className="font-bold text-white mb-3 text-xl">{t("digital_education.team.members.mateus.name")}</h3>
-                  <p className="text-neutral-300 mb-4 font-medium">{t("digital_education.team.members.mateus.role")}</p>
-                  <p className="text-sm text-neutral-400 leading-relaxed mb-6">
-                    {t("digital_education.team.members.mateus.description")}
-                  </p>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
-                      {t("digital_education.team.members.mateus.badges.frontend")}
-                    </Badge>
-                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
-                      {t("digital_education.team.members.mateus.badges.web3")}
-                    </Badge>
-                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
-                      {t("digital_education.team.members.mateus.badges.gamification")}
-                    </Badge>
+
+                  {/* Roseline - Administrativo */}
+                  <div className="bg-neutral-800 border border-neutral-700 rounded-lg p-8 text-center hover:bg-neutral-700 transition-colors">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-neutral-700 rounded-full flex items-center justify-center">
+                      <FileText size={32} className="text-white" />
+                    </div>
+                    <h3 className="font-bold text-white mb-3 text-xl">{t("digital_education.team.members.roseline.name")}</h3>
+                    <p className="text-neutral-300 mb-4 font-medium">{t("digital_education.team.members.roseline.role")}</p>
+                    <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                      {t("digital_education.team.members.roseline.description")}
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.roseline.badges.administration")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.roseline.badges.secretary")}
+                      </Badge>
+                    </div>
+                  </div>
+
+                  {/* Rafael - Administrativo */}
+                  <div className="bg-neutral-700 border border-neutral-600 rounded-lg p-8 text-center hover:bg-neutral-600 transition-colors">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-neutral-600 rounded-full flex items-center justify-center">
+                      <Settings size={32} className="text-white" />
+                    </div>
+                    <h3 className="font-bold text-white mb-3 text-xl">{t("digital_education.team.members.rafael.name")}</h3>
+                    <p className="text-neutral-300 mb-4 font-medium">{t("digital_education.team.members.rafael.role")}</p>
+                    <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                      {t("digital_education.team.members.rafael.description")}
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <Badge variant="outline" className="border-neutral-500 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.rafael.badges.administration")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-500 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.rafael.badges.management")}
+                      </Badge>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Alexandre - Desenvolvimento */}
-                <div className="bg-neutral-800 border border-neutral-700 rounded-lg p-8 text-center hover:bg-neutral-700 transition-colors">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-neutral-700 rounded-full flex items-center justify-center">
-                    <Database size={32} className="text-white" />
+              {/* Setor: Desenvolvimento Técnico */}
+              <div>
+                <div className="text-center mb-12">
+                  <h3 className="text-2xl font-bold text-white mb-4">{t("digital_education.team.sections.technical.title")}</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                  {/* Mateus - Coordenação + Desenvolvimento */}
+                  <div className="bg-neutral-800 border border-neutral-700 rounded-lg p-8 text-center hover:bg-neutral-700 transition-colors">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-neutral-700 rounded-full flex items-center justify-center">
+                      <Palette size={32} className="text-white" />
+                    </div>
+                    <h3 className="font-bold text-white mb-3 text-xl">{t("digital_education.team.members.mateus.name")}</h3>
+                    <p className="text-neutral-300 mb-4 font-medium">{t("digital_education.team.members.mateus.role")}</p>
+                    <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                      {t("digital_education.team.members.mateus.description")}
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.mateus.badges.frontend")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.mateus.badges.web3")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.mateus.badges.coordination")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.mateus.badges.founder")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.mateus.badges.gamification")}
+                      </Badge>
+                    </div>
                   </div>
-                  <h3 className="font-bold text-white mb-3 text-xl">{t("digital_education.team.members.alexandre.name")}</h3>
-                  <p className="text-neutral-300 mb-4 font-medium">{t("digital_education.team.members.alexandre.role")}</p>
-                  <p className="text-sm text-neutral-400 leading-relaxed mb-6">
-                    {t("digital_education.team.members.alexandre.description")}
-                  </p>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
-                      {t("digital_education.team.members.alexandre.badges.backend")}
-                    </Badge>
-                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
-                      {t("digital_education.team.members.alexandre.badges.blockchain")}
-                    </Badge>
-                    <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
-                      {t("digital_education.team.members.alexandre.badges.data_architecture")}
-                    </Badge>
+
+                  {/* Alexandre - Desenvolvimento */}
+                  <div className="bg-neutral-800 border border-neutral-700 rounded-lg p-8 text-center hover:bg-neutral-700 transition-colors">
+                    <div className="w-20 h-20 mx-auto mb-6 bg-neutral-700 rounded-full flex items-center justify-center">
+                      <Database size={32} className="text-white" />
+                    </div>
+                    <h3 className="font-bold text-white mb-3 text-xl">{t("digital_education.team.members.alexandre.name")}</h3>
+                    <p className="text-neutral-300 mb-4 font-medium">{t("digital_education.team.members.alexandre.role")}</p>
+                    <p className="text-sm text-neutral-400 leading-relaxed mb-6">
+                      {t("digital_education.team.members.alexandre.description")}
+                    </p>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.alexandre.badges.backend")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.alexandre.badges.blockchain")}
+                      </Badge>
+                      <Badge variant="outline" className="border-neutral-600 text-neutral-300 bg-transparent text-xs">
+                        {t("digital_education.team.members.alexandre.badges.data_architecture")}
+                      </Badge>
+                    </div>
                   </div>
                 </div>
               </div>

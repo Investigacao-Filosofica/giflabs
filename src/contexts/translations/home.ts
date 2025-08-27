@@ -112,7 +112,7 @@ export const homeTranslations = {
         "stats": {
           "researchers": {
             "title": "Pesquisadores",
-            "count": "109",
+            "count": "111",
             "description": "Ativos em pesquisa"
           },
           "students": {
@@ -134,6 +134,12 @@ export const homeTranslations = {
         "cta": {
           "title": "Conheça Nossa Rede Completa",
           "button": "Ver Rede Completa"
+        },
+        "list_titles": {
+          "researchers": "Pesquisadores",
+          "students": "Estudantes",
+          "technicians": "Técnicos",
+          "international": "Colaboradores Estrangeiros"
         }
       }
     }
@@ -251,7 +257,7 @@ export const homeTranslations = {
         "stats": {
           "researchers": {
             "title": "Researchers",
-            "count": "109",
+            "count": "111",
             "description": "Active in research"
           },
           "students": {
@@ -273,6 +279,12 @@ export const homeTranslations = {
         "cta": {
           "title": "Meet Our Complete Network",
           "button": "View Complete Network"
+        },
+        "list_titles": {
+          "researchers": "Researchers",
+          "students": "Students",
+          "technicians": "Technicians",
+          "international": "International Collaborators"
         }
       }
     }

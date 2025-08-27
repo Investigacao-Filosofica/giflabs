@@ -129,6 +129,7 @@ const networkMembers = {
     { name: "Alison Vander Mandeli", link: "http://dgp.cnpq.br/dgp/espelhorh/0038602628" },
     { name: "Allan Josué Vieira", link: "http://dgp.cnpq.br/dgp/espelhorh/0053213556" },
     { name: "Aluízio de Araújo Couto Júnior", link: "http://dgp.cnpq.br/dgp/espelhorh/0052674487" },
+    { name: "Amanda Sayonara Fernandes Prazeres", link: "http://dgp.cnpq.br/dgp/espelhorh/[ID_DO_LATTES]" },
     { name: "Ana Rieger Schmidt", link: "http://dgp.cnpq.br/dgp/espelhorh/0006190111" },
     { name: "Ana Rita Nicoliello Lara Leite", link: "http://dgp.cnpq.br/dgp/espelhorh/0111760232" },
     { name: "Annelyze de Araújo Reis", link: "http://dgp.cnpq.br/dgp/espelhorh/0123324920" },
@@ -622,14 +623,11 @@ export default function GifLabsSite() {
 
           {/* Lista Completa da Rede */}
           <div className="max-w-7xl mx-auto mb-16">
-            <h3 className="text-2xl font-bold text-neutral-900 mb-8 text-center">
-              Lista Completa da Nossa Rede
-            </h3>
             
             {/* Pesquisadores */}
             <div className="mb-12">
               <h4 className="text-xl font-semibold text-neutral-800 mb-6 border-b border-neutral-200 pb-2">
-                Pesquisadores ({networkMembers.researchers.length})
+                {t("home.collaborators.list_titles.researchers")}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                 {networkMembers.researchers.map((member, index) => (
@@ -649,7 +647,7 @@ export default function GifLabsSite() {
             {/* Estudantes */}
             <div className="mb-12">
               <h4 className="text-xl font-semibold text-neutral-800 mb-6 border-b border-neutral-200 pb-2">
-                Estudantes ({networkMembers.students.length})
+                {t("home.collaborators.list_titles.students")}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                 {networkMembers.students.map((member, index) => (
@@ -669,7 +667,7 @@ export default function GifLabsSite() {
             {/* Técnicos */}
             <div className="mb-12">
               <h4 className="text-xl font-semibold text-neutral-800 mb-6 border-b border-neutral-200 pb-2">
-                Técnicos ({networkMembers.technicians.length})
+                {t("home.collaborators.list_titles.technicians")}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                 {networkMembers.technicians.map((member, index) => (
@@ -689,7 +687,7 @@ export default function GifLabsSite() {
             {/* Colaboradores Estrangeiros */}
             <div className="mb-12">
               <h4 className="text-xl font-semibold text-neutral-800 mb-6 border-b border-neutral-200 pb-2">
-                Colaboradores Estrangeiros ({networkMembers.international.length})
+                {t("home.collaborators.list_titles.international")}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
                 {networkMembers.international.map((member, index) => (
@@ -707,27 +705,7 @@ export default function GifLabsSite() {
             </div>
           </div>
 
-          {/* CTA */}
-          <div className="text-center">
-            <div className="max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-neutral-900 mb-8">
-                {t("home.collaborators.cta.title")}
-              </h3>
-              <Button
-                size="lg"
-                className="bg-neutral-900 hover:bg-neutral-800 text-white px-8 py-4 text-lg transition-all duration-300 border-0 font-medium"
-                asChild
-              >
-                <Link 
-                  href="http://dgp.cnpq.br/dgp/espelhogrupo/821202"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {t("home.collaborators.cta.button")}
-                </Link>
-              </Button>
-            </div>
-          </div>
+
         </div>
       </section>
     </div>
