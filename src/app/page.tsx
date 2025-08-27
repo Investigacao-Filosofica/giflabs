@@ -62,6 +62,11 @@ const projects = [
     link: "/virtualia",
   },
   {
+    id: "literatura",
+    iconName: "BookOpen",
+    link: "/literatura",
+  },
+  {
     id: "arqueologia-digital",
     iconName: "Archive",
     link: "/arqueologia-digital",
@@ -75,11 +80,6 @@ const projects = [
     id: "metaverso",
     iconName: "Puzzle",
     link: "/metaverso",
-  },
-  {
-    id: "literatura",
-    iconName: "BookOpen",
-    link: "/literatura",
   },
 ];
 
@@ -299,14 +299,14 @@ function Projects() {
           </p>
         </div>
 
-        <div className="mx-auto mt-20 grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-20 flex flex-wrap justify-center gap-8 max-w-7xl">
           {projects.map((project) => (
             <a
               key={project.id}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block h-full"
+              className="group block w-full sm:w-80 lg:w-72"
             >
               <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
                 <div className="p-8 text-center flex flex-col flex-grow">
