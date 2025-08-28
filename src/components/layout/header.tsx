@@ -84,7 +84,6 @@ export function Header() {
           { href: "#sobre", label: t("navigation.about") },
           { href: "#objetivos", label: t("navigation.objectives") },
           { href: "#equipe", label: t("navigation.team") },
-          { href: "#metodologia", label: t("navigation.methodology") },
           { href: "#parceiros", label: t("navigation.partners") },
         ];
       case "/matzatea":

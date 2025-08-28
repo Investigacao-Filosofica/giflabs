@@ -4,40 +4,24 @@ export const internacionalizacaoTranslations = {
       "title": "Internacionalização",
       "hero": {
         "title": "Programa Internacional em Filosofia e Ética da IA",
-        "subtitle": "Colaboração Acadêmica Global",
         "description": "Programa internacional que reúne UniEduK, University of Kansas e Ryukoku University de Kyoto para explorar a filosofia e ética da inteligência artificial.",
         "cta_main": "Conheça o Programa",
-        "cta_secondary": "Nossa Equipe"
+        "cta_secondary": "Instituições Parceiras",
+        "cta_team": "Equipe do Programa"
       },
       "about": {
-        "title": "Sobre o Projeto",
-        "description": "O projeto busca integrar ensino, pesquisa e cooperação intercultural por meio de atividades síncronas e assíncronas em ambientes digitais compartilhados.",
-        "summary": "A colaboração acadêmica entre UniEduK, University of Kansas e Ryukoku University de Kyoto reúne estudantes e professores em um programa internacional sobre Filosofia e Ética da Inteligência Artificial. O projeto combina encontros online síncronos e atividades assíncronas em ambientes virtuais, promovendo trabalhos colaborativos, conferências e trocas interculturais que desenvolvem pensamento crítico, formação ética e competências linguísticas em inglês.",
-        "features": {
+        "title": "Sobre o Programa",
+        "description": "A colaboração acadêmica entre UniEduK, University of Kansas e Ryukoku University de Kyoto promove um programa internacional em Filosofia e Ética da Inteligência Artificial, voltado para estudantes de graduação e pós-graduação. O projeto busca integrar ensino, pesquisa e cooperação intercultural por meio de atividades síncronas e assíncronas em ambientes digitais compartilhados. Nele, os alunos trabalham em pares ou trios internacionais no desenvolvimento de projetos colaborativos, participam de conferências, produzem reflexões críticas e compartilham experiências culturais. Além de estimular a produção acadêmica conjunta e o uso responsável das tecnologias de IA, a iniciativa fortalece competências linguísticas em inglês, amplia a formação ética e filosófica e promove um espaço de diálogo global sobre os impactos sociais e humanos da inteligência artificial."
+      },
+      "objectives": {
+        "title": "Nossos Objetivos",
+        "goals": {
           "collaboration": {
             "title": "Colaboração Internacional",
             "description": "Trabalho em pares ou trios internacionais no desenvolvimento de projetos colaborativos."
           },
-          "conferences": {
-            "title": "Conferências e Eventos",
-            "description": "Participação em conferências acadêmicas e eventos internacionais."
-          },
-          "reflection": {
-            "title": "Reflexão Crítica",
-            "description": "Produção de reflexões críticas sobre ética e filosofia da IA."
-          },
-          "cultural": {
-            "title": "Troca Cultural",
-            "description": "Compartilhamento de experiências culturais e intercâmbio global."
-          }
-        }
-      },
-      "objectives": {
-        "title": "Objetivos do Programa",
-        "description": "Nossa iniciativa visa desenvolver competências essenciais para o futuro da filosofia e ética da inteligência artificial.",
-        "goals": {
           "academic": {
-            "title": "Produção Acadêmica",
+            "title": "Produção Acadêmica Conjunta",
             "description": "Estimular a produção acadêmica conjunta entre instituições parceiras."
           },
           "technology": {
@@ -49,58 +33,12 @@ export const internacionalizacaoTranslations = {
             "description": "Fortalecer competências linguísticas em inglês."
           },
           "ethical": {
-            "title": "Formação Ética",
+            "title": "Formação Ética e Filosófica",
             "description": "Ampliar a formação ética e filosófica dos participantes."
           },
           "dialogue": {
-            "title": "Diálogo Global",
+            "title": "Diálogo Global sobre IA",
             "description": "Promover um espaço de diálogo global sobre os impactos sociais e humanos da IA."
-          }
-        }
-      },
-      "team": {
-        "title": "Nossa Equipe",
-        "description": "Conheça os organizadores deste programa internacional de excelência.",
-        "organizers": {
-          "rafael_martins": {
-            "name": "Prof. Dr. Rafael Martins",
-            "institution": "Unifaj - Unimax",
-            "role": "Coordenador Nacional",
-            "description": "Professor de Filosofia na UNIMAX e UNIFAJ, pesquisador em ética, filosofia política e filosofia aplicada."
-          },
-          "david_tamez": {
-            "name": "Prof. Dr. David Tamez",
-            "institution": "University of Kansas",
-            "role": "Coordenador Internacional",
-            "description": "Professor e pesquisador na University of Kansas, especialista em filosofia da tecnologia e ética da IA."
-          },
-          "sean_white": {
-            "name": "Prof. Dr. Sean White",
-            "institution": "Ryukoku University of Kyoto",
-            "role": "Coordenador Asiático",
-            "description": "Professor na Ryukoku University de Kyoto, pesquisador em filosofia oriental e ética aplicada."
-          }
-        }
-      },
-      "methodology": {
-        "title": "Metodologia",
-        "description": "Nossa abordagem combina diferentes modalidades de ensino para maximizar o aprendizado e a colaboração.",
-        "approaches": {
-          "synchronous": {
-            "title": "Atividades Síncronas",
-            "description": "Encontros online em tempo real para discussões, apresentações e colaboração direta."
-          },
-          "asynchronous": {
-            "title": "Atividades Assíncronas",
-            "description": "Trabalhos colaborativos, pesquisas e reflexões em ambientes digitais compartilhados."
-          },
-          "collaborative": {
-            "title": "Projetos Colaborativos",
-            "description": "Desenvolvimento de projetos em equipes internacionais com diferentes perspectivas culturais."
-          },
-          "digital": {
-            "title": "Ambientes Digitais",
-            "description": "Utilização de plataformas digitais para facilitar a colaboração e o compartilhamento de conhecimento."
           }
         }
       },
@@ -121,6 +59,27 @@ export const internacionalizacaoTranslations = {
             "description": "Universidade japonesa com rica tradição em filosofia oriental e estudos éticos."
           }
         }
+      },
+      "team": {
+        "title": "Equipe do Programa",
+        "description": "Professores e pesquisadores especialistas em filosofia e ética da IA das instituições parceiras.",
+        "members": {
+          "rafael_martins": {
+            "name": "Prof. Dr. Rafael Martins",
+            "affiliation": "Unifaj - Unimax",
+            "role": "Coordenador Brasileiro"
+          },
+          "david_tamez": {
+            "name": "Prof. Dr. David Tamez",
+            "affiliation": "University of Kansas",
+            "role": "Coordenador Norte-Americano"
+          },
+          "sean_white": {
+            "name": "Prof. Dr. Sean White",
+            "affiliation": "Ryukoku University of Kyoto",
+            "role": "Coordenador Asiático"
+          }
+        }
       }
     }
   },
@@ -129,40 +88,24 @@ export const internacionalizacaoTranslations = {
       "title": "Internationalization",
       "hero": {
         "title": "International Program in Philosophy and AI Ethics",
-        "subtitle": "Global Academic Collaboration",
         "description": "International program bringing together UniEduK, University of Kansas and Ryukoku University of Kyoto to explore the philosophy and ethics of artificial intelligence.",
         "cta_main": "Learn About the Program",
-        "cta_secondary": "Our Team"
+        "cta_secondary": "Partner Institutions",
+        "cta_team": "Program Team"
       },
       "about": {
-        "title": "About the Project",
-        "description": "The project seeks to integrate teaching, research and intercultural cooperation through synchronous and asynchronous activities in shared digital environments.",
-        "summary": "The academic collaboration between UniEduK, University of Kansas and Ryukoku University of Kyoto brings together students and professors in an international program on Philosophy and Ethics of Artificial Intelligence. The project combines synchronous online meetings and asynchronous activities in virtual environments, promoting collaborative work, conferences and cultural exchanges that develop critical thinking, ethical training and English language skills.",
-        "features": {
+        "title": "About the Program",
+        "description": "The academic collaboration between UniEduK, University of Kansas and Ryukoku University of Kyoto promotes an international program in Philosophy and AI Ethics, aimed at undergraduate and graduate students. The project seeks to integrate teaching, research and intercultural cooperation through synchronous and asynchronous activities in shared digital environments. In it, students work in international pairs or trios on collaborative project development, participate in conferences, produce critical reflections and share cultural experiences. In addition to stimulating joint academic production and responsible use of AI technologies, the initiative strengthens English language skills, expands ethical and philosophical training and promotes a global dialogue space on the social and human impacts of artificial intelligence."
+      },
+      "objectives": {
+        "title": "Our Objectives",
+        "goals": {
           "collaboration": {
             "title": "International Collaboration",
             "description": "Work in international pairs or trios on collaborative project development."
           },
-          "conferences": {
-            "title": "Conferences and Events",
-            "description": "Participation in academic conferences and international events."
-          },
-          "reflection": {
-            "title": "Critical Reflection",
-            "description": "Production of critical reflections on AI ethics and philosophy."
-          },
-          "cultural": {
-            "title": "Cultural Exchange",
-            "description": "Sharing of cultural experiences and global exchange."
-          }
-        }
-      },
-      "objectives": {
-        "title": "Program Objectives",
-        "description": "Our initiative aims to develop essential competencies for the future of philosophy and AI ethics.",
-        "goals": {
           "academic": {
-            "title": "Academic Production",
+            "title": "Joint Academic Production",
             "description": "Stimulate joint academic production between partner institutions."
           },
           "technology": {
@@ -174,58 +117,12 @@ export const internacionalizacaoTranslations = {
             "description": "Strengthen English language skills."
           },
           "ethical": {
-            "title": "Ethical Training",
+            "title": "Ethical and Philosophical Training",
             "description": "Expand ethical and philosophical training of participants."
           },
           "dialogue": {
-            "title": "Global Dialogue",
+            "title": "Global Dialogue on AI",
             "description": "Promote a global dialogue space on the social and human impacts of AI."
-          }
-        }
-      },
-      "team": {
-        "title": "Our Team",
-        "description": "Meet the organizers of this international excellence program.",
-        "organizers": {
-          "rafael_martins": {
-            "name": "Prof. Dr. Rafael Martins",
-            "institution": "Unifaj - Unimax",
-            "role": "National Coordinator",
-            "description": "Professor of Philosophy at UNIMAX and UNIFAJ, researcher in ethics, political philosophy and applied philosophy."
-          },
-          "david_tamez": {
-            "name": "Prof. Dr. David Tamez",
-            "institution": "University of Kansas",
-            "role": "International Coordinator",
-            "description": "Professor and researcher at the University of Kansas, specialist in philosophy of technology and AI ethics."
-          },
-          "sean_white": {
-            "name": "Prof. Dr. Sean White",
-            "institution": "Ryukoku University of Kyoto",
-            "role": "Asian Coordinator",
-            "description": "Professor at Ryukoku University of Kyoto, researcher in Eastern philosophy and applied ethics."
-          }
-        }
-      },
-      "methodology": {
-        "title": "Methodology",
-        "description": "Our approach combines different teaching modalities to maximize learning and collaboration.",
-        "approaches": {
-          "synchronous": {
-            "title": "Synchronous Activities",
-            "description": "Real-time online meetings for discussions, presentations and direct collaboration."
-          },
-          "asynchronous": {
-            "title": "Asynchronous Activities",
-            "description": "Collaborative work, research and reflections in shared digital environments."
-          },
-          "collaborative": {
-            "title": "Collaborative Projects",
-            "description": "Development of projects in international teams with different cultural perspectives."
-          },
-          "digital": {
-            "title": "Digital Environments",
-            "description": "Use of digital platforms to facilitate collaboration and knowledge sharing."
           }
         }
       },
@@ -244,6 +141,27 @@ export const internacionalizacaoTranslations = {
           "ryukoku": {
             "name": "Ryukoku University of Kyoto",
             "description": "Japanese university with rich tradition in Eastern philosophy and ethical studies."
+          }
+        }
+      },
+      "team": {
+        "title": "Program Team",
+        "description": "Professors and researchers specialized in philosophy and AI ethics from partner institutions.",
+        "members": {
+          "rafael_martins": {
+            "name": "Prof. Dr. Rafael Martins",
+            "affiliation": "Unifaj - Unimax",
+            "role": "Brazilian Coordinator"
+          },
+          "david_tamez": {
+            "name": "Prof. Dr. David Tamez",
+            "affiliation": "University of Kansas",
+            "role": "North American Coordinator"
+          },
+          "sean_white": {
+            "name": "Prof. Dr. Sean White",
+            "affiliation": "Ryukoku University of Kyoto",
+            "role": "Asian Coordinator"
           }
         }
       }
