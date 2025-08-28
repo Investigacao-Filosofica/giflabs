@@ -55,23 +55,7 @@ export default function InternacionalizacaoPage() {
                 <p className="mb-8 text-lg leading-relaxed text-neutral-600 md:text-xl">
                   {t("internacionalizacao.hero.description")}
                 </p>
-                <div className="flex justify-center gap-4">
-                  <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white">
-                    <Link href="#sobre">
-                      {t("internacionalizacao.hero.cta_main")} <ChevronRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link href="#parceiros">
-                      {t("internacionalizacao.hero.cta_secondary")} <Users className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <Link href="#equipe">
-                      {t("internacionalizacao.hero.cta_team")} <GraduationCap className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
+
               </div>
             </div>
           </section>
