@@ -131,7 +131,7 @@ export const homeTranslations = {
           },
           "international": {
             "title": "Internacionais",
-            "count": "1",
+            "count": "2",
             "description": "Colaborador"
           }
         },
