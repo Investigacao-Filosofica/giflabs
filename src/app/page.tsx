@@ -94,7 +94,7 @@ const teamMembers = [
     id: "rodrigo_cid",
     iconName: "Users",
     lattes: "http://lattes.cnpq.br/0847832636263404",
-    github: "https://github.com/ThePhilosopherX",
+    github: "https://github.com/thephilo_sopher",
     linkedin: "#",
     twitter: "https://x.com/thephilo_sopher",
     badges: ["philosophy_science", "educational_technology"]
