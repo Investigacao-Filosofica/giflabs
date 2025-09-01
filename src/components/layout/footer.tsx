@@ -31,19 +31,8 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Mail className="mr-3 text-neutral-400" size={16} />
-                <a href="mailto:rodrigorlcid@gmail.com" className="text-neutral-300 hover:text-white transition-colors font-light text-sm">
+                <a href="mailto:rodrigo.cid@ufop.edu.br" className="text-neutral-300 hover:text-white transition-colors font-light text-sm">
                   {t("footer.contact.contact_info.email")}
-                </a>
-              </div>
-              <div className="flex items-center">
-                <BookOpen className="mr-3 text-neutral-400" size={16} />
-                <a
-                  href="https://www.virtualiajournal.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-neutral-300 hover:text-white transition-colors font-light text-sm"
-                >
-                  {t("footer.contact.contact_info.virtualia")}
                 </a>
               </div>
               <div className="flex items-center">
@@ -88,7 +77,7 @@ export function Footer() {
         <div className="border-t border-neutral-800 mt-8 pt-6 text-center">
           <p className="text-neutral-400 font-light text-sm mb-3">"{t("footer.quote")}"</p>
           <p className="text-neutral-500 text-xs font-light">
-            © {new Date().getFullYear()} {t("footer.description")}. {t("footer.copyright")}
+            © {new Date().getFullYear()} GIFLABS. {t("footer.description")}
           </p>
         </div>
       </div>

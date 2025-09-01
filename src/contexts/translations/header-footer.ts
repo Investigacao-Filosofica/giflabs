@@ -24,7 +24,8 @@ export const headerFooterTranslations = {
       "cultural_relevance": "Relevância Cultural",
       "funding": "Financiamento",
       "chapters": "Capítulos",
-      "collaborators": "Os Criadores"
+      "collaborators": "Os Criadores",
+      "objectives": "Objetivos"
     },
     "header": {
       "title": "GIF Labs",
@@ -40,7 +41,7 @@ export const headerFooterTranslations = {
         "university": "Universidade Federal de Ouro Preto",
         "contact_info": {
           "title": "Informações de Contato",
-          "email": "rodrigorlcid@gmail.com",
+          "email": "rodrigo.cid@ufop.edu.br",
           "virtualia": "Virtualia Magazine",
           "cnpq": "Grupo registrado no CNPq"
         },
@@ -82,7 +83,8 @@ export const headerFooterTranslations = {
       "cultural_relevance": "Cultural Relevance",
       "funding": "Funding",
       "chapters": "Chapters",
-      "collaborators": "The Creators"
+      "collaborators": "The Creators",
+      "objectives": "Objectives"
     },
     "header": {
       "title": "GIF Labs",
@@ -98,7 +100,7 @@ export const headerFooterTranslations = {
         "university": "Federal University of Ouro Preto",
         "contact_info": {
           "title": "Contact Information",
-          "email": "rodrigorlcid@gmail.com",
+          "email": "rodrigo.cid@ufop.edu.br",
           "virtualia": "Virtualia Magazine",
           "cnpq": "GIF (DGP/CNPq)"
         },

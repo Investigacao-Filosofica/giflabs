@@ -76,6 +76,69 @@ export const digitalEducationAppTranslations = {
           "description": "Integração completa dos módulos Web2 e Web3, publicação da documentação e lançamento da versão MVP."
         }
       },
+      "team": {
+        "title": "Nossa Equipe",
+        "sections": {
+          "coordination": {
+            "title": "Coordenação e Administrativo"
+          },
+          "technical": {
+            "title": "Desenvolvimento Técnico"
+          }
+        },
+        "members": {
+          "rodrigo": {
+            "name": "Rodrigo",
+            "role": "Founder/Academic Coord",
+            "description": "Idealizador e coordenador acadêmico, responsável pela direção acadêmica e estratégica.",
+            "badges": {
+              "academic": "Acadêmico",
+              "coordination": "Coordenação",
+              "founder": "Founder"
+            }
+          },
+          "mateus": {
+            "name": "Mateus Rodrigues",
+            "role": "Founder/Dev Coord",
+            "description": "Idealizador e coordenador de desenvolvimento, responsável pela arquitetura, desenvolvimento frontend e gamificação.",
+            "badges": {
+              "frontend": "Frontend",
+              "web3": "Web3",
+              "coordination": "Coordenação",
+              "founder": "Founder",
+              "gamification": "Gamificação"
+            }
+          },
+          "alexandre": {
+            "name": "Alexandre Eduardo",
+            "role": "Backend + Blockchain",
+            "description": "Desenvolvedor backend especialista em banco de dados, trabalhando em integrações com blockchain.",
+            "badges": {
+              "backend": "Backend",
+              "blockchain": "Blockchain",
+              "data_architecture": "Data Architecture"
+            }
+          },
+          "roseline": {
+            "name": "Roseline",
+            "role": "Secretaria",
+            "description": "Responsável pela gestão administrativa e secretaria do projeto.",
+            "badges": {
+              "administration": "Administração",
+              "secretary": "Secretaria"
+            }
+          },
+          "rafael": {
+            "name": "Rafael",
+            "role": "Administrative",
+            "description": "Responsável pela gestão administrativa e operacional do projeto.",
+            "badges": {
+              "administration": "Administração",
+              "management": "Gestão"
+            }
+          }
+        }
+      },
       "cta": {
         "title": "Construa o Futuro da Educação Conosco",
         "description": "O Digital Education App é um convite à colaboração. Estamos em busca de parceiros, apoiadores e instituições que compartilham da nossa visão de criar uma ecologia de saberes livre, verificável e distribuída.",
@@ -159,6 +222,69 @@ export const digitalEducationAppTranslations = {
         "q4": {
           "title": "MVP Launch",
           "description": "Complete integration of Web2 and Web3 modules, documentation publication and MVP version launch."
+        }
+      },
+      "team": {
+        "title": "Our Team",
+        "sections": {
+          "coordination": {
+            "title": "Coordination and Administration"
+          },
+          "technical": {
+            "title": "Technical Development"
+          }
+        },
+        "members": {
+          "rodrigo": {
+            "name": "Rodrigo",
+            "role": "Founder/Academic Coord",
+            "description": "Project founder and academic coordinator, responsible for academic and strategic direction.",
+            "badges": {
+              "academic": "Academic",
+              "coordination": "Coordination",
+              "founder": "Founder"
+            }
+          },
+          "mateus": {
+            "name": "Mateus Rodrigues",
+            "role": "Founder/Dev Coord",
+            "description": "Project founder and development coordinator, responsible for architecture, frontend development and gamification.",
+            "badges": {
+              "frontend": "Frontend",
+              "web3": "Web3",
+              "coordination": "Coordination",
+              "founder": "Founder",
+              "gamification": "Gamification"
+            }
+          },
+          "alexandre": {
+            "name": "Alexandre Eduardo",
+            "role": "Backend + Blockchain",
+            "description": "Backend developer specialized in database systems, working on blockchain integrations.",
+            "badges": {
+              "backend": "Backend",
+              "blockchain": "Blockchain",
+              "data_architecture": "Data Architecture"
+            }
+          },
+          "roseline": {
+            "name": "Roseline",
+            "role": "Secretary",
+            "description": "Responsible for administrative management and project secretariat.",
+            "badges": {
+              "administration": "Administration",
+              "secretary": "Secretary"
+            }
+          },
+          "rafael": {
+            "name": "Rafael",
+            "role": "Administrative",
+            "description": "Responsible for administrative and operational project management.",
+            "badges": {
+              "administration": "Administration",
+              "management": "Management"
+            }
+          }
         }
       },
       "cta": {

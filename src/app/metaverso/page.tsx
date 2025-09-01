@@ -146,17 +146,17 @@ export default function MetaversoPage() {
                 </p>
               </div>
               <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <Button asChild>
+                <Button variant="outline" asChild className="border-neutral-300 text-neutral-700 hover:bg-neutral-900 hover:text-white transition-colors">
                   <Link href="https://www.niftyisland.com/play/Cluny/longwei" target="_blank">
                     Long Wei Legend (Nifty Island) <ExternalLink className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild>
+                <Button variant="outline" asChild className="border-neutral-300 text-neutral-700 hover:bg-neutral-900 hover:text-white transition-colors">
                   <Link href="https://www.cryptovoxels.com/play?coords=E@3580E,1962.5S,1U" target="_blank">
                     Storytelling (Voxels) <ExternalLink className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild>
+                <Button variant="outline" asChild className="border-neutral-300 text-neutral-700 hover:bg-neutral-900 hover:text-white transition-colors">
                   <Link href="https://linktr.ee/metagalleries" target="_blank">
                     Nossos Mundos Virtuais <ExternalLink className="ml-2 h-4 w-4" />
                   </Link>

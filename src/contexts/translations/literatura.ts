@@ -21,7 +21,9 @@ export const literaturaTranslations = {
       },
       "collaborators": {
         "title": "Os Criadores",
-        "description": "Conheça as mentes por trás do universo MatzaTea."
+        "description": "Conheça as mentes por trás do universo MatzaTea.",
+        "academic_support": "Com o apoio acadêmico de",
+        "academic_advisor": "Prof. Rodrigo Cid - Conselheiro Acadêmico e Web3"
       },
       "author": {
         "name": "Emanuel Souza",
@@ -81,7 +83,9 @@ export const literaturaTranslations = {
       },
       "collaborators": {
         "title": "The Creators",
-        "description": "Meet the minds behind the MatzaTea universe."
+        "description": "Meet the minds behind the MatzaTea universe.",
+        "academic_support": "With academic support from",
+        "academic_advisor": "Prof. Rodrigo Cid - Academic Advisor and Web3"
       },
       "author": {
         "name": "Emanuel Souza",

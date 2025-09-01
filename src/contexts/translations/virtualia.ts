@@ -46,7 +46,107 @@ export const virtualiaTranslations = {
         "description": "A Virtualia é impulsionada por uma equipe dedicada de editores, um conselho editorial de especialistas e escritores permanentes que contribuem com suas diversas perspectivas. Conheça os indivíduos que dão vida à nossa revista e periódico.",
         "main_team": "Equipe Principal",
         "editorial_board": "Conselho Editorial",
-        "permanent_writers": "Escritores Permanentes da Revista"
+        "permanent_writers": "Escritores Permanentes da Revista",
+        "roles": {
+          "magazine_editor": "Editor da Revista",
+          "academic_editor": "Editor Acadêmico",
+          "general_secretary": "Secretária Geral",
+          "librarian": "Bibliotecária",
+          "designer": "Designer",
+          "former_designer": "Ex-Designer",
+          "technologic_reviewer": "Revisor Tecnológico",
+          "editorial_board": "Conselho Editorial",
+          "literature": "Literatura",
+          "art_culture": "Arte & Cultura",
+          "urban_street_art": "Arte Urbana & Street Art",
+          "technology": "Tecnologia",
+          "education": "Educação",
+          "music": "Música",
+          "long_wei_nft": "Long Wei & Projetos NFT",
+          "culture_social_economy": "Cultura & Economia Social"
+        },
+        "staff": {
+          "rodrigo_cid": {
+            "name": "Prof. Rodrigo Reis Lastra Cid, PhD",
+            "affiliation": "UFOP"
+          },
+          "rafael_martins": {
+            "name": "Prof. Rafael Martins, PhD",
+            "affiliation": "UNIMAX & UNIFAJ"
+          },
+          "roseline_crippa": {
+            "name": "Roseline Crippa",
+            "affiliation": "UNAR"
+          },
+          "nanci_nobrega": {
+            "name": "Nanci Nóbrega, PhD",
+            "affiliation": "UFF"
+          },
+          "luan_martins": {
+            "name": "Luan Lopes Martins",
+            "affiliation": "UFOP"
+          },
+          "rafaela_nobrega": {
+            "name": "Rafaela Nóbrega, MA",
+            "affiliation": "ESDI/UERJ"
+          },
+          "thiago_cotting": {
+            "name": "Thiago Cotting",
+            "affiliation": "Autoscriber"
+          }
+        },
+        "editorial_board_members": {
+          "daniel_schiochett": {
+            "name": "Prof. Daniel Schiochett, PhD",
+            "affiliation": "UFMA"
+          },
+          "juliano_carmo": {
+            "name": "Prof. Juliano do Carmo, PhD",
+            "affiliation": "UFPel"
+          },
+          "david_tamez": {
+            "name": "Prof. David Tamez, PhD",
+            "affiliation": "University of Kansas"
+          },
+          "daniel_farinha": {
+            "name": "Prof. Daniel Filipe G. Farinha, PhD",
+            "affiliation": "Un. of Saint Joseph - Macau"
+          }
+        },
+        "writers": {
+          "emanuel_souza": {
+            "name": "Emanuel Souza, MSC",
+            "affiliation": "UFF"
+          },
+          "van_ameneyro": {
+            "name": "Van Ameneyro, BA",
+            "affiliation": "Universidad de Guadalajara"
+          },
+          "katia_melo": {
+            "name": "Katia Suzue Melo, BEd",
+            "affiliation": "UNG"
+          },
+          "oliver_reinis": {
+            "name": "Oliver Reinis, BA",
+            "affiliation": "FDSBC"
+          },
+          "manuella_silva": {
+            "name": "Manuella de Godoy e Silva, BA",
+            "affiliation": "UFPE"
+          },
+          "vessy_mink": {
+            "name": "Vessy Mink",
+            "affiliation": "Web3 Singer/Musician"
+          },
+          "valerie_geerken": {
+            "name": "Valerie Geerken, B.S.",
+            "affiliation": ""
+          },
+          "edvam_filho": {
+            "name": "Edvam Filho",
+            "affiliation": "UNICAP"
+          }
+        }
       },
       "supporters": {
         "title": "Nossos Apoiadores",
@@ -103,7 +203,107 @@ export const virtualiaTranslations = {
         "description": "Virtualia is driven by a dedicated team of editors, an editorial board of specialists and permanent writers who contribute with their diverse perspectives. Meet the individuals who bring our magazine and journal to life.",
         "main_team": "Main Team",
         "editorial_board": "Editorial Board",
-        "permanent_writers": "Permanent Writers of the Magazine"
+        "permanent_writers": "Permanent Writers of the Magazine",
+        "roles": {
+          "magazine_editor": "Magazine Editor",
+          "academic_editor": "Academic Editor",
+          "general_secretary": "General Secretary",
+          "librarian": "Librarian",
+          "designer": "Designer",
+          "former_designer": "Former Designer",
+          "technologic_reviewer": "Technologic Reviewer",
+          "editorial_board": "Editorial Board",
+          "literature": "Literature",
+          "art_culture": "Art & Culture",
+          "urban_street_art": "Urban & Street Art",
+          "technology": "Technology",
+          "education": "Education",
+          "music": "Music",
+          "long_wei_nft": "Long Wei & NFT Projects",
+          "culture_social_economy": "Culture & Social Economy"
+        },
+        "staff": {
+          "rodrigo_cid": {
+            "name": "Prof. Rodrigo Reis Lastra Cid, PhD",
+            "affiliation": "UFOP"
+          },
+          "rafael_martins": {
+            "name": "Prof. Rafael Martins, PhD",
+            "affiliation": "UNIMAX & UNIFAJ"
+          },
+          "roseline_crippa": {
+            "name": "Roseline Crippa",
+            "affiliation": "UNAR"
+          },
+          "nanci_nobrega": {
+            "name": "Nanci Nóbrega, PhD",
+            "affiliation": "UFF"
+          },
+          "luan_martins": {
+            "name": "Luan Lopes Martins",
+            "affiliation": "UFOP"
+          },
+          "rafaela_nobrega": {
+            "name": "Rafaela Nóbrega, MA",
+            "affiliation": "ESDI/UERJ"
+          },
+          "thiago_cotting": {
+            "name": "Thiago Cotting",
+            "affiliation": "Autoscriber"
+          }
+        },
+        "editorial_board_members": {
+          "daniel_schiochett": {
+            "name": "Prof. Daniel Schiochett, PhD",
+            "affiliation": "UFMA"
+          },
+          "juliano_carmo": {
+            "name": "Prof. Juliano do Carmo, PhD",
+            "affiliation": "UFPel"
+          },
+          "david_tamez": {
+            "name": "Prof. David Tamez, PhD",
+            "affiliation": "University of Kansas"
+          },
+          "daniel_farinha": {
+            "name": "Prof. Daniel Filipe G. Farinha, PhD",
+            "affiliation": "Un. of Saint Joseph - Macau"
+          }
+        },
+        "writers": {
+          "emanuel_souza": {
+            "name": "Emanuel Souza, MSC",
+            "affiliation": "UFF"
+          },
+          "van_ameneyro": {
+            "name": "Van Ameneyro, BA",
+            "affiliation": "Universidad de Guadalajara"
+          },
+          "katia_melo": {
+            "name": "Katia Suzue Melo, BEd",
+            "affiliation": "UNG"
+          },
+          "oliver_reinis": {
+            "name": "Oliver Reinis, BA",
+            "affiliation": "FDSBC"
+          },
+          "manuella_silva": {
+            "name": "Manuella de Godoy e Silva, BA",
+            "affiliation": "UFPE"
+          },
+          "vessy_mink": {
+            "name": "Vessy Mink",
+            "affiliation": "Web3 Singer/Musician"
+          },
+          "valerie_geerken": {
+            "name": "Valerie Geerken, B.S.",
+            "affiliation": ""
+          },
+          "edvam_filho": {
+            "name": "Edvam Filho",
+            "affiliation": "UNICAP"
+          }
+        }
       },
       "supporters": {
         "title": "Our Supporters",

@@ -220,6 +220,11 @@ export default function LiteraturaPage() {
                   </div>
                 </div>
               </div>
+              <div className="text-center mt-8 pt-6 border-t border-neutral-700">
+                <p className="text-sm text-neutral-400">
+                  {t("literatura.collaborators.academic_support")} <span className="text-neutral-300">{t("literatura.collaborators.academic_advisor")}</span>
+                </p>
+              </div>
             </div>
           </div>
         </section>

@@ -1,258 +1,317 @@
-# GIFLABS - Grupo Investigação Filosófica
+# 🧪 GIFLABS - Grupo Investigação Filosófica
 
-> **"Pensar é revolucionário."**
+> **Desenvolvendo a educação crítica para um mundo descentralizado.**
 
-Um grupo interdisciplinar sediado na Universidade Federal de Ouro Preto (UFOP), dedicado à investigação filosófica aplicada às artes, tecnologia e educação. O GIFLABS se posiciona como um espaço aberto ao diálogo e ao desenvolvimento crítico frente às transformações digitais contemporâneas.
+[![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 
-## 🎯 Sobre o GIFLABS
+## 📖 Sobre
 
-### Missão
-Promover investigação filosófica associada ao desenvolvimento tecnológico para as artes e a educação, fomentando práticas pedagógicas inclusivas, críticas e colaborativas.
+O **GIFLABS** é um grupo interdisciplinar sediado na Universidade Federal de Ouro Preto, dedicado à investigação filosófica aplicada às artes, à tecnologia e à educação. O grupo se posiciona como um espaço aberto ao diálogo e ao desenvolvimento crítico frente às transformações digitais contemporâneas.
 
-### Visão
+### 🎯 Missão
+Promover investigação filosófica e artística associada ao desenvolvimento tecnológico para a educação, fomentando práticas pedagógicas inclusivas, críticas e colaborativas.
+
+### 👁️ Visão
 Ser reconhecido como referência em pesquisa e desenvolvimento de soluções educacionais integradas às tecnologias digitais emergentes, com destaque para blockchain, Web3 e arquiteturas descentralizadas.
 
-### Valores
+### 💎 Valores
 - **Transparência** - Abertura e clareza em todas as ações
-- **Inclusão** - Acesso democrático ao conhecimento
-- **Colaboração** - Trabalho conjunto e compartilhamento
-- **Inovação Responsável** - Desenvolvimento ético e sustentável
+- **Inclusão** - Acolhimento de diferentes perspectivas e experiências
+- **Colaboração** - Trabalho conjunto e compartilhamento de conhecimento
+- **Inovação Responsável** - Desenvolvimento tecnológico com responsabilidade ética
 
-## 🚀 Projetos Principais
+## 🚀 Projetos
 
-### 1. Digital Education App
-Uma plataforma educacional híbrida que combina:
-- **Educação gamificada** com missões interativas
-- **Certificação blockchain** via NFTs verificáveis
-- **Curadoria colaborativa** de conteúdo
-- **Arquitetura modular** e aberta
-- **Modelo híbrido** (Web2 + Web3)
+### 🔬 Pesquisas em Andamento
 
-### 2. Série IF (Investigação Filosófica)
-Pesquisa e tradução de verbetes da Stanford Encyclopedia of Philosophy, publicados como livros de acesso gratuito pela UFPel.
+| Projeto | Descrição | Status | Link |
+|---------|-----------|---------|------|
+| **Digital Education App** | Educação gamificada com certificação blockchain | 🟢 Ativo | [Ver projeto](/digital-education-app) |
+| **Série IF** | Tradução de verbetes da Stanford Encyclopedia of Philosophy | 🟢 Ativo | [Ver projeto](/serie-if) |
+| **Virtualia** | Revista acadêmica sobre Arte, Tecnologia e Filosofia | 🟢 Ativo | [Ver projeto](/virtualia) |
+| **Literatura** | Experiência literária imersiva com Matzatea | 🟢 Ativo | [Ver projeto](/literatura) |
+| **The Philosophers DAO** | Canal de conteúdo filosófico descentralizado | 🟢 Ativo | [Ver projeto](/the-philosophers-dao) |
+| **Metaverso** | Exploração de ambientes digitais e biblioteca Near Alexandria | 🟡 Em desenvolvimento | [Ver projeto](/metaverso) |
+| **Arqueologia Digital** | Preservação digital de periódicos acadêmicos | 🟡 Em desenvolvimento | [Ver projeto](/arqueologia-digital) |
 
-### 3. Canal The Philosophers DAO
-Canal do YouTube para divulgação de vídeos e podcasts de interesse filosófico.
-
-### 4. Near Alexandria Library
-Biblioteca no Metaverso com os livros publicados pelo NEPFIL/UFPel.
-
-### 5. Virtualia Magazine/Journal
-Revista acadêmica sobre Arte, Tecnologia e Filosofia.
+### 🌐 Tecnologias Utilizadas
+- **Blockchain & Web3**: Arweave, Base, NFTs
+- **Inteligência Artificial**: Processamento de linguagem natural
+- **Educação Digital**: Plataformas gamificadas, certificação
+- **Arte Digital**: Visualização de dados, experiências imersivas
 
 ## 👥 Equipe
 
-### Prof. Dr. Rodrigo Cid - **Líder**
-- Pesquisador em metafísica da ciência e filosofia das leis da natureza
-- Especialista em tecnologias digitais e editoriais para educação e governança
-- Responsável pela definição estratégica do GIFLABS
+### 🎯 Liderança
+- **Prof. Dr. Rodrigo Cid** - Líder do grupo, especialista em metafísica da ciência e tecnologias digitais
+- **Prof. Dr. Rafael Martins** - Editor acadêmico, especialista em ética e filosofia política
 
-### Prof. Dr. Rafael Martins - **Editor Acadêmico**
-- Professor de Filosofia na UNIMAX e UNIFAJ
-- Pesquisador em ética, filosofia política e filosofia aplicada
-- Editor da Virtualia Journal e co-coordenador da Série Investigação Filosófica
+### 🔬 Pesquisadores
+- **Roseline Crippa** - Secretária-executiva, especialista em gestão educacional
+- **Mateus Rodrigues** - Artista visual e desenvolvedor frontend, especialista em Web3
+- **Alexandre Eduardo** - Desenvolvedor backend, especialista em arquitetura de dados
 
-### Roseline Crippa - **Secretária-Executiva**
-- Vice-diretora escolar, formada em Letras
-- Estudante de Especialização em Educação a Distância pela UFF
-- Responsável pelas funções administrativas e organizacionais
+### 🌍 Colaboradores
+- **30+ pesquisadores** de diferentes instituições brasileiras
+- **Parceiros internacionais** em projetos de pesquisa
+- **Estudantes** de graduação e pós-graduação
 
-### Mateus Rodrigues - **Artista Visual e Desenvolvedor Frontend**
-- Pesquisador em arte digital e modelos educacionais descentralizados
-- Responsável pelo desenvolvimento de projetos experimentais na interface entre Web3, educação e arte
+## 🛠️ Tecnologia
 
-### Alexandre Eduardo - **Desenvolvedor Backend**
-- Pesquisador em arquitetura de dados e sistemas descentralizados
-- Responsável pela infraestrutura de análise de dados e integração com protocolos Web3
+### 🏗️ Stack Principal
+- **Framework**: Next.js 15.2.4 (App Router), React 19, TypeScript 5
+- **Estilização**: Tailwind CSS 3.4, Shadcn UI
+- **Internacionalização**: Sistema customizado PT/EN
+- **Deploy**: Vercel, Netlify, ou auto-hosting
 
-## 🛠️ Stack Tecnológica
+### 📱 Características Técnicas
+- **Responsivo**: Mobile-first design
+- **Acessível**: Padrões WCAG 2.1 AA
+- **Performance**: Otimizações Next.js, lazy loading
+- **SEO**: Meta tags, Open Graph, structured data
 
-### Frontend
-- **Next.js 15** - Framework React com App Router
-- **React 19** - Biblioteca para interfaces de usuário
-- **TypeScript** - Linguagem de programação tipada
-- **Tailwind CSS** - Framework CSS utilitário
-- **Shadcn/ui** - Componentes de interface reutilizáveis
-- **Radix UI** - Componentes acessíveis e customizáveis
-- **Framer Motion** - Animações e transições
-- **Lucide React** - Ícones modernos
+### 🔧 Ferramentas de Desenvolvimento
+- **Package Manager**: pnpm (recomendado)
+- **Versionamento**: Git + GitHub
+- **CI/CD**: GitHub Actions (futuro)
 
-### Backend & Infraestrutura
-- **Node.js** - Runtime JavaScript
-- **Express/NestJS** - Framework backend
-- **MongoDB** - Banco de dados NoSQL
-- **Solidity** - Smart contracts (Ethereum, Polygon)
-- **IPFS/Arweave** - Armazenamento descentralizado
-- **Functions (serverless)** - Escalabilidade e redução de custos
+## 📚 Documentação
 
-### Ferramentas de Desenvolvimento
-- **pnpm** - Gerenciador de pacotes
-- **ESLint** - Linting de código
-- **PostCSS** - Processamento CSS
-- **Autoprefixer** - Prefixos CSS automáticos
+### 🚀 Guias de Desenvolvimento
+- **[📖 Documentação Completa](./docs/README.md)** - Índice principal da documentação
+- **[🛠️ Guia de Desenvolvimento](./docs/guides/DEVELOPMENT_GUIDE.md)** - Configuração, padrões e boas práticas
+- **[🏗️ Guia de Arquitetura](./docs/guides/ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
+- **[🎨 Sistema de Design](./docs/guides/DESIGN_SYSTEM.md)** - Componentes, cores e tipografia
+- **[🤝 Guia de Contribuição](./docs/guides/CONTRIBUTING.md)** - Como contribuir com o projeto
 
-## 📋 Pré-requisitos
+### 📖 Referência Técnica
+- **[📁 Estrutura do Projeto](./docs/reference/PROJECT_STRUCTURE.md)** - Organização de arquivos e pastas
+- **[🔧 Configurações](./docs/reference/CONFIGURATIONS.md)** - Configurações de build, linting e deploy
+- **[🌐 Internacionalização](./docs/reference/INTERNATIONALIZATION.md)** - Sistema de traduções
+- **[⚡ Performance](./docs/reference/PERFORMANCE.md)** - Otimizações e benchmarks
 
-- **Node.js** (versão 18 ou superior)
-- **pnpm** (gerenciador de pacotes recomendado)
+### 💡 Exemplos e Tutoriais
+- **[🧩 Criando Componentes](./docs/examples/CREATING_COMPONENTS.md)** - Como criar novos componentes
+- **[📝 Adicionando Projetos](./docs/examples/ADDING_PROJECTS.md)** - Como adicionar novos projetos
+- **[🌍 Adicionando Idiomas](./docs/examples/ADDING_LANGUAGES.md)** - Como adicionar novos idiomas
 
-### Instalando o Node.js
-1. Acesse [nodejs.org](https://nodejs.org/)
-2. Baixe a versão LTS (Long Term Support)
-3. Execute o instalador e siga as instruções
+## 🚀 Começando
 
-### Instalando o pnpm
+### 📋 Pré-requisitos
+- **Node.js**: 18.17+ ou 20.9+
+- **pnpm**: 8.0+ (recomendado) ou npm 9.0+
+- **Git**: 2.30+
+
+### ⚡ Instalação Rápida
 ```bash
-npm install -g pnpm
-```
-
-## 🚀 Configuração do Projeto
-
-### 1. Clone o repositório
-```bash
-git clone <url-do-repositorio>
+# Clone o repositório
+git clone https://github.com/Investigacao-Filosofica/giflabs.git
 cd giflabs
-```
 
-### 2. Instale as dependências
-```bash
+# Instale as dependências
 pnpm install
-```
 
-### 3. Execute o projeto em modo de desenvolvimento
-```bash
+# Inicie o servidor de desenvolvimento
 pnpm dev
 ```
 
-O projeto estará disponível em: [http://localhost:3000](http://localhost:3000)
-
-## 📁 Estrutura do Projeto
-
-```
-giflabs/
-├── src/
-│   ├── app/                    # Páginas e layouts (App Router)
-│   │   ├── digital-education-app/  # Página do projeto principal
-│   │   │   └── page.tsx
-│   │   ├── globals.css        # Estilos globais
-│   │   ├── layout.tsx         # Layout raiz com favicon
-│   │   └── page.tsx           # Página inicial
-│   ├── components/            # Componentes reutilizáveis
-│   │   ├── layout/           # Componentes de layout
-│   │   │   ├── header.tsx    # Navegação principal
-│   │   │   └── footer.tsx    # Rodapé com contatos
-│   │   └── ui/               # Componentes de interface (Shadcn/ui)
-│   └── lib/                  # Utilitários e configurações
-│       └── utils.ts          # Funções utilitárias
-├── public/                   # Arquivos estáticos
-│   ├── GIF-LABS-LOGO.gif    # Favicon animado
-│   ├── logo-black.png       # Logo para redes sociais
-│   └── placeholder-*.jpg    # Imagens placeholder
-├── tailwind.config.ts       # Configuração do Tailwind CSS
-├── next.config.mjs          # Configuração do Next.js
-├── package.json             # Dependências e scripts
-└── README.md               # Esta documentação
-```
-
-## 🎨 Design System
-
-### Cores Principais
-- **Neutro**: `#6b7280` (gray-600) - Cor base
-- **Azul Tecnológico**: `#0a2463` (blue-tech) - Destaque
-- **Verde Esmeralda**: `#4a7c59` (green-emerald) - Ação
-- **Dourado Metálico**: `#d4af37` (gold-metallic) - Premium
-
-### Tipografia
-- **Inter** - Fonte principal (sans-serif)
-- **Lora** - Fonte secundária (serif)
-- **Courier** - Fonte monospace para código
-
-### Componentes
-- Baseados em **Shadcn/ui** e **Radix UI**
-- Design responsivo com abordagem mobile-first
-- Animações suaves com **Framer Motion**
-- Acessibilidade integrada
-
-## 📱 Funcionalidades
-
-### Página Inicial
-- **Hero Section** com apresentação do grupo
-- **Seção Sobre** com missão, visão e valores
-- **Projetos** com cards interativos
-- **Equipe** com perfis detalhados
-- **Contato** com informações de contato
-
-### Digital Education App
-- **Apresentação** do projeto principal
-- **Desafios** atuais da educação
-- **Solução** proposta com 4 pilares
-- **Tecnologia** utilizada
-- **Roadmap** de desenvolvimento
-- **Call-to-Action** para parcerias
-
-### Navegação
-- **Header fixo** com navegação responsiva
-- **Menu mobile** com hamburger
-- **Scroll suave** entre seções
-- **Navegação contextual** por página
-
-## 🚀 Scripts Disponíveis
-
+### 🔧 Scripts Disponíveis
 ```bash
-# Desenvolvimento
-pnpm dev          # Inicia o servidor de desenvolvimento
-
-# Build e Produção
-pnpm build        # Cria build de produção
-pnpm start        # Inicia servidor de produção
-
-# Qualidade de Código
-pnpm lint         # Executa ESLint
+pnpm dev          # Servidor de desenvolvimento
+pnpm build        # Build de produção
+pnpm start        # Servidor de produção
+pnpm lint         # Verificação de código
 ```
 
-## 🌐 Deploy
+### 🌐 Acessando
+- **Desenvolvimento**: http://localhost:3000
+- **Produção**: https://giflabs.com (futuro)
 
-### Vercel (Recomendado)
-1. Conecte seu repositório ao Vercel
-2. Configure as variáveis de ambiente (se necessário)
-3. Deploy automático a cada push
+## 🤝 Contribuindo
 
-### Outras Plataformas
-O projeto é compatível com:
-- Netlify
-- Railway
-- Render
-- Qualquer plataforma que suporte Next.js
+### 📝 Como Contribuir
+1. **Fork** o projeto
+2. **Clone** seu fork localmente
+3. **Crie** uma branch para sua feature
+4. **Desenvolva** seguindo os padrões do projeto
+5. **Teste** suas alterações
+6. **Commit** com mensagens descritivas
+7. **Push** para sua branch
+8. **Abra** um Pull Request
 
-## 🔗 Links Importantes
+### 🎯 Áreas de Contribuição
+- 🐛 **Bug Fixes**: Correção de problemas existentes
+- ✨ **New Features**: Adição de novas funcionalidades
+- 📚 **Documentation**: Melhorias na documentação
+- 🎨 **UI/UX**: Melhorias visuais e de experiência
+- 🌐 **Translations**: Traduções para novos idiomas
+- 🔧 **Refactoring**: Melhorias na estrutura do código
 
-- **Website**: [GIFLABS](http://giflabs.xyz)
-- **Virtualia Journal**: [virtualiajournal.com](https://www.virtualiajournal.com/)
-- **Canal YouTube**: [The Philosophers DAO](https://www.youtube.com/@ThePhilosophersDAOpt)
-- **Série IF**: [UFPel](https://wp.ufpel.edu.br/nepfil/serie-investigacao-filosofica/)
-- **Near Alexandria**: [Cryptovoxels](https://www.cryptovoxels.com/play?coords=SW@1789E,1180N)
-- **CNPq**: [Grupo registrado](http://dgp.cnpq.br/dgp/espelhogrupo/513418)
+### 📖 Leia Mais
+- **[Como Contribuir](./docs/guides/CONTRIBUTING.md)** - Guia completo de contribuição
+- **[Padrões de Desenvolvimento](./docs/guides/DEVELOPMENT_GUIDE.md)** - Padrões técnicos
+- **[Sistema de Design](./docs/guides/DESIGN_SYSTEM.md)** - Componentes e design
+
+## 🌍 Internacionalização
+
+### 🌐 Idiomas Suportados
+- **Português (pt)** - Idioma padrão
+- **Inglês (en)** - Idioma secundário
+
+### 🔧 Sistema de Traduções
+- **Context API** customizado para gerenciamento de idiomas
+- **Função `t(key)`** para traduções com fallback
+- **Arquivos organizados** por página/projeto
+- **Persistência** no localStorage
+
+### 📝 Adicionando Novos Idiomas
+1. Criar arquivo de traduções em `src/contexts/translations/`
+2. Importar no `LanguageContext.tsx`
+3. Adicionar ao merge de traduções
+4. Testar em ambos os idiomas
+
+## 🚀 Deploy
+
+### 🌐 Plataformas Suportadas
+- **Vercel** (recomendado para Next.js)
+- **Netlify**
+- **AWS Amplify**
+- **Docker + VPS**
+
+### 🔧 Configuração de Deploy
+```bash
+# Build de produção
+pnpm build
+
+# Verificar build
+pnpm start
+
+# Variáveis de ambiente
+NEXT_PUBLIC_API_URL=https://api.giflabs.com
+NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
+```
+
+⚠️ **Nota**: Algumas configurações precisam ser ajustadas para produção. Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md).
+
+## 🔮 Roadmap
+
+### 🎯 Fase 1: Consolidação (Atual)
+- [x] Estrutura base com Next.js 15.2.4
+- [x] Sistema de internacionalização
+- [x] Component library com Shadcn UI
+- [x] Responsividade mobile-first
+- [x] Documentação completa
+- [ ] **Corrigir configurações de produção**
+
+### 🚀 Fase 2: Otimização (Próximo)
+- [ ] Implementação de testes
+- [ ] Lazy loading de componentes
+- [ ] Otimização de imagens
+- [ ] Service Worker para cache
+
+### 🌟 Fase 3: Expansão (Futuro)
+- [ ] PWA capabilities
+- [ ] API integration
+- [ ] State management avançado
+- [ ] Micro-frontends
+
+### 🏢 Fase 4: Enterprise (Longo prazo)
+- [ ] Monorepo structure
+- [ ] Design system documentation
+- [ ] Performance monitoring
+- [ ] CI/CD pipeline avançado
+
+## 📊 Estatísticas
+
+### 📈 Métricas do Projeto
+- **Contribuidores**: 5+ ativos
+- **Projetos**: 7 em desenvolvimento
+- **Páginas**: 8+ implementadas
+- **Componentes**: 45+ disponíveis (Shadcn UI)
+- **Traduções**: 2 idiomas (PT/EN)
+- **Documentação**: 95% de cobertura
+
+### 🎯 Objetivos de Qualidade
+- **Performance**: Lighthouse Score > 90
+- **Acessibilidade**: WCAG 2.1 AA compliance
+- **SEO**: Core Web Vitals otimizados
+- **Testes**: Coverage > 80% (futuro)
+
+## 🤝 Parceiros e Colaboradores
+
+### 🏫 Instituições
+- **UFOP** - Universidade Federal de Ouro Preto
+- **UFPel** - Universidade Federal de Pelotas
+- **CNPq** - Conselho Nacional de Desenvolvimento Científico
+
+### 🌐 Projetos Colaborativos
+- **Virtualia Journal** - Revista acadêmica
+- **Série IF** - Traduções filosóficas
+- **Near Alexandria** - Biblioteca digital
 
 ## 📞 Contato
 
+### 📧 Informações de Contato
 - **Email**: rodrigorlcid@gmail.com
-- **Instituição**: Universidade Federal de Ouro Preto (UFOP)
-- **Áreas**: Filosofia, Web3, Educação, Blockchain, IA, Arte Digital
+- **Website**: https://giflabs.com (futuro)
+- **GitHub**: [@Investigacao-Filosofica](https://github.com/Investigacao-Filosofica)
 
-## 🤝 Contribuição
+### 🔗 Links Úteis
+- **Virtualia Journal**: https://www.virtualiajournal.com/
+- **CNPq**: http://dgp.cnpq.br/dgp/espelhogrupo/821202
+- **Lattes**: http://lattes.cnpq.br/0847832636263404
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
+### 💬 Comunidade
+- **GitHub Issues**: Para bugs e feature requests
+- **GitHub Discussions**: Para discussões gerais
+- **Pull Requests**: Para contribuições de código
 
-## 📝 Licença
+## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
+
+## 🙏 Agradecimentos
+
+### 👥 Contribuidores
+- **Equipe GIFLABS** - Desenvolvimento e pesquisa
+- **Comunidade Open Source** - Ferramentas e bibliotecas
+- **Instituições parceiras** - Suporte e colaboração
+
+### 🛠️ Tecnologias
+- **Next.js** - Framework React
+- **Tailwind CSS** - Framework CSS
+- **Shadcn UI** - Component library
+- **Lucide React** - Ícones
 
 ---
 
-**Desenvolvido com ❤️ pelo GIFLABS - UFOP**
+## 🎯 Citação
 
-*"Pensar é revolucionário."* 
+> **"Pensar é revolucionário."**
+> 
+> — GIFLABS
+
+---
+
+## ⚠️ Notas Importantes
+
+### Status das Configurações
+Este projeto contém algumas configurações que precisam ser ajustadas para produção:
+
+- **TypeScript**: Modo não estrito (`"strict": false`)
+- **ESLint**: Ignorado durante builds
+- **Images**: Otimização desabilitada
+- **PostCSS**: Falta autoprefixer
+
+Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md) para detalhes sobre como corrigir esses problemas.
+
+---
+
+**🌟 Se este projeto foi útil para você, considere dar uma ⭐ no GitHub e compartilhar com outros pesquisadores e desenvolvedores!**
+
+---
+
+**📚 Para mais informações, consulte nossa [documentação completa](./docs/README.md) ou entre em contato conosco.**
