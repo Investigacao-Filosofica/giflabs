@@ -96,7 +96,7 @@ const teamMembers = [
     lattes: "http://lattes.cnpq.br/0847832636263404",
     github: "https://github.com/ThePhilosopherX",
     linkedin: "#",
-    twitter: "https://x.com/ThePhilosopherX",
+    twitter: "https://x.com/thephilo_sopher",
     badges: ["philosophy_science", "educational_technology"]
   },
   {
