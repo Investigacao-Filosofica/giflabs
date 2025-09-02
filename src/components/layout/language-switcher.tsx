@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import React, { useState, useRef, useEffect } from 'react';
+import { useLanguage, LanguageCode } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Globe, ChevronDown } from 'lucide-react';
 
 export function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, supportedLanguages, currentLanguageInfo } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [buttonWidth, setButtonWidth] = useState(0);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -31,8 +31,8 @@ export function LanguageSwitcher() {
     };
   }, []);
 
-  const handleLanguageChange = () => {
-    setLanguage(language === 'pt' ? 'en' : 'pt');
+  const handleLanguageChange = (newLanguage: LanguageCode) => {
+    setLanguage(newLanguage);
     setIsOpen(false);
   };
 
@@ -49,7 +49,7 @@ export function LanguageSwitcher() {
       >
         <Globe className="h-4 w-4" />
         <span className="text-xs font-medium">
-          {language === 'pt' ? 'PT' : 'EN'}
+          {language.toUpperCase()}
         </span>
         <ChevronDown className={`h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </Button>
@@ -57,16 +57,21 @@ export function LanguageSwitcher() {
       {isOpen && (
         <div 
           className="absolute top-full left-0 bg-white border border-gray-200 shadow-lg rounded-none z-50"
-          style={{ width: `${buttonWidth}px` }}
+          style={{ width: `${buttonWidth + 20}px` }}
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
         >
-          <button
-            onClick={handleLanguageChange}
-            className="w-full flex items-center justify-center gap-2 cursor-pointer hover:bg-black hover:text-white transition-colors px-3 py-2 text-sm font-medium"
-          >
-            {language === 'pt' ? 'EN' : 'PT'}
-          </button>
+          {Object.entries(supportedLanguages).map(([code, info]) => (
+            <button
+              key={code}
+              onClick={() => handleLanguageChange(code as LanguageCode)}
+              className={`w-full flex items-center justify-center gap-2 cursor-pointer hover:bg-black hover:text-white transition-colors px-3 py-2 text-sm font-medium ${
+                language === code ? 'bg-gray-100' : ''
+              }`}
+            >
+              <span>{code.toUpperCase()}</span>
+            </button>
+          ))}
         </div>
       )}
     </div>
