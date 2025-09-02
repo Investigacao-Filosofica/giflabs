@@ -90,12 +90,12 @@ export default function DigitalEducationAppPage() {
                   {t("digital_education.hero.description")}
                 </p>
                 <div className="flex justify-center gap-4">
-                  <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white">
+                  <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white px-10 py-6 text-lg transition-all duration-300 border-0 font-medium">
                     <Link href="#cta">
                       {t("digital_education.hero.cta_main")} <ChevronRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild>
+                  <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white px-10 py-6 text-lg transition-all duration-300 border-0 font-medium">
                     <Link href="#roadmap">
                       {t("digital_education.hero.cta_secondary")} <Calendar className="ml-2 h-4 w-4" />
                     </Link>
@@ -173,48 +173,89 @@ export default function DigitalEducationAppPage() {
                     {t("digital_education.technology.description")}
                   </p>
                 </div>
-                <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 text-center sm:grid-cols-2 lg:grid-cols-4 mt-20">
-                  <div className="flex flex-col items-center">
-                    <Code className="mb-4 h-10 w-10" />
-                    <h3 className="mb-2 font-semibold">Next.js & React</h3>
-                    <p className="text-sm text-neutral-400">Frontend moderno e performático.</p>
+                <div className="mx-auto mt-20 flex flex-wrap justify-center gap-8 max-w-7xl">
+                  <div className="w-full sm:w-80 lg:w-72">
+                    <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
+                      <div className="p-8 text-center flex flex-col flex-grow">
+                        <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
+                          <Code className="h-10 w-10 text-neutral-900" />
+                        </div>
+                        <h3 className="mb-3 text-xl font-bold text-white">Next.js & React</h3>
+                        <p className="flex-grow text-sm leading-relaxed text-neutral-400">Frontend moderno e performático.</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <Server className="mb-4 h-10 w-10" />
-                    <h3 className="mb-2 font-semibold">Backend</h3>
-                    <p className="text-sm text-neutral-400">
-                      Node.js + Express/NestJS. Assíncrono, modular, ótimo suporte a APIs e websockets, fácil integração
-                      web3.
-                    </p>
+                  <div className="w-full sm:w-80 lg:w-72">
+                    <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
+                      <div className="p-8 text-center flex flex-col flex-grow">
+                        <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
+                          <Server className="h-10 w-10 text-neutral-900" />
+                        </div>
+                        <h3 className="mb-3 text-xl font-bold text-white">Backend</h3>
+                        <p className="flex-grow text-sm leading-relaxed text-neutral-400">
+                          Node.js + Express/NestJS. Assíncrono, modular, ótimo suporte a APIs e websockets, fácil integração web3.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <Puzzle className="mb-4 h-10 w-10" />
-                    <h3 className="mb-2 font-semibold">Blockchain/Smart Contracts</h3>
-                    <p className="text-sm text-neutral-400">
-                      Solidity (Ethereum, Polygon). Comunidade ativa, suporte a NFTs, tokens, e interoperabilidade.
-                    </p>
+                  <div className="w-full sm:w-80 lg:w-72">
+                    <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
+                      <div className="p-8 text-center flex flex-col flex-grow">
+                        <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
+                          <Puzzle className="h-10 w-10 text-neutral-900" />
+                        </div>
+                        <h3 className="mb-3 text-xl font-bold text-white">Blockchain/Smart Contracts</h3>
+                        <p className="flex-grow text-sm leading-relaxed text-neutral-400">
+                          Solidity (Ethereum, Polygon). Comunidade ativa, suporte a NFTs, tokens, e interoperabilidade.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <Database className="mb-4 h-10 w-10" />
-                    <h3 className="mb-2 font-semibold">MongoDB</h3>
-                    <p className="text-sm text-neutral-400">Flexível para dados transacionais e análise.</p>
+                  <div className="w-full sm:w-80 lg:w-72">
+                    <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
+                      <div className="p-8 text-center flex flex-col flex-grow">
+                        <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
+                          <Database className="h-10 w-10 text-neutral-900" />
+                        </div>
+                        <h3 className="mb-3 text-xl font-bold text-white">MongoDB</h3>
+                        <p className="flex-grow text-sm leading-relaxed text-neutral-400">Flexível para dados transacionais e análise.</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <Cloud className="mb-4 h-10 w-10" />
-                    <h3 className="mb-2 font-semibold">Functions (serverless)</h3>
-                    <p className="text-sm text-neutral-400">
-                      Escalabilidade, redução de custos, fácil gestão de nós blockchain.
-                    </p>
+                  <div className="w-full sm:w-80 lg:w-72">
+                    <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
+                      <div className="p-8 text-center flex flex-col flex-grow">
+                        <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
+                          <Cloud className="h-10 w-10 text-neutral-900" />
+                        </div>
+                        <h3 className="mb-3 text-xl font-bold text-white">Functions (serverless)</h3>
+                        <p className="flex-grow text-sm leading-relaxed text-neutral-400">
+                          Escalabilidade, redução de custos, fácil gestão de nós blockchain.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <Globe className="mb-4 h-10 w-10" />
-                    <h3 className="mb-2 font-semibold">Multichain (EVM)</h3>
-                    <p className="text-sm text-neutral-400">Suporte a redes como Base, Polygon e Ethereum.</p>
+                  <div className="w-full sm:w-80 lg:w-72">
+                    <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
+                      <div className="p-8 text-center flex flex-col flex-grow">
+                        <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
+                          <Globe className="h-10 w-10 text-neutral-900" />
+                        </div>
+                        <h3 className="mb-3 text-xl font-bold text-white">Multichain (EVM)</h3>
+                        <p className="flex-grow text-sm leading-relaxed text-neutral-400">Suporte a redes como Base, Polygon e Ethereum.</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-center">
-                    <Archive className="mb-4 h-10 w-10" />
-                    <h3 className="mb-2 font-semibold">IPFS / Arweave</h3>
-                    <p className="text-sm text-neutral-400">Armazenamento descentralizado de conteúdo.</p>
+                  <div className="w-full sm:w-80 lg:w-72">
+                    <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
+                      <div className="p-8 text-center flex flex-col flex-grow">
+                        <div className="mb-6 flex h-24 w-24 flex-shrink-0 items-center justify-center rounded-full bg-neutral-100 mx-auto">
+                          <Archive className="h-10 w-10 text-neutral-900" />
+                        </div>
+                        <h3 className="mb-3 text-xl font-bold text-white">IPFS / Arweave</h3>
+                        <p className="flex-grow text-sm leading-relaxed text-neutral-400">Armazenamento descentralizado de conteúdo.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -411,12 +452,12 @@ export default function DigitalEducationAppPage() {
                 </p>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                   <Button size="lg" className="w-full md:w-auto bg-neutral-900 hover:bg-neutral-800 text-white" asChild>
-                    <Link href="/#contato">
+                    <Link href="#contato">
                       <Handshake className="mr-2 h-5 w-5" /> {t("digital_education.cta.partner_button")}
                     </Link>
                   </Button>
                   <Button size="lg" variant="secondary" className="w-full md:w-auto" asChild>
-                    <Link href="/#contato">
+                    <Link href="#contato">
                       <Mail className="mr-2 h-5 w-5" /> {t("digital_education.cta.updates_button")}
                     </Link>
                   </Button>
