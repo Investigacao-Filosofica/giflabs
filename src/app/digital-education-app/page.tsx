@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/layout/header"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { 
+  HeroSection, 
+  ContentSection, 
+  DarkSection, 
+  FeatureCard,
+  TeamMemberCard 
+} from "@/components/ui"
 import {
   BookOpen,
   ChevronRight,
@@ -32,17 +39,7 @@ import {
   Settings,
 } from "lucide-react"
 
-function Feature({ icon, title, children }: { icon: React.ReactNode; title: string; children: React.ReactNode }) {
-  return (
-    <div className="flex items-start space-x-4">
-      <div className="flex-shrink-0 mt-1">{icon}</div>
-      <div>
-        <h3 className="font-semibold text-lg text-neutral-800">{title}</h3>
-        <p className="text-neutral-600 font-light leading-relaxed">{children}</p>
-      </div>
-    </div>
-  )
-}
+
 
 function RoadmapStep({
   phase,
@@ -80,100 +77,101 @@ export default function DigitalEducationAppPage() {
       <main>
         <div className="space-y-20 md:space-y-28">
           {/* Hero Section */}
-          <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white">
-            <div className="container relative z-10 mx-auto px-6 text-center">
-              <div className="mx-auto max-w-4xl">
-                <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tighter text-neutral-900 md:text-6xl">
-                  {t("digital_education.hero.title")}
-                </h1>
-                <p className="mb-8 text-lg leading-relaxed text-neutral-600 md:text-xl">
-                  {t("digital_education.hero.description")}
-                </p>
-                <div className="flex justify-center gap-4">
-                  <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white px-10 py-6 text-lg transition-all duration-300 border-0 font-medium">
-                    <Link href="#cta">
-                      {t("digital_education.hero.cta_main")} <ChevronRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                  <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white px-10 py-6 text-lg transition-all duration-300 border-0 font-medium">
-                    <Link href="#roadmap">
-                      {t("digital_education.hero.cta_secondary")} <Calendar className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </section>
+          <HeroSection
+            title={t("digital_education.hero.title")}
+            description={t("digital_education.hero.description")}
+            ctaButtons={[
+              {
+                text: t("digital_education.hero.cta_main"),
+                href: "#cta",
+                variant: "primary",
+                icon: <ChevronRight className="h-4 w-4" />,
+              },
+              {
+                text: t("digital_education.hero.cta_secondary"),
+                href: "#roadmap",
+                variant: "primary",
+                icon: <Calendar className="h-4 w-4" />,
+              },
+            ]}
+          />
 
           {/* O Desafio */}
-          <section className="py-20 md:py-28">
-            <div className="container mx-auto px-6">
-              <div>
-                <div className="max-w-3xl mx-auto text-center">
-                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">{t("digital_education.challenges.title")}</h2>
-                  <p className="text-lg text-neutral-600 leading-relaxed">
-                    {t("digital_education.challenges.description")}
-                  </p>
-                </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mt-20">
-                  <Feature icon={<Globe className="text-neutral-500" />} title={t("digital_education.challenges.problems.centralized.title")}>
-                    {t("digital_education.challenges.problems.centralized.description")}
-                  </Feature>
-                  <Feature icon={<ShieldCheck className="text-neutral-500" />} title={t("digital_education.challenges.problems.fragile_certs.title")}>
-                    {t("digital_education.challenges.problems.fragile_certs.description")}
-                  </Feature>
-                  <Feature icon={<Puzzle className="text-neutral-500" />} title={t("digital_education.challenges.problems.complex_onboarding.title")}>
-                    {t("digital_education.challenges.problems.complex_onboarding.description")}
-                  </Feature>
-                  <Feature icon={<Users className="text-neutral-500" />} title={t("digital_education.challenges.problems.discouraged_educators.title")}>
-                    {t("digital_education.challenges.problems.discouraged_educators.description")}
-                  </Feature>
-                </div>
-              </div>
+          <ContentSection
+            title={t("digital_education.challenges.title")}
+            description={t("digital_education.challenges.description")}
+            maxWidth="7xl"
+          >
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <FeatureCard
+                icon={<Globe className="text-neutral-500" />}
+                title={t("digital_education.challenges.problems.centralized.title")}
+                description={t("digital_education.challenges.problems.centralized.description")}
+              />
+              <FeatureCard
+                icon={<ShieldCheck className="text-neutral-500" />}
+                title={t("digital_education.challenges.problems.fragile_certs.title")}
+                description={t("digital_education.challenges.problems.fragile_certs.description")}
+              />
+              <FeatureCard
+                icon={<Puzzle className="text-neutral-500" />}
+                title={t("digital_education.challenges.problems.complex_onboarding.title")}
+                description={t("digital_education.challenges.problems.complex_onboarding.description")}
+              />
+              <FeatureCard
+                icon={<Users className="text-neutral-500" />}
+                title={t("digital_education.challenges.problems.discouraged_educators.title")}
+                description={t("digital_education.challenges.problems.discouraged_educators.description")}
+              />
             </div>
-          </section>
+          </ContentSection>
 
           {/* Nossa Solução */}
-          <section id="solucao" className="bg-white py-20 md:py-28 scroll-mt-24">
-            <div className="container mx-auto px-6">
-              <div>
-                <div className="max-w-3xl mx-auto text-center">
-                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">
-                    {t("digital_education.solution.title")}
-                  </h2>
-                  <p className="text-lg text-neutral-600 leading-relaxed">
-                    {t("digital_education.solution.description")}
-                  </p>
-                </div>
-                <div className="grid md:grid-cols-2 gap-x-10 gap-y-12 max-w-4xl mx-auto mt-20">
-                  <Feature icon={<Rocket className="h-8 w-8 text-neutral-500" />} title={t("digital_education.solution.features.gamification.title")}>
-                    {t("digital_education.solution.features.gamification.description")}
-                  </Feature>
-                  <Feature icon={<ShieldCheck className="h-8 w-8 text-neutral-500" />} title={t("digital_education.solution.features.certification.title")}>
-                    {t("digital_education.solution.features.certification.description")}
-                  </Feature>
-                  <Feature icon={<Puzzle className="h-8 w-8 text-neutral-500" />} title={t("digital_education.solution.features.modular.title")}>
-                    {t("digital_education.solution.features.modular.description")}
-                  </Feature>
-                  <Feature icon={<GitBranch className="h-8 w-8 text-neutral-500" />} title={t("digital_education.solution.features.hybrid.title")}>
-                    {t("digital_education.solution.features.hybrid.description")}
-                  </Feature>
-                </div>
-              </div>
+          <ContentSection
+            id="solucao"
+            title={t("digital_education.solution.title")}
+            description={t("digital_education.solution.description")}
+            background="white"
+          >
+            <div className="grid md:grid-cols-2 gap-x-10 gap-y-12">
+              <FeatureCard
+                icon={<Rocket className="h-8 w-8 text-neutral-500" />}
+                title={t("digital_education.solution.features.gamification.title")}
+                description={t("digital_education.solution.features.gamification.description")}
+                layout="horizontal"
+                alignment="left"
+              />
+              <FeatureCard
+                icon={<ShieldCheck className="h-8 w-8 text-neutral-500" />}
+                title={t("digital_education.solution.features.certification.title")}
+                description={t("digital_education.solution.features.certification.description")}
+                layout="horizontal"
+                alignment="left"
+              />
+              <FeatureCard
+                icon={<Puzzle className="h-8 w-8 text-neutral-500" />}
+                title={t("digital_education.solution.features.modular.title")}
+                description={t("digital_education.solution.features.modular.description")}
+                layout="horizontal"
+                alignment="left"
+              />
+              <FeatureCard
+                icon={<GitBranch className="h-8 w-8 text-neutral-500" />}
+                title={t("digital_education.solution.features.hybrid.title")}
+                description={t("digital_education.solution.features.hybrid.description")}
+                layout="horizontal"
+                alignment="left"
+              />
             </div>
-          </section>
+          </ContentSection>
 
           {/* Seção de Tecnologia */}
-          <section id="tecnologia" className="bg-neutral-900 py-20 text-white md:py-28 scroll-mt-24">
-            <div className="container mx-auto px-6">
-              <div>
-                <div className="mx-auto max-w-3xl text-center">
-                  <h2 className="text-3xl font-bold tracking-tight md:text-4xl mb-6">{t("digital_education.technology.title")}</h2>
-                  <p className="text-lg leading-relaxed text-neutral-300">
-                    {t("digital_education.technology.description")}
-                  </p>
-                </div>
-                <div className="mx-auto mt-20 flex flex-wrap justify-center gap-8 max-w-7xl">
+          <DarkSection
+            id="tecnologia"
+            title={t("digital_education.technology.title")}
+            description={t("digital_education.technology.description")}
+          >
+            <div className="mx-auto flex flex-wrap justify-center gap-8 max-w-7xl">
                   <div className="w-full sm:w-80 lg:w-72">
                     <div className="bg-transparent hover:bg-neutral-800 transition-colors duration-200 flex flex-col rounded-lg h-full">
                       <div className="p-8 text-center flex flex-col flex-grow">
@@ -257,22 +255,17 @@ export default function DigitalEducationAppPage() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
             </div>
-          </section>
+          </DarkSection>
 
           {/* Roadmap */}
-          <section id="roadmap" className="py-20 md:py-28 scroll-mt-24">
-            <div className="container mx-auto px-6">
-              <div>
-                <div className="max-w-3xl mx-auto text-center">
-                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">{t("digital_education.roadmap.title")}</h2>
-                  <p className="text-lg text-neutral-600 leading-relaxed">
-                    {t("digital_education.roadmap.description")}
-                  </p>
-                </div>
-                <div className="max-w-2xl mx-auto mt-20">
+          <ContentSection
+            id="roadmap"
+            title={t("digital_education.roadmap.title")}
+            description={t("digital_education.roadmap.description")}
+            maxWidth="3xl"
+          >
+            <div className="max-w-2xl mx-auto">
                   <RoadmapStep
                     phase="Q1"
                     title={t("digital_education.roadmap.q1.title")}
@@ -294,19 +287,11 @@ export default function DigitalEducationAppPage() {
                     description={t("digital_education.roadmap.q4.description")}
                     isLast
                   />
-                </div>
-              </div>
             </div>
-          </section>
-
-
+          </ContentSection>
 
           {/* Equipe de Desenvolvimento */}
-          <section className="py-20 md:py-28 scroll-mt-24 bg-neutral-900">
-            <div className="container mx-auto px-6">
-              <div className="max-w-3xl mx-auto text-center mb-20">
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">{t("digital_education.team.title")}</h2>
-              </div>
+          <DarkSection title={t("digital_education.team.title")}>
               {/* Setor: Coordenação e Administrativo */}
               <div className="mb-16">
                 <div className="text-center mb-12">
@@ -437,34 +422,31 @@ export default function DigitalEducationAppPage() {
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+          </DarkSection>
 
           {/* CTA */}
-          <section id="cta" className="py-20 md:py-28 scroll-mt-24">
-            <div className="container mx-auto px-6">
-              <div className="bg-white rounded-lg shadow-xl p-8 md:p-16 max-w-4xl mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 tracking-tight">
-                  {t("digital_education.cta.title")}
-                </h2>
-                <p className="text-neutral-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-                  {t("digital_education.cta.description")}
-                </p>
-                <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-                  <Button size="lg" className="w-full md:w-auto bg-neutral-900 hover:bg-neutral-800 text-white" asChild>
-                    <Link href="#contato">
-                      <Handshake className="mr-2 h-5 w-5" /> {t("digital_education.cta.partner_button")}
-                    </Link>
-                  </Button>
-                  <Button size="lg" variant="secondary" className="w-full md:w-auto" asChild>
-                    <Link href="#contato">
-                      <Mail className="mr-2 h-5 w-5" /> {t("digital_education.cta.updates_button")}
-                    </Link>
-                  </Button>
-                </div>
+          <ContentSection id="cta">
+            <div className="bg-white rounded-lg shadow-xl p-8 md:p-16 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-6 tracking-tight">
+                {t("digital_education.cta.title")}
+              </h2>
+              <p className="text-neutral-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+                {t("digital_education.cta.description")}
+              </p>
+              <div className="flex flex-col md:flex-row justify-center items-center gap-4">
+                <Button size="lg" className="w-full md:w-auto bg-neutral-900 hover:bg-neutral-800 text-white" asChild>
+                  <Link href="#contato">
+                    <Handshake className="mr-2 h-5 w-5" /> {t("digital_education.cta.partner_button")}
+                  </Link>
+                </Button>
+                <Button size="lg" variant="secondary" className="w-full md:w-auto" asChild>
+                  <Link href="#contato">
+                    <Mail className="mr-2 h-5 w-5" /> {t("digital_education.cta.updates_button")}
+                  </Link>
+                </Button>
               </div>
             </div>
-          </section>
+          </ContentSection>
         </div>
       </main>
     </div>
