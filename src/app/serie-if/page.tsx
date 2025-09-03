@@ -13,7 +13,6 @@ import {
   Award,
   Book,
 } from "lucide-react";
-import { CollaboratorsList } from "./_components/collaborators-list";
 
 function Feature({
   icon,
@@ -69,8 +68,8 @@ export default function SerieIFPage() {
                     </Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
-                    <Link href="#colaboradores">
-                      {t("projects.serie_if.hero.cta_collaborators")} <Users className="ml-2 h-4 w-4" />
+                    <Link href="#detalhes">
+                      {t("projects.serie_if.hero.cta_details")} <BookMarked className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -105,7 +104,7 @@ export default function SerieIFPage() {
                     {t("projects.serie_if.details.paragraphs.p5")}
                   </p>
                 </div>
-                
+
                 {/* CTA Explorar Série - Movido para cima */}
                 <div className="mt-20 text-center">
                   <Button
@@ -222,12 +221,7 @@ export default function SerieIFPage() {
                   </Button>
                 </div>
               </div>
-
-              <div className="mt-24">
-                <CollaboratorsList />
-              </div>
             </div>
-            
           </section>
         </div>
       </main>
