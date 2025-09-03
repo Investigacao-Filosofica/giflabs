@@ -1,88 +1,109 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
-// Importar traduções de cada página
-import { homeTranslations } from './translations/home';
-import { headerFooterTranslations } from './translations/header-footer';
-import { serieIfTranslations } from './translations/serie-if';
-import { digitalEducationAppTranslations } from './translations/digital-education-app';
-import { virtualiaTranslations } from './translations/virtualia';
-import { metaversoTranslations } from './translations/metaverso';
-import { arqueologiaDigitalTranslations } from './translations/arqueologia-digital';
-import { thePhilosophersDaoTranslations } from './translations/the-philosophers-dao';
-import { literaturaTranslations } from './translations/literatura';
-import { internacionalizacaoTranslations } from './translations/internacionalizacao';
+// Importar idiomas dinamicamente
+import { pt } from './translations/languages/pt';
+import { en } from './translations/languages/en';
+
+// Configuração de idiomas suportados (começando com PT e EN)
+export const SUPPORTED_LANGUAGES = {
+  pt: { name: 'Português', code: 'pt-BR' },
+  en: { name: 'English', code: 'en-US' },
+  // Preparado para expansão futura:
+  // es: { name: 'Español', code: 'es-ES' },
+  // fr: { name: 'Français', code: 'fr-FR' },
+  // de: { name: 'Deutsch', code: 'de-DE' },
+  // it: { name: 'Italiano', code: 'it-IT' },
+  // ja: { name: '日本語', code: 'ja-JP' },
+  // zh: { name: '中文', code: 'zh-CN' },
+  // ko: { name: '한국어', code: 'ko-KR' },
+  // ru: { name: 'Русский', code: 'ru-RU' },
+  // ar: { name: 'العربية', code: 'ar-SA' },
+  // hi: { name: 'हिन्दी', code: 'hi-IN' },
+} as const;
+
+export type LanguageCode = keyof typeof SUPPORTED_LANGUAGES;
 
 interface LanguageContextType {
-  language: string;
-  setLanguage: (lang: string) => void;
+  language: LanguageCode;
+  setLanguage: (lang: LanguageCode) => void;
   t: (key: string) => string;
+  supportedLanguages: typeof SUPPORTED_LANGUAGES;
+  currentLanguageInfo: typeof SUPPORTED_LANGUAGES[LanguageCode];
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState('pt');
+  const [language, setLanguageState] = useState<LanguageCode>('pt');
 
+  // Carregar idioma salvo
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('language');
-    if (savedLanguage && (savedLanguage === 'pt' || savedLanguage === 'en')) {
-      setLanguage(savedLanguage);
+    const savedLanguage = localStorage.getItem('language') as LanguageCode;
+    if (savedLanguage && savedLanguage in SUPPORTED_LANGUAGES) {
+      setLanguageState(savedLanguage);
     }
   }, []);
 
-  const changeLanguage = (lang: string) => {
-    setLanguage(lang);
-    localStorage.setItem('language', lang);
+  // Memoizar traduções para performance
+  const translations = useMemo(() => {
+    const allTranslations: Record<LanguageCode, any> = {
+      pt,
+      en,
+    };
+    return allTranslations;
+  }, []);
+
+  const changeLanguage = (lang: LanguageCode) => {
+    if (lang in SUPPORTED_LANGUAGES) {
+      setLanguageState(lang);
+      localStorage.setItem('language', lang);
+    }
   };
 
   const t = (key: string): string => {
-    // Combinar todas as traduções
-    const allTranslations = {
-      pt: {
-        ...headerFooterTranslations.pt,
-        ...homeTranslations.pt,
-        ...serieIfTranslations.pt,
-        ...digitalEducationAppTranslations.pt,
-        ...virtualiaTranslations.pt,
-        ...metaversoTranslations.pt,
-        ...arqueologiaDigitalTranslations.pt,
-        ...thePhilosophersDaoTranslations.pt,
-        ...literaturaTranslations.pt,
-        ...internacionalizacaoTranslations.pt
-      },
-      en: {
-        ...headerFooterTranslations.en,
-        ...homeTranslations.en,
-        ...serieIfTranslations.en,
-        ...digitalEducationAppTranslations.en,
-        ...virtualiaTranslations.en,
-        ...metaversoTranslations.en,
-        ...arqueologiaDigitalTranslations.en,
-        ...thePhilosophersDaoTranslations.en,
-        ...literaturaTranslations.en,
-        ...internacionalizacaoTranslations.en
-      }
-    };
+    const currentTranslations = translations[language];
+    if (!currentTranslations) {
+      return key;
+    }
 
-    const translations = language === 'en' ? allTranslations.en : allTranslations.pt;
     const keys = key.split('.');
-    let value: any = translations;
+    let value: any = currentTranslations;
     
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
         value = value[k];
       } else {
-        return key; // Return the key if translation not found
+        // Fallback para inglês se não encontrar no idioma atual
+        if (language !== 'en' && translations.en) {
+          let fallbackValue: any = translations.en;
+          for (const fallbackKey of keys) {
+            if (fallbackValue && typeof fallbackValue === 'object' && fallbackKey in fallbackValue) {
+              fallbackValue = fallbackValue[fallbackKey];
+            } else {
+              return key;
+            }
+          }
+          return typeof fallbackValue === 'string' ? fallbackValue : key;
+        }
+        return key;
       }
     }
     
     return typeof value === 'string' ? value : key;
   };
 
+  const contextValue: LanguageContextType = {
+    language,
+    setLanguage: changeLanguage,
+    t,
+    supportedLanguages: SUPPORTED_LANGUAGES,
+    currentLanguageInfo: SUPPORTED_LANGUAGES[language],
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: changeLanguage, t }}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   );

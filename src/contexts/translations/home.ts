@@ -116,22 +116,22 @@ export const homeTranslations = {
         "stats": {
           "researchers": {
             "title": "Pesquisadores",
-            "count": "111",
+            "count": "{researcherCount}",
             "description": "Ativos em pesquisa"
           },
           "students": {
             "title": "Estudantes",
-            "count": "36",
+            "count": "{studentCount}",
             "description": "Em formação"
           },
           "technicians": {
             "title": "Técnicos",
-            "count": "2",
+            "count": "{technicianCount}",
             "description": "Especialistas"
           },
           "international": {
             "title": "Internacionais",
-            "count": "2",
+            "count": "{internationalCount}",
             "description": "Colaborador"
           }
         },
@@ -265,22 +265,22 @@ export const homeTranslations = {
         "stats": {
           "researchers": {
             "title": "Researchers",
-            "count": "111",
+            "count": "{researcherCount}",
             "description": "Active in research"
           },
           "students": {
             "title": "Students",
-            "count": "36",
+            "count": "{studentCount}",
             "description": "In training"
           },
           "technicians": {
             "title": "Technicians",
-            "count": "2",
+            "count": "{technicianCount}",
             "description": "Specialists"
           },
           "international": {
             "title": "International",
-            "count": "1",
+            "count": "{internationalCount}",
             "description": "Collaborator"
           }
         },

@@ -291,6 +291,13 @@ const networkMembers = {
   ]
 };
 
+// Função para substituir placeholders nas traduções
+function replaceCountPlaceholders(text: string, stats: Record<string, number>): string {
+  return text.replace(/\{(\w+)\}/g, (match, key) => {
+    return stats[key]?.toString() || match;
+  });
+}
+
 function Projects() {
   const { t } = useLanguage();
   
@@ -561,69 +568,55 @@ export default function GifLabsSite() {
 
           {/* Estatísticas */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
-            {/* Pesquisadores */}
-            <div className="bg-white border border-neutral-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
-                <Users size={24} className="text-neutral-600" />
-              </div>
-              <div className="text-3xl font-bold text-neutral-900 mb-2">
-                {t("home.collaborators.stats.researchers.count")}
-              </div>
-              <h3 className="text-lg font-semibold text-neutral-800 mb-2">
-                {t("home.collaborators.stats.researchers.title")}
-              </h3>
-              <p className="text-sm text-neutral-600">
-                {t("home.collaborators.stats.researchers.description")}
-              </p>
-            </div>
+            {/* Calcular estatísticas dinamicamente */}
+            {(() => {
+              const stats = {
+                researcherCount: networkMembers.researchers.length,
+                studentCount: networkMembers.students.length,
+                technicianCount: networkMembers.technicians.length,
+                internationalCount: networkMembers.international.length
+              };
 
-            {/* Estudantes */}
-            <div className="bg-white border border-neutral-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
-                <GraduationCap size={24} className="text-neutral-600" />
-              </div>
-              <div className="text-3xl font-bold text-neutral-900 mb-2">
-                {t("home.collaborators.stats.students.count")}
-              </div>
-              <h3 className="text-lg font-semibold text-neutral-800 mb-2">
-                {t("home.collaborators.stats.students.title")}
-              </h3>
-              <p className="text-sm text-neutral-600">
-                {t("home.collaborators.stats.students.description")}
-              </p>
-            </div>
+              const statCategories = [
+                {
+                  key: "researchers",
+                  icon: Users,
+                  stats
+                },
+                {
+                  key: "students", 
+                  icon: GraduationCap,
+                  stats
+                },
+                {
+                  key: "technicians",
+                  icon: Database,
+                  stats
+                },
+                {
+                  key: "international",
+                  icon: Globe,
+                  stats
+                }
+              ];
 
-            {/* Técnicos */}
-            <div className="bg-white border border-neutral-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
-                <Database size={24} className="text-neutral-600" />
-              </div>
-              <div className="text-3xl font-bold text-neutral-900 mb-2">
-                {t("home.collaborators.stats.technicians.count")}
-              </div>
-              <h3 className="text-lg font-semibold text-neutral-800 mb-2">
-                {t("home.collaborators.stats.technicians.title")}
-              </h3>
-              <p className="text-sm text-neutral-600">
-                {t("home.collaborators.stats.technicians.description")}
-              </p>
-            </div>
-
-            {/* Colaboradores Internacionais */}
-            <div className="bg-white border border-neutral-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
-                <Globe size={24} className="text-neutral-600" />
-              </div>
-              <div className="text-3xl font-bold text-neutral-900 mb-2">
-                {t("home.collaborators.stats.international.count")}
-              </div>
-              <h3 className="text-lg font-semibold text-neutral-800 mb-2">
-                {t("home.collaborators.stats.international.title")}
-              </h3>
-              <p className="text-sm text-neutral-600">
-                {t("home.collaborators.stats.international.description")}
-              </p>
-            </div>
+              return statCategories.map(({ key, icon: Icon, stats }) => (
+                <div key={key} className="bg-white border border-neutral-200 rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-neutral-100 rounded-full flex items-center justify-center">
+                    <Icon size={24} className="text-neutral-600" />
+                  </div>
+                  <div className="text-3xl font-bold text-neutral-900 mb-2">
+                    {replaceCountPlaceholders(t(`home.collaborators.stats.${key}.count`), stats)}
+                  </div>
+                  <h3 className="text-lg font-semibold text-neutral-800 mb-2">
+                    {t(`home.collaborators.stats.${key}.title`)}
+                  </h3>
+                  <p className="text-sm text-neutral-600">
+                    {t(`home.collaborators.stats.${key}.description`)}
+                  </p>
+                </div>
+              ));
+            })()}
           </div>
 
           {/* Lista Completa da Rede */}
