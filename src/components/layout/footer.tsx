@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge"
 import { BookOpen, ExternalLink, Mail } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image"
 
 export function Footer() {
   const { t } = useLanguage();
@@ -20,10 +21,18 @@ export function Footer() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div>
-            <div className="text-xl font-bold mb-4 font-light tracking-tight text-white">GIFLABS</div>
-            <p className="text-neutral-300 mb-2 font-light text-sm">{t("footer.contact.group_name")}</p>
-            <p className="text-neutral-300 font-light text-sm">{t("footer.contact.university")}</p>
+          <div className="flex items-start gap-4">
+            <Image 
+              src="/images/logos/ufop-logo.png" 
+              alt="UFOP" 
+              width={40}
+              height={88}
+            />
+            <div>
+              <div className="text-xl font-bold mb-4 font-light tracking-tight text-white">GIFLABS</div>
+              <p className="text-neutral-300 mb-2 font-light text-sm">{t("footer.contact.group_name")}</p>
+              <p className="text-neutral-300 font-light text-sm">{t("footer.contact.university")}</p>
+            </div>
           </div>
 
           <div>
