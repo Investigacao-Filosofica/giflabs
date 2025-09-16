@@ -40,7 +40,7 @@ const config: Config = {
           foreground: "#6b7280",
         },
         accent: {
-          DEFAULT: "#4a7c59",
+          DEFAULT: "#404040",
           foreground: "#ffffff",
         },
         popover: {
