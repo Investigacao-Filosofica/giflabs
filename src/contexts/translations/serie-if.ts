@@ -11,7 +11,7 @@ export const serieIfTranslations = {
           "cta_main": "Sobre o Projeto",
           "cta_secondary": "Colaboradores",
           "cta_series": "Acessar Série",
-          "cta_collaborators": "Colaboradores"
+          "cta_details": "Detalhes"
         },
         "details": {
           "title": "Sobre o Projeto",
@@ -90,7 +90,7 @@ export const serieIfTranslations = {
           "cta_main": "About the Project",
           "cta_secondary": "Collaborators",
           "cta_series": "Access Series",
-          "cta_collaborators": "Collaborators"
+          "cta_details": "Details"
         },
         "details": {
           "title": "About the Project",
