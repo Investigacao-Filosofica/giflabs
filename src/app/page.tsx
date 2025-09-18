@@ -567,7 +567,7 @@ export default function GifLabsSite() {
                 <Users size={24} className="text-neutral-600" />
               </div>
               <div className="text-3xl font-bold text-neutral-900 mb-2">
-                {t("home.collaborators.stats.researchers.count")}
+                {networkMembers.researchers.length}
               </div>
               <h3 className="text-lg font-semibold text-neutral-800 mb-2">
                 {t("home.collaborators.stats.researchers.title")}
@@ -583,7 +583,7 @@ export default function GifLabsSite() {
                 <GraduationCap size={24} className="text-neutral-600" />
               </div>
               <div className="text-3xl font-bold text-neutral-900 mb-2">
-                {t("home.collaborators.stats.students.count")}
+                {networkMembers.students.length}
               </div>
               <h3 className="text-lg font-semibold text-neutral-800 mb-2">
                 {t("home.collaborators.stats.students.title")}
@@ -599,7 +599,7 @@ export default function GifLabsSite() {
                 <Database size={24} className="text-neutral-600" />
               </div>
               <div className="text-3xl font-bold text-neutral-900 mb-2">
-                {t("home.collaborators.stats.technicians.count")}
+                {networkMembers.technicians.length}
               </div>
               <h3 className="text-lg font-semibold text-neutral-800 mb-2">
                 {t("home.collaborators.stats.technicians.title")}
@@ -615,7 +615,7 @@ export default function GifLabsSite() {
                 <Globe size={24} className="text-neutral-600" />
               </div>
               <div className="text-3xl font-bold text-neutral-900 mb-2">
-                {t("home.collaborators.stats.international.count")}
+                {networkMembers.international.length}
               </div>
               <h3 className="text-lg font-semibold text-neutral-800 mb-2">
                 {t("home.collaborators.stats.international.title")}
