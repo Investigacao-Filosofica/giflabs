@@ -267,6 +267,7 @@ const networkMembers = {
     { name: "Geovanna Lopes Santos", link: "http://lattes.cnpq.br/9583522147165813" },
     { name: "João Victor Almeida Nascimento", link: "http://lattes.cnpq.br/5768924954298097" },
     { name: "Katia Suzue Melo", link: "http://lattes.cnpq.br/0224109326874352" },
+    { name: "Lauana Aparecida de Araújo Carvalho", link: "http://lattes.cnpq.br/7687647547493319"},
     { name: "Ligea Clara de Carvalho Hoki", link: "http://lattes.cnpq.br/4343596565422499" },
     { name: "Luan Lopes Martins", link: "http://lattes.cnpq.br/6955551251166364" },
     { name: "Manuella de Godoy e Silva", link: "http://lattes.cnpq.br/4546032083856705" },
