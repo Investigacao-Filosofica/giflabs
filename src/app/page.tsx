@@ -256,7 +256,6 @@ const networkMembers = {
   students: [
     { name: "Andrea Maria Cordeiro", link: "http://lattes.cnpq.br/5457447369505460" },
     { name: "Atticus Macêdo", link: "http://lattes.cnpq.br/3170343351636689" },
-    { name: "Bárbara Mól Gonçalves", link: "http://lattes.cnpq.br/6411527597757239" },
     { name: "Bianca de Oliveira Andrade", link: "http://lattes.cnpq.br/5348659239702791" },
     { name: "César Henrique Luz Barbosa", link: "http://lattes.cnpq.br/6434772983970469" },
     { name: "Daniel Ferreira Beckman", link: "http://lattes.cnpq.br/9529962851809580" },
