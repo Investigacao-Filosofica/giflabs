@@ -67,7 +67,12 @@ export default function SerieIFPage() {
                       {t("projects.serie_if.hero.cta_series")} <BookOpen className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    asChild
+                    className="border-neutral-300 text-neutral-700 hover:bg-neutral-900 hover:text-white transition-colors"
+                  >
                     <Link href="#detalhes">
                       {t("projects.serie_if.hero.cta_details")} <BookMarked className="ml-2 h-4 w-4" />
                     </Link>
