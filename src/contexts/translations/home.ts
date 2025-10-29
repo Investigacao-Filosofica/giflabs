@@ -107,6 +107,16 @@ export const homeTranslations = {
               "web3": "Web3",
               "frontend": "Frontend"
             }
+          },
+          "vitor_gripp": {
+            "name": "Vitor Emanuel Gripp",
+            "role": "Estrategista de Comunicação e Inovação Digital",
+            "description": "Mestre em Psicologia, integrando filosofia, arte e tecnologia. No GIF Labs, desenvolve estratégias de comunicação e inovação, unindo experiência em tecnologias emergentes e visão crítica sobre cultura digital.",
+            "badges": {
+              "communication": "Comunicação",
+              "digital_innovation": "Inovação Digital",
+              "psychology": "Psicologia"
+            }
           }
         }
       },
@@ -255,6 +265,16 @@ export const homeTranslations = {
               "digital_art": "Digital Art",
               "web3": "Web3",
               "frontend": "Frontend"
+            }
+          },
+          "vitor_gripp": {
+            "name": "Vitor Emanuel Gripp",
+            "role": "Digital Communication and Innovation Strategist",
+            "description": "Master in Psychology, integrating philosophy, art, and technology. At GIF Labs, develops communication and innovation strategies, combining experience in emerging technologies and critical vision on digital culture.",
+            "badges": {
+              "communication": "Communication",
+              "digital_innovation": "Digital Innovation",
+              "psychology": "Psychology"
             }
           }
         }

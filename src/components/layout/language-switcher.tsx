@@ -20,16 +20,23 @@ export function LanguageSwitcher() {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current && 
+        buttonRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isOpen]);
 
   const handleLanguageChange = () => {
     setLanguage(language === 'pt' ? 'en' : 'pt');
@@ -44,8 +51,6 @@ export function LanguageSwitcher() {
         size="sm" 
         className="flex items-center gap-2 hover:bg-black hover:text-white transition-colors rounded-none"
         onClick={() => setIsOpen(!isOpen)}
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
       >
         <Globe className="h-4 w-4" />
         <span className="text-xs font-medium">
@@ -56,14 +61,12 @@ export function LanguageSwitcher() {
       
       {isOpen && (
         <div 
-          className="absolute top-full left-0 bg-white border border-gray-200 shadow-lg rounded-none z-50"
+          className="absolute top-full left-0 bg-white border border-gray-200 shadow-lg rounded-none z-50 mt-1"
           style={{ width: `${buttonWidth}px` }}
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
         >
           <button
             onClick={handleLanguageChange}
-            className="w-full flex items-center justify-center gap-2 cursor-pointer hover:bg-black hover:text-white transition-colors px-3 py-2 text-sm font-medium"
+            className="w-full block text-center cursor-pointer hover:bg-black hover:text-white transition-colors py-2 text-xs font-medium"
           >
             {language === 'pt' ? 'EN' : 'PT'}
           </button>

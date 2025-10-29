@@ -44,6 +44,7 @@ const iconMap = {
   Palette,
   Database,
   Globe,
+  Mail,
 };
 
 const projects = [
@@ -125,6 +126,15 @@ const teamMembers = [
     linkedin: "#",
     twitter: "https://x.com/ctrlshiftOFF",
     badges: ["digital_art", "web3", "frontend"]
+  },
+  {
+    id: "vitor_gripp",
+    iconName: "Mail",
+    lattes: "http://lattes.cnpq.br/9028510842780316",
+    github: "#",
+    linkedin: "#",
+    twitter: "https://x.com/EmanuelAlqm",
+    badges: ["communication", "digital_innovation", "psychology"]
   }
 ];
 
