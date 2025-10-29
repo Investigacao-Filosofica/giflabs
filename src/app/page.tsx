@@ -473,7 +473,7 @@ export default function GifLabsSite() {
             </p>
           </div>
 
-                     <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-16 max-w-6xl mx-auto`}>
+                     <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 xl:gap-8 max-w-7xl mx-auto`}>
              {teamMembers.map((member) => (
                <div key={member.id} className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
                  <div className="p-4   text-center flex flex-col flex-grow">

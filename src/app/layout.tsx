@@ -28,13 +28,33 @@ export const metadata: Metadata = {
     title: "GIFLABS - Filosofia, Artes, Tecnologia e Educação",
     description: "Desenvolvendo educação crítica com blockchain, IA e Web3",
     type: "website",
+    url: "https://giflabs.xyz",
+    siteName: "GIFLABS",
+    images: [
+      {
+        url: '/images/icons/og-image.png',
+        width: 1200,
+        height: 675,
+        alt: 'GIFLABS Logo',
+      },
+    ],
+    locale: 'pt_BR',
+    alternateLocale: 'en_US',
   },
-  generator: 'v0.dev',
+  twitter: {
+    card: 'summary',
+    title: "GIFLABS - Filosofia, Artes, Tecnologia e Educação",
+    description: "Desenvolvendo educação crítica com blockchain, IA e Web3",
+    images: ['/images/og-image.png'],
+    creator: '@GIFLABS_xyz',
+    site: 'giflabs.xyz',
+  },
   icons: {
-    icon: '/images/icons/favico.gif',
-    shortcut: '/images/icons/favico.gif',
-    apple: '/images/icons/favico.gif',
+    icon: '/images/og-image.png',
+    shortcut: '/images/og-image.png',
+    apple: '/images/og-image.png',
   },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://giflabs.xyz'),
 }
 
 export default function RootLayout({

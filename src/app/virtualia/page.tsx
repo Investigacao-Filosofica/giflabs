@@ -46,7 +46,7 @@ export default function VirtualiaPage() {
               </p>
               <div className="flex justify-center gap-4">
                 <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white">
-                  <Link href="https://www.virtualiajournal.com/index.php/home" target="_blank">
+                  <Link href="https://periodicos.ufop.br/virtualia-journal" target="_blank">
                     {t("virtualia.hero.cta_main")} <ExternalLink className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
