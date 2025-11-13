@@ -256,7 +256,6 @@ const networkMembers = {
   students: [
     { name: "Andrea Maria Cordeiro", link: "http://lattes.cnpq.br/5457447369505460" },
     { name: "Atticus Macêdo", link: "http://lattes.cnpq.br/3170343351636689" },
-    { name: "Bárbara Mól Gonçalves", link: "http://lattes.cnpq.br/6411527597757239" },
     { name: "Bianca de Oliveira Andrade", link: "http://lattes.cnpq.br/5348659239702791" },
     { name: "César Henrique Luz Barbosa", link: "http://lattes.cnpq.br/6434772983970469" },
     { name: "Daniel Ferreira Beckman", link: "http://lattes.cnpq.br/9529962851809580" },
@@ -267,6 +266,7 @@ const networkMembers = {
     { name: "Geovanna Lopes Santos", link: "http://lattes.cnpq.br/9583522147165813" },
     { name: "João Victor Almeida Nascimento", link: "http://lattes.cnpq.br/5768924954298097" },
     { name: "Katia Suzue Melo", link: "http://lattes.cnpq.br/0224109326874352" },
+    { name: "Lauana Aparecida de Araújo Carvalho", link: "http://lattes.cnpq.br/7687647547493319"},
     { name: "Ligea Clara de Carvalho Hoki", link: "http://lattes.cnpq.br/4343596565422499" },
     { name: "Luan Lopes Martins", link: "http://lattes.cnpq.br/6955551251166364" },
     { name: "Manuella de Godoy e Silva", link: "http://lattes.cnpq.br/4546032083856705" },
@@ -473,7 +473,7 @@ export default function GifLabsSite() {
             </p>
           </div>
 
-                     <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-16 max-w-6xl mx-auto`}>
+                     <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 xl:gap-8 max-w-7xl mx-auto`}>
              {teamMembers.map((member) => (
                <div key={member.id} className="bg-transparent hover:bg-neutral-100 transition-colors duration-200 flex flex-col rounded-lg">
                  <div className="p-4   text-center flex flex-col flex-grow">

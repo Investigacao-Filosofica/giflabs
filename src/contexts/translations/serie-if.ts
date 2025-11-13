@@ -74,6 +74,11 @@ export const serieIfTranslations = {
             "downloads": "Downloads",
             "institutions": "Instituições Parceiras"
           }
+        },
+        "recognition": {
+          "title": "Reconhecimento Internacional",
+          "description": "A Série Investigação Filosófica recebeu o prestigioso apoio da Fundação John Templeton através de um grant que reconhece a importância de democratizar o conhecimento filosófico de qualidade no Brasil.",
+          "button": "Ver Grant Templeton"
         }
       }
     }
@@ -153,6 +158,11 @@ export const serieIfTranslations = {
             "downloads": "Downloads",
             "institutions": "Partner Institutions"
           }
+        },
+        "recognition": {
+          "title": "International Recognition",
+          "description": "The Philosophical Investigation Series has received prestigious support from the John Templeton Foundation through a grant that recognizes the importance of democratizing quality philosophical knowledge in Brazil.",
+          "button": "View Templeton Grant"
         }
       }
     }

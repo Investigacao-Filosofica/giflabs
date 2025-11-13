@@ -67,7 +67,12 @@ export default function SerieIFPage() {
                       {t("projects.serie_if.hero.cta_series")} <BookOpen className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    asChild
+                    className="border-neutral-300 text-neutral-700 hover:bg-neutral-900 hover:text-white transition-colors"
+                  >
                     <Link href="#detalhes">
                       {t("projects.serie_if.hero.cta_details")} <BookMarked className="ml-2 h-4 w-4" />
                     </Link>
@@ -126,17 +131,17 @@ export default function SerieIFPage() {
                   <div className="max-w-3xl mx-auto">
                     <div className="text-center mb-6">
                       <h3 className="text-2xl font-semibold text-neutral-900 mb-4">
-                        🏆 Reconhecimento Internacional
+                        🏆 {t("projects.serie_if.recognition.title")}
                       </h3>
                       <p className="text-lg text-neutral-700 leading-relaxed">
-                        A Série Investigação Filosófica recebeu o prestigioso apoio da Fundação John Templeton através de um grant que reconhece a importância de democratizar o conhecimento filosófico de qualidade no Brasil.
+                        {t("projects.serie_if.recognition.description")}
                       </p>
                     </div>
                     <div className="text-center">
                       <Button
                         size="lg"
                         variant="outline"
-                        className="border-neutral-400 text-neutral-700 hover:bg-neutral-200 hover:border-neutral-500 px-8 py-4 text-base transition-all duration-300 font-medium shadow-sm"
+                        className="border-neutral-300 text-neutral-700 hover:bg-neutral-900 hover:text-white transition-colors"
                         asChild
                       >
                         <Link 
@@ -144,7 +149,7 @@ export default function SerieIFPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          Ver Grant Templeton →
+                          {t("projects.serie_if.recognition.button")} →
                         </Link>
                       </Button>
                     </div>
