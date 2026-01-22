@@ -48,7 +48,7 @@ export const homeTranslations = {
             "description": "Recuperação e preservação do periódico acadêmico 'Investigação Filosófica' utilizando tecnologias de armazenamento descentralizado como Arweave e blockchain Base."
           },
           "dao_channel": {
-            "title": "Canal The Philosophers DAO",
+            "title": "Canal Giflabs",
             "description": "Canal de youtube para divulgacao de vídeos e podcasts de interesse filosófico."
           },
           "metaverso": {
@@ -207,7 +207,7 @@ export const homeTranslations = {
             "description": "Recovery and preservation of the academic journal 'Philosophical Investigation' using decentralized storage technologies such as Arweave and Base blockchain."
           },
           "dao_channel": {
-            "title": "The Philosophers DAO Channel",
+            "title": "Giflabs Channel",
             "description": "YouTube channel for disseminating videos and podcasts of philosophical interest."
           },
           "metaverso": {

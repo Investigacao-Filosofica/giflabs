@@ -27,7 +27,7 @@ export default function ThePhilosophersDaoPage() {
               </p>
               <div className="flex justify-center gap-4">
                 <Button size="lg" asChild className="bg-red-600 hover:bg-red-700 text-white">
-                  <Link href="https://www.youtube.com/@ThePhilosophersDAOpt" target="_blank">
+                  <Link href="https://www.youtube.com/@giflabs" target="_blank">
                     <Youtube className="mr-2 h-5 w-5" />
                     {t("philosophers_dao.hero.cta_main")}
                   </Link>
