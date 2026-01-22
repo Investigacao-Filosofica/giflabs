@@ -10,7 +10,7 @@ import { digitalEducationAppTranslations } from './translations/digital-educatio
 import { virtualiaTranslations } from './translations/virtualia';
 import { metaversoTranslations } from './translations/metaverso';
 import { arqueologiaDigitalTranslations } from './translations/arqueologia-digital';
-import { thePhilosophersDaoTranslations } from './translations/the-philosophers-dao';
+import { giflabsTranslations } from './translations/giflabs';
 import { literaturaTranslations } from './translations/literatura';
 import { internacionalizacaoTranslations } from './translations/internacionalizacao';
 
@@ -48,7 +48,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         ...virtualiaTranslations.pt,
         ...metaversoTranslations.pt,
         ...arqueologiaDigitalTranslations.pt,
-        ...thePhilosophersDaoTranslations.pt,
+        ...giflabsTranslations.pt,
         ...literaturaTranslations.pt,
         ...internacionalizacaoTranslations.pt
       },
@@ -60,7 +60,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         ...virtualiaTranslations.en,
         ...metaversoTranslations.en,
         ...arqueologiaDigitalTranslations.en,
-        ...thePhilosophersDaoTranslations.en,
+        ...giflabsTranslations.en,
         ...literaturaTranslations.en,
         ...internacionalizacaoTranslations.en
       }

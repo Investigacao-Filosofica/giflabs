@@ -86,8 +86,8 @@ src/app/
 │   └── page.tsx                   # (/metaverso)
 ├── arqueologia-digital/           # Projeto: Arqueologia Digital
 │   └── page.tsx                   # (/arqueologia-digital)
-└── the-philosophers-dao/          # Projeto: The Philosophers DAO
-    └── page.tsx                   # (/the-philosophers-dao)
+└── giflabs/                       # Projeto: GIFLABS
+    └── page.tsx                   # (/giflabs)
 ```
 
 ### Páginas Implementadas
@@ -213,7 +213,7 @@ src/contexts/
     ├── virtualia.ts             # Projeto Virtualia
     ├── metaverso.ts             # Projeto Metaverso
     ├── arqueologia-digital.ts   # Projeto Arqueologia Digital
-    ├── the-philosophers-dao.ts  # Projeto The Philosophers DAO
+    ├── giflabs.ts                # Projeto GIFLABS
     └── literatura.ts            # Projeto Literatura
 ```
 

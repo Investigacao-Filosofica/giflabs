@@ -76,7 +76,7 @@ const projects = [
   {
     id: "dao-channel",
     iconName: "PlayCircle",
-    link: "/the-philosophers-dao",
+    link: "/giflabs",
   },
   {
     id: "metaverso",

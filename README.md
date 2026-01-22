@@ -33,7 +33,7 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 | **Série IF** | Tradução de verbetes da Stanford Encyclopedia of Philosophy | 🟢 Ativo | [Ver projeto](/serie-if) |
 | **Virtualia** | Revista acadêmica sobre Arte, Tecnologia e Filosofia | 🟢 Ativo | [Ver projeto](/virtualia) |
 | **Literatura** | Experiência literária imersiva com Matzatea | 🟢 Ativo | [Ver projeto](/literatura) |
-| **The Philosophers DAO** | Canal de conteúdo filosófico descentralizado | 🟢 Ativo | [Ver projeto](/the-philosophers-dao) |
+| **GIFLABS** | Canal de conteúdo filosófico descentralizado | 🟢 Ativo | [Ver projeto](/giflabs) |
 | **Metaverso** | Exploração de ambientes digitais e biblioteca Near Alexandria | 🟡 Em desenvolvimento | [Ver projeto](/metaverso) |
 | **Arqueologia Digital** | Preservação digital de periódicos acadêmicos | 🟡 Em desenvolvimento | [Ver projeto](/arqueologia-digital) |
 

@@ -273,8 +273,8 @@ app/
 │   └── page.tsx               # Projeto: Metaverso
 ├── arqueologia-digital/
 │   └── page.tsx               # Projeto: Arqueologia Digital
-└── the-philosophers-dao/
-    └── page.tsx               # Projeto: The Philosophers DAO
+└── giflabs/
+    └── page.tsx               # Projeto: GIFLABS
 ```
 
 ### Navegação Dinâmica
@@ -390,7 +390,7 @@ const allTranslations = {
     ...virtualiaTranslations.pt,
     ...metaversoTranslations.pt,
     ...arqueologiaDigitalTranslations.pt,
-    ...thePhilosophersDaoTranslations.pt,
+    ...giflabsTranslations.pt,
     ...literaturaTranslations.pt
   },
   en: {
@@ -409,7 +409,7 @@ src/contexts/translations/
 ├── virtualia.ts           # Projeto Virtualia
 ├── metaverso.ts           # Projeto Metaverso
 ├── arqueologia-digital.ts # Projeto Arqueologia Digital
-├── the-philosophers-dao.ts # Projeto The Philosophers DAO
+├── giflabs.ts              # Projeto GIFLABS
 └── literatura.ts          # Projeto Literatura
 ```
 

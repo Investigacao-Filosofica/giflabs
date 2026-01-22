@@ -63,7 +63,7 @@ export function Header() {
           { href: "#pilares", label: t("navigation.pillars") },
           { href: "#jogos-galerias", label: t("navigation.games_galleries") },
         ];
-      case "/the-philosophers-dao":
+      case "/giflabs":
         return [
           { href: "/", label: "Home" },
           { href: "#conteudo", label: t("navigation.content") },
