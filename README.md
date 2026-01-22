@@ -35,7 +35,7 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 | **Literatura** | Experiência literária imersiva com Matzatea | 🟢 Ativo | [Ver projeto](/literatura) |
 | **GIFLABS** | Canal de conteúdo filosófico descentralizado | 🟢 Ativo | [Ver projeto](/giflabs) |
 | **Metaverso** | Exploração de ambientes digitais e biblioteca Near Alexandria | 🟡 Em desenvolvimento | [Ver projeto](/metaverso) |
-| **Arqueologia Digital** | Preservação digital de periódicos acadêmicos | 🟡 Em desenvolvimento | [Ver projeto](/arqueologia-digital) |
+| **Arquivologia Digital** | Preservação digital de periódicos acadêmicos | 🟡 Em desenvolvimento | [Ver projeto](/arqueologia-digital) |
 
 ### 🌐 Tecnologias Utilizadas
 - **Blockchain & Web3**: Arweave, Base, NFTs

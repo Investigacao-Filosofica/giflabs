@@ -44,7 +44,7 @@ export const homeTranslations = {
             "description": "Revista e Periódico Acadêmico sobre Arte, Tecnologia e Filosofia."
           },
           "arqueologia_digital": {
-            "title": "Arqueologia Digital",
+            "title": "Arquivologia Digital",
             "description": "Recuperação e preservação do periódico acadêmico 'Investigação Filosófica' utilizando tecnologias de armazenamento descentralizado como Arweave e blockchain Base."
           },
           "dao_channel": {
@@ -203,7 +203,7 @@ export const homeTranslations = {
             "description": "Magazine and Academic Journal about Art, Technology and Philosophy."
           },
           "arqueologia_digital": {
-            "title": "Digital Archaeology",
+            "title": "Digital Archivology",
             "description": "Recovery and preservation of the academic journal 'Philosophical Investigation' using decentralized storage technologies such as Arweave and Base blockchain."
           },
           "dao_channel": {

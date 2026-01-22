@@ -84,7 +84,7 @@ src/app/
 │   └── page.tsx                   # (/literatura)
 ├── metaverso/                     # Projeto: Metaverso
 │   └── page.tsx                   # (/metaverso)
-├── arqueologia-digital/           # Projeto: Arqueologia Digital
+├── arqueologia-digital/           # Projeto: Arquivologia Digital
 │   └── page.tsx                   # (/arqueologia-digital)
 └── giflabs/                       # Projeto: GIFLABS
     └── page.tsx                   # (/giflabs)
@@ -212,7 +212,7 @@ src/contexts/
     ├── digital-education-app.ts  # Projeto Digital Education App
     ├── virtualia.ts             # Projeto Virtualia
     ├── metaverso.ts             # Projeto Metaverso
-    ├── arqueologia-digital.ts   # Projeto Arqueologia Digital
+    ├── arqueologia-digital.ts   # Projeto Arquivologia Digital
     ├── giflabs.ts                # Projeto GIFLABS
     └── literatura.ts            # Projeto Literatura
 ```
