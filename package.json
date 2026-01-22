@@ -7,7 +7,11 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "strapi:dev": "cd strapi && pnpm develop",
+    "strapi:build": "cd strapi && pnpm build",
+    "strapi:start": "cd strapi && pnpm start",
+    "strapi:install": "cd strapi && pnpm install"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
