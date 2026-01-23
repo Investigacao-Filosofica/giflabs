@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Search, Filter, X } from 'lucide-react';
 import { PostList, Pagination, CategoryBadge, TagList } from '@/components/blog';
@@ -10,7 +10,7 @@ import type { PostPreview, Category, Tag, StrapiResponse } from '@/types/blog';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
-export default function BlogPage() {
+function BlogContent() {
   const { language, t } = useLanguage();
   const searchParams = useSearchParams();
   
@@ -246,5 +246,17 @@ export default function BlogPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function BlogPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-900 border-t-transparent" />
+      </div>
+    }>
+      <BlogContent />
+    </Suspense>
   );
 }
