@@ -38,7 +38,7 @@ giflabs/
 │   └── images/                     # Imagens públicas
 │       ├── icons/                  # Ícones (favicon)
 │       └── logos/                  # Logos (X logo)
-├── src/                           # 💻 Código fonte
+├── src/                           # 💻 Código fonte (Next.js)
 │   ├── app/                       # 📄 Páginas (App Router)
 │   │   ├── [projeto]/             # Páginas dinâmicas de projetos
 │   │   ├── layout.tsx             # Layout raiz
@@ -51,6 +51,20 @@ giflabs/
 │   │   ├── LanguageContext.tsx    # Contexto de idioma
 │   │   └── translations/          # Arquivos de tradução
 │   └── lib/                       # 🔧 Utilitários
+├── strapi/                        # 📝 CMS Strapi (Blog)
+│   ├── config/                    # Configurações do Strapi
+│   │   ├── admin.ts               # Config do painel admin
+│   │   ├── database.ts            # Conexão com banco de dados
+│   │   ├── middlewares.ts         # Middlewares
+│   │   ├── plugins.ts             # Plugins (i18n)
+│   │   └── server.ts              # Config do servidor
+│   ├── database/migrations/       # Migrações do banco
+│   ├── public/uploads/            # Arquivos enviados
+│   ├── src/                       # Código fonte Strapi
+│   ├── types/generated/           # Tipos TypeScript
+│   ├── .env.example               # Template de variáveis
+│   ├── package.json               # Dependências Strapi
+│   └── README.md                  # Documentação Strapi
 ├── components.json                # ⚙️ Configuração Shadcn UI
 ├── next.config.mjs               # ⚙️ Configuração Next.js
 ├── package.json                  # 📦 Dependências e scripts
@@ -59,6 +73,52 @@ giflabs/
 ├── tsconfig.json                # ⚙️ Configuração TypeScript
 └── README.md                    # 📖 Documentação principal
 ```
+
+---
+
+## 📝 Strapi CMS (strapi/)
+
+### Estrutura do Strapi
+```
+strapi/
+├── config/
+│   ├── admin.ts              # Configurações do painel admin
+│   ├── database.ts           # Conexão PostgreSQL (Supabase)
+│   ├── middlewares.ts        # Middlewares padrão
+│   ├── plugins.ts            # Plugins habilitados (i18n)
+│   └── server.ts             # Configuração do servidor
+├── database/
+│   └── migrations/           # Migrações automáticas
+├── public/
+│   └── uploads/              # Arquivos enviados pelos usuários
+├── src/
+│   ├── admin/                # Customizações do admin
+│   │   └── app.example.tsx   # Exemplo de customização
+│   └── index.ts              # Hooks register/bootstrap
+├── types/
+│   └── generated/            # Tipos TypeScript gerados
+├── .env                      # Variáveis de ambiente (NÃO COMMITAR!)
+├── .env.example              # Template de configuração
+├── package.json              # Dependências
+├── tsconfig.json             # Configuração TypeScript
+└── README.md                 # Documentação específica
+```
+
+### Tecnologias do Strapi
+| Item | Tecnologia |
+|------|------------|
+| **Versão** | Strapi 5.33.4 (Community Edition) |
+| **Banco de Dados** | PostgreSQL (Supabase - gratuito) |
+| **Idiomas** | Português (pt-BR), Inglês (en) |
+| **API** | REST e GraphQL |
+| **Autenticação** | Users & Permissions plugin |
+
+### URLs do Strapi
+| URL | Descrição |
+|-----|-----------|
+| `http://localhost:1337/admin` | Painel de administração |
+| `http://localhost:1337/api` | API REST |
+| `http://localhost:1337/graphql` | API GraphQL (se habilitado) |
 
 ---
 

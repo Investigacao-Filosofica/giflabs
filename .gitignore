@@ -47,3 +47,6 @@ next-env.d.ts
 /strapi/.env.local
 /strapi/.env.production
 /strapi/.env.development
+!/strapi/.env.example
+/strapi/public/uploads/*
+!/strapi/public/uploads/.gitkeep

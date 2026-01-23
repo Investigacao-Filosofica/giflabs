@@ -62,8 +62,10 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 ## 🛠️ Tecnologia
 
 ### 🏗️ Stack Principal
-- **Framework**: Next.js 15.2.4 (App Router), React 19, TypeScript 5
+- **Framework**: Next.js 15.2.8 (App Router), React 19, TypeScript 5
 - **Estilização**: Tailwind CSS 3.4, Shadcn UI
+- **CMS**: Strapi 5.33.4 (Community Edition) - Blog e gerenciamento de conteúdo
+- **Banco de Dados**: PostgreSQL (Supabase - gratuito)
 - **Internacionalização**: Sistema customizado PT/EN
 - **Deploy**: Vercel, Netlify, ou auto-hosting
 
@@ -120,15 +122,39 @@ pnpm dev
 
 ### 🔧 Scripts Disponíveis
 ```bash
+# Next.js (Frontend)
 pnpm dev          # Servidor de desenvolvimento
 pnpm build        # Build de produção
 pnpm start        # Servidor de produção
 pnpm lint         # Verificação de código
+
+# Strapi (CMS/Blog)
+pnpm strapi:dev   # Strapi em desenvolvimento
+pnpm strapi:build # Build do Strapi
+pnpm strapi:start # Strapi em produção
 ```
 
 ### 🌐 Acessando
-- **Desenvolvimento**: http://localhost:3000
-- **Produção**: https://giflabs.com (futuro)
+- **Frontend (Next.js)**: http://localhost:3000
+- **Admin (Strapi)**: http://localhost:1337/admin
+- **API (Strapi)**: http://localhost:1337/api
+- **Produção**: https://giflabs.xyz
+
+### 📝 Strapi CMS (Blog)
+O projeto inclui o Strapi como sistema de gerenciamento de conteúdo para o blog.
+
+```bash
+# Instalar dependências do Strapi
+cd strapi && npm install
+
+# Configurar banco de dados (Supabase)
+# Copie strapi/.env.example para strapi/.env e configure
+
+# Executar Strapi
+npm run develop
+```
+
+📖 Veja a [documentação completa do Strapi](./strapi/README.md) para mais detalhes.
 
 ## 🤝 Contribuindo
 

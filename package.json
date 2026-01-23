@@ -8,10 +8,10 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "strapi:dev": "cd strapi && pnpm develop",
-    "strapi:build": "cd strapi && pnpm build",
-    "strapi:start": "cd strapi && pnpm start",
-    "strapi:install": "cd strapi && pnpm install"
+    "strapi:dev": "cd strapi && npm run develop",
+    "strapi:build": "cd strapi && npm run build",
+    "strapi:start": "cd strapi && npm run start",
+    "strapi:install": "cd strapi && npm install"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
