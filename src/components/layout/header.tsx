@@ -93,7 +93,19 @@ export function Header() {
           { href: "#relevancia", label: t("navigation.cultural_relevance") },
           { href: "#financiamento", label: t("navigation.funding") },
         ];
+      case "/blog":
+        return [
+          { href: "/", label: "Home" },
+          { href: "#", label: "Blog" },
+        ];
       default:
+        // Para páginas de post individual (/blog/[slug])
+        if (pathname?.startsWith("/blog/")) {
+          return [
+            { href: "/", label: "Home" },
+            { href: "/blog", label: "Blog" },
+          ];
+        }
         return [];
     }
   };

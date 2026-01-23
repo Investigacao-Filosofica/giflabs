@@ -13,6 +13,7 @@ import { arqueologiaDigitalTranslations } from './translations/arqueologia-digit
 import { giflabsTranslations } from './translations/giflabs';
 import { literaturaTranslations } from './translations/literatura';
 import { internacionalizacaoTranslations } from './translations/internacionalizacao';
+import { blogTranslations } from './translations/blog';
 
 interface LanguageContextType {
   language: string;
@@ -50,7 +51,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         ...arqueologiaDigitalTranslations.pt,
         ...giflabsTranslations.pt,
         ...literaturaTranslations.pt,
-        ...internacionalizacaoTranslations.pt
+        ...internacionalizacaoTranslations.pt,
+        ...blogTranslations.pt
       },
       en: {
         ...headerFooterTranslations.en,
@@ -62,7 +64,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         ...arqueologiaDigitalTranslations.en,
         ...giflabsTranslations.en,
         ...literaturaTranslations.en,
-        ...internacionalizacaoTranslations.en
+        ...internacionalizacaoTranslations.en,
+        ...blogTranslations.en
       }
     };
 
