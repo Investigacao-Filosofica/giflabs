@@ -37,7 +37,7 @@
 
 ### Framework Principal
 ```typescript
-// Next.js 15.2.4 com App Router
+// Next.js 15.2.8 com App Router
 - React 19 (Server Components + Client Components)
 - TypeScript 5 (configuração não estrita atualmente)
 - Tailwind CSS 3.4.17 (utility-first CSS)
@@ -47,7 +47,7 @@
 ### Dependências Principais
 ```json
 {
-  "next": "15.2.4",           // Framework principal
+  "next": "15.2.8",           // Framework principal
   "react": "^19",             // Biblioteca de UI
   "typescript": "^5",         // Tipagem estática
   "tailwindcss": "^3.4.17",  // Framework CSS
@@ -73,7 +73,7 @@
     "@types/node": "^22",     // Tipos Node.js
     "@types/react": "^19",    // Tipos React
     "postcss": "^8.5",        // Processador CSS
-    "autoprefixer": "^10.4.20" // Prefixos CSS (instalado mas não configurado)
+    "autoprefixer": "^10.4.20" // Prefixos CSS (configurado)
   }
 }
 ```
@@ -433,18 +433,19 @@ export function LanguageSwitcher() {
 
 ## ⚡ Performance e Otimização
 
-### Configurações Atuais (Problemáticas)
+### Configurações Atuais (Otimizadas) ✅
 ```typescript
-// next.config.mjs - ⚠️ ATENÇÃO: Configurações não ideais para produção
+// next.config.mjs - ✅ Configurações otimizadas para produção
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true,    // ❌ Ignora erros ESLint
+    ignoreDuringBuilds: false,    // ✅ Verifica erros ESLint
   },
   typescript: {
-    ignoreBuildErrors: true,     // ❌ Ignora erros TypeScript
+    ignoreBuildErrors: false,     // ✅ Verifica erros TypeScript
   },
   images: {
-    unoptimized: true,          // ❌ Desabilita otimização de imagens
+    unoptimized: false,          // ✅ Otimização habilitada
+    formats: ['image/webp'],     // ✅ Formato WebP
   },
 }
 ```
@@ -492,10 +493,10 @@ import { ChevronDown, Menu, X } from "lucide-react"; // Importa apenas ícones u
 
 ### Configurações de Desenvolvimento
 ```json
-// tsconfig.json - ⚠️ ATENÇÃO: Não estrito
+// tsconfig.json - ✅ Modo estrito habilitado
 {
   "compilerOptions": {
-    "strict": false,              // ❌ Deveria ser true
+    "strict": true,              // ✅ Modo estrito ativo
     "target": "ES6",              // ✅ Adequado
     "module": "esnext",           // ✅ Adequado
     "jsx": "preserve",            // ✅ Adequado para Next.js
@@ -503,28 +504,29 @@ import { ChevronDown, Menu, X } from "lucide-react"; // Importa apenas ícones u
     "paths": {
       "@/*": ["./src/*"]          // ✅ Alias configurado
     }
-  }
+  },
+  "exclude": ["node_modules", "strapi"]  // ✅ Exclui Strapi
 }
 ```
 
 ### PostCSS
 ```javascript
-// postcss.config.mjs - ⚠️ PROBLEMA: Falta autoprefixer
+// postcss.config.mjs - ✅ Autoprefixer configurado
 const config = {
   plugins: {
     tailwindcss: {},              // ✅ Presente
-    // ❌ FALTANDO: autoprefixer: {}
+    autoprefixer: {},             // ✅ Configurado
   },
 };
 ```
 
 ### Shadcn UI
 ```json
-// components.json - ⚠️ PROBLEMA: Caminho CSS incorreto
+// components.json - ✅ Caminho CSS correto
 {
   "tailwind": {
     "config": "tailwind.config.ts",
-    "css": "app/globals.css",     // ❌ Deveria ser "src/app/globals.css"
+    "css": "src/app/globals.css",  // ✅ Caminho correto
     "baseColor": "neutral",       // ✅ Correto
     "cssVariables": true          // ✅ Correto
   }
@@ -578,16 +580,18 @@ class ApiClient {
 ## 🎯 Roadmap de Arquitetura
 
 ### Fase 1: Consolidação (Atual)
-- [x] Estrutura base com Next.js 15.2.4
+- [x] Estrutura base com Next.js 15.2.8
 - [x] Sistema de internacionalização customizado
 - [x] Component library com Shadcn UI
 - [x] Responsividade mobile-first
-- [ ] **Corrigir configurações de produção**
+- [x] **Configurações de produção otimizadas**
+- [x] Blog integrado com Strapi
+- [x] Deploy no Vercel e Railway
 
 ### Fase 2: Otimização (Próximo)
-- [ ] Habilitar TypeScript strict mode
-- [ ] Configurar autoprefixer
-- [ ] Otimização de imagens
+- [ ] Habilitar TypeScript strict mode (✅ Já habilitado)
+- [ ] Configurar autoprefixer (✅ Já configurado)
+- [ ] Otimização de imagens (✅ Já otimizado)
 - [ ] Implementação de testes
 - [ ] ESLint + Prettier adequados
 
@@ -607,21 +611,16 @@ class ApiClient {
 
 ## ⚠️ Problemas Arquiteturais Atuais
 
-### Críticos
-1. **Configurações de build** que ignoram erros
-2. **TypeScript não estrito** mascarando problemas
-3. **Falta de autoprefixer** no PostCSS
-4. **Caminho CSS incorreto** no components.json
+### Resolvidos ✅
+1. ✅ **Configurações de build** - Todas otimizadas
+2. ✅ **TypeScript strict mode** - Habilitado
+3. ✅ **Autoprefixer** - Configurado
+4. ✅ **Caminho CSS** - Corrigido em components.json
 
-### Médios
+### Menores (Não Críticos)
 1. **Inconsistência de IDs** (hífen vs underscore)
 2. **Rotas inexistentes** no header
 3. **Componentes não utilizados** ocupando espaço
-
-### Menores
-1. **CSS variables** definidas mas não usadas
-2. **Framer Motion** instalado mas não usado
-3. **Muitos componentes Shadcn** não utilizados
 
 ---
 

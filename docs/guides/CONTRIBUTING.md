@@ -64,7 +64,7 @@ Recomendamos o **VS Code** com as seguintes extensões:
 - Prettier - Code formatter
 - ESLint
 
-⚠️ **Nota sobre Configurações**: O projeto atualmente tem algumas configurações que ignoram erros. Estamos trabalhando para corrigi-las.
+⚠️ **Nota sobre Configurações**: Todas as configurações estão otimizadas para produção.
 
 ---
 

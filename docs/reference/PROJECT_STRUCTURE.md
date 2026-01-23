@@ -83,7 +83,7 @@ giflabs/
 strapi/
 ├── config/
 │   ├── admin.ts              # Configurações do painel admin
-│   ├── database.ts           # Conexão PostgreSQL (Supabase)
+│   ├── database.ts           # Conexão PostgreSQL (Railway)
 │   ├── middlewares.ts        # Middlewares padrão
 │   ├── plugins.ts            # Plugins habilitados (i18n)
 │   └── server.ts             # Configuração do servidor
@@ -108,7 +108,9 @@ strapi/
 | Item | Tecnologia |
 |------|------------|
 | **Versão** | Strapi 5.33.4 (Community Edition) |
-| **Banco de Dados** | PostgreSQL (Supabase - gratuito) |
+| **Banco de Dados** | PostgreSQL (Railway) |
+| **Hospedagem** | Railway |
+| **URL Produção** | https://giflabs-production.up.railway.app |
 | **Idiomas** | Português (pt-BR), Inglês (en) |
 | **API** | REST e GraphQL |
 | **Autenticação** | Users & Permissions plugin |
@@ -116,8 +118,10 @@ strapi/
 ### URLs do Strapi
 | URL | Descrição |
 |-----|-----------|
-| `http://localhost:1337/admin` | Painel de administração |
-| `http://localhost:1337/api` | API REST |
+| `http://localhost:1337/admin` | Painel de administração (local) |
+| `https://giflabs-production.up.railway.app/admin` | Painel de administração (produção) |
+| `http://localhost:1337/api` | API REST (local) |
+| `https://giflabs-production.up.railway.app/api` | API REST (produção) |
 | `http://localhost:1337/graphql` | API GraphQL (se habilitado) |
 
 ---
@@ -146,8 +150,12 @@ src/app/
 │   └── page.tsx                   # (/metaverso)
 ├── arqueologia-digital/           # Projeto: Arquivologia Digital
 │   └── page.tsx                   # (/arqueologia-digital)
-└── giflabs/                       # Projeto: GIFLABS
-    └── page.tsx                   # (/giflabs)
+├── giflabs/                       # Projeto: GIFLABS
+│   └── page.tsx                   # (/giflabs)
+└── blog/                          # Blog (Strapi)
+    ├── page.tsx                   # (/blog) - Listagem de posts
+    └── [slug]/
+        └── page.tsx               # (/blog/[slug]) - Post individual
 ```
 
 ### Páginas Implementadas
@@ -199,6 +207,14 @@ _components/              # Convenção Next.js para componentes privados
 ### Estrutura de Componentes
 ```
 src/components/
+├── blog/                          # Componentes do blog
+│   ├── PostCard.tsx              # Card de post
+│   ├── PostList.tsx              # Lista de posts
+│   ├── PostContent.tsx           # Conteúdo do post
+│   ├── AuthorCard.tsx            # Card de autor
+│   ├── CategoryBadge.tsx         # Badge de categoria
+│   ├── TagList.tsx               # Lista de tags
+│   └── Pagination.tsx            # Paginação
 ├── layout/                        # Componentes de layout
 │   ├── header.tsx                 # Header principal
 │   ├── footer.tsx                 # Footer principal
@@ -268,6 +284,7 @@ src/contexts/
 └── translations/                 # Arquivos de tradução por projeto
     ├── header-footer.ts          # Navegação e rodapé
     ├── home.ts                   # Página inicial
+    ├── blog.ts                   # Blog
     ├── serie-if.ts              # Projeto Série IF
     ├── digital-education-app.ts  # Projeto Digital Education App
     ├── virtualia.ts             # Projeto Virtualia
@@ -319,7 +336,15 @@ export const projetoTranslations = {
 ### Estrutura Atual
 ```
 src/lib/
-└── utils.ts                      # Utilitário único
+├── strapi.ts                     # Funções para API Strapi
+│   ├── fetchPosts()             # Buscar posts
+│   ├── fetchPost()              # Buscar post por slug
+│   ├── fetchCategories()        # Buscar categorias
+│   ├── fetchTags()              # Buscar tags
+│   ├── fetchAuthors()           # Buscar autores
+│   └── getStrapiImageUrl()     # URL de imagens
+└── utils.ts                      # Utilitário geral
+    └── cn()                     # Merge de classes Tailwind
 ```
 
 ### utils.ts
@@ -378,13 +403,14 @@ icons: {
 ```javascript
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true,     // ❌ Ignora erros ESLint
+    ignoreDuringBuilds: false,     // ✅ Verifica erros ESLint
   },
   typescript: {
-    ignoreBuildErrors: true,      // ❌ Ignora erros TypeScript
+    ignoreBuildErrors: false,      // ✅ Verifica erros TypeScript
   },
   images: {
-    unoptimized: true,           // ❌ Desabilita otimização
+    unoptimized: false,           // ✅ Otimização habilitada
+    formats: ['image/webp'],      // ✅ Formato WebP
   },
 }
 ```
@@ -393,7 +419,7 @@ const nextConfig = {
 ```json
 {
   "compilerOptions": {
-    "strict": false,              // ❌ TypeScript não estrito
+    "strict": true,              // ✅ TypeScript em modo estrito
     "target": "ES6",              // ✅ Target adequado
     "module": "esnext",           // ✅ Módulos ES
     "jsx": "preserve",            // ✅ JSX preservado
@@ -401,7 +427,8 @@ const nextConfig = {
     "paths": {
       "@/*": ["./src/*"]          // ✅ Alias configurado
     }
-  }
+  },
+  "exclude": ["node_modules", "strapi"]  // ✅ Exclui Strapi
 }
 ```
 
@@ -428,7 +455,7 @@ const config: Config = {
 const config = {
   plugins: {
     tailwindcss: {},              // ✅ Presente
-    // ❌ PROBLEMA: autoprefixer não configurado
+    autoprefixer: {},             // ✅ Configurado
   },
 };
 ```
@@ -441,7 +468,7 @@ const config = {
   "tsx": true,                    // ✅ TypeScript
   "tailwind": {
     "config": "tailwind.config.ts", // ✅ Correto
-    "css": "app/globals.css",      // ❌ Deveria ser "src/app/globals.css"
+    "css": "src/app/globals.css",  // ✅ Caminho correto
     "baseColor": "neutral",        // ✅ Correto
     "cssVariables": true           // ✅ CSS variables
   }
@@ -451,13 +478,16 @@ const config = {
 ### Package.json
 ```json
 {
-  "name": "my-v0-project",         // ❌ Nome genérico
+  "name": "giflabs-website",       // ✅ Nome específico
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",             // ✅ Desenvolvimento
     "build": "next build",         // ✅ Build
     "start": "next start",         // ✅ Produção
-    "lint": "next lint"            // ✅ Linting
+    "lint": "next lint",           // ✅ Linting
+    "strapi:dev": "cd strapi && npm run develop",  // ✅ Strapi dev
+    "strapi:build": "cd strapi && npm run build",  // ✅ Strapi build
+    "strapi:start": "cd strapi && npm run start"   // ✅ Strapi start
   }
 }
 ```
@@ -578,11 +608,12 @@ src/
 ## 📊 Estatísticas do Projeto
 
 ### Arquivos por Categoria
-- **Páginas**: 8 páginas (1 principal + 7 projetos)
-- **Componentes**: 3 layout + 45+ UI (Shadcn)
-- **Traduções**: 9 arquivos de tradução
+- **Páginas**: 9 páginas (1 principal + 7 projetos + 1 blog)
+- **Componentes**: 3 layout + 7 blog + 45+ UI (Shadcn)
+- **Traduções**: 10 arquivos de tradução (incluindo blog)
 - **Configurações**: 6 arquivos principais
 - **Assets**: 2 imagens
+- **Tipos**: 1 arquivo de tipos (blog)
 
 ### Complexidade
 - **Linhas de código**: ~3.000+ linhas (estimativa)
@@ -599,7 +630,7 @@ src/
 **O projeto GIFLABS está em excelente estado técnico:**
 
 #### ✅ **Pontos Fortes**
-- **Arquitetura sólida**: Next.js 15.2.4 + App Router bem implementado
+- **Arquitetura sólida**: Next.js 15.2.8 + App Router bem implementado
 - **Configurações otimizadas**: Todas as configurações foram corrigidas e estão prontas para produção
 - **Código limpo**: TypeScript strict mode, ESLint, estrutura bem organizada
 - **Sistema de design**: Tailwind + Shadcn UI consistente e profissional

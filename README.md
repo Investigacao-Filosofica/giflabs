@@ -2,7 +2,7 @@
 
 > **Desenvolvendo a educação crítica para um mundo descentralizado.**
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15.2.8-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
@@ -65,9 +65,10 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 - **Framework**: Next.js 15.2.8 (App Router), React 19, TypeScript 5
 - **Estilização**: Tailwind CSS 3.4, Shadcn UI
 - **CMS**: Strapi 5.33.4 (Community Edition) - Blog e gerenciamento de conteúdo
-- **Banco de Dados**: PostgreSQL (Supabase - gratuito)
+- **Banco de Dados**: PostgreSQL (Railway)
 - **Internacionalização**: Sistema customizado PT/EN
-- **Deploy**: Vercel, Netlify, ou auto-hosting
+- **Deploy Frontend**: Vercel
+- **Deploy Backend**: Railway (Strapi + PostgreSQL)
 
 ### 📱 Características Técnicas
 - **Responsivo**: Mobile-first design
@@ -129,30 +130,34 @@ pnpm start        # Servidor de produção
 pnpm lint         # Verificação de código
 
 # Strapi (CMS/Blog)
-pnpm strapi:dev   # Strapi em desenvolvimento
+pnpm strapi:dev   # Strapi em desenvolvimento (usa npm internamente)
 pnpm strapi:build # Build do Strapi
 pnpm strapi:start # Strapi em produção
 ```
 
 ### 🌐 Acessando
 - **Frontend (Next.js)**: http://localhost:3000
-- **Admin (Strapi)**: http://localhost:1337/admin
-- **API (Strapi)**: http://localhost:1337/api
+- **Admin (Strapi)**: http://localhost:1337/admin (local) | https://giflabs-production.up.railway.app/admin (produção)
+- **API (Strapi)**: http://localhost:1337/api (local) | https://giflabs-production.up.railway.app/api (produção)
+- **Blog**: http://localhost:3000/blog
 - **Produção**: https://giflabs.xyz
 
 ### 📝 Strapi CMS (Blog)
-O projeto inclui o Strapi como sistema de gerenciamento de conteúdo para o blog.
+O projeto inclui o Strapi como sistema de gerenciamento de conteúdo para o blog, hospedado no Railway.
 
 ```bash
 # Instalar dependências do Strapi
 cd strapi && npm install
 
-# Configurar banco de dados (Supabase)
+# Configurar banco de dados (Railway PostgreSQL)
 # Copie strapi/.env.example para strapi/.env e configure
+# Veja docs/reference/RAILWAY_ENV_VARS.md para detalhes
 
-# Executar Strapi
+# Executar Strapi localmente
 npm run develop
 ```
+
+**Produção**: O Strapi está hospedado no Railway e acessível em `https://giflabs-production.up.railway.app`
 
 📖 Veja a [documentação completa do Strapi](./strapi/README.md) para mais detalhes.
 
@@ -215,22 +220,24 @@ pnpm build
 # Verificar build
 pnpm start
 
-# Variáveis de ambiente
-NEXT_PUBLIC_API_URL=https://api.giflabs.com
+# Variáveis de ambiente (Vercel)
+NEXT_PUBLIC_STRAPI_URL=https://giflabs-production.up.railway.app
 NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
 ```
 
-⚠️ **Nota**: Algumas configurações precisam ser ajustadas para produção. Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md).
+✅ **Nota**: Todas as configurações estão otimizadas para produção. Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md).
 
 ## 🔮 Roadmap
 
 ### 🎯 Fase 1: Consolidação (Atual)
-- [x] Estrutura base com Next.js 15.2.4
+- [x] Estrutura base com Next.js 15.2.8
 - [x] Sistema de internacionalização
 - [x] Component library com Shadcn UI
 - [x] Responsividade mobile-first
 - [x] Documentação completa
-- [ ] **Corrigir configurações de produção**
+- [x] Configurações de produção otimizadas
+- [x] Blog integrado com Strapi
+- [x] Deploy no Vercel e Railway
 
 ### 🚀 Fase 2: Otimização (Próximo)
 - [ ] Implementação de testes
@@ -255,8 +262,8 @@ NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
 ### 📈 Métricas do Projeto
 - **Contribuidores**: 5+ ativos
 - **Projetos**: 7 em desenvolvimento
-- **Páginas**: 8+ implementadas
-- **Componentes**: 45+ disponíveis (Shadcn UI)
+- **Páginas**: 9+ implementadas (incluindo blog)
+- **Componentes**: 50+ disponíveis (Shadcn UI + Blog)
 - **Traduções**: 2 idiomas (PT/EN)
 - **Documentação**: 95% de cobertura
 
@@ -325,14 +332,15 @@ Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](./LICENSE) p
 ## ⚠️ Notas Importantes
 
 ### Status das Configurações
-Este projeto contém algumas configurações que precisam ser ajustadas para produção:
+✅ **Todas as configurações estão otimizadas para produção:**
 
-- **TypeScript**: Modo não estrito (`"strict": false`)
-- **ESLint**: Ignorado durante builds
-- **Images**: Otimização desabilitada
-- **PostCSS**: Falta autoprefixer
+- **TypeScript**: Modo estrito habilitado (`"strict": true`)
+- **ESLint**: Verificação ativa durante builds
+- **Images**: Otimização habilitada com WebP
+- **PostCSS**: Autoprefixer configurado
+- **Next.js**: Todas as otimizações ativas
 
-Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md) para detalhes sobre como corrigir esses problemas.
+Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md) para detalhes.
 
 ---
 

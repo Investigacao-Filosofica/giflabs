@@ -68,7 +68,7 @@ GIFLABS/
 
 | Categoria | Tecnologia | Versão | Status |
 |-----------|------------|--------|--------|
-| **Framework** | Next.js | 15.2.4 | ✅ Ativo |
+| **Framework** | Next.js | 15.2.8 | ✅ Ativo |
 | **UI Library** | React | 19 | ✅ Ativo |
 | **Language** | TypeScript | 5 | ✅ Ativo |
 | **Styling** | Tailwind CSS | 3.4.17 | ✅ Ativo |
@@ -143,6 +143,6 @@ Para dúvidas sobre a documentação:
 
 ---
 
-**📖 Última atualização:** Janeiro 2025  
-**✨ Versão da documentação:** 2.0  
+**📖 Última atualização:** Janeiro 2026  
+**✨ Versão da documentação:** 2.1  
 **🎯 Cobertura:** 95% do projeto documentado

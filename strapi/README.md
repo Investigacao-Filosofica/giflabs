@@ -7,15 +7,18 @@ Sistema de gerenciamento de conteúdo (CMS) para o blog do GIFLABS.
 | Item | Valor |
 |------|-------|
 | **Versão Strapi** | 5.33.4 (Community Edition) |
-| **Banco de Dados** | PostgreSQL (Supabase) |
+| **Banco de Dados** | PostgreSQL (Railway) |
 | **Node.js** | >=20.0.0 <=24.x.x |
 | **Idiomas** | Português (pt-BR), Inglês (en) |
+| **Hospedagem** | Railway |
+| **URL Produção** | https://giflabs-production.up.railway.app |
 
 ## 🚀 Como Executar
 
 ### Pré-requisitos
 - Node.js 20+ instalado
-- Conta no Supabase (banco de dados PostgreSQL gratuito)
+- Conta no Railway (banco de dados PostgreSQL)
+- Para desenvolvimento local: credenciais do PostgreSQL Railway
 
 ### 1. Instalar dependências
 ```bash
@@ -29,16 +32,18 @@ Crie o arquivo `.env` baseado no exemplo:
 cp .env.example .env
 ```
 
-Edite o `.env` com suas credenciais do Supabase:
+Edite o `.env` com suas credenciais do Railway PostgreSQL:
 ```env
-DATABASE_HOST=db.xxxxx.supabase.co
-DATABASE_PORT=5432
-DATABASE_NAME=postgres
+DATABASE_HOST=xxxxx.proxy.rlwy.net
+DATABASE_PORT=34199
+DATABASE_NAME=railway
 DATABASE_USERNAME=postgres
 DATABASE_PASSWORD=sua-senha
 DATABASE_SSL=true
 DATABASE_SSL_REJECT_UNAUTHORIZED=false
 ```
+
+📖 Veja [docs/reference/RAILWAY_ENV_VARS.md](../docs/reference/RAILWAY_ENV_VARS.md) para detalhes sobre como obter as credenciais do Railway.
 
 ### 3. Executar em desenvolvimento
 ```bash
@@ -46,7 +51,8 @@ npm run develop
 ```
 
 ### 4. Acessar o painel admin
-Abra: **http://localhost:1337/admin**
+- **Local**: http://localhost:1337/admin
+- **Produção**: https://giflabs-production.up.railway.app/admin
 
 ---
 
@@ -90,23 +96,27 @@ strapi/
 
 ## 🗄️ Banco de Dados
 
-### Supabase (Recomendado - Gratuito)
+### Railway PostgreSQL
 
-1. Crie uma conta em https://supabase.com
+O projeto usa PostgreSQL hospedado no Railway.
+
+1. Acesse https://railway.com
 2. Crie um novo projeto
-3. Vá em **Settings > Database**
-4. Copie as credenciais de conexão
-5. Configure o `.env`
+3. Adicione um serviço PostgreSQL
+4. Vá em **Settings > Networking** para obter o TCP Proxy público
+5. Copie as credenciais das variáveis de ambiente
+6. Configure o `.env` com os valores do TCP Proxy
 
-### Resetar o Banco de Dados (se necessário)
+📖 Veja [docs/reference/RAILWAY_ENV_VARS.md](../docs/reference/RAILWAY_ENV_VARS.md) para instruções detalhadas.
 
-Execute no SQL Editor do Supabase:
-```sql
-DROP SCHEMA public CASCADE;
-CREATE SCHEMA public;
-GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO public;
-```
+### Variáveis de Ambiente do Railway
+
+O Railway fornece automaticamente:
+- `PGHOST` - Host do banco (use o TCP Proxy público)
+- `PGPORT` - Porta do TCP Proxy
+- `PGDATABASE` - Nome do banco
+- `PGUSER` - Usuário
+- `PGPASSWORD` - Senha
 
 ---
 
@@ -140,12 +150,21 @@ Configuração em `config/plugins.ts`.
 ## 🔗 Integração com Next.js
 
 ### API REST
-- Base URL: `http://localhost:1337/api`
-- Documentação: `http://localhost:1337/documentation`
+- **Local**: `http://localhost:1337/api`
+- **Produção**: `https://giflabs-production.up.railway.app/api`
+- **Documentação**: `http://localhost:1337/documentation` (local)
+
+### Variável de Ambiente no Next.js
+
+Configure no Vercel (ou `.env.local`):
+```env
+NEXT_PUBLIC_STRAPI_URL=https://giflabs-production.up.railway.app
+```
 
 ### Exemplo de Fetch
 ```typescript
-const response = await fetch('http://localhost:1337/api/posts');
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
+const response = await fetch(`${STRAPI_URL}/api/posts`);
 const { data } = await response.json();
 ```
 
@@ -154,7 +173,7 @@ const { data } = await response.json();
 ## 📚 Documentação Oficial
 
 - [Strapi Docs](https://docs.strapi.io)
-- [Supabase Docs](https://supabase.com/docs)
+- [Railway Docs](https://docs.railway.com)
 - [Strapi Discord](https://discord.strapi.io)
 
 ---
@@ -168,13 +187,18 @@ netstat -ano | findstr :1337
 taskkill /PID <PID> /F
 ```
 
-### Erro: "ECONNREFUSED"
-- Verifique se as credenciais do Supabase estão corretas
-- Verifique se o projeto Supabase está ativo
+### Erro: "ECONNREFUSED" ou "getaddrinfo ENOTFOUND"
+- Verifique se está usando o TCP Proxy público do Railway (não o hostname interno)
+- Verifique se as credenciais do Railway estão corretas
+- Verifique se o serviço PostgreSQL no Railway está ativo
 
 ### Erro: "SASL authentication failed"
 - A senha do banco de dados está incorreta
-- Resete a senha no painel do Supabase
+- Verifique se está usando valores diretos (não referências `${PGUSER}`) no Railway
+
+### Erro: "password authentication failed for user"
+- No Railway, use valores diretos das variáveis, não referências `${PGUSER}`
+- Verifique se `DATABASE_USERNAME` e `DATABASE_PASSWORD` estão corretos
 
 ---
 
