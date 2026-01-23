@@ -16,10 +16,10 @@ export function PostList({ posts, showFeatured = true }: PostListProps) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
         <span className="mb-4 text-6xl">📭</span>
-        <h3 className="mb-2 text-xl font-semibold text-white">
+        <h3 className="mb-2 text-xl font-semibold text-neutral-900">
           {t('blog.no_posts') || 'Nenhum post encontrado'}
         </h3>
-        <p className="text-zinc-400">
+        <p className="text-neutral-500">
           {t('blog.no_posts_description') || 'Volte em breve para novos conteúdos.'}
         </p>
       </div>

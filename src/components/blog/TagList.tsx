@@ -24,13 +24,13 @@ export function TagList({ tags, size = 'md', limit }: TagListProps) {
         <Link
           key={tag.id}
           href={`/blog?tag=${tag.slug}`}
-          className={`rounded-full border border-zinc-700 px-3 py-1 text-zinc-400 transition-colors hover:border-zinc-500 hover:text-white ${sizes[size]}`}
+          className={`rounded-full border border-neutral-300 px-3 py-1 text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900 ${sizes[size]}`}
         >
           #{tag.name}
         </Link>
       ))}
       {limit && tags.length > limit && (
-        <span className={`px-3 py-1 text-zinc-500 ${sizes[size]}`}>
+        <span className={`px-3 py-1 text-neutral-400 ${sizes[size]}`}>
           +{tags.length - limit}
         </span>
       )}

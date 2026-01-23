@@ -74,7 +74,7 @@ export function Pagination({
         size="sm"
         disabled={currentPage <= 1}
         asChild={currentPage > 1}
-        className="border-zinc-700 bg-transparent text-zinc-400 hover:bg-zinc-800 hover:text-white disabled:opacity-50"
+        className="border-neutral-300 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 disabled:opacity-50"
       >
         {currentPage > 1 ? (
           <Link href={buildUrl(currentPage - 1)}>
@@ -93,7 +93,7 @@ export function Pagination({
       <div className="flex items-center gap-1">
         {pages.map((page, index) =>
           page === '...' ? (
-            <span key={`ellipsis-${index}`} className="px-2 text-zinc-500">
+            <span key={`ellipsis-${index}`} className="px-2 text-neutral-400">
               ...
             </span>
           ) : (
@@ -104,8 +104,8 @@ export function Pagination({
               asChild={page !== currentPage}
               className={
                 page === currentPage
-                  ? 'bg-blue-600 text-white hover:bg-blue-700'
-                  : 'border-zinc-700 bg-transparent text-zinc-400 hover:bg-zinc-800 hover:text-white'
+                  ? 'bg-neutral-900 text-white hover:bg-neutral-800'
+                  : 'border-neutral-300 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900'
               }
             >
               {page !== currentPage ? (
@@ -124,7 +124,7 @@ export function Pagination({
         size="sm"
         disabled={currentPage >= totalPages}
         asChild={currentPage < totalPages}
-        className="border-zinc-700 bg-transparent text-zinc-400 hover:bg-zinc-800 hover:text-white disabled:opacity-50"
+        className="border-neutral-300 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 disabled:opacity-50"
       >
         {currentPage < totalPages ? (
           <Link href={buildUrl(currentPage + 1)}>

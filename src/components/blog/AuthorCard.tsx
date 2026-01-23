@@ -33,7 +33,7 @@ export function AuthorCard({
     <div className="flex items-start gap-4">
       {/* Avatar */}
       <div
-        className="relative flex-shrink-0 overflow-hidden rounded-full bg-zinc-800"
+        className="relative flex-shrink-0 overflow-hidden rounded-full bg-neutral-200"
         style={{ width: config.avatar, height: config.avatar }}
       >
         {avatarUrl ? (
@@ -44,7 +44,7 @@ export function AuthorCard({
             className="object-cover"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-zinc-500">
+          <div className="flex h-full w-full items-center justify-center text-neutral-400">
             <span className="text-xl">👤</span>
           </div>
         )}
@@ -52,14 +52,14 @@ export function AuthorCard({
 
       {/* Info */}
       <div className="flex-1">
-        <h4 className={`font-semibold text-white ${config.text}`}>
+        <h4 className={`font-semibold text-neutral-900 ${config.text}`}>
           {author.name}
         </h4>
         {author.role && (
-          <p className="text-sm text-zinc-400">{author.role}</p>
+          <p className="text-sm text-neutral-500">{author.role}</p>
         )}
         {showBio && author.bio && (
-          <p className="mt-2 line-clamp-2 text-sm text-zinc-500">
+          <p className="mt-2 line-clamp-2 text-sm text-neutral-600">
             {author.bio}
           </p>
         )}
@@ -72,7 +72,7 @@ export function AuthorCard({
                 href={author.social_links.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 transition-colors hover:text-white"
+                className="text-neutral-400 transition-colors hover:text-neutral-900"
               >
                 <Twitter className="h-4 w-4" />
               </a>
@@ -82,7 +82,7 @@ export function AuthorCard({
                 href={author.social_links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 transition-colors hover:text-white"
+                className="text-neutral-400 transition-colors hover:text-neutral-900"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
@@ -92,7 +92,7 @@ export function AuthorCard({
                 href={author.social_links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 transition-colors hover:text-white"
+                className="text-neutral-400 transition-colors hover:text-neutral-900"
               >
                 <Github className="h-4 w-4" />
               </a>
@@ -102,7 +102,7 @@ export function AuthorCard({
                 href={author.social_links.lattes}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 transition-colors hover:text-white"
+                className="text-neutral-400 transition-colors hover:text-neutral-900"
                 title="Lattes"
               >
                 <ExternalLink className="h-4 w-4" />
@@ -118,7 +118,7 @@ export function AuthorCard({
     return (
       <Link
         href={`/blog?author=${author.slug}`}
-        className="block rounded-lg p-4 transition-colors hover:bg-zinc-800/50"
+        className="block rounded-lg p-4 transition-colors hover:bg-neutral-50"
       >
         {content}
       </Link>

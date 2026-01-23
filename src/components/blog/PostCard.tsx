@@ -19,7 +19,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
 
   return (
     <article
-      className={`group relative flex flex-col overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/50 transition-all duration-300 hover:border-zinc-700 hover:bg-zinc-900 ${
+      className={`group relative flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all duration-300 hover:border-neutral-300 hover:shadow-lg ${
         featured ? 'md:flex-row' : ''
       }`}
     >
@@ -38,8 +38,8 @@ export function PostCard({ post, featured = false }: PostCardProps) {
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full min-h-[200px] w-full items-center justify-center bg-gradient-to-br from-zinc-800 to-zinc-900">
-            <span className="text-4xl opacity-20">📝</span>
+          <div className="flex h-full min-h-[200px] w-full items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200">
+            <span className="text-4xl opacity-30">📝</span>
           </div>
         )}
         
@@ -47,7 +47,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
         {post.category && (
           <div className="absolute left-3 top-3">
             <Badge
-              style={{ backgroundColor: post.category.color }}
+              style={{ backgroundColor: post.category.color || '#3B82F6' }}
               className="text-white"
             >
               {post.category.name}
@@ -59,7 +59,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
       {/* Conteúdo */}
       <div className={`flex flex-1 flex-col p-5 ${featured ? 'md:p-6' : ''}`}>
         {/* Meta info */}
-        <div className="mb-3 flex flex-wrap items-center gap-3 text-xs text-zinc-400">
+        <div className="mb-3 flex flex-wrap items-center gap-3 text-xs text-neutral-500">
           <span className="flex items-center gap-1">
             <Calendar className="h-3 w-3" />
             {formatDate(post.publishedAt, language === 'pt' ? 'pt-BR' : 'en-US')}
@@ -78,7 +78,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
 
         {/* Título */}
         <h3
-          className={`mb-2 font-serif font-bold text-white transition-colors group-hover:text-blue-400 ${
+          className={`mb-2 font-serif font-bold text-neutral-900 transition-colors group-hover:text-neutral-600 ${
             featured ? 'text-2xl md:text-3xl' : 'text-lg'
           }`}
         >
@@ -88,7 +88,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
         {/* Excerpt */}
         {post.excerpt && (
           <p
-            className={`mb-4 line-clamp-3 text-zinc-400 ${
+            className={`mb-4 line-clamp-3 text-neutral-600 ${
               featured ? 'text-base' : 'text-sm'
             }`}
           >
@@ -103,7 +103,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
               <Link
                 key={tag.id}
                 href={`/blog?tag=${tag.slug}`}
-                className="text-xs text-zinc-500 transition-colors hover:text-zinc-300"
+                className="text-xs text-neutral-500 transition-colors hover:text-neutral-900"
               >
                 #{tag.name}
               </Link>
@@ -114,7 +114,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
         {/* Featured badge */}
         {post.is_featured && (
           <div className="absolute right-3 top-3">
-            <Badge variant="outline" className="border-yellow-500 text-yellow-500">
+            <Badge variant="outline" className="border-amber-500 bg-white text-amber-600">
               ⭐ Destaque
             </Badge>
           </div>
