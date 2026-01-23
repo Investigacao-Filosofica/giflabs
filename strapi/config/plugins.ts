@@ -6,4 +6,9 @@ export default ({ env }) => ({
       locales: ['pt-BR', 'en'],
     },
   },
+  'users-permissions': {
+    config: {
+      jwtSecret: env('JWT_SECRET', 'fallback-secret-change-in-production'),
+    },
+  },
 });
