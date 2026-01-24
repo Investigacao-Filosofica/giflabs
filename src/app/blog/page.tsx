@@ -100,17 +100,17 @@ function BlogContent() {
   return (
     <div className="min-h-screen bg-neutral-50">
       {/* Hero Section */}
-      <section className="border-b border-neutral-200 bg-white px-6 py-16">
+      <section className="border-b border-neutral-200 bg-white px-6 pt-32 pb-24">
         <div className="mx-auto max-w-6xl">
-          <h1 className="mb-4 font-serif text-4xl font-bold text-neutral-900 md:text-5xl">
+          <h1 className="mb-6 font-serif text-4xl font-bold text-neutral-900 md:text-5xl">
             {t('blog.title') || 'Blog'}
           </h1>
-          <p className="max-w-2xl text-lg text-neutral-600">
+          <p className="max-w-2xl text-lg text-neutral-600 mb-12">
             {t('blog.description') || 'Artigos, notícias e reflexões sobre filosofia, tecnologia e educação.'}
           </p>
 
           {/* Search Bar */}
-          <form className="mt-8 flex gap-3" action="/blog" method="get">
+          <form className="flex gap-3" action="/blog" method="get">
             <div className="relative flex-1">
               <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400" />
               <input
@@ -137,7 +137,7 @@ function BlogContent() {
 
           {/* Active Filters */}
           {hasActiveFilters && (
-            <div className="mt-4 flex flex-wrap items-center gap-2">
+            <div className="mt-6 flex flex-wrap items-center gap-2">
               <span className="text-sm text-neutral-500">{t('blog.active_filters') || 'Filtros ativos'}:</span>
               {categoryFilter && (
                 <a
@@ -186,7 +186,7 @@ function BlogContent() {
 
           {/* Filters Panel */}
           {showFilters && (
-            <div className="mt-6 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
+            <div className="mt-8 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
               <div className="grid gap-6 md:grid-cols-2">
                 {/* Categories */}
                 <div>
@@ -214,10 +214,10 @@ function BlogContent() {
       </section>
 
       {/* Posts Section */}
-      <section className="px-6 py-12">
+      <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           {/* Results count */}
-          <div className="mb-8 flex items-center justify-between">
+          <div className="mb-12 flex items-center justify-between">
             <p className="text-sm text-neutral-500">
               {pagination.total} {pagination.total === 1 ? 'post' : 'posts'} {t('blog.found') || 'encontrados'}
             </p>
@@ -234,7 +234,7 @@ function BlogContent() {
               <PostList posts={posts} showFeatured={currentPage === 1 && !hasActiveFilters} />
 
               {/* Pagination */}
-              <div className="mt-12">
+              <div className="mt-16">
                 <Pagination
                   currentPage={pagination.page}
                   totalPages={pagination.pageCount}

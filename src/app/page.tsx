@@ -1,9 +1,11 @@
 "use client";
 
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getPosts, getStrapiImageUrl, formatDate } from "@/lib/strapi";
+import type { PostPreview } from "@/types/blog";
 import {
   Briefcase,
   ChevronDown,
@@ -27,9 +29,11 @@ import {
   Puzzle,
   Linkedin,
   Globe,
+  PenTool,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { PostCard } from "@/components/blog";
 
 const iconMap = {
   GraduationCap,
@@ -45,6 +49,7 @@ const iconMap = {
   Database,
   Globe,
   Mail,
+  PenTool,
 };
 
 const projects = [
@@ -87,6 +92,11 @@ const projects = [
     id: "internacionalizacao",
     iconName: "Globe",
     link: "/internacionalizacao",
+  },
+  {
+    id: "blog",
+    iconName: "PenTool",
+    link: "/blog",
   },
 ];
 
@@ -301,6 +311,67 @@ const networkMembers = {
   ]
 };
 
+function LatestPosts() {
+  const { t, language } = useLanguage();
+  const [posts, setPosts] = useState<PostPreview[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchLatestPosts() {
+      try {
+        const locale = language === 'en' ? 'en' : 'pt-BR';
+        const response = await getPosts({
+          locale,
+          pageSize: 3,
+          page: 1,
+        });
+        setPosts(response.data || []);
+      } catch (error) {
+        console.error('Error fetching latest posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchLatestPosts();
+  }, [language]);
+
+  if (loading || posts.length === 0) {
+    return null; // Não mostra seção enquanto carrega ou se não houver posts
+  }
+
+  return (
+    <section id="blog-preview" className="py-24 bg-neutral-50 scroll-mt-19">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
+            {t("home.blog.title")}
+          </h2>
+          <p className="text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed text-lg">
+            {t("home.blog.description")}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8">
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+        </div>
+
+        <div className="text-center">
+          <Button
+            asChild
+            variant="outline"
+            className="border-neutral-300 text-neutral-700 hover:bg-neutral-100"
+          >
+            <Link href="/blog">{t("home.blog.view_all")}</Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Projects() {
   const { t } = useLanguage();
   
@@ -460,6 +531,9 @@ export default function GifLabsSite() {
 
       {/* Áreas de Atuação */}
       <Projects />
+
+      {/* Últimos Posts do Blog */}
+      <LatestPosts />
 
       {/* Equipe */}
       <section id="equipe" className="py-24 bg-white scroll-mt-19">

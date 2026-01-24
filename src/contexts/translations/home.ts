@@ -62,6 +62,10 @@ export const homeTranslations = {
           "internacionalizacao": {
             "title": "Internacionalização",
             "description": "Programa internacional em Filosofia e Ética da Inteligência Artificial, promovendo colaboração acadêmica entre UniEduK, University of Kansas e Ryukoku University de Kyoto."
+          },
+          "blog": {
+            "title": "Blog",
+            "description": "Artigos, notícias e reflexões sobre filosofia, tecnologia e educação. Conteúdo acadêmico e cultural produzido pela equipe GIFLABS."
           }
         }
       },
@@ -155,6 +159,12 @@ export const homeTranslations = {
           "technicians": "Técnicos",
           "international": "Colaboradores Estrangeiros"
         }
+      },
+      "blog": {
+        "title": "Últimos Posts",
+        "description": "Confira os artigos mais recentes do nosso blog.",
+        "view_all": "Ver todos os posts",
+        "read_more": "Ler mais"
       }
     }
   },
@@ -221,6 +231,10 @@ export const homeTranslations = {
           "internacionalizacao": {
             "title": "Internationalization",
             "description": "International program in Philosophy and Ethics of Artificial Intelligence, promoting academic collaboration between UniEduK, University of Kansas and Ryukoku University of Kyoto."
+          },
+          "blog": {
+            "title": "Blog",
+            "description": "Articles, news, and reflections on philosophy, technology, and education. Academic and cultural content produced by the GIFLABS team."
           }
         }
       },
@@ -314,6 +328,12 @@ export const homeTranslations = {
           "technicians": "Technicians",
           "international": "International Collaborators"
         }
+      },
+      "blog": {
+        "title": "Latest Posts",
+        "description": "Check out the latest articles from our blog.",
+        "view_all": "View all posts",
+        "read_more": "Read more"
       }
     }
   }

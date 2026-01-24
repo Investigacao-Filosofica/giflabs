@@ -86,11 +86,7 @@ export async function getPosts(
     locale,
     'pagination[page]': page,
     'pagination[pageSize]': pageSize,
-    'populate[author][populate]': 'avatar',
-    'populate[category]': '*',
-    'populate[tags]': '*',
-    'populate[project]': '*',
-    'populate[featured_image]': '*',
+    'populate': '*',
     'sort[0]': 'publishedAt:desc',
   };
 
@@ -143,12 +139,7 @@ export async function getPostBySlug(
   const params = {
     locale,
     'filters[slug][$eq]': slug,
-    'populate[author][populate]': 'avatar',
-    'populate[category]': '*',
-    'populate[tags]': '*',
-    'populate[project]': '*',
-    'populate[featured_image]': '*',
-    'populate[seo][populate]': 'og_image',
+    'populate': '*',
   };
 
   const query = buildQueryString(params);
