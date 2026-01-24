@@ -167,7 +167,8 @@ export const homeTranslations = {
         "read_more": "Ler mais",
         "empty_state": {
           "title": "Pensar é revolucionário",
-          "description": "Em construção filosófica"
+          "description": "Em construção filosófica",
+          "cta": "Acessar Blog"
         }
       }
     }
@@ -340,7 +341,8 @@ export const homeTranslations = {
         "read_more": "Read more",
         "empty_state": {
           "title": "Thinking is revolutionary",
-          "description": "Under philosophical construction"
+          "description": "Under philosophical construction",
+          "cta": "Access Blog"
         }
       }
     }

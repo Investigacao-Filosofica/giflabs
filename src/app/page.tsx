@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getPosts, getStrapiImageUrl, formatDate } from "@/lib/strapi";
 import type { PostPreview } from "@/types/blog";
+import { SloganLoader } from "@/components/ui/slogan-loader";
 import {
   Briefcase,
   ChevronDown,
@@ -320,7 +322,8 @@ function LatestPosts() {
           pageSize: 3,
           page: 1,
         });
-        setPosts(response.data || []);
+        const fetchedPosts = response.data || [];
+        setPosts(fetchedPosts);
       } catch (error) {
         console.error('Error fetching latest posts:', error);
       } finally {
@@ -332,70 +335,108 @@ function LatestPosts() {
   }, [language]);
 
   return (
-    <section id="blog-preview" className="py-24 bg-white scroll-mt-19">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
-            {t("home.blog.title")}
-          </h2>
-          <p className="text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed text-lg">
-            {t("home.blog.description")}
-          </p>
-        </div>
-
-        {loading ? (
-          <div className="flex items-center justify-center py-16">
-            <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-900 border-t-transparent" />
-          </div>
-        ) : (
-          <>
-            <div className="max-w-6xl mx-auto">
-              {posts.length === 0 ? (
-                // Estado vazio minimalista com slogan
-                <div className="py-16 text-center">
-                  <p className="text-2xl md:text-3xl font-light text-neutral-900 mb-2 italic">
-                    {t("home.blog.empty_state.title") || "Pensar é revolucionário"}
-                  </p>
-                  <div className="flex items-center justify-center gap-1 mt-4">
-                    <span className="text-neutral-400 text-sm font-light">
-                      {t("home.blog.empty_state.description") || "Em construção filosófica"}
-                    </span>
-                    <span className="flex gap-1 ml-1">
-                      <span className="inline-block w-1 h-1 bg-neutral-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }} />
-                      <span className="inline-block w-1 h-1 bg-neutral-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }} />
-                      <span className="inline-block w-1 h-1 bg-neutral-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }} />
-                    </span>
-                  </div>
-                </div>
-              ) : (
-                // Layout assimétrico com posts reais (estilo Instagram - gap mínimo)
-                <div className="grid md:grid-cols-3 gap-2">
-                  {/* Post principal (grande) */}
-                  <div className="md:col-span-2">
-                    <PostCard post={posts[0]} featured={true} />
-                  </div>
-                  
-                  {/* Posts secundários (pequenos) */}
-                  <div className="md:col-span-1 flex flex-col gap-2">
-                    {posts.slice(1, 3).map((post) => (
-                      <PostCard key={post.id} post={post} />
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="text-center mt-8">
+    <section id="blog-preview" className="h-screen flex items-center justify-center bg-neutral-50 scroll-mt-19 overflow-hidden">
+      <div className="container mx-auto px-6 w-full flex flex-col items-center justify-center min-h-0 max-h-screen">
+        <AnimatePresence mode="wait">
+          {loading ? (
+            // Loading: mostrar slogan animado com botão invisível para manter altura
+            <motion.div
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="max-w-5xl mx-auto text-center"
+            >
+              <SloganLoader animate={true} size="lg" className="mb-16" />
               <Button
                 asChild
-                variant="outline"
-                className="border-neutral-300 text-neutral-700 hover:bg-neutral-100"
+                size="lg"
+                className="bg-neutral-900 hover:bg-neutral-800 text-white px-10 py-6 text-lg invisible"
+                aria-hidden="true"
               >
-                <Link href="/blog">{posts.length === 0 ? (t("home.blog.empty_state.cta") || "Acessar Blog") : (t("home.blog.view_all") || "Ver todos os posts")}</Link>
+                <Link href="/blog">{t("home.blog.empty_state.cta")}</Link>
               </Button>
+            </motion.div>
+          ) : posts.length === 0 ? (
+            // Sem posts: mostrar slogan estático + botão com animação de pulso
+            <motion.div
+              key="empty"
+              initial={{ opacity: 0, y: 1 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.1, ease: "easeOut" }}
+              className="max-w-5xl mx-auto text-center"
+            >
+              <motion.div
+                animate={{
+                  scale: [1, 1.02, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <SloganLoader animate={false} size="lg" className="mb-16" />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 1 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.1 , ease: "easeOut" }}
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-neutral-900 hover:bg-neutral-800 text-white px-10 py-6 text-lg"
+                >
+                  <Link href="/blog">{t("home.blog.empty_state.cta")}</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
+          ) : (
+            // Com posts: mostrar título/descrição + grid
+            <motion.div
+              key="posts"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="w-full"
+            >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
+                {t("home.blog.title")}
+              </h2>
+              <p className="text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed text-lg">
+                {t("home.blog.description")}
+              </p>
             </div>
-          </>
-        )}
+            <div className="max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-3 gap-2">
+                {/* Post principal (grande) */}
+                <div className="md:col-span-2">
+                  <PostCard post={posts[0]} featured={true} />
+                </div>
+                
+                {/* Posts secundários (pequenos) */}
+                <div className="md:col-span-1 flex flex-col gap-2">
+                  {posts.slice(1, 3).map((post) => (
+                    <PostCard key={post.id} post={post} />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="text-center mt-12">
+              <Button
+                asChild
+                className="bg-neutral-900 hover:bg-neutral-800 text-white"
+              >
+                <Link href="/blog">{t("home.blog.view_all")}</Link>
+              </Button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

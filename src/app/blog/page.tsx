@@ -6,6 +6,7 @@ import { Search, Filter, X } from 'lucide-react';
 import { PostList, Pagination, CategoryBadge, TagList } from '@/components/blog';
 import { Button } from '@/components/ui/button';
 import { Header } from '@/components/layout/header';
+import { SloganLoader } from '@/components/ui/slogan-loader';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { PostPreview, Category, Tag, StrapiResponse } from '@/types/blog';
 
@@ -244,7 +245,7 @@ function BlogContent() {
           {/* Loading */}
           {loading ? (
             <div className="flex items-center justify-center py-16">
-              <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-900 border-t-transparent" />
+              <SloganLoader animate={true} size="md" />
             </div>
           ) : (
             <>
@@ -271,7 +272,7 @@ export default function BlogPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-900 border-t-transparent" />
+        <SloganLoader animate={true} size="md" />
       </div>
     }>
       <BlogContent />

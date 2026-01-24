@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { ArrowLeft, Calendar, Clock, Share2, Twitter, Linkedin, Link as LinkIcon } from 'lucide-react';
 import { PostContent, AuthorCard, CategoryBadge, TagList } from '@/components/blog';
 import { Button } from '@/components/ui/button';
+import { SloganLoader } from '@/components/ui/slogan-loader';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getStrapiImageUrl, formatDate } from '@/lib/strapi';
 import type { Post, StrapiResponse } from '@/types/blog';
@@ -80,7 +81,7 @@ export default function PostPage() {
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-neutral-50">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-900 border-t-transparent" />
+        <SloganLoader animate={true} size="md" />
       </div>
     );
   }
