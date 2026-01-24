@@ -50,9 +50,12 @@ export const metadata: Metadata = {
     site: 'giflabs.xyz',
   },
   icons: {
-    icon: '/images/og-image.png',
-    shortcut: '/images/og-image.png',
-    apple: '/images/og-image.png',
+    icon: [
+      { url: '/images/icons/favico.gif', type: 'image/gif' },
+      { url: '/images/icons/favico.gif', sizes: '32x32', type: 'image/gif' },
+    ],
+    shortcut: '/images/icons/favico.gif',
+    apple: '/images/icons/favico.gif',
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://giflabs.xyz'),
 }

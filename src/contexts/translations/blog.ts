@@ -11,6 +11,10 @@ export const blogTranslations = {
       active_filters: 'Filtros ativos',
       clear_filters: 'Limpar todos',
       found: 'encontrados',
+      empty_state: {
+        title: 'Pensar é revolucionário',
+        description: 'Em construção filosófica',
+      },
       no_posts: 'Nenhum post encontrado',
       no_posts_description: 'Volte em breve para novos conteúdos.',
       post_not_found: 'Post não encontrado',
@@ -39,6 +43,10 @@ export const blogTranslations = {
       active_filters: 'Active filters',
       clear_filters: 'Clear all',
       found: 'found',
+      empty_state: {
+        title: 'Thinking is revolutionary',
+        description: 'Under philosophical construction',
+      },
       no_posts: 'No posts found',
       no_posts_description: 'Check back soon for new content.',
       post_not_found: 'Post not found',

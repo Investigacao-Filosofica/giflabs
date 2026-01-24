@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { Search, Filter, X } from 'lucide-react';
 import { PostList, Pagination, CategoryBadge, TagList } from '@/components/blog';
 import { Button } from '@/components/ui/button';
+import { Header } from '@/components/layout/header';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { PostPreview, Category, Tag, StrapiResponse } from '@/types/blog';
 
@@ -98,46 +99,62 @@ function BlogContent() {
   const hasActiveFilters = categoryFilter || tagFilter || authorFilter || searchQuery;
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="bg-neutral-50 min-h-screen font-light">
+      <Header />
       {/* Hero Section */}
-      <section className="border-b border-neutral-200 bg-white px-6 pt-32 pb-24">
-        <div className="mx-auto max-w-6xl">
-          <h1 className="mb-6 font-serif text-4xl font-bold text-neutral-900 md:text-5xl">
-            {t('blog.title') || 'Blog'}
-          </h1>
-          <p className="max-w-2xl text-lg text-neutral-600 mb-12">
-            {t('blog.description') || 'Artigos, notícias e reflexões sobre filosofia, tecnologia e educação.'}
-          </p>
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white">
+        <div className="container relative z-10 mx-auto px-6 text-center">
+          <div className="mx-auto max-w-4xl">
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 font-light leading-tight tracking-tight">
+              {t('blog.title') || 'Blog'}
+            </h1>
+            <p className="mb-8 text-lg leading-relaxed text-neutral-600 md:text-xl">
+              {t('blog.description') || 'Artigos, notícias e reflexões sobre filosofia, tecnologia e educação.'}
+            </p>
 
-          {/* Search Bar */}
-          <form className="flex gap-3" action="/blog" method="get">
-            <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400" />
-              <input
-                type="text"
-                name="q"
-                defaultValue={searchQuery}
-                placeholder={t('blog.search_placeholder') || 'Buscar posts...'}
-                className="w-full rounded-lg border border-neutral-300 bg-white py-3 pl-12 pr-4 text-neutral-900 placeholder-neutral-400 transition-colors focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
-              />
-            </div>
-            <Button type="submit" className="bg-neutral-900 px-6 hover:bg-neutral-800">
-              {t('blog.search') || 'Buscar'}
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => setShowFilters(!showFilters)}
-              className="border-neutral-300 text-neutral-700 hover:bg-neutral-100"
-            >
-              <Filter className="mr-2 h-4 w-4" />
-              {t('blog.filters') || 'Filtros'}
-            </Button>
-          </form>
+            {/* Search Bar - Minimalista (estilo Instagram) */}
+            <form className="flex items-center justify-center gap-2 max-w-2xl mx-auto" action="/blog" method="get">
+              <div className="relative flex-1">
+                <input
+                  type="text"
+                  name="q"
+                  defaultValue={searchQuery}
+                  placeholder={t('blog.search_placeholder') || 'Buscar posts...'}
+                  className="w-full rounded-lg border border-neutral-300 bg-white py-2.5 pl-4 pr-10 text-sm text-neutral-900 placeholder-neutral-400 transition-all focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
+                />
+                <button
+                  type="submit"
+                  className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 text-neutral-400 hover:text-neutral-900 transition-colors rounded"
+                  aria-label={t('blog.search') || 'Buscar'}
+                >
+                  <Search className="h-4 w-4" />
+                </button>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowFilters(!showFilters)}
+                className={`p-2.5 rounded-lg border transition-all ${
+                  showFilters
+                    ? 'border-neutral-900 bg-neutral-900 text-white'
+                    : 'border-neutral-300 bg-white text-neutral-600 hover:bg-neutral-50 hover:border-neutral-400'
+                }`}
+                aria-label={t('blog.filters') || 'Filtros'}
+              >
+                <Filter className="h-4 w-4" />
+              </button>
+            </form>
 
-          {/* Active Filters */}
-          {hasActiveFilters && (
-            <div className="mt-6 flex flex-wrap items-center gap-2">
+          </div>
+        </div>
+      </section>
+
+      {/* Filters and Content Section */}
+      <section className="py-12 bg-white border-b border-neutral-200">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-6xl">
+            {/* Active Filters */}
+            {hasActiveFilters && (
+              <div className="mb-6 flex flex-wrap items-center gap-2">
               <span className="text-sm text-neutral-500">{t('blog.active_filters') || 'Filtros ativos'}:</span>
               {categoryFilter && (
                 <a
@@ -184,9 +201,9 @@ function BlogContent() {
             </div>
           )}
 
-          {/* Filters Panel */}
-          {showFilters && (
-            <div className="mt-8 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
+            {/* Filters Panel */}
+            {showFilters && (
+              <div className="mt-6 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
               <div className="grid gap-6 md:grid-cols-2">
                 {/* Categories */}
                 <div>
@@ -210,14 +227,15 @@ function BlogContent() {
               </div>
             </div>
           )}
+          </div>
         </div>
       </section>
 
       {/* Posts Section */}
-      <section className="px-6 py-16">
+      <section className="px-6 py-16 bg-neutral-50">
         <div className="mx-auto max-w-6xl">
           {/* Results count */}
-          <div className="mb-12 flex items-center justify-between">
+          <div className="mb-8 flex items-center justify-between">
             <p className="text-sm text-neutral-500">
               {pagination.total} {pagination.total === 1 ? 'post' : 'posts'} {t('blog.found') || 'encontrados'}
             </p>
@@ -234,7 +252,7 @@ function BlogContent() {
               <PostList posts={posts} showFeatured={currentPage === 1 && !hasActiveFilters} />
 
               {/* Pagination */}
-              <div className="mt-16">
+              <div className="mt-12">
                 <Pagination
                   currentPage={pagination.page}
                   totalPages={pagination.pageCount}

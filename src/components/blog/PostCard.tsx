@@ -19,15 +19,15 @@ export function PostCard({ post, featured = false }: PostCardProps) {
 
   return (
     <article
-      className={`group relative flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all duration-300 hover:border-neutral-300 hover:shadow-lg ${
-        featured ? 'md:flex-row' : ''
+      className={`group relative flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all duration-300 hover:border-neutral-300 hover:shadow-md ${
+        featured ? 'md:flex-row md:h-[400px]' : ''
       }`}
     >
       {/* Imagem */}
       <Link
         href={`/blog/${post.slug}`}
         className={`relative overflow-hidden ${
-          featured ? 'md:w-1/2' : 'aspect-video'
+          featured ? 'md:w-1/2 md:h-full' : 'aspect-video'
         }`}
       >
         {imageUrl ? (

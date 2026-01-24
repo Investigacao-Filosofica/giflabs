@@ -93,11 +93,6 @@ const projects = [
     iconName: "Globe",
     link: "/internacionalizacao",
   },
-  {
-    id: "blog",
-    iconName: "PenTool",
-    link: "/blog",
-  },
 ];
 
 const teamMembers = [
@@ -336,12 +331,8 @@ function LatestPosts() {
     fetchLatestPosts();
   }, [language]);
 
-  if (loading || posts.length === 0) {
-    return null; // Não mostra seção enquanto carrega ou se não houver posts
-  }
-
   return (
-    <section id="blog-preview" className="py-24 bg-neutral-50 scroll-mt-19">
+    <section id="blog-preview" className="py-24 bg-white scroll-mt-19">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
@@ -352,21 +343,59 @@ function LatestPosts() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8">
-          {posts.map((post) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
+        {loading ? (
+          <div className="flex items-center justify-center py-16">
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-neutral-900 border-t-transparent" />
+          </div>
+        ) : (
+          <>
+            <div className="max-w-6xl mx-auto">
+              {posts.length === 0 ? (
+                // Estado vazio minimalista com slogan
+                <div className="py-16 text-center">
+                  <p className="text-2xl md:text-3xl font-light text-neutral-900 mb-2 italic">
+                    {t("home.blog.empty_state.title") || "Pensar é revolucionário"}
+                  </p>
+                  <div className="flex items-center justify-center gap-1 mt-4">
+                    <span className="text-neutral-400 text-sm font-light">
+                      {t("home.blog.empty_state.description") || "Em construção filosófica"}
+                    </span>
+                    <span className="flex gap-1 ml-1">
+                      <span className="inline-block w-1 h-1 bg-neutral-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }} />
+                      <span className="inline-block w-1 h-1 bg-neutral-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }} />
+                      <span className="inline-block w-1 h-1 bg-neutral-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }} />
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                // Layout assimétrico com posts reais (estilo Instagram - gap mínimo)
+                <div className="grid md:grid-cols-3 gap-2">
+                  {/* Post principal (grande) */}
+                  <div className="md:col-span-2">
+                    <PostCard post={posts[0]} featured={true} />
+                  </div>
+                  
+                  {/* Posts secundários (pequenos) */}
+                  <div className="md:col-span-1 flex flex-col gap-2">
+                    {posts.slice(1, 3).map((post) => (
+                      <PostCard key={post.id} post={post} />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
 
-        <div className="text-center">
-          <Button
-            asChild
-            variant="outline"
-            className="border-neutral-300 text-neutral-700 hover:bg-neutral-100"
-          >
-            <Link href="/blog">{t("home.blog.view_all")}</Link>
-          </Button>
-        </div>
+            <div className="text-center mt-8">
+              <Button
+                asChild
+                variant="outline"
+                className="border-neutral-300 text-neutral-700 hover:bg-neutral-100"
+              >
+                <Link href="/blog">{posts.length === 0 ? (t("home.blog.empty_state.cta") || "Acessar Blog") : (t("home.blog.view_all") || "Ver todos os posts")}</Link>
+              </Button>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
@@ -529,11 +558,11 @@ export default function GifLabsSite() {
         </div>
       </section>
 
-      {/* Áreas de Atuação */}
-      <Projects />
-
       {/* Últimos Posts do Blog */}
       <LatestPosts />
+
+      {/* Áreas de Atuação */}
+      <Projects />
 
       {/* Equipe */}
       <section id="equipe" className="py-24 bg-white scroll-mt-19">
