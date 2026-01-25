@@ -26,8 +26,7 @@ export interface StrapiEntity {
   documentId: string;
   createdAt: string;
   updatedAt: string;
-  publishedAt: string;
-  locale: string;
+  publishedAt: string | null;
 }
 
 // Tipo para imagens/media do Strapi
@@ -65,6 +64,10 @@ export interface SEO {
   meta_title: string | null;
   meta_description: string | null;
   og_image: StrapiImage | null;
+  og_title: string | null;
+  og_description: string | null;
+  twitter_card: 'summary' | 'summary_large_image' | 'app' | 'player' | null;
+  canonical_url: string | null;
   no_index: boolean;
 }
 
@@ -74,14 +77,22 @@ export interface Author extends StrapiEntity {
   slug: string;
   bio: string | null;
   avatar: StrapiImage | null;
-  role: string | null;
   email: string | null;
+  academic_title: string | null;
+  role: string | null;
+  institution: string | null;
+  lattes_url: string | null;
+  orcid: string | null;
   social_links: {
     twitter?: string | null;
+    instagram?: string | null;
     linkedin?: string | null;
     github?: string | null;
-    lattes?: string | null;
+    website?: string | null;
   } | null;
+  website: string | null;
+  posts?: PostPreview[];
+  coauthored_posts?: PostPreview[];
 }
 
 // Category
@@ -96,6 +107,7 @@ export interface Category extends StrapiEntity {
 export interface Tag extends StrapiEntity {
   name: string;
   slug: string;
+  description: string | null;
 }
 
 // Project
@@ -104,22 +116,35 @@ export interface Project extends StrapiEntity {
   slug: string;
   description: string | null;
   color: string;
-  icon: string | null;
 }
 
 // Post
 export interface Post extends StrapiEntity {
   title: string;
+  subtitle: string | null;
   slug: string;
   content: string;
+  intro: string | null;
   excerpt: string | null;
   featured_image: StrapiImage | null;
+  language: string;
   author: Author | null;
-  category: Category | null;
+  coauthors: Author[];
+  categories: Category[];
   tags: Tag[];
-  project: Project | null;
+  projects: Project[];
+  related_posts: Post[];
   reading_time: number;
   is_featured: boolean;
+  scheduledAt: string | null;
+  gallery: StrapiImage[];
+  attachments: StrapiImage[];
+  video_url: string | null;
+  series_name: string | null;
+  series_part: number | null;
+  view_count: number;
+  share_count: number;
+  comment_count: number;
   seo: SEO | null;
 }
 
@@ -130,7 +155,7 @@ export interface PostPreview extends Omit<Post, 'content'> {
 
 // Parâmetros de filtro para posts
 export interface PostFilters {
-  locale?: string;
+  language?: string;
   page?: number;
   pageSize?: number;
   category?: string;

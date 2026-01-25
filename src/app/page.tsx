@@ -316,9 +316,9 @@ function LatestPosts() {
   useEffect(() => {
     async function fetchLatestPosts() {
       try {
-        const locale = language === 'en' ? 'en' : 'pt-BR';
+        const languageFilter = language === 'en' ? 'en' : 'pt-BR';
         const response = await getPosts({
-          locale,
+          language: languageFilter,
           pageSize: 3,
           page: 1,
         });

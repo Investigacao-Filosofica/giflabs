@@ -44,13 +44,13 @@ export function PostCard({ post, featured = false }: PostCardProps) {
         )}
         
         {/* Categoria Badge */}
-        {post.category && (
+        {post.categories && post.categories.length > 0 && (
           <div className="absolute left-3 top-3">
             <Badge
-              style={{ backgroundColor: post.category.color || '#3B82F6' }}
+              style={{ backgroundColor: post.categories[0].color || '#3B82F6' }}
               className="text-white"
             >
-              {post.category.name}
+              {post.categories[0].name}
             </Badge>
           </div>
         )}

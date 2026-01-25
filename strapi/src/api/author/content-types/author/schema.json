@@ -10,20 +10,11 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "name": {
       "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "required": true
     },
     "slug": {
       "type": "uid",
@@ -31,12 +22,7 @@
       "required": true
     },
     "bio": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "type": "text"
     },
     "avatar": {
       "type": "media",
@@ -44,25 +30,41 @@
       "required": false,
       "allowedTypes": ["images"]
     },
-    "role": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "email": {
       "type": "email"
     },
+    "academic_title": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "institution": {
+      "type": "string"
+    },
+    "lattes_url": {
+      "type": "string"
+    },
+    "orcid": {
+      "type": "string"
+    },
     "social_links": {
       "type": "json"
+    },
+    "website": {
+      "type": "string"
     },
     "posts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post",
       "mappedBy": "author"
+    },
+    "coauthored_posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "inversedBy": "coauthors"
     }
   }
 }

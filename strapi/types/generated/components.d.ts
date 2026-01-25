@@ -8,6 +8,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
     icon: 'search';
   };
   attributes: {
+    canonical_url: Schema.Attribute.String;
     meta_description: Schema.Attribute.Text &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 160;
@@ -17,7 +18,13 @@ export interface SharedSeo extends Struct.ComponentSchema {
         maxLength: 60;
       }>;
     no_index: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    og_description: Schema.Attribute.Text;
     og_image: Schema.Attribute.Media<'images'>;
+    og_title: Schema.Attribute.String;
+    twitter_card: Schema.Attribute.Enumeration<
+      ['summary', 'summary_large_image', 'app', 'player']
+    > &
+      Schema.Attribute.DefaultTo<'summary_large_image'>;
   };
 }
 

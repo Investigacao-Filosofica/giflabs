@@ -71,7 +71,7 @@ export async function getPosts(
   filters: PostFilters = {}
 ): Promise<StrapiResponse<PostPreview>> {
   const {
-    locale = 'pt-BR',
+    language,
     page = 1,
     pageSize = 10,
     category,
@@ -83,7 +83,6 @@ export async function getPosts(
   } = filters;
 
   const params: Record<string, any> = {
-    locale,
     'pagination[page]': page,
     'pagination[pageSize]': pageSize,
     'populate': '*',
@@ -91,8 +90,11 @@ export async function getPosts(
   };
 
   // Filtros opcionais
+  if (language) {
+    params['filters[language][$eq]'] = language;
+  }
   if (category) {
-    params['filters[category][slug][$eq]'] = category;
+    params['filters[categories][slug][$eq]'] = category;
   }
   if (tag) {
     params['filters[tags][slug][$contains]'] = tag;
@@ -101,7 +103,7 @@ export async function getPosts(
     params['filters[author][slug][$eq]'] = author;
   }
   if (project) {
-    params['filters[project][slug][$eq]'] = project;
+    params['filters[projects][slug][$eq]'] = project;
   }
   if (featured !== undefined) {
     params['filters[is_featured][$eq]'] = featured;
@@ -109,6 +111,7 @@ export async function getPosts(
   if (search) {
     params['filters[$or][0][title][$containsi]'] = search;
     params['filters[$or][1][excerpt][$containsi]'] = search;
+    params['filters[$or][2][intro][$containsi]'] = search;
   }
 
   const query = buildQueryString(params);
@@ -119,11 +122,11 @@ export async function getPosts(
  * Buscar posts em destaque
  */
 export async function getFeaturedPosts(
-  locale = 'pt-BR',
+  language?: string,
   limit = 3
 ): Promise<StrapiResponse<PostPreview>> {
   return getPosts({
-    locale,
+    language,
     pageSize: limit,
     featured: true,
   });
@@ -133,11 +136,9 @@ export async function getFeaturedPosts(
  * Buscar post por slug
  */
 export async function getPostBySlug(
-  slug: string,
-  locale = 'pt-BR'
+  slug: string
 ): Promise<Post | null> {
   const params = {
-    locale,
     'filters[slug][$eq]': slug,
     'populate': '*',
   };
@@ -151,9 +152,8 @@ export async function getPostBySlug(
 /**
  * Buscar todos os slugs de posts (para generateStaticParams)
  */
-export async function getAllPostSlugs(locale = 'pt-BR'): Promise<string[]> {
+export async function getAllPostSlugs(): Promise<string[]> {
   const params = {
-    locale,
     'fields[0]': 'slug',
     'pagination[pageSize]': 1000,
   };
@@ -171,11 +171,8 @@ export async function getAllPostSlugs(locale = 'pt-BR'): Promise<string[]> {
 /**
  * Buscar lista de autores
  */
-export async function getAuthors(
-  locale = 'pt-BR'
-): Promise<StrapiResponse<Author>> {
+export async function getAuthors(): Promise<StrapiResponse<Author>> {
   const params = {
-    locale,
     'populate': 'avatar',
     'pagination[pageSize]': 100,
   };
@@ -188,11 +185,9 @@ export async function getAuthors(
  * Buscar autor por slug
  */
 export async function getAuthorBySlug(
-  slug: string,
-  locale = 'pt-BR'
+  slug: string
 ): Promise<Author | null> {
   const params = {
-    locale,
     'filters[slug][$eq]': slug,
     'populate': 'avatar',
   };
@@ -210,11 +205,8 @@ export async function getAuthorBySlug(
 /**
  * Buscar lista de categorias
  */
-export async function getCategories(
-  locale = 'pt-BR'
-): Promise<StrapiResponse<Category>> {
+export async function getCategories(): Promise<StrapiResponse<Category>> {
   const params = {
-    locale,
     'pagination[pageSize]': 100,
   };
 
@@ -226,11 +218,9 @@ export async function getCategories(
  * Buscar categoria por slug
  */
 export async function getCategoryBySlug(
-  slug: string,
-  locale = 'pt-BR'
+  slug: string
 ): Promise<Category | null> {
   const params = {
-    locale,
     'filters[slug][$eq]': slug,
   };
 
@@ -247,11 +237,8 @@ export async function getCategoryBySlug(
 /**
  * Buscar lista de tags
  */
-export async function getTags(
-  locale = 'pt-BR'
-): Promise<StrapiResponse<Tag>> {
+export async function getTags(): Promise<StrapiResponse<Tag>> {
   const params = {
-    locale,
     'pagination[pageSize]': 100,
   };
 
@@ -263,11 +250,9 @@ export async function getTags(
  * Buscar tag por slug
  */
 export async function getTagBySlug(
-  slug: string,
-  locale = 'pt-BR'
+  slug: string
 ): Promise<Tag | null> {
   const params = {
-    locale,
     'filters[slug][$eq]': slug,
   };
 
@@ -284,11 +269,8 @@ export async function getTagBySlug(
 /**
  * Buscar lista de projetos
  */
-export async function getProjects(
-  locale = 'pt-BR'
-): Promise<StrapiResponse<Project>> {
+export async function getProjects(): Promise<StrapiResponse<Project>> {
   const params = {
-    locale,
     'pagination[pageSize]': 100,
   };
 
@@ -300,11 +282,9 @@ export async function getProjects(
  * Buscar projeto por slug
  */
 export async function getProjectBySlug(
-  slug: string,
-  locale = 'pt-BR'
+  slug: string
 ): Promise<Project | null> {
   const params = {
-    locale,
     'filters[slug][$eq]': slug,
   };
 
@@ -334,7 +314,8 @@ export function getStrapiImageUrl(url: string | null | undefined): string | null
 /**
  * Formatar data para exibição
  */
-export function formatDate(dateString: string, locale = 'pt-BR'): string {
+export function formatDate(dateString: string | null | undefined, locale = 'pt-BR'): string {
+  if (!dateString) return '';
   const date = new Date(dateString);
   return date.toLocaleDateString(locale, {
     year: 'numeric',

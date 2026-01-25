@@ -138,9 +138,11 @@ export default function PostPage() {
         {/* Header */}
         <header className="mb-12">
           {/* Category */}
-          {post.category && (
-            <div className="mb-4">
-              <CategoryBadge category={post.category} size="md" />
+          {post.categories && post.categories.length > 0 && (
+            <div className="mb-4 flex flex-wrap gap-2">
+              {post.categories.map((category) => (
+                <CategoryBadge key={category.id} category={category} size="md" />
+              ))}
             </div>
           )}
 
@@ -225,20 +227,25 @@ export default function PostPage() {
           </div>
         )}
 
-        {/* Project Link */}
-        {post.project && (
+        {/* Project Links */}
+        {post.projects && post.projects.length > 0 && (
           <div className="mt-8 rounded-lg border border-neutral-200 bg-white p-6">
             <p className="mb-2 text-sm text-neutral-500">
-              {t('blog.related_project') || 'Projeto relacionado'}:
+              {t('blog.related_projects') || 'Projetos relacionados'}:
             </p>
-            <Link
-              href={`/${post.project.slug}`}
-              className="inline-flex items-center gap-2 font-semibold text-neutral-900 transition-colors hover:text-neutral-600"
-              style={{ color: post.project.color }}
-            >
-              {post.project.name}
-              <ArrowLeft className="h-4 w-4 rotate-180" />
-            </Link>
+            <div className="flex flex-wrap gap-2">
+              {post.projects.map((project) => (
+                <Link
+                  key={project.id}
+                  href={`/${project.slug}`}
+                  className="inline-flex items-center gap-2 font-semibold text-neutral-900 transition-colors hover:text-neutral-600"
+                  style={{ color: project.color }}
+                >
+                  {project.name}
+                  <ArrowLeft className="h-4 w-4 rotate-180" />
+                </Link>
+              ))}
+            </div>
           </div>
         )}
       </div>
