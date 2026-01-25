@@ -9,7 +9,7 @@ Sistema de gerenciamento de conteúdo (CMS) para o blog do GIFLABS.
 | **Versão Strapi** | 5.33.4 (Community Edition) |
 | **Banco de Dados** | PostgreSQL (Railway) |
 | **Node.js** | >=20.0.0 <=24.x.x |
-| **Idiomas** | Português (pt-BR), Inglês (en) |
+| **Idiomas** | Campo `language` no Post (pt-BR, en, etc.) |
 | **Hospedagem** | Railway |
 | **URL Produção** | https://giflabs-production.up.railway.app |
 
@@ -45,6 +45,8 @@ DATABASE_SSL_REJECT_UNAUTHORIZED=false
 
 📖 Veja [docs/reference/RAILWAY_ENV_VARS.md](../docs/reference/RAILWAY_ENV_VARS.md) para detalhes sobre como obter as credenciais do Railway.
 
+📚 **Tutorial completo de setup:** Veja [docs/guides/tutorials/SETUP_STRAPI.md](../docs/guides/tutorials/SETUP_STRAPI.md)
+
 ### 3. Executar em desenvolvimento
 ```bash
 npm run develop
@@ -64,16 +66,28 @@ strapi/
 │   ├── admin.ts          # Configurações do painel admin
 │   ├── database.ts       # Conexão com banco de dados
 │   ├── middlewares.ts    # Middlewares do Strapi
-│   ├── plugins.ts        # Configuração de plugins (i18n)
 │   └── server.ts         # Configurações do servidor
 ├── database/
 │   └── migrations/       # Migrações do banco de dados
 ├── public/
 │   └── uploads/          # Arquivos enviados pelos usuários
 ├── src/
-│   ├── admin/            # Customizações do painel admin
-│   │   └── app.example.tsx
-│   └── index.ts          # Hooks register/bootstrap
+│   ├── api/              # Content Types
+│   │   ├── post/
+│   │   │   └── content-types/post/schema.json
+│   │   ├── author/
+│   │   │   └── content-types/author/schema.json
+│   │   ├── category/
+│   │   │   └── content-types/category/schema.json
+│   │   ├── tag/
+│   │   │   └── content-types/tag/schema.json
+│   │   └── project/
+│   │       └── content-types/project/schema.json
+│   ├── components/       # Componentes reutilizáveis
+│   │   └── shared/
+│   │       └── seo.json
+│   └── admin/            # Customizações do painel admin
+│       └── app.example.tsx
 ├── types/
 │   └── generated/        # Tipos TypeScript gerados
 ├── .env                  # Variáveis de ambiente (NÃO COMMITAR!)
@@ -137,13 +151,27 @@ O Railway fornece automaticamente:
 
 ---
 
-## 🌐 Internacionalização (i18n)
+## 🌐 Sistema de Idiomas
 
-O Strapi está configurado com:
-- **Idioma padrão**: Português (pt-BR)
-- **Idiomas disponíveis**: pt-BR, en
+**Decisão Arquitetural**: Content Types principais **não são localizados** (não usam plugin i18n). 
 
-Configuração em `config/plugins.ts`.
+Posts têm um campo `language` (string) para indicar o idioma do conteúdo:
+- Valores comuns: `"pt-BR"`, `"en"`, `"es"`, etc.
+- Campo obrigatório no Post
+- Filtros podem ser aplicados por `language` na API
+- Todos os outros Content Types (Author, Category, Tag, Project) são globais
+
+**Exemplo de uso na API**:
+```
+GET /api/posts?filters[language][$eq]=pt-BR
+GET /api/posts?filters[language][$eq]=en
+```
+
+**Vantagens desta abordagem**:
+- ✅ Schema mais simples
+- ✅ Menos complexidade no banco de dados
+- ✅ Posts sempre visíveis independente do idioma
+- ✅ Fácil adicionar novos idiomas no futuro
 
 ---
 

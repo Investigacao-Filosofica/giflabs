@@ -496,20 +496,21 @@ Qualquer contexto adicional, screenshots, mockups, etc.
 
 ## ⚠️ Notas Importantes
 
-### Configurações Atuais que Afetam Contribuições
+### Configurações Atuais do Projeto
 
-1. **TypeScript não estrito**: `"strict": false` no tsconfig.json
-2. **ESLint ignorado no build**: `ignoreDuringBuilds: true`
-3. **Erros TypeScript ignorados**: `ignoreBuildErrors: true`
-4. **Falta autoprefixer**: Não configurado no PostCSS
-5. **Inconsistência de IDs**: Hífen vs underscore
+1. **TypeScript strict mode**: ✅ `"strict": true` habilitado no tsconfig.json
+2. **ESLint**: ✅ Verificação habilitada no build (`ignoreDuringBuilds: false`)
+3. **TypeScript errors**: ✅ Verificação habilitada no build (`ignoreBuildErrors: false`)
+4. **Autoprefixer**: ✅ Configurado no PostCSS
+5. **Otimização de imagens**: ✅ Habilitada com WebP (`unoptimized: false`)
+6. **Versão Next.js**: ✅ 15.2.8
 
-### Como Lidar com Essas Configurações
+### Inconsistência Conhecida
 
-1. **Desenvolva com qualidade** mesmo com configurações permissivas
-2. **Use TypeScript corretamente** apesar do modo não estrito
-3. **Teste manualmente** já que algumas verificações estão desabilitadas
-4. **Documente problemas** que encontrar relacionados às configurações
+**IDs de Projetos vs Chaves de Tradução**:
+- Projetos usam IDs com hífen: `{ id: "novo-projeto" }`
+- Traduções usam chaves com underscore: `"novo_projeto"`
+- **Status**: Documentado como padrão do projeto, não é um bug
 
 ---
 

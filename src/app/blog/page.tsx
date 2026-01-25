@@ -22,6 +22,7 @@ function BlogContent() {
   const [pagination, setPagination] = useState({ page: 1, pageCount: 1, total: 0 });
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Filtros da URL
   const currentPage = Number(searchParams.get('page')) || 1;
@@ -43,10 +44,10 @@ function BlogContent() {
         });
 
         if (categoryFilter) {
-          params.append('filters[category][slug][$eq]', categoryFilter);
+          params.append('filters[categories][slug][$eq]', categoryFilter);
         }
         if (tagFilter) {
-          params.append('filters[tags][slug][$contains]', tagFilter);
+          params.append('filters[tags][slug][$eq]', tagFilter);
         }
         if (authorFilter) {
           params.append('filters[author][slug][$eq]', authorFilter);
@@ -56,7 +57,16 @@ function BlogContent() {
           params.append('filters[$or][1][excerpt][$containsi]', searchQuery);
         }
 
-        const res = await fetch(`${STRAPI_URL}/api/posts?${params}`);
+        const res = await fetch(`${STRAPI_URL}/api/posts?${params}`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!res.ok) {
+          throw new Error(`Failed to fetch posts: ${res.status} ${res.statusText}`);
+        }
+
         const data: StrapiResponse<PostPreview> = await res.json();
         
         setPosts(data.data || []);
@@ -67,6 +77,8 @@ function BlogContent() {
         });
       } catch (error) {
         console.error('Error fetching posts:', error);
+        setError(error instanceof Error ? error.message : 'Erro ao carregar posts. Verifique se o Strapi está rodando.');
+        setPosts([]);
       } finally {
         setLoading(false);
       }
@@ -80,9 +92,24 @@ function BlogContent() {
     async function fetchFilters() {
       try {
         const [catRes, tagRes] = await Promise.all([
-          fetch(`${STRAPI_URL}/api/categories?pagination[pageSize]=100`),
-          fetch(`${STRAPI_URL}/api/tags?pagination[pageSize]=100`),
+          fetch(`${STRAPI_URL}/api/categories?pagination[pageSize]=100`, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }),
+          fetch(`${STRAPI_URL}/api/tags?pagination[pageSize]=100`, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }),
         ]);
+
+        if (!catRes.ok) {
+          throw new Error(`Failed to fetch categories: ${catRes.status} ${catRes.statusText}`);
+        }
+        if (!tagRes.ok) {
+          throw new Error(`Failed to fetch tags: ${tagRes.status} ${tagRes.statusText}`);
+        }
 
         const catData: StrapiResponse<Category> = await catRes.json();
         const tagData: StrapiResponse<Tag> = await tagRes.json();
@@ -91,6 +118,9 @@ function BlogContent() {
         setTags(tagData.data || []);
       } catch (error) {
         console.error('Error fetching filters:', error);
+        // Não quebrar a UI se os filtros falharem
+        setCategories([]);
+        setTags([]);
       }
     }
 
@@ -248,6 +278,13 @@ function BlogContent() {
           {loading ? (
             <div className="flex items-center justify-center py-16">
               <SloganLoader animate={true} size="md" />
+            </div>
+          ) : error ? (
+            <div className="flex flex-col items-center justify-center py-16">
+              <p className="text-red-600 mb-4">{error}</p>
+              <p className="text-sm text-neutral-500">
+                Verifique se o Strapi está rodando em {STRAPI_URL}
+              </p>
             </div>
           ) : (
             <>

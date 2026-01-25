@@ -31,7 +31,7 @@ O GIFLABS é um grupo de investigação filosófica que precisa de um blog para:
 | Requisito | Prioridade | Notas |
 |-----------|------------|-------|
 | Suporte a múltiplos autores | Alta | 5+ pessoas |
-| Bilíngue (PT/EN) | Alta | Já configurado no Strapi |
+| Bilíngue (PT/EN) | Alta | Campo `language` no Post |
 | SEO otimizado | Alta | Acadêmico precisa de visibilidade |
 | Categorização por projeto | Média | Digital Education, Série IF, etc. |
 | Rich Text / Markdown | Média | Para formatação acadêmica |
@@ -58,7 +58,7 @@ Post
 ├── category (enumeration)
 ├── tags (text array)
 ├── published_at (datetime)
-└── locale (i18n)
+└── language (string)
 ```
 
 **Prós**:
@@ -88,10 +88,11 @@ Post
 ├── excerpt (text)
 ├── featured_image (media)
 ├── author (relation → Author)
-├── category (relation → Category)
+├── categories (relation → Category, many-to-many)
 ├── tags (relation → Tag, many-to-many)
+├── projects (relation → Project, many-to-many)
 ├── published_at (datetime)
-└── locale (i18n)
+└── language (string)
 
 Author
 ├── name (string)
@@ -105,7 +106,7 @@ Category
 ├── slug (string)
 ├── description (text)
 ├── color (string)
-└── posts (relation → Post, one-to-many)
+└── posts (relation → Post, many-to-many)
 
 Tag
 ├── name (string)
@@ -146,8 +147,8 @@ Post
 ├── excerpt (text)
 ├── featured_image (media)
 ├── author (relation → Author)
-├── category (relation → Category)
-└── locale (i18n)
+├── categories (relation → Category, many-to-many)
+└── language (string)
 ```
 
 **Prós**:
@@ -190,9 +191,10 @@ Post
 | Campo | Tipo | Descrição | Notas |
 |-------|------|-----------|-------|
 | `author` | Relation | Autor do post | User ou Author custom |
-| `category` | Relation/Enum | Categoria principal | Uma por post |
+| `categories` | Relation | Categorias | Múltiplas por post (manyToMany) |
 | `tags` | Relation/Array | Tags secundárias | Múltiplas por post |
-| `project` | Relation/Enum | Projeto relacionado | GIFLABS-specific |
+| `projects` | Relation | Projetos relacionados | Múltiplos por post (manyToMany) |
+| `language` | String | Idioma do conteúdo | pt-BR, en, etc. |
 
 ### Campos Avançados (Opcionais)
 
@@ -421,7 +423,49 @@ interface PostSEO {
 
 ---
 
-## 🌍 Internacionalização
+## 🌍 Sistema de Idiomas
+
+### Abordagem Escolhida: Campo `language` (String) ✅
+
+**Decisão Arquitetural**: Content Types principais **não são localizados**. Posts têm campo `language` (string) para indicar o idioma do conteúdo.
+
+```
+Post
+├── title (string)
+├── content (rich text)
+├── language (string) ←── Campo de idioma (pt-BR, en, etc.)
+└── ...
+```
+
+**Vantagens**:
+- ✅ Schema mais simples
+- ✅ Menos complexidade no banco de dados
+- ✅ Posts sempre visíveis independente do idioma selecionado
+- ✅ Fácil adicionar novos idiomas no futuro
+- ✅ Sem necessidade de criar posts duplicados por idioma
+
+**Como Funciona**:
+- Cada post tem um campo `language` (obrigatório)
+- Valores comuns: `"pt-BR"`, `"en"`, `"es"`, etc.
+- Filtros podem ser aplicados por `language` na API
+- Frontend pode filtrar posts por idioma se necessário
+- Todos os outros Content Types (Author, Category, Tag, Project) são globais
+
+**Exemplo de Uso**:
+```typescript
+// Buscar posts em português
+GET /api/posts?filters[language][$eq]=pt-BR
+
+// Buscar posts em inglês
+GET /api/posts?filters[language][$eq]=en
+
+// Buscar todos os posts (sem filtro)
+GET /api/posts
+```
+
+---
+
+### Abordagens Alternativas (Não Utilizadas)
 
 ### Abordagem 1: Campo por Idioma
 
@@ -434,12 +478,12 @@ Post
 └── ...
 ```
 
-**Prós**: Simples, tudo em um lugar
+**Prós**: Simples, tudo em um lugar  
 **Contras**: Campos duplicados, difícil escalar
 
 ---
 
-### Abordagem 2: i18n Plugin (Recomendado) ✅
+### Abordagem 2: i18n Plugin
 
 ```
 Post (locale: pt-BR)
@@ -457,11 +501,12 @@ Post (locale: en)
 - Nativo do Strapi
 - Cada idioma é uma entrada separada
 - Fallback automático
-- Já configurado no nosso projeto
 
 **Contras**: 
 - Posts precisam ser criados em cada idioma
 - Mais registros no banco
+- Mais complexidade no schema
+- **Não utilizado neste projeto**
 
 ---
 
@@ -476,8 +521,9 @@ Post
 └── ...
 ```
 
-**Prós**: Flexível, relaciona traduções explicitamente
-**Contras**: Mais complexo de gerenciar
+**Prós**: Flexível, relaciona traduções explicitamente  
+**Contras**: Mais complexo de gerenciar  
+**Status**: Não utilizado - campo `language` simples é suficiente
 
 ---
 
@@ -518,7 +564,7 @@ Post
 
 **Justificativa**:
 1. **Acadêmico**: Precisa de estrutura para autores e categorias
-2. **Bilíngue**: i18n já configurado no Strapi
+2. **Bilíngue**: Campo `language` no Post para indicar idioma
 3. **Escalável**: Múltiplos projetos e autores
 4. **Balanceado**: Não é simples demais nem complexo demais
 
@@ -529,16 +575,30 @@ Post
 
 ├── 📝 Post (Collection)
 │   ├── title (string, required)
+│   ├── subtitle (string)
 │   ├── slug (UID, unique)
 │   ├── content (rich text, required)
+│   ├── intro (text)
 │   ├── excerpt (text, max 300)
-│   ├── featured_image (media, single)
-│   ├── author (relation → Author)
-│   ├── category (relation → Category)
+│   ├── featured_image (media, single, required)
+│   ├── language (string, required) ←── Campo de idioma
+│   ├── author (relation → Author, manyToOne)
+│   ├── coauthors (relation → Author, manyToMany)
+│   ├── categories (relation → Category, manyToMany)
 │   ├── tags (relation → Tag, many)
-│   ├── project (relation → Project)
+│   ├── projects (relation → Project, manyToMany)
+│   ├── related_posts (relation → Post, manyToMany)
 │   ├── reading_time (integer)
 │   ├── is_featured (boolean)
+│   ├── scheduledAt (datetime)
+│   ├── gallery (media, multiple)
+│   ├── attachments (media, multiple)
+│   ├── video_url (string)
+│   ├── series_name (string)
+│   ├── series_part (integer)
+│   ├── view_count (integer)
+│   ├── share_count (integer)
+│   ├── comment_count (integer)
 │   ├── published_at (datetime)
 │   └── seo (component → SEO)
 
@@ -547,8 +607,13 @@ Post
 │   ├── slug (UID, unique)
 │   ├── bio (text)
 │   ├── avatar (media, single)
-│   ├── role (string)
 │   ├── email (email)
+│   ├── academic_title (string)
+│   ├── role (string)
+│   ├── institution (string)
+│   ├── lattes_url (string)
+│   ├── orcid (string)
+│   ├── website (string)
 │   └── social_links (JSON)
 
 ├── 📂 Category (Collection)
@@ -598,5 +663,5 @@ Post
 
 **📅 Documento criado em**: 23/01/2026  
 **📝 Autor**: OFF  
-**🔄 Status**: ✅ APROVADO (23/01/2026)  
-**🏗️ Arquitetura escolhida**: Relacional + Rich Text
+**🔄 Status**: ✅ IMPLEMENTADO (Janeiro 2026)  
+**🏗️ Arquitetura escolhida**: Relacional + Rich Text + Campo `language`

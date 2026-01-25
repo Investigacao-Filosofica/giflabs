@@ -92,9 +92,8 @@ strapi/
 ├── public/
 │   └── uploads/              # Arquivos enviados pelos usuários
 ├── src/
-│   ├── admin/                # Customizações do admin
-│   │   └── app.example.tsx   # Exemplo de customização
-│   └── index.ts              # Hooks register/bootstrap
+│   └── admin/                # Customizações do admin
+│       └── app.example.tsx   # Exemplo de customização
 ├── types/
 │   └── generated/            # Tipos TypeScript gerados
 ├── .env                      # Variáveis de ambiente (NÃO COMMITAR!)
@@ -137,13 +136,15 @@ src/app/
 ├── digital-education-app/         # Projeto: Digital Education App
 │   └── page.tsx                   # (/digital-education-app)
 ├── serie-if/                      # Projeto: Série IF
-│   ├── page.tsx                   # (/serie-if)
-│   └── _components/               # Componentes específicos
-│       └── collaborators-list.tsx # Lista de colaboradores
+│   └── page.tsx                   # (/serie-if)
 ├── virtualia/                     # Projeto: Virtualia
 │   ├── page.tsx                   # (/virtualia)
 │   └── _components/
 │       └── staff-list.tsx         # Lista da equipe
+├── internacionalizacao/           # Projeto: Internacionalização
+│   ├── page.tsx                   # (/internacionalizacao)
+│   └── _components/
+│       └── team-list.tsx          # Lista da equipe
 ├── literatura/                    # Projeto: Literatura
 │   └── page.tsx                   # (/literatura)
 ├── metaverso/                     # Projeto: Metaverso
@@ -196,7 +197,7 @@ Cada projeto segue uma estrutura similar:
 #### Componentes Específicos (`_components/`)
 ```
 _components/              # Convenção Next.js para componentes privados
-├── collaborators-list.tsx # Lista de colaboradores (Série IF)
+├── team-list.tsx         # Lista da equipe (Internacionalização)
 └── staff-list.tsx        # Lista da equipe (Virtualia)
 ```
 

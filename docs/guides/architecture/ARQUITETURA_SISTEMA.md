@@ -11,7 +11,7 @@
                               │ HTTP/HTTPS
                               │
 ┌─────────────────────────────▼────────────────────────────────────┐
-│                    FRONTEND - Next.js 14                        │
+│                    FRONTEND - Next.js 15.2.8                    │
 │                    (App Router)                                │
 │  ┌──────────────────────────────────────────────────────────┐  │
 │  │  Páginas:                                                │  │
@@ -42,11 +42,11 @@
 │                    (v5.33.4)                                    │
 │  ┌──────────────────────────────────────────────────────────┐  │
 │  │  Content Types:                                          │  │
-│  │  • Post (localized: pt-BR, en)                          │  │
-│  │  • Author (localized: pt-BR, en)                        │  │
-│  │  • Category (localized: pt-BR, en)                       │  │
-│  │  • Tag (localized: pt-BR, en)                           │  │
-│  │  • Project (localized: pt-BR, en)                        │  │
+│  │  • Post (campo language: pt-BR, en, etc.)               │  │
+│  │  • Author (não localizado - global)                      │  │
+│  │  • Category (não localizado - global)                   │  │
+│  │  • Tag (não localizado - global)                        │  │
+│  │  • Project (não localizado - global)                   │  │
 │  └──────────────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────────────┐  │
 │  │  Componentes:                                             │  │
@@ -54,7 +54,6 @@
 │  └──────────────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────────────┐  │
 │  │  Plugins:                                                 │  │
-│  │  • i18n (pt-BR, en)                                      │  │
 │  │  • Users & Permissions                                    │  │
 │  └──────────────────────────────────────────────────────────┘  │
 └─────────────────────────────┬────────────────────────────────────┘
@@ -71,7 +70,10 @@
 │  │  • categories                                             │  │
 │  │  • tags                                                   │  │
 │  │  • projects                                               │  │
-│  │  • i18n_locale                                           │  │
+│  │  • posts_categories_links                                 │  │
+│  │  • posts_projects_links                                   │  │
+│  │  • posts_authors_links (coauthors)                        │  │
+│  │  • posts_related_links                                   │  │
 │  │  • upload_files                                          │  │
 │  └──────────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────────┘
@@ -84,28 +86,48 @@
 │    Post     │
 │             │
 │ • title     │
+│ • subtitle  │
 │ • slug      │
 │ • content   │
+│ • intro     │
 │ • excerpt   │
-│ • locale    │
+│ • language  │
+│ • featured_image │
+│ • gallery   │
+│ • attachments │
+│ • video_url │
+│ • series_name │
+│ • series_part │
+│ • view_count │
+│ • share_count │
+│ • comment_count │
 └──────┬──────┘
        │
-       ├──────────────┬──────────────┬──────────────┬──────────────┐
-       │              │              │              │              │
-       │ manyToOne    │ manyToOne    │ manyToMany   │ manyToOne    │
-       │              │              │              │              │
-┌──────▼──────┐ ┌────▼─────┐ ┌─────▼─────┐ ┌─────▼──────┐
-│   Author     │ │ Category │ │    Tag    │ │  Project   │
-│              │ │          │ │           │ │            │
-│ • name       │ │ • name   │ │ • name    │ │ • name     │
-│ • slug       │ │ • slug   │ │ • slug    │ │ • slug     │
-│ • bio        │ │ • color  │ │           │ │ • color    │
-│ • avatar     │ │ • locale │ │ • locale  │ │ • locale   │
-│ • locale     │ └──────────┘ └───────────┘ └────────────┘
+       ├──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐
+       │              │              │              │              │              │
+       │ manyToOne    │ manyToMany  │ manyToMany   │ manyToMany   │ manyToMany   │
+       │              │              │              │              │              │
+┌──────▼──────┐ ┌────▼─────┐ ┌─────▼─────┐ ┌─────▼──────┐ ┌─────▼──────┐
+│   Author     │ │ Category │ │    Tag    │ │  Project   │ │   Post     │
+│              │ │          │ │           │ │            │ │ (related)  │
+│ • name       │ │ • name   │ │ • name    │ │ • name     │ │            │
+│ • slug       │ │ • slug   │ │ • slug    │ │ • slug     │ │            │
+│ • bio        │ │ • color  │ │ • description │ • color    │ │            │
+│ • avatar     │ │ • description │           │ │ • description │ │            │
+│ • email      │ └──────────┘ └───────────┘ └────────────┘ └────────────┘
+│ • academic_title │
+│ • role       │
+│ • institution │
+│ • lattes_url │
+│ • orcid      │
+│ • website    │
+│ • social_links │
 └──────────────┘
 ```
 
-## 🌐 Fluxo de Internacionalização
+## 🌐 Sistema de Idiomas
+
+**Decisão Arquitetural**: Content Types principais **não são localizados**. Posts têm campo `language` (string) para indicar o idioma do conteúdo.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -113,49 +135,70 @@
 │                  (Frontend - Next.js)                       │
 │                                                             │
 │  Estado: 'pt' ou 'en'                                      │
-│  Função: t(key) → tradução                                 │
+│  Função: t(key) → tradução (apenas UI)                    │
 └────────────────────┬──────────────────────────────────────┘
                       │
-                      │ Determina locale para API
+                      │ Filtra posts por language (opcional)
                       │
-        ┌─────────────┴─────────────┐
-        │                           │
-        ▼                           ▼
-┌───────────────┐         ┌───────────────┐
-│  locale:      │         │  locale:       │
-│  'pt-BR'      │         │  'en'          │
-└───────┬───────┘         └───────┬───────┘
-        │                         │
-        │                         │
-┌───────▼─────────────────────────▼───────┐
-│         Strapi API Request             │
-│  GET /api/posts?locale=pt-BR           │
-│  GET /api/posts?locale=en               │
-└─────────────────────────────────────────┘
+┌───────▼─────────────────────────────────────────────────────┐
+│         Strapi API Request                                 │
+│  GET /api/posts?filters[language][$eq]=pt-BR              │
+│  GET /api/posts?filters[language][$eq]=en                  │
+│                                                             │
+│  Nota: Todos os posts aparecem independente do idioma      │
+│  selecionado. Filtro por language é opcional.             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ## 📝 Estrutura de um Post
 
 ```
 Post
-├── Campos Localizados (pt-BR / en):
-│   ├── title (string)
-│   ├── content (richtext)
-│   ├── excerpt (text)
-│   └── seo.meta_title, seo.meta_description
+├── Campos Básicos:
+│   ├── title (string, obrigatório)
+│   ├── subtitle (string, opcional)
+│   ├── slug (uid, obrigatório, único globalmente)
+│   ├── content (richtext, obrigatório)
+│   ├── intro (text, opcional)
+│   ├── excerpt (text, opcional, max 300)
+│   ├── language (string, obrigatório, ex: "pt-BR", "en")
+│   ├── reading_time (integer, opcional)
+│   ├── is_featured (boolean, default: false)
+│   ├── publishedAt (datetime, obrigatório)
+│   └── scheduledAt (datetime, opcional)
 │
-├── Campos Não Localizados:
-│   ├── slug (uid)
-│   ├── reading_time (integer)
-│   ├── is_featured (boolean)
-│   └── publishedAt (datetime)
+├── Campos de Mídia:
+│   ├── featured_image (media, obrigatório, images only)
+│   ├── gallery (media[], opcional, images)
+│   ├── attachments (media[], opcional, files)
+│   └── video_url (string, opcional)
+│
+├── Campos de Série:
+│   ├── series_name (string, opcional)
+│   └── series_part (integer, opcional)
+│
+├── Campos de Analytics:
+│   ├── view_count (integer, default: 0)
+│   ├── share_count (integer, default: 0)
+│   └── comment_count (integer, default: 0)
+│
+├── Componente SEO:
+│   └── seo (component shared.seo)
+│       ├── meta_title
+│       ├── meta_description
+│       ├── og_title
+│       ├── og_description
+│       ├── og_image
+│       ├── twitter_card
+│       └── canonical_url
 │
 └── Relações:
-    ├── author → Author (manyToOne)
-    ├── category → Category (manyToOne)
-    ├── tags → Tag[] (manyToMany)
-    ├── project → Project (manyToOne)
-    └── featured_image → Media (single)
+    ├── author → Author (manyToOne, obrigatório)
+    ├── coauthors → Author[] (manyToMany, opcional)
+    ├── categories → Category[] (manyToMany, múltiplas)
+    ├── tags → Tag[] (manyToMany, múltiplas)
+    ├── projects → Project[] (manyToMany, opcional, múltiplos)
+    └── related_posts → Post[] (manyToMany, opcional)
 ```
 
 ## 🔄 Fluxo de Criação de Post
@@ -164,24 +207,32 @@ Post
 1. Admin acessa Strapi Admin Panel
    └─> http://localhost:1337/admin
 
-2. Seleciona locale (pt-BR ou en)
-   └─> Dropdown de idioma no topo
-
-3. Cria/Edita Post
+2. Cria/Edita Post
    └─> Content Manager → Post → Create/Edit
 
-4. Preenche campos:
-   ├── Título (localizado)
-   ├── Conteúdo (localizado)
-   ├── Seleciona Author (deve existir no mesmo locale)
-   ├── Seleciona Category (deve existir no mesmo locale)
-   └── Seleciona Tags (devem existir no mesmo locale)
+3. Preenche campos:
+   ├── Título (obrigatório)
+   ├── Subtítulo (opcional)
+   ├── Slug (gerado automaticamente do título)
+   ├── Conteúdo (richtext, obrigatório)
+   ├── Intro (opcional)
+   ├── Excerpt (opcional)
+   ├── Language (obrigatório, ex: "pt-BR", "en")
+   ├── Featured Image (obrigatório)
+   ├── Seleciona Author (obrigatório, único)
+   ├── Seleciona Coauthors (opcional, múltiplos)
+   ├── Seleciona Categories (múltiplas)
+   ├── Seleciona Tags (múltiplas)
+   ├── Seleciona Projects (opcional, múltiplos)
+   ├── Seleciona Related Posts (opcional)
+   └── Preenche SEO (componente opcional)
 
-5. Publica
+4. Publica
    └─> Botão "Publish"
 
-6. Post fica disponível na API
-   └─> GET /api/posts?locale=pt-BR
+5. Post fica disponível na API
+   └─> GET /api/posts
+   └─> GET /api/posts?filters[language][$eq]=pt-BR (filtro opcional)
 ```
 
 ## 🎯 Fluxo de Exibição na Homepage
@@ -204,7 +255,7 @@ Usuário acessa: http://localhost:3000
             ▼
 ┌───────────────────────┐
 │  getPosts({           │
-│    locale: 'pt-BR',   │
+│    language: 'pt-BR', │
 │    pageSize: 3        │
 │  })                   │
 └───────────┬────────────┘
@@ -213,7 +264,7 @@ Usuário acessa: http://localhost:3000
 ┌───────────────────────┐
 │  fetchStrapi()        │
 │  GET /api/posts?      │
-│  locale=pt-BR&...     │
+│  filters[language][$eq]=pt-BR&... │
 └───────────┬────────────┘
             │
             ▼
@@ -263,23 +314,26 @@ giflabs/
 │
 └── strapi/                    # Strapi CMS
     ├── config/                # Configurações
-    │   ├── plugins.ts        # i18n config
     │   ├── database.ts       # PostgreSQL
-    │   └── server.ts
+    │   ├── server.ts         # Configurações do servidor
+    │   └── plugins.ts        # Plugins (se houver)
     │
     └── src/
         ├── api/               # Content Types
         │   ├── post/
+        │   │   └── content-types/post/schema.json
         │   ├── author/
+        │   │   └── content-types/author/schema.json
         │   ├── category/
+        │   │   └── content-types/category/schema.json
         │   ├── tag/
+        │   │   └── content-types/tag/schema.json
         │   └── project/
+        │       └── content-types/project/schema.json
         │
-        ├── components/        # Componentes reutilizáveis
-        │   └── shared/
-        │       └── seo.json
-        │
-        └── index.ts           # Bootstrap (seed data)
+        └── components/        # Componentes reutilizáveis
+            └── shared/
+                └── seo.json
 ```
 
 ## 🔐 Sistema de Permissões
@@ -329,4 +383,7 @@ Produção:
 
 ---
 
-**Última atualização**: Janeiro 2026
+---
+
+**Última atualização**: Janeiro 2026  
+**Nota**: Este documento foi atualizado para refletir a remoção do sistema i18n e a migração para campo `language` nos Posts. Todos os Content Types principais são agora globais (não localizados).

@@ -26,7 +26,7 @@
 - **Accessibility-First**: Acessibilidade integrada ao design
 
 ### Padrões Utilizados
-- **App Router Pattern** (Next.js 14)
+- **App Router Pattern** (Next.js 15.2.8)
 - **Context API Pattern** para estado global
 - **Composition Pattern** para componentes
 - **Container/Presentational Pattern** para separação de responsabilidades
@@ -39,7 +39,7 @@
 ```typescript
 // Next.js 15.2.8 com App Router
 - React 19 (Server Components + Client Components)
-- TypeScript 5 (configuração não estrita atualmente)
+- TypeScript 5 (strict mode habilitado)
 - Tailwind CSS 3.4.17 (utility-first CSS)
 - Shadcn UI (component library baseada em Radix UI)
 ```
@@ -255,10 +255,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ### Estrutura de Páginas
 ```
-app/
+src/app/
 ├── page.tsx                    # Página inicial
 ├── layout.tsx                  # Layout raiz
 ├── globals.css                 # Estilos globais
+├── blog/
+│   ├── page.tsx               # Listagem de posts
+│   └── [slug]/
+│       └── page.tsx           # Post individual
 ├── digital-education-app/
 │   └── page.tsx               # Projeto: Digital Education App
 ├── serie-if/
@@ -298,9 +302,6 @@ export function Header() {
           { href: "#projeto", label: t("navigation.project_details") },
           // ...
         ];
-      // ⚠️ PROBLEMA: Rota inexistente
-      case "/matzatea":          // Esta rota não existe no projeto
-        return [...];
       default:
         return [];
     }
@@ -450,26 +451,6 @@ const nextConfig = {
 }
 ```
 
-### Otimizações Next.js Recomendadas
-```typescript
-// Configurações ideais para produção
-const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: false,   // ✅ Verificar erros ESLint
-  },
-  typescript: {
-    ignoreBuildErrors: false,    // ✅ Verificar erros TypeScript
-  },
-  images: {
-    unoptimized: false,         // ✅ Habilitar otimização
-    formats: ['image/webp'],    // ✅ Formatos modernos
-  },
-  experimental: {
-    optimizeCss: true,          // ✅ Otimizar CSS
-  }
-}
-```
-
 ### CSS e Tailwind
 ```typescript
 // tailwind.config.ts - ✅ Configuração correta
@@ -589,9 +570,9 @@ class ApiClient {
 - [x] Deploy no Vercel e Railway
 
 ### Fase 2: Otimização (Próximo)
-- [ ] Habilitar TypeScript strict mode (✅ Já habilitado)
-- [ ] Configurar autoprefixer (✅ Já configurado)
-- [ ] Otimização de imagens (✅ Já otimizado)
+- [x] Habilitar TypeScript strict mode ✅
+- [x] Configurar autoprefixer ✅
+- [x] Otimização de imagens ✅
 - [ ] Implementação de testes
 - [ ] ESLint + Prettier adequados
 
@@ -616,11 +597,12 @@ class ApiClient {
 2. ✅ **TypeScript strict mode** - Habilitado
 3. ✅ **Autoprefixer** - Configurado
 4. ✅ **Caminho CSS** - Corrigido em components.json
+5. ✅ **Versão Next.js** - Atualizada para 15.2.8
+6. ✅ **Otimização de imagens** - Habilitada com WebP
 
 ### Menores (Não Críticos)
-1. **Inconsistência de IDs** (hífen vs underscore)
-2. **Rotas inexistentes** no header
-3. **Componentes não utilizados** ocupando espaço
+1. **Inconsistência de IDs** (hífen vs underscore) - Documentado como padrão
+2. **Componentes não utilizados** ocupando espaço
 
 ---
 

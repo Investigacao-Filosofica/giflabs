@@ -263,7 +263,7 @@ const { t } = useLanguage();
 ## 🛣️ Roteamento e Páginas
 
 ### Estrutura App Router
-O projeto usa Next.js 14 com App Router. Cada projeto tem sua própria página em `/src/app/[nome-projeto]/`.
+O projeto usa Next.js 15.2.8 com App Router. Cada projeto tem sua própria página em `/src/app/[nome-projeto]/`.
 
 ### Criando Novas Páginas
 ```typescript
@@ -356,8 +356,7 @@ neutral-900: #171717  /* Background mais escuro */
 
 ### Next.js Otimizações
 ```typescript
-// ⚠️ ATENÇÃO: Atualmente images.unoptimized: true
-// Recomendado alterar para false em produção
+// ✅ Configurações atuais (otimizadas)
 import Image from "next/image";
 
 <Image
@@ -490,12 +489,14 @@ npx tsc --noEmit
 2. ✅ **tsconfig.json**: Modo estrito habilitado
 3. ✅ **postcss.config.mjs**: Autoprefixer configurado
 4. ✅ **components.json**: Caminho CSS correto
+5. ✅ **Otimização de imagens**: Habilitada com WebP
+6. ✅ **Versão Next.js**: Atualizada para 15.2.8
 
 ### Melhorias Futuras (Opcionais)
 1. **Testes**: Implementar Jest + React Testing Library
 2. **Linting**: Configurar ESLint + Prettier adequadamente
 3. **CI/CD**: GitHub Actions para build/deploy automático
-4. **Blog**: Documentar integração com Strapi
+4. **Blog**: Integração com Strapi já documentada
 
 ---
 

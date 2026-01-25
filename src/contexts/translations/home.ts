@@ -105,7 +105,7 @@ export const homeTranslations = {
           "mateus_rodrigues": {
             "name": "Mateus Rodrigues",
             "role": "Artista Visual e Desenvolvedor Web",
-            "description": "Bacharel em Artes Visuais e desenvolvedor full stack. No GIFLABS, atua no desenvolvimento do site e na integração dos projetos do grupo no ambiente digital, articulando arte e tecnologias descentralizadas.",
+            "description": "Bacharel em Artes Visuais e desenvolvedor full stack. No GIFLABS, atua no desenvolvimento e integração dos projetos do grupo no ambiente digital, articulando arte e tecnologias descentralizadas.",
             "badges": {
               "digital_art": "Arte Digital",
               "web3": "Web3",
@@ -279,7 +279,7 @@ export const homeTranslations = {
           "mateus_rodrigues": {
             "name": "Mateus Rodrigues",
             "role": "Visual Artist and Web Developer",
-            "description": "Bachelor in Visual Arts and full stack developer. At GIFLABS, works on website development and integration of the group's projects in the digital environment, articulating art and decentralized technologies.",
+            "description": "Bachelor in Visual Arts and full stack developer. At GIFLABS, works on the development and integration of the group's projects in the digital environment, articulating art and decentralized technologies.",
             "badges": {
               "digital_art": "Digital Art",
               "web3": "Web3",

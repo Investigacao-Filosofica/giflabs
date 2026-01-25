@@ -85,21 +85,22 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 
 ### 🚀 Guias de Desenvolvimento
 - **[📖 Documentação Completa](./docs/README.md)** - Índice principal da documentação
-- **[🛠️ Guia de Desenvolvimento](./docs/guides/DEVELOPMENT_GUIDE.md)** - Configuração, padrões e boas práticas
-- **[🏗️ Guia de Arquitetura](./docs/guides/ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
-- **[🎨 Sistema de Design](./docs/guides/DESIGN_SYSTEM.md)** - Componentes, cores e tipografia
-- **[🤝 Guia de Contribuição](./docs/guides/CONTRIBUTING.md)** - Como contribuir com o projeto
+- **[🛠️ Guia de Desenvolvimento](./docs/guides/development/DEVELOPMENT_GUIDE.md)** - Configuração, padrões e boas práticas
+- **[🏗️ Arquitetura do Sistema](./docs/guides/architecture/ARQUITETURA_SISTEMA.md)** - Visão geral da arquitetura
+- **[🏗️ Guia de Arquitetura](./docs/guides/architecture/ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
+- **[🎨 Sistema de Design](./docs/guides/development/DESIGN_SYSTEM.md)** - Componentes, cores e tipografia
+- **[🤝 Guia de Contribuição](./docs/guides/development/CONTRIBUTING.md)** - Como contribuir com o projeto
 
 ### 📖 Referência Técnica
 - **[📁 Estrutura do Projeto](./docs/reference/PROJECT_STRUCTURE.md)** - Organização de arquivos e pastas
 - **[🔧 Configurações](./docs/reference/CONFIGURATIONS.md)** - Configurações de build, linting e deploy
-- **[🌐 Internacionalização](./docs/reference/INTERNATIONALIZATION.md)** - Sistema de traduções
-- **[⚡ Performance](./docs/reference/PERFORMANCE.md)** - Otimizações e benchmarks
+- **[🚂 Variáveis Railway](./docs/reference/RAILWAY_ENV_VARS.md)** - Como obter credenciais do Railway
+- **[📊 Status do Projeto](./docs/reference/PROJETO_STATUS_ATUAL.md)** - Análise do estado atual
 
-### 💡 Exemplos e Tutoriais
-- **[🧩 Criando Componentes](./docs/examples/CREATING_COMPONENTS.md)** - Como criar novos componentes
-- **[📝 Adicionando Projetos](./docs/examples/ADDING_PROJECTS.md)** - Como adicionar novos projetos
-- **[🌍 Adicionando Idiomas](./docs/examples/ADDING_LANGUAGES.md)** - Como adicionar novos idiomas
+### 📖 Tutoriais
+- **[🚀 Setup do Strapi](./docs/guides/tutorials/SETUP_STRAPI.md)** - Tutorial completo para configurar o Strapi
+- **[📝 Como Criar Posts](./docs/guides/tutorials/COMO_CRIAR_POSTS.md)** - Tutorial para criar posts no blog
+- **[👥 Como Criar Usuários](./docs/guides/tutorials/COMO_CRIAR_USUARIOS.md)** - Tutorial para criar usuários no Strapi
 
 ## 🚀 Começando
 
@@ -159,7 +160,7 @@ npm run develop
 
 **Produção**: O Strapi está hospedado no Railway e acessível em `https://giflabs-production.up.railway.app`
 
-📖 Veja a [documentação completa do Strapi](./strapi/README.md) para mais detalhes.
+📖 Veja a [documentação completa do Strapi](./strapi/README.md) e o [tutorial de setup](./docs/guides/tutorials/SETUP_STRAPI.md) para mais detalhes.
 
 ## 🤝 Contribuindo
 
@@ -182,9 +183,10 @@ npm run develop
 - 🔧 **Refactoring**: Melhorias na estrutura do código
 
 ### 📖 Leia Mais
-- **[Como Contribuir](./docs/guides/CONTRIBUTING.md)** - Guia completo de contribuição
-- **[Padrões de Desenvolvimento](./docs/guides/DEVELOPMENT_GUIDE.md)** - Padrões técnicos
-- **[Sistema de Design](./docs/guides/DESIGN_SYSTEM.md)** - Componentes e design
+- **[Como Contribuir](./docs/guides/development/CONTRIBUTING.md)** - Guia completo de contribuição
+- **[Padrões de Desenvolvimento](./docs/guides/development/DEVELOPMENT_GUIDE.md)** - Padrões técnicos
+- **[Sistema de Design](./docs/guides/development/DESIGN_SYSTEM.md)** - Componentes e design
+- **[Setup do Strapi](./docs/guides/tutorials/SETUP_STRAPI.md)** - Configuração do CMS
 
 ## 🌍 Internacionalização
 
