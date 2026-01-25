@@ -233,14 +233,16 @@ function BlogContent() {
       </section>
 
       {/* Posts Section */}
-      <section className="px-6 py-16 bg-neutral-50">
-        <div className="mx-auto max-w-6xl">
+      <section className="h-screen flex items-center bg-neutral-50 px-6">
+        <div className="mx-auto w-full max-w-6xl">
           {/* Results count */}
-          <div className="mb-8 flex items-center justify-between">
-            <p className="text-sm text-neutral-500">
-              {pagination.total} {pagination.total === 1 ? 'post' : 'posts'} {t('blog.found') || 'encontrados'}
-            </p>
-          </div>
+          {pagination.total > 0 && (
+            <div className="mb-8 flex items-center justify-between">
+              <p className="text-sm text-neutral-500">
+                {pagination.total} {pagination.total === 1 ? 'post' : 'posts'} {t('blog.found') || 'encontrados'}
+              </p>
+            </div>
+          )}
 
           {/* Loading */}
           {loading ? (
