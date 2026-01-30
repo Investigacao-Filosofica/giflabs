@@ -29,6 +29,52 @@ export function AuthorCard({
 
   const config = sizes[size];
 
+  const socialLinks = author.social_links && (
+    <div className="mt-3 flex gap-3">
+      {author.social_links.twitter && (
+        <a
+          href={author.social_links.twitter}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-neutral-400 transition-colors hover:text-neutral-900"
+        >
+          <Twitter className="h-4 w-4" />
+        </a>
+      )}
+      {author.social_links.linkedin && (
+        <a
+          href={author.social_links.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-neutral-400 transition-colors hover:text-neutral-900"
+        >
+          <Linkedin className="h-4 w-4" />
+        </a>
+      )}
+      {author.social_links.github && (
+        <a
+          href={author.social_links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-neutral-400 transition-colors hover:text-neutral-900"
+        >
+          <Github className="h-4 w-4" />
+        </a>
+      )}
+      {author.social_links.lattes && (
+        <a
+          href={author.social_links.lattes}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-neutral-400 transition-colors hover:text-neutral-900"
+          title="Lattes"
+        >
+          <ExternalLink className="h-4 w-4" />
+        </a>
+      )}
+    </div>
+  );
+
   const content = (
     <div className="flex items-start gap-4">
       {/* Avatar */}
@@ -52,9 +98,20 @@ export function AuthorCard({
 
       {/* Info */}
       <div className="flex-1">
-        <h4 className={`font-semibold text-neutral-900 ${config.text}`}>
-          {author.name}
-        </h4>
+        {linkToProfile ? (
+          <Link
+            href={`/blog?author=${author.slug}`}
+            className="block"
+          >
+            <h4 className={`font-semibold text-neutral-900 ${config.text} hover:underline`}>
+              {author.name}
+            </h4>
+          </Link>
+        ) : (
+          <h4 className={`font-semibold text-neutral-900 ${config.text}`}>
+            {author.name}
+          </h4>
+        )}
         {author.role && (
           <p className="text-sm text-neutral-500">{author.role}</p>
         )}
@@ -64,66 +121,11 @@ export function AuthorCard({
           </p>
         )}
 
-        {/* Social Links */}
-        {author.social_links && (
-          <div className="mt-3 flex gap-3">
-            {author.social_links.twitter && (
-              <a
-                href={author.social_links.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 transition-colors hover:text-neutral-900"
-              >
-                <Twitter className="h-4 w-4" />
-              </a>
-            )}
-            {author.social_links.linkedin && (
-              <a
-                href={author.social_links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 transition-colors hover:text-neutral-900"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-            )}
-            {author.social_links.github && (
-              <a
-                href={author.social_links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 transition-colors hover:text-neutral-900"
-              >
-                <Github className="h-4 w-4" />
-              </a>
-            )}
-            {author.social_links.lattes && (
-              <a
-                href={author.social_links.lattes}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-400 transition-colors hover:text-neutral-900"
-                title="Lattes"
-              >
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            )}
-          </div>
-        )}
+        {/* Social Links - fora do Link principal */}
+        {socialLinks}
       </div>
     </div>
   );
 
-  if (linkToProfile) {
-    return (
-      <Link
-        href={`/blog?author=${author.slug}`}
-        className="block rounded-lg p-4 transition-colors hover:bg-neutral-50"
-      >
-        {content}
-      </Link>
-    );
-  }
-
-  return <div className="p-4">{content}</div>;
+  return <div className="rounded-lg p-4 transition-colors hover:bg-neutral-50">{content}</div>;
 }

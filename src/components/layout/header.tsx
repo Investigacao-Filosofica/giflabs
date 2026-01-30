@@ -50,7 +50,7 @@ export function Header() {
           { href: "#virtualia-equipe", label: t("navigation.team") },
           { href: "#apoiadores", label: t("navigation.supporters") },
         ];
-      case "/arqueologia-digital":
+      case "/arquivologia-digital":
         return [
           { href: "/", label: "Home" },
           { href: "#projeto", label: t("navigation.project_details") },
@@ -64,7 +64,7 @@ export function Header() {
           { href: "#pilares", label: t("navigation.pillars") },
           { href: "#jogos-galerias", label: t("navigation.games_galleries") },
         ];
-      case "/giflabs":
+      case "/youtube-channel":
         return [
           { href: "/", label: "Home" },
           { href: "#conteudo", label: t("navigation.content") },

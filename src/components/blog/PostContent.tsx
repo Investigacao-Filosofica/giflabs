@@ -1,10 +1,15 @@
 'use client';
 
+import { processPostContent } from '@/lib/strapi';
+
 interface PostContentProps {
   content: string;
 }
 
 export function PostContent({ content }: PostContentProps) {
+  // Processar o conteúdo HTML antes de renderizar
+  const processedContent = processPostContent(content);
+
   return (
     <div
       className="prose prose-lg max-w-none
@@ -23,7 +28,7 @@ export function PostContent({ content }: PostContentProps) {
         prose-li:marker:text-neutral-400
         prose-img:rounded-lg prose-img:shadow-lg
         prose-hr:border-neutral-200"
-      dangerouslySetInnerHTML={{ __html: content }}
+      dangerouslySetInnerHTML={{ __html: processedContent }}
     />
   );
 }

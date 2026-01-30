@@ -518,11 +518,13 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   };
   attributes: {
     attachments: Schema.Attribute.Media<'files', true>;
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'> &
+      Schema.Attribute.Required;
     categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::category.category'
-    >;
+    > &
+      Schema.Attribute.Required;
     coauthors: Schema.Attribute.Relation<'manyToMany', 'api::author.author'>;
     comment_count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     content: Schema.Attribute.RichText & Schema.Attribute.Required;
@@ -560,7 +562,8 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     share_count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     subtitle: Schema.Attribute.String;
-    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{

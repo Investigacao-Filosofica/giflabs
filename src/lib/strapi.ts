@@ -85,7 +85,14 @@ export async function getPosts(
   const params: Record<string, any> = {
     'pagination[page]': page,
     'pagination[pageSize]': pageSize,
-    'populate': '*',
+    'populate[featured_image]': 'true',
+    'populate[author][populate][avatar]': 'true',
+    'populate[categories]': 'true',
+    'populate[tags]': 'true',
+    'populate[projects]': 'true',
+    'populate[coauthors][populate][avatar]': 'true',
+    'populate[gallery]': 'true',
+    'populate[seo]': 'true',
     'sort[0]': 'publishedAt:desc',
   };
 
@@ -140,7 +147,16 @@ export async function getPostBySlug(
 ): Promise<Post | null> {
   const params = {
     'filters[slug][$eq]': slug,
-    'populate': '*',
+    'populate[featured_image]': 'true',
+    'populate[author][populate][avatar]': 'true',
+    'populate[categories]': 'true',
+    'populate[tags]': 'true',
+    'populate[projects]': 'true',
+    'populate[coauthors][populate][avatar]': 'true',
+    'populate[gallery]': 'true',
+    'populate[attachments]': 'true',
+    'populate[related_posts][populate][featured_image]': 'true',
+    'populate[seo]': 'true',
   };
 
   const query = buildQueryString(params);
@@ -322,4 +338,129 @@ export function formatDate(dateString: string | null | undefined, locale = 'pt-B
     month: 'long',
     day: 'numeric',
   });
+}
+
+/**
+ * Converter Markdown básico para HTML
+ * - Converte imagens: ![alt](url) -> <img src="url" alt="alt">
+ * - Converte links: [text](url) -> <a href="url">text</a>
+ * - Suporta quebras de linha entre [alt] e (url)
+ */
+function markdownToHtml(markdown: string): string {
+  if (!markdown) return '';
+
+  let html = markdown;
+
+  // 1. Converter imagens Markdown para HTML
+  // Formato: ![alt text](url) ou ![alt text](url "title")
+  // Suporta quebras de linha: ![alt]\n(url)
+  // Usa [\s\S] para capturar qualquer caractere incluindo quebras de linha
+  html = html.replace(
+    /!\[([^\]]*)\]\s*\(([^)]+)(?:\s+"([^"]+)")?\)/g,
+    (match, alt, url, title) => {
+      // Remover quebras de linha e espaços extras da URL
+      const cleanUrl = url.trim().replace(/[\s\n\r]+/g, '');
+      const titleAttr = title ? ` title="${title}"` : '';
+      return `<img src="${cleanUrl}" alt="${alt}"${titleAttr}>`;
+    }
+  );
+
+  // Também processar formato com quebra de linha explícita: ![alt]\n(url)
+  html = html.replace(
+    /!\[([^\]]*)\]\s*[\r\n]+\s*\(([^)]+)(?:\s+"([^"]+)")?\)/g,
+    (match, alt, url, title) => {
+      const cleanUrl = url.trim().replace(/[\s\n\r]+/g, '');
+      const titleAttr = title ? ` title="${title}"` : '';
+      return `<img src="${cleanUrl}" alt="${alt}"${titleAttr}>`;
+    }
+  );
+
+  // 2. Converter links Markdown para HTML
+  // Formato: [text](url) ou [text](url "title")
+  // Suporta quebras de linha: [text]\n(url)
+  html = html.replace(
+    /\[([^\]]+)\]\s*\(([^)]+)(?:\s+"([^"]+)")?\)/g,
+    (match, text, url, title) => {
+      // Remover quebras de linha e espaços extras da URL
+      const cleanUrl = url.trim().replace(/[\s\n\r]+/g, '');
+      const titleAttr = title ? ` title="${title}"` : '';
+      return `<a href="${cleanUrl}"${titleAttr}>${text}</a>`;
+    }
+  );
+
+  // Também processar formato com quebra de linha explícita: [text]\n(url)
+  html = html.replace(
+    /\[([^\]]+)\]\s*[\r\n]+\s*\(([^)]+)(?:\s+"([^"]+)")?\)/g,
+    (match, text, url, title) => {
+      const cleanUrl = url.trim().replace(/[\s\n\r]+/g, '');
+      const titleAttr = title ? ` title="${title}"` : '';
+      return `<a href="${cleanUrl}"${titleAttr}>${text}</a>`;
+    }
+  );
+
+  return html;
+}
+
+/**
+ * Processar conteúdo do post (Markdown ou HTML) para corrigir URLs e links
+ * - Converte Markdown para HTML se necessário
+ * - Converte URLs relativas de imagens para absolutas
+ * - Adiciona atributos aos links externos
+ */
+export function processPostContent(content: string): string {
+  if (!content) return '';
+
+  // Primeiro, converter Markdown para HTML (se necessário)
+  let html = markdownToHtml(content);
+
+  // 1. Processar imagens: converter URLs relativas para absolutas
+  // Procura por <img src="/uploads/..."> ou <img src="uploads/...">
+  html = html.replace(
+    /<img([^>]*)\ssrc=["']([^"']+)["']([^>]*)>/gi,
+    (match, before, src, after) => {
+      // Se já for URL completa (http/https), não alterar
+      if (src.startsWith('http://') || src.startsWith('https://')) {
+        return match;
+      }
+      
+      // Se for URL relativa, adicionar base do Strapi
+      const absoluteUrl = src.startsWith('/') 
+        ? `${STRAPI_URL}${src}`
+        : `${STRAPI_URL}/${src}`;
+      
+      return `<img${before} src="${absoluteUrl}"${after}>`;
+    }
+  );
+
+  // 2. Processar links: adicionar target="_blank" e rel para links externos
+  html = html.replace(
+    /<a([^>]*)\shref=["']([^"']+)["']([^>]*)>/gi,
+    (match, before, href, after) => {
+      // Verificar se é link externo
+      const isExternal = href.startsWith('http://') || href.startsWith('https://');
+      
+      // Se já tiver target ou rel, não duplicar
+      const hasTarget = /target=/i.test(before + after);
+      const hasRel = /rel=/i.test(before + after);
+      
+      if (isExternal && (!hasTarget || !hasRel)) {
+        let newBefore = before;
+        let newAfter = after;
+        
+        if (!hasTarget) {
+          newBefore += ' target="_blank"';
+        }
+        
+        if (!hasRel) {
+          newBefore += ' rel="noopener noreferrer"';
+        }
+        
+        return `<a${newBefore} href="${href}"${newAfter}>`;
+      }
+      
+      return match;
+    }
+  );
+
+  return html;
 }

@@ -20,21 +20,21 @@ export default function GiflabsPage() {
                 <PlayCircle className="h-16 w-16 text-neutral-800" />
               </div>
               <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tighter text-neutral-900 md:text-6xl">
-                {t("giflabs.hero.title")}
+                {t("youtubeChannel.hero.title")}
               </h1>
               <p className="mb-8 text-lg leading-relaxed text-neutral-600 md:text-xl">
-                {t("giflabs.hero.description")}
+                {t("youtubeChannel.hero.description")}
               </p>
               <div className="flex justify-center gap-4">
                 <Button size="lg" asChild className="bg-red-600 hover:bg-red-700 text-white">
                   <Link href="https://www.youtube.com/@giflabs" target="_blank">
                     <Youtube className="mr-2 h-5 w-5" />
-                    {t("giflabs.hero.cta_main")}
+                    {t("youtubeChannel.hero.cta_main")}
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="#conteudo">
-                    {t("giflabs.hero.cta_secondary")}
+                    {t("youtubeChannel.hero.cta_secondary")}
                   </Link>
                 </Button>
               </div>
@@ -48,18 +48,18 @@ export default function GiflabsPage() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-4">
-                  {t("giflabs.content.title")}
+                  {t("youtubeChannel.content.title")}
                 </h2>
               </div>
               <div className="space-y-6 text-neutral-700 leading-relaxed text-lg text-left">
                 <p>
-                  {t("giflabs.content.description_1")}
+                  {t("youtubeChannel.content.description_1")}
                 </p>
                 <p>
-                  {t("giflabs.content.description_2")}
+                  {t("youtubeChannel.content.description_2")}
                 </p>
                 <p>
-                  {t("giflabs.content.description_3")}
+                  {t("youtubeChannel.content.description_3")}
                 </p>
               </div>
             </div>
@@ -72,32 +72,32 @@ export default function GiflabsPage() {
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                  {t("giflabs.formats.title")}
+                  {t("youtubeChannel.formats.title")}
                 </h2>
                 <p className="text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
-                  {t("giflabs.formats.description")}
+                  {t("youtubeChannel.formats.description")}
                 </p>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 text-center">
                 <div className="flex flex-col items-center">
                   <Mic className="h-10 w-10 text-neutral-400 mb-4" />
-                  <h3 className="font-semibold text-lg mb-2">{t("giflabs.formats.interviews.title")}</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t("youtubeChannel.formats.interviews.title")}</h3>
                   <p className="text-neutral-400 font-light leading-relaxed">
-                    {t("giflabs.formats.interviews.description")}
+                    {t("youtubeChannel.formats.interviews.description")}
                   </p>
                 </div>
                 <div className="flex flex-col items-center">
                   <Clapperboard className="h-10 w-10 text-neutral-400 mb-4" />
-                  <h3 className="font-semibold text-lg mb-2">{t("giflabs.formats.courses.title")}</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t("youtubeChannel.formats.courses.title")}</h3>
                   <p className="text-neutral-400 font-light leading-relaxed">
-                    {t("giflabs.formats.courses.description")}
+                    {t("youtubeChannel.formats.courses.description")}
                   </p>
                 </div>
                 <div className="flex flex-col items-center">
                   <PlayCircle className="h-10 w-10 text-neutral-400 mb-4" />
-                  <h3 className="font-semibold text-lg mb-2">{t("giflabs.formats.podcasts.title")}</h3>
+                  <h3 className="font-semibold text-lg mb-2">{t("youtubeChannel.formats.podcasts.title")}</h3>
                   <p className="text-neutral-400 font-light leading-relaxed">
-                    {t("giflabs.formats.podcasts.description")}
+                    {t("youtubeChannel.formats.podcasts.description")}
                   </p>
                 </div>
               </div>

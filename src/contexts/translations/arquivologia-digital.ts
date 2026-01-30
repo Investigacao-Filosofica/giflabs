@@ -1,6 +1,6 @@
-export const arqueologiaDigitalTranslations = {
+export const arquivologiaDigitalTranslations = {
   pt: {
-    "arqueologia_digital": {
+    "arquivologia_digital": {
       "title": "Arquivologia Digital",
       "hero": {
         "title": "Arquivologia Digital",
@@ -26,7 +26,7 @@ export const arqueologiaDigitalTranslations = {
     }
   },
   en: {
-    "arqueologia_digital": {
+    "arquivologia_digital": {
       "title": "Digital Archivology",
       "hero": {
         "title": "Digital Archivology",

@@ -4,8 +4,23 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, Clock, Share2, Twitter, Linkedin, Link as LinkIcon } from 'lucide-react';
-import { PostContent, AuthorCard, CategoryBadge, TagList } from '@/components/blog';
+import { 
+  ArrowLeft, 
+  Calendar, 
+  Clock, 
+  Share2, 
+  Twitter, 
+  Linkedin, 
+  Link as LinkIcon,
+  PlayCircle,
+  GraduationCap,
+  BookOpen,
+  Newspaper,
+  Archive,
+  Puzzle,
+  Globe
+} from 'lucide-react';
+import { PostContent, AuthorCard, CategoryBadge, TagList, AttachmentList } from '@/components/blog';
 import { Button } from '@/components/ui/button';
 import { SloganLoader } from '@/components/ui/slogan-loader';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -13,6 +28,18 @@ import { getStrapiImageUrl, formatDate } from '@/lib/strapi';
 import type { Post, StrapiResponse } from '@/types/blog';
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
+
+// Mapeamento de slugs de projetos para seus ícones
+const projectIconMap: Record<string, typeof PlayCircle> = {
+  'digital-education-app': GraduationCap,
+  'serie-if': BookOpen,
+  'virtualia': Newspaper,
+  'literatura': BookOpen,
+  'arquivologia-digital': Archive,
+  'youtube-channel': PlayCircle,
+  'metaverso': Puzzle,
+  'internacionalizacao': Globe,
+};
 
 export default function PostPage() {
   const params = useParams();
@@ -29,7 +56,16 @@ export default function PostPage() {
       try {
         const params = new URLSearchParams({
           'filters[slug][$eq]': slug,
-          'populate': '*',
+          'populate[featured_image]': 'true',
+          'populate[author][populate][avatar]': 'true',
+          'populate[categories]': 'true',
+          'populate[tags]': 'true',
+          'populate[projects]': 'true',
+          'populate[coauthors][populate][avatar]': 'true',
+          'populate[gallery]': 'true',
+          'populate[attachments]': 'true',
+          'populate[related_posts][populate][featured_image]': 'true',
+          'populate[seo]': 'true',
         });
 
         const res = await fetch(`${STRAPI_URL}/api/posts?${params}`);
@@ -205,6 +241,11 @@ export default function PostPage() {
           <PostContent content={post.content} />
         </div>
 
+        {/* Attachments */}
+        {post.attachments && post.attachments.length > 0 && (
+          <AttachmentList attachments={post.attachments} />
+        )}
+
         {/* Tags */}
         {post.tags && post.tags.length > 0 && (
           <div className="mb-12 border-t border-neutral-200 pt-8">
@@ -230,21 +271,30 @@ export default function PostPage() {
         {/* Project Links */}
         {post.projects && post.projects.length > 0 && (
           <div className="mt-8 rounded-lg border border-neutral-200 bg-white p-6">
-            <p className="mb-2 text-sm text-neutral-500">
-              {t('blog.related_projects') || 'Projetos relacionados'}:
+            <p className="mb-4 text-sm text-neutral-500">
+              {t('blog.related_projects')}:
             </p>
-            <div className="flex flex-wrap gap-2">
-              {post.projects.map((project) => (
-                <Link
-                  key={project.id}
-                  href={`/${project.slug}`}
-                  className="inline-flex items-center gap-2 font-semibold text-neutral-900 transition-colors hover:text-neutral-600"
-                  style={{ color: project.color }}
-                >
-                  {project.name}
-                  <ArrowLeft className="h-4 w-4 rotate-180" />
-                </Link>
-              ))}
+            <div className="flex flex-wrap gap-3">
+              {post.projects.map((project) => {
+                const IconComponent = projectIconMap[project.slug] || PlayCircle;
+                return (
+                  <Link
+                    key={project.id}
+                    href={`/${project.slug}`}
+                    className="group inline-flex items-center gap-2 rounded-lg border border-neutral-200 bg-white p-3 transition-all hover:border-neutral-300 hover:shadow-md"
+                    style={{ 
+                      borderColor: project.color || undefined,
+                    }}
+                    title={project.name}
+                  >
+                    <IconComponent 
+                      className="h-5 w-5 transition-colors" 
+                      style={{ color: project.color }}
+                    />
+                    <span className="sr-only">{project.name}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}

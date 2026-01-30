@@ -1,6 +1,6 @@
-export const giflabsTranslations = {
+export const youtubeChannelTranslations = {
   pt: {
-    "giflabs": {
+    "youtubeChannel": {
       "title": "GIFLABS",
       "hero": {
         "title": "GIFLABS",
@@ -33,7 +33,7 @@ export const giflabsTranslations = {
     }
   },
   en: {
-    "giflabs": {
+    "youtubeChannel": {
       "title": "GIFLABS",
       "hero": {
         "title": "GIFLABS",

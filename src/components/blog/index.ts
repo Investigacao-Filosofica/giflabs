@@ -5,3 +5,4 @@ export { AuthorCard } from './AuthorCard';
 export { CategoryBadge } from './CategoryBadge';
 export { TagList } from './TagList';
 export { Pagination } from './Pagination';
+export { AttachmentList } from './AttachmentList';

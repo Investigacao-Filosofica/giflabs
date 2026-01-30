@@ -22,6 +22,8 @@ export const blogTranslations = {
       link_copied: 'Link copiado!',
       written_by: 'Escrito por',
       related_project: 'Projeto relacionado',
+      related_projects: 'Projetos relacionados',
+      attachments: 'Materiais para Download',
       pagination: {
         previous: 'Anterior',
         next: 'Próxima',
@@ -51,6 +53,8 @@ export const blogTranslations = {
       link_copied: 'Link copied!',
       written_by: 'Written by',
       related_project: 'Related project',
+      related_projects: 'Related projects',
+      attachments: 'Download Materials',
       pagination: {
         previous: 'Previous',
         next: 'Next',

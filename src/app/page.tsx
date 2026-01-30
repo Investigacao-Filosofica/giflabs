@@ -76,14 +76,14 @@ const projects = [
     link: "/literatura",
   },
   {
-    id: "arqueologia-digital",
+    id: "arquivologia-digital",
     iconName: "Archive",
-    link: "/arqueologia-digital",
+    link: "/arquivologia-digital",
   },
   {
     id: "dao-channel",
     iconName: "PlayCircle",
-    link: "/giflabs",
+    link: "/youtube-channel",
   },
   {
     id: "metaverso",

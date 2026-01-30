@@ -17,7 +17,7 @@ const partners: Partner[] = [
   { name: "UFPel - NEPFIL", url: "https://wp.ufpel.edu.br/nepfil/" },
 ];
 
-export default function ArqueologiaDigitalPage() {
+export default function ArquivologiaDigitalPage() {
   const { t } = useLanguage();
   
   return (
@@ -32,20 +32,20 @@ export default function ArqueologiaDigitalPage() {
                 <Archive className="h-16 w-16 text-neutral-800" />
               </div>
               <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tighter text-neutral-900 md:text-6xl">
-                {t("arqueologia_digital.hero.title")}
+                {t("arquivologia_digital.hero.title")}
               </h1>
               <p className="mb-8 text-lg leading-relaxed text-neutral-600 md:text-xl">
-                {t("arqueologia_digital.hero.description")}
+                {t("arquivologia_digital.hero.description")}
               </p>
               <div className="flex justify-center gap-4">
                 <Button size="lg" asChild className="bg-neutral-900 hover:bg-neutral-800 text-white">
                   <Link href="#projeto">
-                    {t("arqueologia_digital.hero.cta_main")} <Group className="ml-2 h-4 w-4" />
+                    {t("arquivologia_digital.hero.cta_main")} <Group className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="#parceiros">
-                    {t("arqueologia_digital.hero.cta_secondary")} <Building className="ml-2 h-4 w-4" />
+                    {t("arquivologia_digital.hero.cta_secondary")} <Building className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </div>
@@ -59,18 +59,18 @@ export default function ArqueologiaDigitalPage() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-4">
-                  {t("arqueologia_digital.project.title")}
+                  {t("arquivologia_digital.project.title")}
                 </h2>
               </div>
               <div className="space-y-6 text-neutral-700 leading-relaxed text-lg text-left">
                 <p>
-                  {t("arqueologia_digital.project.description_1")}
+                  {t("arquivologia_digital.project.description_1")}
                 </p>
                 <p>
-                  {t("arqueologia_digital.project.description_2")}
+                  {t("arquivologia_digital.project.description_2")}
                 </p>
                 <p>
-                  {t("arqueologia_digital.project.description_3")}
+                  {t("arquivologia_digital.project.description_3")}
                 </p>
               </div>
             </div>
@@ -82,17 +82,17 @@ export default function ArqueologiaDigitalPage() {
           <div className="container mx-auto px-6 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">
-                {t("arqueologia_digital.collection.title")}
+                {t("arquivologia_digital.collection.title")}
               </h2>
               <p className="text-lg text-neutral-300 leading-relaxed mb-8">
-                {t("arqueologia_digital.collection.description")}
+                {t("arquivologia_digital.collection.description")}
               </p>
               <Button asChild className="text-lg px-8 py-6 bg-white hover:bg-neutral-200 text-neutral-900">
                 <Link
                   href="https://manifold.gallery/base:0x481617065b414872cb7775a610edc05f5fbbea6a"
                   target="_blank"
                 >
-                  {t("arqueologia_digital.collection.cta")} <ExternalLink className="ml-3" />
+                  {t("arquivologia_digital.collection.cta")} <ExternalLink className="ml-3" />
                 </Link>
               </Button>
             </div>
@@ -104,10 +104,10 @@ export default function ArqueologiaDigitalPage() {
           <div className="container mx-auto px-6">
             <div className="text-center max-w-4xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 tracking-tight mb-6">
-                {t("arqueologia_digital.partners.title")}
+                {t("arquivologia_digital.partners.title")}
               </h2>
               <p className="text-lg text-neutral-600 leading-relaxed">
-                {t("arqueologia_digital.partners.description")}
+                {t("arquivologia_digital.partners.description")}
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">

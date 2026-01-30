@@ -39,7 +39,12 @@ function BlogContent() {
         const params = new URLSearchParams({
           'pagination[page]': String(currentPage),
           'pagination[pageSize]': '9',
-          'populate': '*',
+          'populate[featured_image]': 'true',
+          'populate[author][populate][avatar]': 'true',
+          'populate[categories]': 'true',
+          'populate[tags]': 'true',
+          'populate[projects]': 'true',
+          'populate[coauthors][populate][avatar]': 'true',
           'sort[0]': 'publishedAt:desc',
         });
 
@@ -263,8 +268,8 @@ function BlogContent() {
       </section>
 
       {/* Posts Section */}
-      <section className="h-screen flex items-center bg-neutral-50 px-6">
-        <div className="mx-auto w-full max-w-6xl">
+      <section className="py-12 bg-neutral-50">
+        <div className="mx-auto w-full max-w-6xl px-6">
           {/* Results count */}
           {pagination.total > 0 && (
             <div className="mb-8 flex items-center justify-between">

@@ -77,7 +77,8 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::author.author",
-      "inversedBy": "posts"
+      "inversedBy": "posts",
+      "required": true
     },
     "coauthors": {
       "type": "relation",
@@ -89,13 +90,15 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "inversedBy": "posts"
+      "inversedBy": "posts",
+      "required": true
     },
     "tags": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::tag.tag",
-      "inversedBy": "posts"
+      "inversedBy": "posts",
+      "required": true
     },
     "projects": {
       "type": "relation",
