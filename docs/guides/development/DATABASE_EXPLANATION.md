@@ -307,3 +307,5 @@ Você mencionou SQLite no Supabase, mas:
 ---
 
 **Última atualização**: Janeiro 2026
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

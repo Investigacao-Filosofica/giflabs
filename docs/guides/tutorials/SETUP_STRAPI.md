@@ -94,7 +94,7 @@ O projeto já possui os seguintes Content Types configurados:
 - Campos: `name`, `slug`, `description`, `color`
 - Relacionamentos: `posts` (manyToMany)
 
-📖 **Schema completo:** Veja [docs/guides/architecture/ESTRUTURA_BLOG_COMPLETA.md](../architecture/ESTRUTURA_BLOG_COMPLETA.md)
+📖 **Schema completo:** Veja [docs/guides/architecture/blog/ESTRUTURA_BLOG_COMPLETA.md](../architecture/blog/ESTRUTURA_BLOG_COMPLETA.md)
 
 ---
 
@@ -253,8 +253,8 @@ npm run strapi
 
 ## 📚 Documentação Relacionada
 
-- **[Estrutura Completa do Blog](../architecture/ESTRUTURA_BLOG_COMPLETA.md)** - Schema detalhado
-- **[Arquitetura do Sistema](../architecture/ARQUITETURA_SISTEMA.md)** - Visão geral
+- **[Estrutura Completa do Blog](../architecture/blog/ESTRUTURA_BLOG_COMPLETA.md)** - Schema detalhado
+- **[Arquitetura do Sistema](../architecture/site/ARQUITETURA_SISTEMA.md)** - Visão geral
 - **[Variáveis Railway](../../reference/RAILWAY_ENV_VARS.md)** - Configuração do banco
 - **[Como Criar Posts](./COMO_CRIAR_POSTS.md)** - Tutorial de criação
 - **[Como Criar Usuários](./COMO_CRIAR_USUARIOS.md)** - Tutorial de usuários
@@ -292,3 +292,5 @@ taskkill /PID <PID> /F
 
 **Última atualização:** Janeiro 2026  
 **Versão Strapi:** 5.33.4
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

@@ -17,6 +17,8 @@ O blog do GIFLABS é um **blog misto** que combina:
 
 **Princípio de design**: Simplicidade e escalabilidade, seguindo padrões contemporâneos de desenvolvimento.
 
+**Escopo do Strapi (decisão de arquitetura):** O Strapi é usado **apenas para o blog** — conteúdo editorial. Os Content Types do Strapi são somente: Post, Author, Category, Tag, Project. Comentários, perfis (community_user), gamificação (XP, runas) ficam **fora do Strapi** (módulo dedicado, ex.: Prisma, mesmo PostgreSQL). Isso garante controle total e possibilidade de sair do Strapi no futuro sem perder dados de produto.
+
 ---
 
 ## 🎯 Decisões Arquiteturais Principais
@@ -264,28 +266,15 @@ O blog do GIFLABS é um **blog misto** que combina:
 
 ---
 
-### 6. COMMENT (Futuro)
+### 6. Comentários — fora do Strapi
 
-**Tipo**: Collection Type  
-**Status**: ⏳ Implementação futura  
-**Descrição**: Comentários nos posts
+**Comentários não são Content Type do Strapi.** Eles ficam no **módulo Fórum** (PostgreSQL, ex.: Prisma), junto com Perfil (community_user) e Gamificação. O Post no Strapi tem o campo `comment_count` (integer) para exibição; esse contador é atualizado pela **nossa API** quando um comentário é criado ou removido no módulo Fórum.
 
-#### Campos Planejados
-
-| Campo | Tipo | Obrigatório | Descrição |
-|-------|------|-------------|-----------|
-| `post` | relation | ✅ Sim | Post relacionado (manyToOne) |
-| `author_name` | string | ✅ Sim | Nome do comentarista |
-| `author_email` | email | ❌ Não | Email (opcional) |
-| `content` | text | ✅ Sim | Texto do comentário |
-| `approved` | boolean | ✅ Sim | Aprovado para publicação |
-| `createdAt` | datetime | ✅ Auto | Data do comentário |
-
-**Nota**: Comentários podem ser adicionados depois e funcionarão em posts antigos normalmente.
+- Schema e regras de Comment (post_id, community_user_id, content, approved, parent, etc.): ver [Atualização do BD para Gamificação](../gamificacao/ATUALIZACAO_BD_GAMIFICACAO.md) e [Fórum e Comentários](../forum/FORUM_COMENTARIOS.md).
 
 ---
 
-## 🔗 Relacionamentos Entre Content Types
+## 🔗 Relacionamentos Entre Content Types (Strapi — apenas blog)
 
 ```
 POST
@@ -307,10 +296,9 @@ TAG
 
 PROJECT
 └── posts → POST[] (manyToMany) [inverso]
-
-COMMENT (futuro)
-└── post → POST (manyToOne) [obrigatório]
 ```
+
+*Comment e community_user ficam fora do Strapi (módulo Fórum/Perfil).*
 
 ---
 
@@ -519,7 +507,7 @@ posts_related_links (tabela de junção)
 
 ### Fase 3: Funcionalidades Futuras
 
-1. Sistema de comentários
+1. Sistema de comentários (módulo Fórum, fora do Strapi; ver docs de Fórum e Gamificação)
 2. Analytics avançados
 3. Campos acadêmicos adicionais
 4. Workflow de aprovação customizado
@@ -572,3 +560,5 @@ posts_related_links (tabela de junção)
 **Documento criado em**: Janeiro 2026  
 **Última atualização**: Janeiro 2026  
 **Status**: ✅ Planejamento Completo
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

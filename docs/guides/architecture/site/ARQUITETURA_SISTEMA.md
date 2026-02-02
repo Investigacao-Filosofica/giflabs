@@ -41,12 +41,9 @@
 │                    BACKEND - Strapi CMS                         │
 │                    (v5.33.4)                                    │
 │  ┌──────────────────────────────────────────────────────────┐  │
-│  │  Content Types:                                          │  │
-│  │  • Post (campo language: pt-BR, en, etc.)               │  │
-│  │  • Author (não localizado - global)                      │  │
-│  │  • Category (não localizado - global)                   │  │
-│  │  • Tag (não localizado - global)                        │  │
-│  │  • Project (não localizado - global)                   │  │
+│  │  Content Types (Strapi = apenas blog):                  │  │
+│  │  • Post, Author, Category, Tag, Project                  │  │
+│  │  (Comentários, perfil, gamificação ficam fora do Strapi) │  │
 │  └──────────────────────────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────────────┐  │
 │  │  Componentes:                                             │  │
@@ -387,3 +384,5 @@ Produção:
 
 **Última atualização**: Janeiro 2026  
 **Nota**: Este documento foi atualizado para refletir a remoção do sistema i18n e a migração para campo `language` nos Posts. Todos os Content Types principais são agora globais (não localizados).
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

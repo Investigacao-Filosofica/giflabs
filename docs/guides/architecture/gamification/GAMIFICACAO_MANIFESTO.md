@@ -4,6 +4,10 @@ Este não é um texto sobre gamificação. É um convite para participar da cons
 
 Estamos desenvolvendo um sistema de gamificação para este blog — mas não do tipo que você está acostumado a ver. Não haverá pontos flutuando na tela, medalhas brilhantes ou notificações insistentes pedindo sua atenção. O que propomos é mais sutil e, acreditamos, mais significativo: **uma arquitetura de participação** que transforma o ato de ler, comentar e contribuir em algo que cresce junto com quem participa.
 
+**Documentos relacionados:**
+- [Arquitetura de Gamificação](./ARQUITETURA_GAMIFICACAO.md) — decisões técnicas e conceituais (perguntas 1–14)
+- [Atualização do BD para Gamificação](./ATUALIZACAO_BD_GAMIFICACAO.md) — modelo de dados (community_user, comentários, XP, runas)
+
 ---
 
 ## Por Que Gamificar um Blog?
@@ -186,3 +190,7 @@ O resto você descobre jogando.
 ---
 
 **[Season 1 — Closed Beta — Em Progresso]**
+
+---
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF) — Janeiro 2026

@@ -141,10 +141,12 @@ Equipe de Desenvolvimento (2 cards)
 
 ---
 
-**Data de Criação**: $(date)
-**Responsável**: Equipe GIFLABS
-**Prioridade**: Média
+**Data de Criação**: Janeiro 2026  
+**Responsável**: Equipe GIFLABS  
+**Prioridade**: Média  
 **Tempo Estimado**: 30-45 minutos
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)
 
 
 

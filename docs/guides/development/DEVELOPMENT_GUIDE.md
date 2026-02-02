@@ -504,3 +504,4 @@ npx tsc --noEmit
 
 Para dúvidas específicas, consulte os outros guias na pasta `/docs/` ou abra uma issue no GitHub.
 
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

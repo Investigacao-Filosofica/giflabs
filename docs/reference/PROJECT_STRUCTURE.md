@@ -649,8 +649,7 @@ src/
 
 **📁 Esta estrutura foi projetada para ser escalável e manutenível, permitindo crescimento organizado do projeto GIFLABS.**
 
-
-
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)
 
 
 

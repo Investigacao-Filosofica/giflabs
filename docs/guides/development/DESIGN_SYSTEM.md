@@ -770,3 +770,4 @@ export const designTokens = {
 
 **🎨 Este design system foi criado para manter consistência visual e melhorar a experiência do usuário, seguindo as melhores práticas de design moderno e acessibilidade.**
 
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

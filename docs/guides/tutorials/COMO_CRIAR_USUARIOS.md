@@ -306,3 +306,5 @@ Se você tiver problemas:
 ---
 
 **Última atualização**: Janeiro 2026
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

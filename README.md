@@ -86,8 +86,8 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 ### 🚀 Guias de Desenvolvimento
 - **[📖 Documentação Completa](./docs/README.md)** - Índice principal da documentação
 - **[🛠️ Guia de Desenvolvimento](./docs/guides/development/DEVELOPMENT_GUIDE.md)** - Configuração, padrões e boas práticas
-- **[🏗️ Arquitetura do Sistema](./docs/guides/architecture/ARQUITETURA_SISTEMA.md)** - Visão geral da arquitetura
-- **[🏗️ Guia de Arquitetura](./docs/guides/architecture/ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
+- **[🏗️ Arquitetura do Sistema](./docs/guides/architecture/site/ARQUITETURA_SISTEMA.md)** - Visão geral da arquitetura
+- **[🏗️ Guia de Arquitetura](./docs/guides/architecture/site/ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
 - **[🎨 Sistema de Design](./docs/guides/development/DESIGN_SYSTEM.md)** - Componentes, cores e tipografia
 - **[🤝 Guia de Contribuição](./docs/guides/development/CONTRIBUTING.md)** - Como contribuir com o projeto
 

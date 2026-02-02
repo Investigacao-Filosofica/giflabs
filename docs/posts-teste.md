@@ -155,3 +155,7 @@ O programa promove não apenas pesquisa colaborativa, mas também intercâmbio d
 - Categorias: Filosofia, Tecnologia, Arte, Educação
 - Tags: filosofia, tecnologia, ética, blockchain, educação, web3, arte digital, nft, preservação, arquivologia, internacionalização, colaboração
 - Projects: Digital Education App, Metaverso, Arquivologia Digital, Internacionalização
+
+---
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

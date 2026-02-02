@@ -2,6 +2,11 @@
 
 Documento-base que consolida as decisões do core team (5 integrantes) a partir das discussões estruturadas nas perguntas 1 a 14. Este texto funciona simultaneamente como **artigo-base**, **documento conceitual** e **changelog vivo**, orientando o desenvolvimento iterativo do sistema.
 
+**Documentos relacionados:**
+- [Manifesto de Gamificação](./GAMIFICACAO_MANIFESTO.md) — versão pública e narrativa
+- [Atualização do BD para Gamificação](./ATUALIZACAO_BD_GAMIFICACAO.md) — modelo de dados (community_user, comentários, XP, runas)
+- [Roadmap Fase 1 — DEA](../dea-app/ROADMAP_FASE1_DEA.md) — ordem de implementação (Blog → Perfil → Comentários → Gamificação); Strapi apenas para o blog
+
 ---
 
 ## 1. Contexto e Intenção
@@ -15,6 +20,8 @@ A proposta central é gamificar:
 * e o próprio desenvolvimento da plataforma.
 
 A gamificação aqui não é cosmética. Ela atua como **arquitetura de participação**, aprendizagem e ética coletiva.
+
+**Contexto de implementação:** Este sistema é a **Fase 1 do Digital Education App (DEA)**. O blog é a primeira etapa; em seguida vêm Perfil (community_user), Comentários/Fórum e Gamificação (XP, runas), em módulo dedicado fora do Strapi (ex.: Prisma, mesmo PostgreSQL). O Strapi permanece **apenas para o blog** (conteúdo editorial). Ver [Roadmap Fase 1](../dea-app/ROADMAP_FASE1_DEA.md) e [Atualização do BD](./ATUALIZACAO_BD_GAMIFICACAO.md).
 
 ---
 
@@ -31,6 +38,7 @@ A gamificação aqui não é cosmética. Ela atua como **arquitetura de particip
 
 * **Perfil central**: Colaborador ativo — comenta, debate, responde e contribui para o avanço coletivo.
 * **Opção estrutural**: Anonimato por padrão, com perfil mínimo e configurável, evitando dinâmicas típicas de redes sociais.
+* **Quem ganha XP**: Quem tem perfil (community_user) — inclusive com flag de anonimato — ganha XP ao comentar/participar. **Visitante sem perfil (guest)** pode comentar, mas **não acumula XP**; a participação plena no sistema exige perfil (ver [Atualização do BD](./ATUALIZACAO_BD_GAMIFICACAO.md)).
 
 ---
 
@@ -50,7 +58,7 @@ A reputação é pensada como um sistema **multicamadas**, evitando métricas ú
 
 Antes da abertura ao público, o sistema opera em um **ambiente fechado**:
 
-* **Modo privado**: comentários, votos e reputação visíveis apenas aos 5 integrantes quando logados;
+* **Modo privado**: comentários, avaliações (curadoria) e reputação visíveis apenas aos 5 integrantes quando logados;
 * **Shadow users**: interação como usuários comuns, porém invisíveis ao público externo;
 * Possibilidade de tornar conteúdos, comentários ou decisões públicas posteriormente.
 
@@ -80,10 +88,10 @@ A progressão do usuário é baseada em ações significativas:
 
 * Comentários (quantidade e qualidade);
 * Respostas e participação em debates;
-* Curtidas e interações sociais internas;
+* Interações sociais internas (a definir na implementação; ex.: reações, avaliação entre pares);
 * Compartilhamentos externos (divulgação orgânica);
 * Publicação de conteúdo próprio;
-* Avaliação entre pares.
+* Reconhecimento por curadoria (runas, avaliação entre pares).
 
 *A leitura passiva não gera progresso, evitando exploração de métricas.*
 
@@ -172,7 +180,7 @@ O artigo e o sistema assumem um tom híbrido:
 
 * Artigo médio, estruturado por blocos temáticos;
 * Changelog narrativo, explicando **por que** mudanças ocorrem;
-* Cada alteração vinculada a comentários, votos ou runas;
+* Cada alteração vinculada a comentários, avaliações (curadoria) ou runas;
 * Contribuições que geram mudanças também geram XP e reconhecimento;
 * Notas marginais e comentários editoriais do core team.
 
@@ -187,3 +195,7 @@ Este sistema não gamifica apenas usuários — **gamifica o próprio processo d
 O blog é o primeiro jogo.
 A comunidade é o motor.
 O sistema cresce à medida que é vivido, questionado e transformado por quem participa.
+
+---
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF) — Janeiro 2026

@@ -192,3 +192,5 @@ Para cada membro da equipe, precisamos preencher:
 **Documento criado em**: Janeiro 2026  
 **Última atualização**: Janeiro 2026  
 **Status**: ✅ Dados Coletados - Pronto para Implementação
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

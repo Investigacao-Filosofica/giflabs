@@ -126,3 +126,5 @@ O projeto GIFLABS demonstra:
 **📅 Última atualização:** Janeiro 2026  
 **📝 Análise por:** Revisão completa do código e documentação  
 **🎯 Status:** PROJETO APROVADO ✅
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

@@ -568,10 +568,12 @@ Post
 3. **Escalável**: Múltiplos projetos e autores
 4. **Balanceado**: Não é simples demais nem complexo demais
 
-### Content Types Propostos
+### Content Types Propostos (Strapi — apenas blog)
+
+*Comentários, perfil (community_user) e gamificação ficam fora do Strapi (módulo dedicado, ex.: Prisma).*
 
 ```
-📁 Content Types
+📁 Content Types (Strapi)
 
 ├── 📝 Post (Collection)
 │   ├── title (string, required)
@@ -662,6 +664,7 @@ Post
 ---
 
 **📅 Documento criado em**: 23/01/2026  
-**📝 Autor**: OFF  
 **🔄 Status**: ✅ IMPLEMENTADO (Janeiro 2026)  
 **🏗️ Arquitetura escolhida**: Relacional + Rich Text + Campo `language`
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

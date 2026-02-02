@@ -624,3 +624,4 @@ class ApiClient {
 
 **🏗️ Esta arquitetura foi projetada para ser escalável e manutenível, mas precisa de ajustes de configuração antes de ir para produção.**
 
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

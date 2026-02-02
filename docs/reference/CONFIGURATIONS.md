@@ -659,8 +659,7 @@ npx tailwindcss --input ./src/app/globals.css --output ./test.css
 
 **🔧 Essas configurações são fundamentais para o funcionamento adequado do projeto. Priorize as correções críticas antes de continuar o desenvolvimento.**
 
-
-
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)
 
 
 

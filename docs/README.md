@@ -4,17 +4,32 @@
 
 ## 📋 Índice Geral
 
-### 🏗️ Arquitetura
-- **[Arquitetura do Sistema](./guides/architecture/ARQUITETURA_SISTEMA.md)** - Visão geral da arquitetura completa
-- **[Guia de Arquitetura](./guides/architecture/ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
-- **[Arquitetura do Blog](./guides/architecture/BLOG_ARCHITECTURE.md)** - Planejamento e estrutura do blog
-- **[Estrutura Completa do Blog](./guides/architecture/ESTRUTURA_BLOG_COMPLETA.md)** - Schema completo do blog Strapi
+### 🌐 Site
+- **[Arquitetura do Sistema](./guides/architecture/site/ARQUITETURA_SISTEMA.md)** - Visão geral da arquitetura completa
+- **[Guia de Arquitetura Técnica](./guides/architecture/site/ARCHITECTURE_GUIDE.md)** - Stack, componentes, i18n, deploy
+
+### 📝 Blog
+- **[Arquitetura do Blog](./guides/architecture/blog/BLOG_ARCHITECTURE.md)** - Planejamento e estrutura do blog
+- **[Estrutura Completa do Blog](./guides/architecture/blog/ESTRUTURA_BLOG_COMPLETA.md)** - Schema completo do blog Strapi
+
+### 🎮 Gamificação
+- **[Arquitetura de Gamificação](./guides/architecture/gamificacao/ARQUITETURA_GAMIFICACAO.md)** - Decisões do core team (perguntas 1–14)
+- **[Manifesto de Gamificação](./guides/architecture/gamificacao/GAMIFICACAO_MANIFESTO.md)** - Versão pública do experimento de gamificação
+- **[Atualização do BD para Gamificação](./guides/architecture/gamificacao/ATUALIZACAO_BD_GAMIFICACAO.md)** - community_user, comentários, XP, runas
+
+### 💬 Fórum
+- **[Fórum e Comentários](./guides/architecture/forum/FORUM_COMENTARIOS.md)** - Módulo de discussão (comentários sob os posts; links para schema e roadmap)
+
+### 🚀 DEA-app
+- **[Roadmap Fase 1 — DEA](./guides/architecture/dea-app/ROADMAP_FASE1_DEA.md)** - Ordem oficial das etapas (Blog → Perfil → Comentários → Gamificação)
 
 ### 🛠️ Desenvolvimento
 - **[Guia de Desenvolvimento](./guides/development/DEVELOPMENT_GUIDE.md)** - Configuração, padrões e boas práticas
 - **[Guia de Contribuição](./guides/development/CONTRIBUTING.md)** - Como contribuir com o projeto
 - **[Sistema de Design](./guides/development/DESIGN_SYSTEM.md)** - Componentes, cores e tipografia
 - **[Desenvolvimento vs Produção](./guides/development/DESENVOLVIMENTO_VS_PRODUCAO.md)** - Diferenças entre ambientes
+- **[Banco de Dados](./guides/development/DATABASE_EXPLANATION.md)** - PostgreSQL, Railway, Supabase, ambientes
+- **[Schema BD e Strapi — Produção](./guides/development/SCHEMA_BD_STRAPI_PRODUCAO.md)** - Estado do schema, plano para produção do blog e preparação para Perfil/Fórum/Gamificação
 
 ### 📖 Tutoriais
 - **[Setup do Strapi](./guides/tutorials/SETUP_STRAPI.md)** - Tutorial completo para configurar o Strapi
@@ -37,14 +52,14 @@
 
 ### Para Desenvolvedores
 1. **[Configuração do Ambiente](./guides/development/DEVELOPMENT_GUIDE.md#configuração-do-ambiente)**
-2. **[Arquitetura do Sistema](./guides/architecture/ARQUITETURA_SISTEMA.md)**
+2. **[Arquitetura do Sistema](./guides/architecture/site/ARQUITETURA_SISTEMA.md)**
 3. **[Padrões de Código](./guides/development/DEVELOPMENT_GUIDE.md#padrões-de-código)**
 
 ### Para Criadores de Conteúdo
 1. **[Setup do Strapi](./guides/tutorials/SETUP_STRAPI.md)** - Configuração inicial
 2. **[Como Criar Posts](./guides/tutorials/COMO_CRIAR_POSTS.md)**
 3. **[Como Criar Usuários](./guides/tutorials/COMO_CRIAR_USUARIOS.md)**
-4. **[Estrutura do Blog](./guides/architecture/ESTRUTURA_BLOG_COMPLETA.md)**
+4. **[Estrutura do Blog](./guides/architecture/blog/ESTRUTURA_BLOG_COMPLETA.md)**
 
 ### Para Contribuidores
 1. **[Como Contribuir](./guides/development/CONTRIBUTING.md)**
@@ -60,17 +75,29 @@ docs/
 ├── README.md                    # Este arquivo
 │
 ├── guides/                      # Guias detalhados
-│   ├── architecture/           # Documentos de arquitetura
-│   │   ├── ARQUITETURA_SISTEMA.md
-│   │   ├── ARCHITECTURE_GUIDE.md
-│   │   ├── BLOG_ARCHITECTURE.md
-│   │   └── ESTRUTURA_BLOG_COMPLETA.md
+│   ├── architecture/           # Arquitetura por tema
+│   │   ├── site/               # Site (visão geral, stack, deploy)
+│   │   │   ├── ARQUITETURA_SISTEMA.md
+│   │   │   └── ARCHITECTURE_GUIDE.md
+│   │   ├── blog/               # Blog (Strapi)
+│   │   │   ├── BLOG_ARCHITECTURE.md
+│   │   │   └── ESTRUTURA_BLOG_COMPLETA.md
+│   │   ├── gamificacao/        # Gamificação (XP, runas, BD)
+│   │   │   ├── ARQUITETURA_GAMIFICACAO.md
+│   │   │   ├── GAMIFICACAO_MANIFESTO.md
+│   │   │   └── ATUALIZACAO_BD_GAMIFICACAO.md
+│   │   ├── forum/              # Fórum / comentários
+│   │   │   └── FORUM_COMENTARIOS.md
+│   │   └── dea-app/            # DEA (roadmap Fase 1)
+│   │       └── ROADMAP_FASE1_DEA.md
 │   │
 │   ├── development/            # Guias de desenvolvimento
 │   │   ├── DEVELOPMENT_GUIDE.md
 │   │   ├── CONTRIBUTING.md
 │   │   ├── DESIGN_SYSTEM.md
-│   │   └── DESENVOLVIMENTO_VS_PRODUCAO.md
+│   │   ├── DESENVOLVIMENTO_VS_PRODUCAO.md
+│   │   ├── DATABASE_EXPLANATION.md
+│   │   └── SCHEMA_BD_STRAPI_PRODUCAO.md
 │   │
 │   ├── tutorials/              # Tutoriais práticos
 │   │   ├── SETUP_STRAPI.md
@@ -148,9 +175,13 @@ A documentação é um projeto vivo que evolui com o código. Para contribuir:
 ## 🔗 Links Úteis
 
 ### Projeto
-- **GitHub**: [giflabs](https://github.com/Investigacao-Filosofica/giflabs)
+- **GitHub (principal)**: [giflabs](https://github.com/Investigacao-Filosofica/giflabs)
 - **Virtualia Journal**: [virtualiajournal.com](https://www.virtualiajournal.com/)
 - **CNPq**: [Grupo de Pesquisa](http://dgp.cnpq.br/dgp/espelhogrupo/821202)
+
+### Repositórios relacionados (GIFLABS / ecossistema)
+- **[dea-app](https://github.com/ctrlshiftOFF/dea-app)** — Digital Education App: plataforma educacional gamificada (Next.js, Web3, IA), trilhas de aprendizado, missões/XP/badges, certificação blockchain (NFTs), governança DAO, acessibilidade (Libras). Desenvolvida pelo GIFLABS.
+- **[user-profile-forum-chat](https://github.com/ctrlshiftOFF/user-profile-forum-chat)** — StelLearning Web App: perfil de usuário, fórum, chat e dashboard (Next.js 15+, React, TypeScript, Firebase, Shadcn UI, Framer Motion, Zustand). Base de referência para community_user, comentários e interação no blog.
 
 ### Tecnologias
 - **Next.js**: [Documentação Oficial](https://nextjs.org/docs)
@@ -176,4 +207,6 @@ Para dúvidas sobre a documentação:
 **✨ Versão da documentação:** 3.1  
 **🎯 Cobertura:** 95% do projeto documentado  
 **📁 Estrutura:** Organizada por categorias em subpastas  
-**✅ Status:** Totalmente atualizada e verificada
+**✅ Status:** Totalmente atualizada e verificada  
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

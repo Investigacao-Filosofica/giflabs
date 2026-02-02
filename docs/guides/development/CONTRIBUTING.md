@@ -595,3 +595,4 @@ Sua contribuição é valiosa para:
 
 **Para dúvidas sobre contribuições, abra uma issue no GitHub ou entre em contato com a equipe de desenvolvimento.**
 
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

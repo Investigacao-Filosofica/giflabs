@@ -54,3 +54,7 @@ DATABASE_SSL_REJECT_UNAUTHORIZED=false
 1. No Railway, clique no serviço **PostgreSQL**
 2. Vá na aba **"Variables"**
 3. Copie os valores necessários
+
+---
+
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)
