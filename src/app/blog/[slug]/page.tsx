@@ -156,12 +156,12 @@ export default function PostPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-50 via-transparent to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent" />
         </div>
       )}
 
       {/* Content */}
-      <div className="mx-auto max-w-3xl px-6 py-8">
+      <div className="mx-auto max-w-4xl px-6 py-8">
         {/* Back Button */}
         <Link
           href="/blog"

@@ -10,9 +10,10 @@
 5. [Espaçamento](#espaçamento)
 6. [Componentes](#componentes)
 7. [Layout](#layout)
-8. [Responsividade](#responsividade)
-9. [Animações](#animações)
-10. [Acessibilidade](#acessibilidade)
+8. [Blog](#blog-padrões-específicos)
+9. [Responsividade](#responsividade)
+10. [Animações](#animações)
+11. [Acessibilidade](#acessibilidade)
 
 ---
 
@@ -423,6 +424,63 @@ import {
 
 // Direção responsiva
 "flex flex-col md:flex-row"
+```
+
+---
+
+## 📝 Blog (Padrões Específicos)
+
+O blog segue o design system geral e adiciona padrões editoriais.
+
+### Página de Listagem (`/blog`)
+
+```typescript
+// Header editorial - título à esquerda
+"text-3xl md:text-4xl font-bold font-light tracking-tight text-neutral-900"
+"text-neutral-600 text-base md:text-lg max-w-xl"
+
+// Container e espaçamento
+"py-16 md:py-24 bg-neutral-50"
+"max-w-6xl mx-auto px-6"
+"mb-12 mt-8 border-t border-neutral-200"  // Divisor
+
+// Painel de filtros (fixo)
+"fixed top-16 left-0 right-0 z-40"
+"bg-white/95 backdrop-blur-md shadow-lg"
+"rounded-lg border border-neutral-200"
+```
+
+### Página de Post (`/blog/[slug]`)
+
+```typescript
+// Hero da imagem
+"h-[40vh] min-h-[300px] md:h-[50vh]"
+"absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent"  // Fade sutil
+
+// Conteúdo
+"max-w-4xl mx-auto px-6 py-8"
+"font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900"
+"text-lg md:text-xl text-neutral-600"
+"border-t border-neutral-200"
+```
+
+### Cards de Post
+
+```typescript
+// PostCard
+"rounded-lg border border-neutral-200 bg-white"
+"hover:border-neutral-300 hover:shadow-md"
+"transition-all duration-300"
+"aspect-video"  // Imagem
+"font-serif font-bold text-neutral-900"
+```
+
+### Skeleton de Loading
+
+```typescript
+// PostCardSkeleton / PostListSkeleton
+"bg-neutral-200 animate-pulse"
+"rounded-lg border border-neutral-200"
 ```
 
 ---

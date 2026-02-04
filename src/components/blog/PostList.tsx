@@ -14,17 +14,10 @@ export function PostList({ posts, showFeatured = true }: PostListProps) {
 
   if (posts.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center text-center">
-        <div className="flex items-center justify-center gap-2">
-          <span className="text-neutral-500 text-sm font-light">
-            {t('blog.empty_state.description') || 'Em construção'}
-          </span>
-          <span className="flex gap-1">
-            <span className="inline-block w-1 h-1 bg-neutral-400 rounded-full animate-pulse" style={{ animationDelay: '0ms', animationDuration: '1.5s' }} />
-            <span className="inline-block w-1 h-1 bg-neutral-400 rounded-full animate-pulse" style={{ animationDelay: '200ms', animationDuration: '1.5s' }} />
-            <span className="inline-block w-1 h-1 bg-neutral-400 rounded-full animate-pulse" style={{ animationDelay: '400ms', animationDuration: '1.5s' }} />
-          </span>
-        </div>
+      <div className="flex flex-col items-center justify-center py-16 text-center">
+        <p className="text-neutral-500 text-base font-light">
+          {t('blog.empty_state.no_posts') || 'Nenhum post encontrado para os filtros selecionados.'}
+        </p>
       </div>
     );
   }

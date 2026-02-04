@@ -1,5 +1,7 @@
 export { PostCard } from './PostCard';
+export { PostCardSkeleton } from './PostCardSkeleton';
 export { PostList } from './PostList';
+export { PostListSkeleton } from './PostListSkeleton';
 export { PostContent } from './PostContent';
 export { AuthorCard } from './AuthorCard';
 export { CategoryBadge } from './CategoryBadge';

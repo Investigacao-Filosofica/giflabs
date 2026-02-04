@@ -490,6 +490,35 @@ posts_related_links (tabela de junção)
 
 ---
 
+## 🖥️ Estrutura do Frontend (Implementado)
+
+### Componentes do Blog (`src/components/blog/`)
+
+| Componente | Descrição |
+|------------|-----------|
+| PostCard | Card de post com imagem, meta, título, excerpt; prop `showLanguageBadge` |
+| PostCardSkeleton | Skeleton do card para loading |
+| PostList | Lista com 1 featured + grid ou grid uniforme |
+| PostListSkeleton | Skeleton da lista para loading |
+| PostContent | Renderiza conteúdo richtext do post |
+| AuthorCard | Card do autor com avatar e bio |
+| CategoryBadge | Badge de categoria com cor |
+| TagList | Lista de tags clicáveis |
+| Pagination | Paginação com preservação de query params |
+| AttachmentList | Lista de anexos para download |
+
+### Contextos
+
+- **BlogFiltersContext**: Controla `showFilters`, `toggleFilters()`, `closeFilters()` para o painel de filtros.
+
+### Fluxo de Dados
+
+- **Página `/blog`**: Fetch client-side com `fetch()`; filtros via URL (category, tag, language, q, author).
+- **Página `/blog/[slug]`**: Fetch client-side por slug.
+- **Landing page**: Usa `getPosts()` de `lib/strapi.ts` (ou fetch) para os 3 últimos posts; `showLanguageBadge={false}`.
+
+---
+
 ## 🚀 Próximos Passos de Implementação
 
 ### Fase 1: Estrutura Base ✅ (Planejado)
@@ -502,9 +531,16 @@ posts_related_links (tabela de junção)
 ### Fase 2: Frontend ✅ (Implementado - Fevereiro 2026)
 
 1. ✅ **Strapi**: Não usar `locale` do plugin i18n; usar campo `language` do Post
-2. ✅ **Componentes**: `formatDate` usa idioma do contexto; imports não utilizados removidos
+2. ✅ **Componentes**: `formatDate` usa idioma do contexto
 3. ✅ **Filtro por idioma**: Painel de filtros com opções Todos / Português / Inglês
-4. ✅ **Badge de idioma**: Exibido em cada PostCard; clicável para filtrar
+4. ✅ **Badge de idioma**: Exibido em cada PostCard na página do blog; `showLanguageBadge={false}` na landing page
+5. ✅ **Painel de filtros**: Fixo abaixo do header, fecha ao clicar fora, múltipla seleção (categorias e tags)
+6. ✅ **Busca e filtros no Header**: Barra de busca central + botão de filtros (apenas em `/blog`)
+7. ✅ **Indicador visual**: Botão de filtros pulsa quando há filtros ativos
+8. ✅ **Layout editorial**: Título à esquerda, contador de posts à direita, divisor sutil
+9. ✅ **Skeleton de loading**: PostCardSkeleton e PostListSkeleton para estado de carregamento
+10. ✅ **Estado vazio**: "Nenhum post encontrado para os filtros selecionados" + contador "0 posts encontrados"
+11. ✅ **Post individual**: Hero com imagem, fade sutil, conteúdo em max-w-4xl
 
 ### Fase 3: Funcionalidades Futuras
 
@@ -545,11 +581,16 @@ posts_related_links (tabela de junção)
 - [x] Página `/blog` com filtros (categoria, tag, autor, idioma, busca)
 - [x] Página `/blog/[slug]` com `formatDate` usando idioma do contexto
 - [x] Adicionar filtro por idioma (Todos / PT / EN)
-- [x] Adicionar badge de idioma nos PostCards (clicável)
+- [x] Adicionar badge de idioma nos PostCards da página do blog (oculto na landing)
+- [x] Painel de filtros fixo com múltipla seleção e fechamento ao clicar fora
+- [x] Busca e filtros integrados ao Header na rota `/blog`
+- [x] Skeleton de loading (PostCardSkeleton, PostListSkeleton)
+- [x] Estado vazio com mensagem e contador "0 posts encontrados"
 
 ### Documentação
 
-- [ ] Atualizar `ARQUITETURA_SISTEMA.md`
+- [x] Atualizar `PROJECT_STRUCTURE.md` com componentes e contextos do blog
+- [x] Atualizar `ESTRUTURA_BLOG_COMPLETA.md` com Fase 2 completa
 - [ ] Criar guia de uso do blog
 - [ ] Documentar workflow de publicação
 

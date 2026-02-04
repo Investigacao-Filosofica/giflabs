@@ -17,6 +17,7 @@ export const blogTranslations = {
       found: 'encontrados',
       empty_state: {
         description: 'Em construção',
+        no_posts: 'Nenhum post encontrado para os filtros selecionados.',
       },
       post_not_found: 'Post não encontrado',
       post_not_found_description: 'O post que você procura não existe ou foi removido.',
@@ -52,6 +53,7 @@ export const blogTranslations = {
       found: 'found',
       empty_state: {
         description: 'Under construction',
+        no_posts: 'No posts found for the selected filters.',
       },
       post_not_found: 'Post not found',
       post_not_found_description: 'The post you are looking for does not exist or has been removed.',

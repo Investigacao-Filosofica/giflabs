@@ -408,7 +408,7 @@ function LatestPosts() {
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
                   >
                     {posts.slice(0, 3).map((post) => (
-                      <PostCard key={post.id} post={post} />
+                      <PostCard key={post.id} post={post} showLanguageBadge={false} />
                     ))}
                   </motion.div>
                 )}

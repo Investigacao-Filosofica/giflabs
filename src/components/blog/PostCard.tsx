@@ -11,9 +11,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 interface PostCardProps {
   post: PostPreview;
   featured?: boolean;
+  /** Exibir badge de idioma (PT/EN). Omitir na landing page. */
+  showLanguageBadge?: boolean;
 }
 
-export function PostCard({ post, featured = false }: PostCardProps) {
+export function PostCard({ post, featured = false, showLanguageBadge = true }: PostCardProps) {
   const { language } = useLanguage();
   const imageUrl = getStrapiImageUrl(post.featured_image?.url);
 
@@ -49,7 +51,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
 
         {/* Badges: Idioma + Categoria (fora do Link para evitar <a> dentro de <a>) */}
         <div className="absolute left-3 top-3 z-10 flex flex-wrap gap-2">
-          {post.language && (
+          {showLanguageBadge && post.language && (
             <Link
               href={`/blog?language=${encodeURIComponent(post.language)}`}
               className="inline-block"

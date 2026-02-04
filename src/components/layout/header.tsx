@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search, Filter } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useBlogFilters } from "@/contexts/BlogFiltersContext";
 import { LanguageSwitcher } from "./language-switcher";
 
 interface NavLink {
@@ -15,7 +16,19 @@ interface NavLink {
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const { t } = useLanguage();
+  const isBlogPage = pathname === "/blog" || pathname?.startsWith("/blog/");
+  const isBlogListPage = pathname === "/blog";
+  const searchQuery = searchParams?.get("q") || "";
+  const blogFilters = useBlogFilters();
+  const hasActiveFilters =
+    isBlogListPage &&
+    (searchParams?.getAll("category").length > 0 ||
+      searchParams?.getAll("tag").length > 0 ||
+      !!searchParams?.get("author") ||
+      !!searchParams?.get("language") ||
+      !!searchParams?.get("q"));
 
   const getNavLinks = (): NavLink[] => {
     switch (pathname) {
@@ -120,8 +133,8 @@ export function Header() {
   return (
     <header className="fixed top-0 w-full bg-neutral-50/95 backdrop-blur-md border-b border-neutral-200 z-50">
       <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
+        <div className="flex items-center justify-between relative">
+          <div className="flex items-center space-x-4 flex-shrink-0">
             <Link href="/" className="text-2xl font-bold tracking-tight">
               <span className="text-neutral-900">GIF</span>
               <span
@@ -140,8 +153,59 @@ export function Header() {
             )}
           </div>
 
+          {/* Barra de busca + Filtro - centro (apenas na página do blog) */}
+          {isBlogPage && (
+            <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-2 w-full max-w-lg">
+              <form
+                action="/blog"
+                method="get"
+                className="flex-1 flex items-center"
+              >
+                <input type="hidden" name="page" value="1" />
+                {searchParams && Array.from(searchParams.entries())
+                  .filter(([key]) => key !== "q")
+                  .map(([key, value], index) => (
+                    <input key={`${key}-${value}-${index}`} type="hidden" name={key} value={value} />
+                  ))}
+                <div className="relative flex-1 w-full">
+                  <input
+                    type="text"
+                    name="q"
+                    defaultValue={searchQuery}
+                    placeholder={t("blog.search_placeholder") || "Buscar posts..."}
+                    className="w-full rounded-lg border border-neutral-300 bg-white py-2 pl-4 pr-10 text-sm text-neutral-900 placeholder-neutral-400 transition-all focus:border-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 text-neutral-400 hover:text-neutral-900 transition-colors rounded"
+                    aria-label={t("blog.search") || "Buscar"}
+                  >
+                    <Search className="h-4 w-4" />
+                  </button>
+                </div>
+              </form>
+              {isBlogListPage && (
+                <button
+                  type="button"
+                  data-filter-trigger
+                  onClick={() => blogFilters?.toggleFilters()}
+                  className={`p-2.5 rounded-lg border transition-all flex-shrink-0 ${
+                    blogFilters?.showFilters
+                      ? "border-neutral-900 bg-neutral-900 text-white"
+                      : hasActiveFilters
+                        ? "border-neutral-300 bg-white text-neutral-600 animate-filter-pulse hover:bg-neutral-50 hover:border-neutral-400"
+                        : "border-neutral-300 bg-white text-neutral-600 hover:bg-neutral-50 hover:border-neutral-400"
+                  }`}
+                  aria-label={t("blog.filters") || "Filtros"}
+                >
+                  <Filter className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+          )}
+
           {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 flex-shrink-0">
             {navLinks.map((link) => (
               <Link key={link.label} href={link.href} className={navItemClasses} onClick={() => setIsMenuOpen(false)}>
                 {link.label}
@@ -159,6 +223,49 @@ export function Header() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-neutral-200">
+            {isBlogListPage && (
+              <div className="pt-4 pb-4 flex gap-2">
+                <form action="/blog" method="get" className="flex-1">
+                  <input type="hidden" name="page" value="1" />
+                  {searchParams && Array.from(searchParams.entries())
+                    .filter(([key]) => key !== "q")
+                    .map(([key, value], index) => (
+                      <input key={`${key}-${value}-${index}`} type="hidden" name={key} value={value} />
+                    ))}
+                  <div className="relative">
+                    <input
+                      type="text"
+                      name="q"
+                      defaultValue={searchQuery}
+                      placeholder={t("blog.search_placeholder") || "Buscar posts..."}
+                      className="w-full rounded-lg border border-neutral-300 bg-white py-2.5 pl-4 pr-10 text-sm text-neutral-900 placeholder-neutral-400"
+                    />
+                    <button
+                      type="submit"
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 p-1.5 text-neutral-400"
+                      aria-label={t("blog.search") || "Buscar"}
+                    >
+                      <Search className="h-4 w-4" />
+                    </button>
+                  </div>
+                </form>
+                <button
+                  type="button"
+                  data-filter-trigger
+                  onClick={() => { blogFilters?.toggleFilters(); setIsMenuOpen(false); }}
+                  className={`p-2.5 rounded-lg border transition-all flex-shrink-0 ${
+                    blogFilters?.showFilters
+                      ? "border-neutral-900 bg-neutral-900 text-white"
+                      : hasActiveFilters
+                        ? "border-neutral-300 bg-white text-neutral-600 animate-filter-pulse"
+                        : "border-neutral-300 bg-white text-neutral-600"
+                  }`}
+                  aria-label={t("blog.filters") || "Filtros"}
+                >
+                  <Filter className="h-4 w-4" />
+                </button>
+              </div>
+            )}
             <div className="flex flex-col space-y-4 pt-4">
               {navLinks.map((link) => (
                 <Link key={link.label} href={link.href} className={mobileNavItemClasses} onClick={() => setIsMenuOpen(false)}>

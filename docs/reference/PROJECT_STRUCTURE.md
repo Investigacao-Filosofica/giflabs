@@ -176,12 +176,29 @@ src/app/
 // Funcionalidades:
 - Configuração de fonts (Inter + Lora)
 - Metadata e SEO
-- Provider de idioma
+- LanguageProvider e BlogFiltersProvider
 - Header e Footer globais
 - Favicon configurado
 ```
 
-#### 3. Páginas de Projetos
+#### 3. Blog (`/blog` e `/blog/[slug]`)
+```typescript
+// Página de listagem (/blog):
+- Header editorial: título à esquerda, contador de posts à direita
+- Busca e botão de filtros no Header (apenas na rota /blog)
+- Painel de filtros fixo: idioma, categorias, tags (múltipla seleção)
+- Fecha ao clicar fora; botão pulsa quando há filtros ativos
+- Skeleton de loading (PostListSkeleton)
+- Estado vazio: "Nenhum post encontrado para os filtros selecionados"
+- Grid: 1 post em destaque + 2 em grid (ou 3 iguais sem featured)
+
+// Página de post (/blog/[slug]):
+- Hero com imagem, fade sutil na base
+- Conteúdo em max-w-4xl
+- Categorias, título, excerpt, meta, share, tags, autor, projetos
+```
+
+#### 4. Páginas de Projetos
 Cada projeto segue uma estrutura similar:
 ```typescript
 // Padrão comum:
@@ -209,13 +226,16 @@ _components/              # Convenção Next.js para componentes privados
 ```
 src/components/
 ├── blog/                          # Componentes do blog
-│   ├── PostCard.tsx              # Card de post
-│   ├── PostList.tsx              # Lista de posts
-│   ├── PostContent.tsx           # Conteúdo do post
+│   ├── PostCard.tsx              # Card de post (prop showLanguageBadge)
+│   ├── PostCardSkeleton.tsx      # Skeleton do card (loading)
+│   ├── PostList.tsx              # Lista de posts (featured + grid)
+│   ├── PostListSkeleton.tsx      # Skeleton da lista (loading)
+│   ├── PostContent.tsx           # Conteúdo do post (richtext)
 │   ├── AuthorCard.tsx            # Card de autor
 │   ├── CategoryBadge.tsx         # Badge de categoria
 │   ├── TagList.tsx               # Lista de tags
-│   └── Pagination.tsx            # Paginação
+│   ├── Pagination.tsx            # Paginação
+│   └── AttachmentList.tsx        # Lista de anexos para download
 ├── layout/                        # Componentes de layout
 │   ├── header.tsx                 # Header principal
 │   ├── footer.tsx                 # Footer principal
@@ -234,8 +254,9 @@ src/components/
 // Funcionalidades:
 - Logo GIFLABS com estilo customizado
 - Navegação dinâmica baseada na rota atual
+- Na rota /blog: barra de busca central + botão de filtros
 - Menu mobile responsivo
-- Integração com LanguageSwitcher
+- Integração com LanguageSwitcher e BlogFiltersContext
 - Suporte a múltiplas páginas de projeto
 ```
 
@@ -282,6 +303,7 @@ src/components/
 ```
 src/contexts/
 ├── LanguageContext.tsx           # Contexto principal de idioma
+├── BlogFiltersContext.tsx        # Estado do painel de filtros do blog
 └── translations/                 # Arquivos de tradução por projeto
     ├── header-footer.ts          # Navegação e rodapé
     ├── home.ts                   # Página inicial
@@ -304,6 +326,15 @@ src/contexts/
 - Merge de todas as traduções
 - Fallback para chaves não encontradas
 - Provider para toda a aplicação
+```
+
+### BlogFiltersContext (`BlogFiltersContext.tsx`)
+```typescript
+// Funcionalidades:
+- Controla visibilidade do painel de filtros (showFilters)
+- toggleFilters(): abre/fecha o painel
+- closeFilters(): fecha ao clicar fora
+- Provider no layout raiz (junto com Header)
 ```
 
 ### Sistema de Traduções
