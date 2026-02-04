@@ -24,35 +24,38 @@ export function PostCard({ post, featured = false }: PostCardProps) {
       }`}
     >
       {/* Imagem */}
-      <Link
-        href={`/blog/${post.slug}`}
+      <div
         className={`relative overflow-hidden ${
           featured ? 'md:w-1/2 md:h-full' : 'aspect-video'
         }`}
       >
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={post.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        ) : (
-          <div className="flex h-full min-h-[200px] w-full items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200">
-            <span className="text-4xl opacity-30">📝</span>
-          </div>
-        )}
-        
-        {/* Badges: Idioma + Categoria */}
-        <div className="absolute left-3 top-3 flex flex-wrap gap-2">
+        <Link
+          href={`/blog/${post.slug}`}
+          className="absolute inset-0 block"
+        >
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt={post.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="flex h-full min-h-[200px] w-full items-center justify-center bg-gradient-to-br from-neutral-100 to-neutral-200">
+              <span className="text-4xl opacity-30">📝</span>
+            </div>
+          )}
+        </Link>
+
+        {/* Badges: Idioma + Categoria (fora do Link para evitar <a> dentro de <a>) */}
+        <div className="absolute left-3 top-3 z-10 flex flex-wrap gap-2">
           {post.language && (
             <Link
               href={`/blog?language=${encodeURIComponent(post.language)}`}
-              onClick={(e) => e.stopPropagation()}
               className="inline-block"
             >
               <Badge variant="outline" className="border-neutral-400 bg-white/90 text-neutral-600 backdrop-blur-sm hover:bg-neutral-100">
-                {post.language === 'pt-BR' ? 'PT' : post.language === 'en' ? 'EN' : post.language}
+                {post.language === 'pt-BR' ? 'PT' : (post.language === 'en' || post.language === 'en-US') ? 'EN' : post.language}
               </Badge>
             </Link>
           )}
@@ -65,7 +68,7 @@ export function PostCard({ post, featured = false }: PostCardProps) {
             </Badge>
           )}
         </div>
-      </Link>
+      </div>
 
       {/* Conteúdo */}
       <div className={`flex flex-1 flex-col p-5 ${featured ? 'md:p-6' : ''}`}>

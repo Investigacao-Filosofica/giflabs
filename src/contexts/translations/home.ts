@@ -167,7 +167,7 @@ export const homeTranslations = {
         "read_more": "Ler mais",
         "empty_state": {
           "title": "Pensar é revolucionário",
-          "description": "filosófica",
+          "tagline": "O blog existe. Os posts, ainda não.",
           "cta": "Acessar Blog"
         }
       }
@@ -341,7 +341,7 @@ export const homeTranslations = {
         "read_more": "Read more",
         "empty_state": {
           "title": "Thinking is revolutionary",
-          "description": "Under construction",
+          "tagline": "The blog exists. The posts, not yet.",
           "cta": "Access Blog"
         }
       }

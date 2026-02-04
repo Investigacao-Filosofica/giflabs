@@ -26,24 +26,24 @@ export function SloganLoader({
 }: SloganLoaderProps) {
   const { t } = useLanguage();
   const slogan = t("home.blog.empty_state.title") || "Pensar é revolucionário";
-  const letters = slogan.split("");
+  const words = slogan.split(" ");
+  const firstPart = words.slice(0, 2).join(" ");
+  const secondPart = words.slice(2).join(" ");
 
   if (!animate) {
     // Versão estática (sem animação) - quebra em duas linhas no mobile
     return (
       <div className={`text-center ${className}`}>
         <h2 className={`${sizeClasses[size]} font-light text-neutral-900 italic leading-tight tracking-tight`} style={{ letterSpacing: '-0.03em' }}>
-          <span className="block md:inline">Pensar é</span>
+          <span className="block md:inline">{firstPart}</span>
           <span className="hidden md:inline"> </span>
-          <span className="block md:inline">revolucionário</span>
+          <span className="block md:inline">{secondPart}</span>
         </h2>
       </div>
     );
   }
 
   // Versão animada (letra por letra) - quebra em duas linhas no mobile
-  const firstPart = "Pensar é";
-  const secondPart = "revolucionário";
   
   return (
     <div className={`text-center ${className}`}>

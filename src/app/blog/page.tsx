@@ -281,9 +281,9 @@ function BlogContent() {
                       {t('blog.language_pt') || 'Português'}
                     </a>
                     <a
-                      href={`/blog?${new URLSearchParams({ ...Object.fromEntries(searchParams.entries()), language: 'en', page: '1' }).toString()}`}
+                      href={`/blog?${new URLSearchParams({ ...Object.fromEntries(searchParams.entries()), language: 'en-US', page: '1' }).toString()}`}
                       className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
-                        languageFilter === 'en'
+                        languageFilter === 'en-US'
                           ? 'bg-neutral-900 text-white'
                           : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-300'
                       }`}
