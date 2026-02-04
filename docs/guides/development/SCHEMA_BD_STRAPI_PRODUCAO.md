@@ -41,8 +41,8 @@
 | Item | Doc | Strapi atual | Observação |
 |------|-----|--------------|------------|
 | Post — campos | title, slug, content, language, author, categories, tags, projects, comment_count, seo, etc. | ✅ Alinhado | — |
-| Post — content | min 500, max 100000 caracteres | Sem min/max (apenas required) | Opcional: adicionar validação para produção |
-| Post — language | default "pt-BR" | Sem default | Opcional: default no admin ou no schema |
+| Post — content | min 500, max 100000 caracteres | Sem min/max (apenas required) | Planejado para Etapa 2 (Perfis públicos) |
+| Post — language | default "pt-BR" | ✅ default "pt-BR" no schema | Implementado (Fev 2026) |
 | Author | Campos e relações | ✅ Alinhado | draftAndPublish: true no Strapi; doc não exige; ver seção 4 |
 | Category, Tag, Project | Sem draft/publish | ✅ false no Strapi | — |
 | comment_count | Campo no Post (default 0) | ✅ Presente | Pronto para ser atualizado pela nossa API quando existir Comment |
@@ -89,13 +89,12 @@ Nenhuma divergência bloqueia produção; as diferenças são refinamentos opcio
    - Categorias/tags/projects conforme planejado (ex.: Filosofia, Tecnologia, etc.) ou criar conforme necessidade.
 
 4. **Campo language**
-   - Definir política: default "pt-BR" no admin ao criar post ou garantir que o front trate valor vazio (ex.: considerar "pt-BR"). Evitar posts sem language se o front filtra por idioma.
+   - ✅ Implementado: default "pt-BR" no schema do Post (Fev 2026).
 
 ### 4.2 Recomendado (qualidade e consistência)
 
 1. **Post**
-   - Opcional: validação de `content` (ex.: minLength 500) no schema ou via lifecycle, para evitar posts vazios ou muito curtos.
-   - Opcional: default "pt-BR" para `language` (customização no admin ou no schema, se suportado).
+   - Validação de `content` (minLength 500, maxLength 100000): planejado para Etapa 2 (Perfis públicos).
 
 2. **Author**
    - Considerar `draftAndPublish: false` para Author (entidade estável; “publicar autor” não é o mesmo que publicar post). Alteração no schema; se já houver dados, planejar migração.
@@ -116,7 +115,7 @@ Nenhuma divergência bloqueia produção; as diferenças são refinamentos opcio
 1. **Produção do blog (curto prazo)**
    - Revisar permissões da API no Strapi (Post, Author, Category, Tag, Project, upload).
    - Validar variáveis de ambiente de produção (DB e `NEXT_PUBLIC_STRAPI_URL`).
-   - Definir default/comportamento do campo `language` e, se desejado, validação de `content`.
+   - ✅ Campo `language` com default "pt-BR" implementado (Fev 2026).
    - (Opcional) Alterar Author para `draftAndPublish: false` e aplicar migração se necessário.
 
 2. **Preparação para o resto (quando for implementar)**
@@ -134,7 +133,7 @@ Nenhuma divergência bloqueia produção; as diferenças são refinamentos opcio
 
 | Item | Estado | Ação planejada |
 |------|--------|----------------|
-| Schema Strapi (Post, Author, Category, Tag, Project) | ✅ Alinhado com a doc; pronto para produção | Ajustes opcionais (language default, content min, Author draft) |
+| Schema Strapi (Post, Author, Category, Tag, Project) | ✅ Alinhado; language default implementado | Validação content na Etapa 2; Author draft opcional |
 | comment_count no Post | ✅ Presente | Nenhuma alteração; nossa API atualiza quando Comment existir |
 | Banco (PostgreSQL) | ✅ Único, Strapi | Mesmo BD para Prisma no futuro |
 | Prisma / Comment / community_user | ❌ Ainda não implementados | Implementar depois; schema Strapi não precisa mudar para “receber” |
@@ -142,6 +141,6 @@ Nenhuma divergência bloqueia produção; as diferenças são refinamentos opcio
 
 ---
 
-*Documento criado a partir do planejamento de schema e Strapi para produção (blog + preparação para Perfil, Fórum, Gamificação). Última atualização: Janeiro 2026.*
+*Documento criado a partir do planejamento de schema e Strapi para produção (blog + preparação para Perfil, Fórum, Gamificação). Última atualização: Fevereiro 2026.*
 
 **Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

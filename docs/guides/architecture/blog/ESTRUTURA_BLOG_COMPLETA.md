@@ -58,7 +58,7 @@ O blog do GIFLABS é um **blog misto** que combina:
 | `title` | string | ✅ Sim | max: 200 | Título do post |
 | `subtitle` | string | ❌ Não | - | Subtítulo opcional |
 | `slug` | uid | ✅ Sim | unique: global | URL amigável (único globalmente) |
-| `content` | richtext | ✅ Sim | min: 500, max: 100000 | Conteúdo completo do post |
+| `content` | richtext | ✅ Sim | min: 500, max: 100000 (planejado para Etapa 2 — Perfis) | Conteúdo completo do post |
 | `intro` | text | ❌ Não | - | Introdução/resumo inicial |
 | `excerpt` | text | ❌ Não | max: 300 | Resumo curto para previews |
 | `featured_image` | media (single) | ✅ Sim | images only | Imagem de destaque |
@@ -347,7 +347,7 @@ PROJECT
 - **Slug**: Único globalmente (não por idioma)
 - **Title**: Máximo 200 caracteres
 - **Excerpt**: Máximo 300 caracteres
-- **Content**: Mínimo 500 caracteres, máximo 100.000 caracteres
+- **Content**: Mínimo 500, máximo 100.000 caracteres — validação planejada para Etapa 2 (Perfis públicos)
 - **Language**: String (formato BCP 47: pt-BR, en, es, etc.)
 - **Reading time**: Campo manual (editável)
 
@@ -564,16 +564,17 @@ posts_related_links (tabela de junção)
 
 ### Backend (Strapi)
 
-- [ ] Criar schema do Post (sem localização)
-- [ ] Criar schema do Author (sem localização)
-- [ ] Criar schema do Category (sem localização)
-- [ ] Criar schema do Tag (sem localização)
-- [ ] Criar schema do Project (sem localização)
-- [ ] Configurar relacionamentos
-- [ ] Configurar validações
-- [ ] Configurar permissões
-- [ ] Adicionar campo `language` ao Post
-- [ ] Configurar componente SEO
+- [x] Criar schema do Post (sem localização)
+- [x] Criar schema do Author (sem localização)
+- [x] Criar schema do Category (sem localização)
+- [x] Criar schema do Tag (sem localização)
+- [x] Criar schema do Project (sem localização)
+- [x] Configurar relacionamentos
+- [x] Configurar validações básicas
+- [x] Configurar permissões
+- [x] Adicionar campo `language` ao Post com default "pt-BR"
+- [x] Configurar componente SEO
+- [ ] Validação de content (min 500, max 100000) — planejado para Etapa 2 (Perfis públicos)
 
 ### Frontend (Next.js)
 
@@ -598,6 +599,6 @@ posts_related_links (tabela de junção)
 
 **Documento criado em**: Janeiro 2026  
 **Última atualização**: Fevereiro 2026  
-**Status**: ✅ Planejamento Completo | Fase 2 Frontend Implementada
+**Status**: ✅ Planejamento Completo | Fase 2 Frontend Implementada | Backend: language default implementado
 
 **Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

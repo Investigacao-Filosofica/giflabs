@@ -341,7 +341,7 @@ function LatestPosts() {
   return (
     <section id="blog-preview" className="min-h-screen py-24 flex flex-col items-center justify-center bg-neutral-50 scroll-mt-19">
       <div className="container mx-auto px-6 w-full flex flex-col items-center justify-center flex-1 min-h-0">
-        {/* Quando vazio: só slogan + tagline (sem título, descrição, botão) */}
+        {/* Quando vazio: slogan + tagline + botão para acessar o blog */}
         {isEmpty ? (
           <motion.div
             initial={{ opacity: 0, y: 1 }}
@@ -356,9 +356,12 @@ function LatestPosts() {
             >
               <SloganLoader animate={false} size="lg" />
             </motion.div>
-            <p className="text-neutral-600 text-lg md:text-xl font-light italic">
+            <p className="text-neutral-600 text-lg md:text-xl font-light italic mb-10">
               {t("home.blog.empty_state.tagline")}
             </p>
+            <Button asChild className="bg-neutral-900 hover:bg-neutral-800 text-white">
+              <Link href="/blog">{t("home.blog.view_all")}</Link>
+            </Button>
           </motion.div>
         ) : (
           <>

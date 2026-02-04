@@ -76,7 +76,7 @@ O projeto já possui os seguintes Content Types configurados:
 ### 1. **POST** (Posts do Blog)
 - Campos principais: `title`, `slug`, `content`, `language`, `featured_image`
 - Relacionamentos: `author` (manyToOne), `coauthors` (manyToMany), `categories` (manyToMany), `tags` (manyToMany), `projects` (manyToMany)
-- Campo `language`: String obrigatória (pt-BR, en, etc.) - **não usa i18n**
+- Campo `language`: String obrigatória, default "pt-BR" (pt-BR, en, etc.) - **não usa i18n**
 
 ### 2. **AUTHOR** (Autores)
 - Campos: `name`, `slug`, `bio`, `avatar`, `email`, `role`, `social_links`

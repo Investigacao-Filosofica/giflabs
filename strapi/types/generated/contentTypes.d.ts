@@ -540,7 +540,9 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     gallery: Schema.Attribute.Media<'images', true>;
     intro: Schema.Attribute.Text;
     is_featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    language: Schema.Attribute.String & Schema.Attribute.Required;
+    language: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'pt-BR'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::post.post'> &
       Schema.Attribute.Private;

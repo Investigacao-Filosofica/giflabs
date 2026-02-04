@@ -44,7 +44,8 @@
     },
     "language": {
       "type": "string",
-      "required": true
+      "required": true,
+      "default": "pt-BR"
     },
     "reading_time": {
       "type": "integer",
