@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { X } from 'lucide-react';
 import { PostList, PostListSkeleton, Pagination, CategoryBadge } from '@/components/blog';
-import { Header } from '@/components/layout/header';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useBlogFilters } from '@/contexts/BlogFiltersContext';
 import type { PostPreview, Category, Tag, StrapiResponse } from '@/types/blog';
@@ -199,8 +198,6 @@ function BlogContent() {
 
   return (
     <div className="relative bg-neutral-50 min-h-screen font-light">
-      <Header />
-
       {/* Filtros - fixed, só visível quando aberto (filtros ativos + opções = uma coisa só) */}
       {showFilters && (
         <div className="fixed top-16 left-0 right-0 z-40" ref={filterPanelRef}>
