@@ -10,25 +10,41 @@ Quando você cria um PostgreSQL no Railway, ele automaticamente cria estas vari�
 
 | Variável | Descrição |
 |----------|-----------|
-| `PGHOST` | Host do banco de dados |
+| `PGHOST` | Host do banco (endpoint **público** — gera egress fees) |
 | `PGPORT` | Porta (geralmente 5432) |
 | `PGDATABASE` | Nome do banco |
 | `PGUSER` | Usuário |
 | `PGPASSWORD` | Senha |
+| `RAILWAY_PRIVATE_DOMAIN` | Domínio privado (ex.: `postgres.railway.internal`) — **sem egress** |
 | `DATABASE_URL` | URL completa de conexão |
 
 ---
 
 ## 🔧 Configurar no Strapi
 
-### Se Strapi estiver no Railway (usar referências)
+### Se Strapi e PostgreSQL estiverem no **mesmo projeto** Railway (recomendado — evita egress)
+
+No serviço **Strapi**, em Variables, use **referências** ao PostgreSQL. Ajuste `Postgres` para o nome do seu serviço de banco:
 
 ```
-DATABASE_HOST=${PGHOST}
-DATABASE_PORT=${PGPORT}
-DATABASE_NAME=${PGDATABASE}
-DATABASE_USERNAME=${PGUSER}
-DATABASE_PASSWORD=${PGPASSWORD}
+DATABASE_HOST=${{ Postgres.RAILWAY_PRIVATE_DOMAIN }}
+DATABASE_PORT=${{ Postgres.PGPORT }}
+DATABASE_NAME=${{ Postgres.PGDATABASE }}
+DATABASE_USERNAME=${{ Postgres.PGUSER }}
+DATABASE_PASSWORD=${{ Postgres.PGPASSWORD }}
+DATABASE_SSL=false
+```
+
+**Nota:** `DATABASE_SSL=false` na rede privada (tráfego interno). Se der erro de conexão, tente `DATABASE_SSL=true` com `DATABASE_SSL_REJECT_UNAUTHORIZED=false`.
+
+### Se Strapi estiver no Railway mas usar endpoint público (gera egress)
+
+```
+DATABASE_HOST=${{ Postgres.PGHOST }}
+DATABASE_PORT=${{ Postgres.PGPORT }}
+DATABASE_NAME=${{ Postgres.PGDATABASE }}
+DATABASE_USERNAME=${{ Postgres.PGUSER }}
+DATABASE_PASSWORD=${{ Postgres.PGPASSWORD }}
 DATABASE_SSL=true
 DATABASE_SSL_REJECT_UNAUTHORIZED=false
 ```
@@ -38,8 +54,8 @@ DATABASE_SSL_REJECT_UNAUTHORIZED=false
 Copie os valores das variáveis do Railway e use no `.env` do Strapi:
 
 ```env
-DATABASE_HOST=xxxxx.railway.app
-DATABASE_PORT=5432
+DATABASE_HOST=xxxxx.proxy.rlwy.net
+DATABASE_PORT=34199
 DATABASE_NAME=railway
 DATABASE_USERNAME=postgres
 DATABASE_PASSWORD=sua-senha-aqui
@@ -49,11 +65,12 @@ DATABASE_SSL_REJECT_UNAUTHORIZED=false
 
 ---
 
-## 📝 Como Obter as Credenciais
+## 📝 Como configurar no Railway
 
-1. No Railway, clique no serviço **PostgreSQL**
+1. No Railway, clique no serviço **Strapi**
 2. Vá na aba **"Variables"**
-3. Copie os valores necessários
+3. Adicione as variáveis com a sintaxe de referência `${{ Postgres.VAR }}`
+4. **Importante:** Substitua `Postgres` pelo nome exato do seu serviço PostgreSQL (veja no Project Canvas)
 
 ---
 
