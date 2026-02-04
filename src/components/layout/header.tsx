@@ -36,7 +36,7 @@ export function Header() {
         return [
           { href: "#home", label: t("navigation.home") },
           { href: "#sobre", label: t("navigation.about") },
-          { href: "/blog", label: t("navigation.blog") },
+          { href: "#blog-preview", label: t("navigation.blog") },
           { href: "#projetos", label: t("navigation.projects") },
           { href: "#equipe", label: t("navigation.team") },
           { href: "#contato", label: t("navigation.contact") },
