@@ -387,9 +387,10 @@ PROJECT
 
 ### Filtros
 
-- Posts podem ser filtrados por `language` no frontend
-- Badge visual pode indicar idioma do post
-- Todos os posts aparecem independente do idioma selecionado pelo usuário
+- **Listagem padrão**: Blog exibe todos os posts (sem filtro de idioma)
+- **Filtro opcional**: Usuário pode filtrar por idioma (pt-BR, en) via painel de filtros
+- **URL**: Parâmetro `?language=pt-BR` ou `?language=en`
+- **Badge**: Cada post exibe badge de idioma (PT, EN) no card; badge é clicável para filtrar
 
 ---
 
@@ -498,12 +499,12 @@ posts_related_links (tabela de junção)
 3. ✅ Definir validações
 4. ✅ Configurar permissões
 
-### Fase 2: Frontend
+### Fase 2: Frontend ✅ (Implementado - Fevereiro 2026)
 
-1. Atualizar `src/lib/strapi.ts` para remover `locale`
-2. Atualizar componentes de blog
-3. Implementar filtros por idioma
-4. Adicionar badges de idioma
+1. ✅ **Strapi**: Não usar `locale` do plugin i18n; usar campo `language` do Post
+2. ✅ **Componentes**: `formatDate` usa idioma do contexto; imports não utilizados removidos
+3. ✅ **Filtro por idioma**: Painel de filtros com opções Todos / Português / Inglês
+4. ✅ **Badge de idioma**: Exibido em cada PostCard; clicável para filtrar
 
 ### Fase 3: Funcionalidades Futuras
 
@@ -540,14 +541,11 @@ posts_related_links (tabela de junção)
 
 ### Frontend (Next.js)
 
-- [ ] Remover `locale` de `getPosts()`
-- [ ] Remover `locale` de `getPostBySlug()`
-- [ ] Remover `locale` de `getFeaturedPosts()`
-- [ ] Atualizar `LatestPosts` component
-- [ ] Atualizar página `/blog`
-- [ ] Atualizar página `/blog/[slug]`
-- [ ] Adicionar filtro por idioma (opcional)
-- [ ] Adicionar badge de idioma nos posts
+- [x] Usar campo `language` (não `locale` do Strapi) em `getPosts()`
+- [x] Página `/blog` com filtros (categoria, tag, autor, idioma, busca)
+- [x] Página `/blog/[slug]` com `formatDate` usando idioma do contexto
+- [x] Adicionar filtro por idioma (Todos / PT / EN)
+- [x] Adicionar badge de idioma nos PostCards (clicável)
 
 ### Documentação
 
@@ -558,7 +556,7 @@ posts_related_links (tabela de junção)
 ---
 
 **Documento criado em**: Janeiro 2026  
-**Última atualização**: Janeiro 2026  
-**Status**: ✅ Planejamento Completo
+**Última atualização**: Fevereiro 2026  
+**Status**: ✅ Planejamento Completo | Fase 2 Frontend Implementada
 
 **Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

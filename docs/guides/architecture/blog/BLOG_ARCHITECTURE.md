@@ -643,13 +643,13 @@ Post
         └── no_index (boolean)
 ```
 
-### Próximos Passos
+### Status de Implementação (Fevereiro 2026)
 
-1. **Revisar e aprovar** esta arquitetura
-2. **Criar Content Types** no painel do Strapi
-3. **Configurar permissões** de API
-4. **Integrar com Next.js** frontend
-5. **Criar componentes** de listagem e visualização
+- ✅ Content Types criados no Strapi
+- ✅ Integração com Next.js frontend
+- ✅ Componentes de listagem e visualização
+- ✅ Filtro por idioma na página do blog (Todos / PT / EN)
+- ✅ Badge de idioma nos PostCards
 
 ---
 
@@ -664,7 +664,8 @@ Post
 ---
 
 **📅 Documento criado em**: 23/01/2026  
-**🔄 Status**: ✅ IMPLEMENTADO (Janeiro 2026)  
-**🏗️ Arquitetura escolhida**: Relacional + Rich Text + Campo `language`
+**🔄 Status**: ✅ IMPLEMENTADO (Janeiro 2026) | Fase 2 Frontend ✅ (Fevereiro 2026)  
+**🏗️ Arquitetura escolhida**: Relacional + Rich Text + Campo `language`  
+**📌 Decisões**: Blog exibe todos os posts por padrão; filtro por idioma opcional; não usa `locale` do Strapi
 
 **Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)

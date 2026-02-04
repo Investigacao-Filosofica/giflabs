@@ -29,6 +29,7 @@ function BlogContent() {
   const categoryFilter = searchParams.get('category') || '';
   const tagFilter = searchParams.get('tag') || '';
   const authorFilter = searchParams.get('author') || '';
+  const languageFilter = searchParams.get('language') || '';
   const searchQuery = searchParams.get('q') || '';
 
   // Buscar posts
@@ -56,6 +57,9 @@ function BlogContent() {
         }
         if (authorFilter) {
           params.append('filters[author][slug][$eq]', authorFilter);
+        }
+        if (languageFilter) {
+          params.append('filters[language][$eq]', languageFilter);
         }
         if (searchQuery) {
           params.append('filters[$or][0][title][$containsi]', searchQuery);
@@ -90,7 +94,7 @@ function BlogContent() {
     }
 
     fetchPosts();
-  }, [currentPage, categoryFilter, tagFilter, authorFilter, searchQuery]);
+  }, [currentPage, categoryFilter, tagFilter, authorFilter, languageFilter, searchQuery]);
 
   // Buscar categorias e tags
   useEffect(() => {
@@ -132,7 +136,7 @@ function BlogContent() {
     fetchFilters();
   }, []);
 
-  const hasActiveFilters = categoryFilter || tagFilter || authorFilter || searchQuery;
+  const hasActiveFilters = categoryFilter || tagFilter || authorFilter || languageFilter || searchQuery;
 
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
@@ -219,6 +223,15 @@ function BlogContent() {
                   <X className="h-3 w-3" />
                 </a>
               )}
+              {languageFilter && (
+                <a
+                  href={`/blog?${new URLSearchParams({ ...Object.fromEntries(searchParams.entries()), language: '' }).toString()}`}
+                  className="flex items-center gap-1 rounded-full bg-neutral-200 px-3 py-1 text-sm text-neutral-700 transition-colors hover:bg-neutral-300"
+                >
+                  {languageFilter === 'pt-BR' ? (t('blog.language_pt') || 'Português') : (t('blog.language_en') || 'Inglês')}
+                  <X className="h-3 w-3" />
+                </a>
+              )}
               {searchQuery && (
                 <a
                   href={`/blog?${new URLSearchParams({ ...Object.fromEntries(searchParams.entries()), q: '' }).toString()}`}
@@ -240,7 +253,46 @@ function BlogContent() {
             {/* Filters Panel */}
             {showFilters && (
               <div className="mt-6 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
-              <div className="grid gap-6 md:grid-cols-2">
+              <div className="grid gap-6 md:grid-cols-3">
+                {/* Language */}
+                <div>
+                  <h3 className="mb-3 font-semibold text-neutral-900">
+                    {t('blog.language') || 'Idioma'}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    <a
+                      href={`/blog?${new URLSearchParams({ ...Object.fromEntries(searchParams.entries()), language: '', page: '1' }).toString()}`}
+                      className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
+                        !languageFilter
+                          ? 'bg-neutral-900 text-white'
+                          : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-300'
+                      }`}
+                    >
+                      {t('blog.language_all') || 'Todos'}
+                    </a>
+                    <a
+                      href={`/blog?${new URLSearchParams({ ...Object.fromEntries(searchParams.entries()), language: 'pt-BR', page: '1' }).toString()}`}
+                      className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
+                        languageFilter === 'pt-BR'
+                          ? 'bg-neutral-900 text-white'
+                          : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-300'
+                      }`}
+                    >
+                      {t('blog.language_pt') || 'Português'}
+                    </a>
+                    <a
+                      href={`/blog?${new URLSearchParams({ ...Object.fromEntries(searchParams.entries()), language: 'en', page: '1' }).toString()}`}
+                      className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
+                        languageFilter === 'en'
+                          ? 'bg-neutral-900 text-white'
+                          : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-300'
+                      }`}
+                    >
+                      {t('blog.language_en') || 'Inglês'}
+                    </a>
+                  </div>
+                </div>
+
                 {/* Categories */}
                 <div>
                   <h3 className="mb-3 font-semibold text-neutral-900">

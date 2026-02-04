@@ -89,6 +89,7 @@ export interface Author extends StrapiEntity {
     linkedin?: string | null;
     github?: string | null;
     website?: string | null;
+    lattes?: string | null;
   } | null;
   website: string | null;
   posts?: PostPreview[];

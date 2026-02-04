@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/contexts/LanguageContext";
-import { getPosts, getStrapiImageUrl, formatDate } from "@/lib/strapi";
+import { getPosts } from "@/lib/strapi";
 import type { PostPreview } from "@/types/blog";
 import { SloganLoader } from "@/components/ui/slogan-loader";
 import {

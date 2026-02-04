@@ -43,17 +43,28 @@ export function PostCard({ post, featured = false }: PostCardProps) {
           </div>
         )}
         
-        {/* Categoria Badge */}
-        {post.categories && post.categories.length > 0 && (
-          <div className="absolute left-3 top-3">
+        {/* Badges: Idioma + Categoria */}
+        <div className="absolute left-3 top-3 flex flex-wrap gap-2">
+          {post.language && (
+            <Link
+              href={`/blog?language=${encodeURIComponent(post.language)}`}
+              onClick={(e) => e.stopPropagation()}
+              className="inline-block"
+            >
+              <Badge variant="outline" className="border-neutral-400 bg-white/90 text-neutral-600 backdrop-blur-sm hover:bg-neutral-100">
+                {post.language === 'pt-BR' ? 'PT' : post.language === 'en' ? 'EN' : post.language}
+              </Badge>
+            </Link>
+          )}
+          {post.categories && post.categories.length > 0 && (
             <Badge
               style={{ backgroundColor: post.categories[0].color || '#3B82F6' }}
               className="text-white"
             >
               {post.categories[0].name}
             </Badge>
-          </div>
-        )}
+          )}
+        </div>
       </Link>
 
       {/* Conteúdo */}
