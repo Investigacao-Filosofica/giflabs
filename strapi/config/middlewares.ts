@@ -1,17 +1,19 @@
-// Strapi espera origin como string (comma-separated). Array/função causa "originList.split is not a function"
-// CORS_ORIGINS: adicione URLs extras separadas por vírgula (ex.: previews do Vercel)
+// Strapi 5 aceita origin como Array ou Function (docs: https://docs.strapi.io/dev-docs/configurations/middlewares)
+// CORS_ORIGINS: URLs extras separadas por vírgula (ex.: previews do Vercel)
 const defaultOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://giflabs.xyz',
   'https://www.giflabs.xyz',
   'https://giflabs.vercel.app',
-].join(',');
+];
 
-const originString =
+const extraOrigins =
   typeof process.env.CORS_ORIGINS === 'string' && process.env.CORS_ORIGINS.trim()
-    ? `${defaultOrigins},${process.env.CORS_ORIGINS.trim()}`
-    : defaultOrigins;
+    ? process.env.CORS_ORIGINS.trim().split(',').map((o) => o.trim()).filter(Boolean)
+    : [];
+
+const allowedOrigins = [...defaultOrigins, ...extraOrigins];
 
 export default [
   'strapi::logger',
@@ -21,9 +23,10 @@ export default [
     name: 'strapi::cors',
     config: {
       enabled: true,
-      origin: originString,
+      origin: allowedOrigins,
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      keepHeaderOnError: true,
     },
   },
   'strapi::poweredBy',
