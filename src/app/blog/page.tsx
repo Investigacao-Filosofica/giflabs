@@ -9,6 +9,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useBlogFilters } from '@/contexts/BlogFiltersContext';
 import type { PostPreview, Category, Tag, StrapiResponse } from '@/types/blog';
 
+// Client: usa proxy /api/strapi (mesma origem, evita CORS). Server: URL direta.
+const STRAPI_BASE =
+  typeof window !== 'undefined'
+    ? '/api/strapi'
+    : (process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337') + '/api';
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
 function BlogContent() {
@@ -85,7 +90,7 @@ function BlogContent() {
           params.append('filters[$or][1][excerpt][$containsi]', searchQuery);
         }
 
-        const res = await fetch(`${STRAPI_URL}/api/posts?${params}`, {
+        const res = await fetch(`${STRAPI_BASE}/posts?${params}`, {
           headers: {
             'Content-Type': 'application/json',
           },
@@ -120,12 +125,12 @@ function BlogContent() {
     async function fetchFilters() {
       try {
         const [catRes, tagRes] = await Promise.all([
-          fetch(`${STRAPI_URL}/api/categories?pagination[pageSize]=100`, {
+          fetch(`${STRAPI_BASE}/categories?pagination[pageSize]=100`, {
             headers: {
               'Content-Type': 'application/json',
             },
           }),
-          fetch(`${STRAPI_URL}/api/tags?pagination[pageSize]=100`, {
+          fetch(`${STRAPI_BASE}/tags?pagination[pageSize]=100`, {
             headers: {
               'Content-Type': 'application/json',
             },

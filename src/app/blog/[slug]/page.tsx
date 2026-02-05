@@ -27,6 +27,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { getStrapiImageUrl, formatDate } from '@/lib/strapi';
 import type { Post, StrapiResponse } from '@/types/blog';
 
+// Client: usa proxy /api/strapi (evita CORS)
+const STRAPI_BASE =
+  typeof window !== 'undefined'
+    ? '/api/strapi'
+    : (process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337') + '/api';
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
 // Mapeamento de slugs de projetos para seus ícones
@@ -68,7 +73,7 @@ export default function PostPage() {
           'populate[seo]': 'true',
         });
 
-        const res = await fetch(`${STRAPI_URL}/api/posts?${params}`);
+        const res = await fetch(`${STRAPI_BASE}/posts?${params}`);
         const data: StrapiResponse<Post> = await res.json();
 
         if (!data.data || data.data.length === 0) {
