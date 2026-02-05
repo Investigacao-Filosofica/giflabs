@@ -1,16 +1,16 @@
-const allowedOrigins = [
+// Strapi espera origin como string (comma-separated). Array/função causa "originList.split is not a function"
+// CORS_ORIGINS: adicione URLs extras separadas por vírgula (ex.: previews do Vercel)
+const defaultOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://giflabs.xyz',
   'https://giflabs.vercel.app',
-];
+].join(',');
 
-function isOriginAllowed(origin: string | undefined): boolean {
-  if (!origin) return false;
-  if (allowedOrigins.includes(origin)) return true;
-  if (origin.endsWith('.vercel.app') && origin.startsWith('https://')) return true;
-  return false;
-}
+const originString =
+  typeof process.env.CORS_ORIGINS === 'string' && process.env.CORS_ORIGINS.trim()
+    ? `${defaultOrigins},${process.env.CORS_ORIGINS.trim()}`
+    : defaultOrigins;
 
 export default [
   'strapi::logger',
@@ -20,10 +20,7 @@ export default [
     name: 'strapi::cors',
     config: {
       enabled: true,
-      origin: (ctx: { get: (name: string) => string }) => {
-        const origin = ctx.get('Origin');
-        return isOriginAllowed(origin) ? origin : false;
-      },
+      origin: originString,
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
     },

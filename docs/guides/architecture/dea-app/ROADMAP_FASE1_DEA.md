@@ -69,3 +69,4 @@ A decisão será registrada aqui após o alinhamento do grupo.
 *Documento criado a partir do alinhamento de roadmap (Fase 1 DEA — blog primeiro). Última atualização: Janeiro 2026.*
 
 **Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)
+
