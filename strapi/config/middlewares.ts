@@ -13,7 +13,7 @@ const extraOrigins =
     ? process.env.CORS_ORIGINS.trim().split(',').map((o) => o.trim()).filter(Boolean)
     : [];
 
-const allowedOrigins = [...defaultOrigins, ...extraOrigins];
+const allowedOrigins = new Set([...defaultOrigins, ...extraOrigins]);
 
 export default [
   'strapi::logger',
@@ -23,7 +23,13 @@ export default [
     name: 'strapi::cors',
     config: {
       enabled: true,
-      origin: allowedOrigins,
+      origin: (ctx: { request: { header: { origin?: string } } }) => {
+        const origin = ctx.request.header.origin;
+        if (origin && allowedOrigins.has(origin)) {
+          return origin;
+        }
+        return '';
+      },
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       keepHeaderOnError: true,
