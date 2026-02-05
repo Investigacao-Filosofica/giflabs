@@ -1,10 +1,27 @@
-// CORS: middleware customizado em src/middlewares/cors.ts (strapi::cors não funcionava em prod)
-// global::cors roda primeiro para garantir que headers sejam definidos antes de security
+// CORS: strapi::cors é obrigatório. global::cors adiciona headers manualmente (fallback para prod)
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'https://giflabs.xyz',
+  'https://www.giflabs.xyz',
+  'https://giflabs.vercel.app',
+];
+
 export default [
   'strapi::logger',
   'strapi::errors',
   'global::cors',
   'strapi::security',
+  {
+    name: 'strapi::cors',
+    config: {
+      enabled: true,
+      origin: allowedOrigins,
+      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      keepHeaderOnError: true,
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
