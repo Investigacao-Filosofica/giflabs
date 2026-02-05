@@ -74,14 +74,25 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "filter-pulse": {
+          "0%, 100%": {
+            borderColor: "#d4d4d4",
+            boxShadow: "0 0 0 0 transparent",
+          },
+          "50%": {
+            borderColor: "#737373",
+            boxShadow: "0 0 0 1px rgba(115, 115, 115, 0.3)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "filter-pulse": "filter-pulse 2.5s ease-in-out infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config
 
 export default config

@@ -25,7 +25,8 @@ export const headerFooterTranslations = {
       "funding": "Financiamento",
       "chapters": "Capítulos",
       "collaborators": "Os Criadores",
-      "objectives": "Objetivos"
+      "objectives": "Objetivos",
+      "blog": "Blog"
     },
     "header": {
       "title": "GIF Labs",
@@ -84,7 +85,8 @@ export const headerFooterTranslations = {
       "funding": "Funding",
       "chapters": "Chapters",
       "collaborators": "The Creators",
-      "objectives": "Objectives"
+      "objectives": "Objectives",
+      "blog": "Blog"
     },
     "header": {
       "title": "GIF Labs",

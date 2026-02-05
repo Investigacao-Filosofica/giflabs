@@ -1,10 +1,12 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { Inter, Lora } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { LanguageProvider } from "@/contexts/LanguageContext"
+import { BlogFiltersProvider } from "@/contexts/BlogFiltersContext"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,9 +52,12 @@ export const metadata: Metadata = {
     site: 'giflabs.xyz',
   },
   icons: {
-    icon: '/images/og-image.png',
-    shortcut: '/images/og-image.png',
-    apple: '/images/og-image.png',
+    icon: [
+      { url: '/images/icons/favico.gif', type: 'image/gif' },
+      { url: '/images/icons/favico.gif', sizes: '32x32', type: 'image/gif' },
+    ],
+    shortcut: '/images/icons/favico.gif',
+    apple: '/images/icons/favico.gif',
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://giflabs.xyz'),
 }
@@ -66,9 +71,13 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${inter.variable} ${lora.variable}`}>
       <body className={inter.className}>
         <LanguageProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <BlogFiltersProvider>
+            <Suspense fallback={<header className="h-16 bg-neutral-50/95 border-b border-neutral-200" />}>
+              <Header />
+            </Suspense>
+            <main>{children}</main>
+            <Footer />
+          </BlogFiltersProvider>
         </LanguageProvider>
       </body>
     </html>

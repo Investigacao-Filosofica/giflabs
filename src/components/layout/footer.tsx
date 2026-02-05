@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { BookOpen, ExternalLink, Mail } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image"
+import Link from "next/link"
 
 export function Footer() {
   const { t } = useLanguage();
@@ -54,6 +55,12 @@ export function Footer() {
                 >
                   {t("footer.contact.contact_info.cnpq")}
                 </a>
+              </div>
+              <div className="flex items-center">
+                <BookOpen className="mr-3 text-neutral-400" size={16} />
+                <Link href="/blog" className="text-neutral-300 hover:text-white transition-colors font-light text-sm">
+                  {t("navigation.blog")}
+                </Link>
               </div>
             </div>
           </div>

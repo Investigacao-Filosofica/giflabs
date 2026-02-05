@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, BookOpen, Palette, User, ExternalLink, FileText, Image } from "lucide-react";
 import Link from "next/link";
-import { Header } from "@/components/layout/header";
-
 const chapters = [
   {
     id: 'chapter_one',
@@ -49,7 +47,6 @@ function Chapter({ title, content, onBack }: { title: string, content: string, o
     
     return (
       <div className="bg-white min-h-screen">
-        <Header />
         <main className="container mx-auto px-6 py-12 md:py-20">
           <Button onClick={onBack} variant="outline" className="mb-8">
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -88,7 +85,6 @@ export default function LiteraturaPage() {
 
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
-      <Header />
       <main>
         {/* Hero Section */}
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white">

@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Header } from "@/components/layout/header"
 import { useLanguage } from "@/contexts/LanguageContext"
 import {
   BookOpen,
@@ -76,7 +75,6 @@ export default function DigitalEducationAppPage() {
   
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
-      <Header />
       <main>
         <div className="space-y-20 md:space-y-28">
           {/* Hero Section */}

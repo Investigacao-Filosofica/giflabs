@@ -9,10 +9,11 @@ import { serieIfTranslations } from './translations/serie-if';
 import { digitalEducationAppTranslations } from './translations/digital-education-app';
 import { virtualiaTranslations } from './translations/virtualia';
 import { metaversoTranslations } from './translations/metaverso';
-import { arqueologiaDigitalTranslations } from './translations/arqueologia-digital';
-import { giflabsTranslations } from './translations/giflabs';
+import { arquivologiaDigitalTranslations } from './translations/arquivologia-digital';
+import { youtubeChannelTranslations } from './translations/youtube-channel';
 import { literaturaTranslations } from './translations/literatura';
 import { internacionalizacaoTranslations } from './translations/internacionalizacao';
+import { blogTranslations } from './translations/blog';
 
 interface LanguageContextType {
   language: string;
@@ -47,10 +48,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         ...digitalEducationAppTranslations.pt,
         ...virtualiaTranslations.pt,
         ...metaversoTranslations.pt,
-        ...arqueologiaDigitalTranslations.pt,
-        ...giflabsTranslations.pt,
+        ...arquivologiaDigitalTranslations.pt,
+        ...youtubeChannelTranslations.pt,
         ...literaturaTranslations.pt,
-        ...internacionalizacaoTranslations.pt
+        ...internacionalizacaoTranslations.pt,
+        ...blogTranslations.pt
       },
       en: {
         ...headerFooterTranslations.en,
@@ -59,10 +61,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         ...digitalEducationAppTranslations.en,
         ...virtualiaTranslations.en,
         ...metaversoTranslations.en,
-        ...arqueologiaDigitalTranslations.en,
-        ...giflabsTranslations.en,
+        ...arquivologiaDigitalTranslations.en,
+        ...youtubeChannelTranslations.en,
         ...literaturaTranslations.en,
-        ...internacionalizacaoTranslations.en
+        ...internacionalizacaoTranslations.en,
+        ...blogTranslations.en
       }
     };
 

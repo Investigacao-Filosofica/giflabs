@@ -38,7 +38,7 @@ giflabs/
 │   └── images/                     # Imagens públicas
 │       ├── icons/                  # Ícones (favicon)
 │       └── logos/                  # Logos (X logo)
-├── src/                           # 💻 Código fonte
+├── src/                           # 💻 Código fonte (Next.js)
 │   ├── app/                       # 📄 Páginas (App Router)
 │   │   ├── [projeto]/             # Páginas dinâmicas de projetos
 │   │   ├── layout.tsx             # Layout raiz
@@ -51,6 +51,20 @@ giflabs/
 │   │   ├── LanguageContext.tsx    # Contexto de idioma
 │   │   └── translations/          # Arquivos de tradução
 │   └── lib/                       # 🔧 Utilitários
+├── strapi/                        # 📝 CMS Strapi (Blog)
+│   ├── config/                    # Configurações do Strapi
+│   │   ├── admin.ts               # Config do painel admin
+│   │   ├── database.ts            # Conexão com banco de dados
+│   │   ├── middlewares.ts         # Middlewares
+│   │   ├── plugins.ts             # Plugins (i18n)
+│   │   └── server.ts              # Config do servidor
+│   ├── database/migrations/       # Migrações do banco
+│   ├── public/uploads/            # Arquivos enviados
+│   ├── src/                       # Código fonte Strapi
+│   ├── types/generated/           # Tipos TypeScript
+│   ├── .env.example               # Template de variáveis
+│   ├── package.json               # Dependências Strapi
+│   └── README.md                  # Documentação Strapi
 ├── components.json                # ⚙️ Configuração Shadcn UI
 ├── next.config.mjs               # ⚙️ Configuração Next.js
 ├── package.json                  # 📦 Dependências e scripts
@@ -59,6 +73,55 @@ giflabs/
 ├── tsconfig.json                # ⚙️ Configuração TypeScript
 └── README.md                    # 📖 Documentação principal
 ```
+
+---
+
+## 📝 Strapi CMS (strapi/)
+
+### Estrutura do Strapi
+```
+strapi/
+├── config/
+│   ├── admin.ts              # Configurações do painel admin
+│   ├── database.ts           # Conexão PostgreSQL (Railway)
+│   ├── middlewares.ts        # Middlewares padrão
+│   ├── plugins.ts            # Plugins habilitados (i18n)
+│   └── server.ts             # Configuração do servidor
+├── database/
+│   └── migrations/           # Migrações automáticas
+├── public/
+│   └── uploads/              # Arquivos enviados pelos usuários
+├── src/
+│   └── admin/                # Customizações do admin
+│       └── app.example.tsx   # Exemplo de customização
+├── types/
+│   └── generated/            # Tipos TypeScript gerados
+├── .env                      # Variáveis de ambiente (NÃO COMMITAR!)
+├── .env.example              # Template de configuração
+├── package.json              # Dependências
+├── tsconfig.json             # Configuração TypeScript
+└── README.md                 # Documentação específica
+```
+
+### Tecnologias do Strapi
+| Item | Tecnologia |
+|------|------------|
+| **Versão** | Strapi 5.33.4 (Community Edition) |
+| **Banco de Dados** | PostgreSQL (Railway) |
+| **Hospedagem** | Railway |
+| **URL Produção** | https://giflabs-production.up.railway.app |
+| **Idiomas** | Português (pt-BR), Inglês (en) |
+| **API** | REST e GraphQL |
+| **Autenticação** | Users & Permissions plugin |
+
+### URLs do Strapi
+| URL | Descrição |
+|-----|-----------|
+| `http://localhost:1337/admin` | Painel de administração (local) |
+| `https://giflabs-production.up.railway.app/admin` | Painel de administração (produção) |
+| `http://localhost:1337/api` | API REST (local) |
+| `https://giflabs-production.up.railway.app/api` | API REST (produção) |
+| `http://localhost:1337/graphql` | API GraphQL (se habilitado) |
 
 ---
 
@@ -73,21 +136,27 @@ src/app/
 ├── digital-education-app/         # Projeto: Digital Education App
 │   └── page.tsx                   # (/digital-education-app)
 ├── serie-if/                      # Projeto: Série IF
-│   ├── page.tsx                   # (/serie-if)
-│   └── _components/               # Componentes específicos
-│       └── collaborators-list.tsx # Lista de colaboradores
+│   └── page.tsx                   # (/serie-if)
 ├── virtualia/                     # Projeto: Virtualia
 │   ├── page.tsx                   # (/virtualia)
 │   └── _components/
 │       └── staff-list.tsx         # Lista da equipe
+├── internacionalizacao/           # Projeto: Internacionalização
+│   ├── page.tsx                   # (/internacionalizacao)
+│   └── _components/
+│       └── team-list.tsx          # Lista da equipe
 ├── literatura/                    # Projeto: Literatura
 │   └── page.tsx                   # (/literatura)
 ├── metaverso/                     # Projeto: Metaverso
 │   └── page.tsx                   # (/metaverso)
 ├── arqueologia-digital/           # Projeto: Arquivologia Digital
 │   └── page.tsx                   # (/arqueologia-digital)
-└── giflabs/                       # Projeto: GIFLABS
-    └── page.tsx                   # (/giflabs)
+├── giflabs/                       # Projeto: GIFLABS
+│   └── page.tsx                   # (/giflabs)
+└── blog/                          # Blog (Strapi)
+    ├── page.tsx                   # (/blog) - Listagem de posts
+    └── [slug]/
+        └── page.tsx               # (/blog/[slug]) - Post individual
 ```
 
 ### Páginas Implementadas
@@ -107,12 +176,29 @@ src/app/
 // Funcionalidades:
 - Configuração de fonts (Inter + Lora)
 - Metadata e SEO
-- Provider de idioma
+- LanguageProvider e BlogFiltersProvider
 - Header e Footer globais
 - Favicon configurado
 ```
 
-#### 3. Páginas de Projetos
+#### 3. Blog (`/blog` e `/blog/[slug]`)
+```typescript
+// Página de listagem (/blog):
+- Header editorial: título à esquerda, contador de posts à direita
+- Busca e botão de filtros no Header (apenas na rota /blog)
+- Painel de filtros fixo: idioma, categorias, tags (múltipla seleção)
+- Fecha ao clicar fora; botão pulsa quando há filtros ativos
+- Skeleton de loading (PostListSkeleton)
+- Estado vazio: "Nenhum post encontrado para os filtros selecionados"
+- Grid: 1 post em destaque + 2 em grid (ou 3 iguais sem featured)
+
+// Página de post (/blog/[slug]):
+- Hero com imagem, fade sutil na base
+- Conteúdo em max-w-4xl
+- Categorias, título, excerpt, meta, share, tags, autor, projetos
+```
+
+#### 4. Páginas de Projetos
 Cada projeto segue uma estrutura similar:
 ```typescript
 // Padrão comum:
@@ -128,7 +214,7 @@ Cada projeto segue uma estrutura similar:
 #### Componentes Específicos (`_components/`)
 ```
 _components/              # Convenção Next.js para componentes privados
-├── collaborators-list.tsx # Lista de colaboradores (Série IF)
+├── team-list.tsx         # Lista da equipe (Internacionalização)
 └── staff-list.tsx        # Lista da equipe (Virtualia)
 ```
 
@@ -139,6 +225,17 @@ _components/              # Convenção Next.js para componentes privados
 ### Estrutura de Componentes
 ```
 src/components/
+├── blog/                          # Componentes do blog
+│   ├── PostCard.tsx              # Card de post (prop showLanguageBadge)
+│   ├── PostCardSkeleton.tsx      # Skeleton do card (loading)
+│   ├── PostList.tsx              # Lista de posts (featured + grid)
+│   ├── PostListSkeleton.tsx      # Skeleton da lista (loading)
+│   ├── PostContent.tsx           # Conteúdo do post (richtext)
+│   ├── AuthorCard.tsx            # Card de autor
+│   ├── CategoryBadge.tsx         # Badge de categoria
+│   ├── TagList.tsx               # Lista de tags
+│   ├── Pagination.tsx            # Paginação
+│   └── AttachmentList.tsx        # Lista de anexos para download
 ├── layout/                        # Componentes de layout
 │   ├── header.tsx                 # Header principal
 │   ├── footer.tsx                 # Footer principal
@@ -157,8 +254,9 @@ src/components/
 // Funcionalidades:
 - Logo GIFLABS com estilo customizado
 - Navegação dinâmica baseada na rota atual
+- Na rota /blog: barra de busca central + botão de filtros
 - Menu mobile responsivo
-- Integração com LanguageSwitcher
+- Integração com LanguageSwitcher e BlogFiltersContext
 - Suporte a múltiplas páginas de projeto
 ```
 
@@ -205,9 +303,11 @@ src/components/
 ```
 src/contexts/
 ├── LanguageContext.tsx           # Contexto principal de idioma
+├── BlogFiltersContext.tsx        # Estado do painel de filtros do blog
 └── translations/                 # Arquivos de tradução por projeto
     ├── header-footer.ts          # Navegação e rodapé
     ├── home.ts                   # Página inicial
+    ├── blog.ts                   # Blog
     ├── serie-if.ts              # Projeto Série IF
     ├── digital-education-app.ts  # Projeto Digital Education App
     ├── virtualia.ts             # Projeto Virtualia
@@ -226,6 +326,15 @@ src/contexts/
 - Merge de todas as traduções
 - Fallback para chaves não encontradas
 - Provider para toda a aplicação
+```
+
+### BlogFiltersContext (`BlogFiltersContext.tsx`)
+```typescript
+// Funcionalidades:
+- Controla visibilidade do painel de filtros (showFilters)
+- toggleFilters(): abre/fecha o painel
+- closeFilters(): fecha ao clicar fora
+- Provider no layout raiz (junto com Header)
 ```
 
 ### Sistema de Traduções
@@ -259,7 +368,15 @@ export const projetoTranslations = {
 ### Estrutura Atual
 ```
 src/lib/
-└── utils.ts                      # Utilitário único
+├── strapi.ts                     # Funções para API Strapi
+│   ├── fetchPosts()             # Buscar posts
+│   ├── fetchPost()              # Buscar post por slug
+│   ├── fetchCategories()        # Buscar categorias
+│   ├── fetchTags()              # Buscar tags
+│   ├── fetchAuthors()           # Buscar autores
+│   └── getStrapiImageUrl()     # URL de imagens
+└── utils.ts                      # Utilitário geral
+    └── cn()                     # Merge de classes Tailwind
 ```
 
 ### utils.ts
@@ -318,13 +435,14 @@ icons: {
 ```javascript
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true,     // ❌ Ignora erros ESLint
+    ignoreDuringBuilds: false,     // ✅ Verifica erros ESLint
   },
   typescript: {
-    ignoreBuildErrors: true,      // ❌ Ignora erros TypeScript
+    ignoreBuildErrors: false,      // ✅ Verifica erros TypeScript
   },
   images: {
-    unoptimized: true,           // ❌ Desabilita otimização
+    unoptimized: false,           // ✅ Otimização habilitada
+    formats: ['image/webp'],      // ✅ Formato WebP
   },
 }
 ```
@@ -333,7 +451,7 @@ const nextConfig = {
 ```json
 {
   "compilerOptions": {
-    "strict": false,              // ❌ TypeScript não estrito
+    "strict": true,              // ✅ TypeScript em modo estrito
     "target": "ES6",              // ✅ Target adequado
     "module": "esnext",           // ✅ Módulos ES
     "jsx": "preserve",            // ✅ JSX preservado
@@ -341,7 +459,8 @@ const nextConfig = {
     "paths": {
       "@/*": ["./src/*"]          // ✅ Alias configurado
     }
-  }
+  },
+  "exclude": ["node_modules", "strapi"]  // ✅ Exclui Strapi
 }
 ```
 
@@ -368,7 +487,7 @@ const config: Config = {
 const config = {
   plugins: {
     tailwindcss: {},              // ✅ Presente
-    // ❌ PROBLEMA: autoprefixer não configurado
+    autoprefixer: {},             // ✅ Configurado
   },
 };
 ```
@@ -381,7 +500,7 @@ const config = {
   "tsx": true,                    // ✅ TypeScript
   "tailwind": {
     "config": "tailwind.config.ts", // ✅ Correto
-    "css": "app/globals.css",      // ❌ Deveria ser "src/app/globals.css"
+    "css": "src/app/globals.css",  // ✅ Caminho correto
     "baseColor": "neutral",        // ✅ Correto
     "cssVariables": true           // ✅ CSS variables
   }
@@ -391,13 +510,16 @@ const config = {
 ### Package.json
 ```json
 {
-  "name": "my-v0-project",         // ❌ Nome genérico
+  "name": "giflabs-website",       // ✅ Nome específico
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",             // ✅ Desenvolvimento
     "build": "next build",         // ✅ Build
     "start": "next start",         // ✅ Produção
-    "lint": "next lint"            // ✅ Linting
+    "lint": "next lint",           // ✅ Linting
+    "strapi:dev": "cd strapi && npm run develop",  // ✅ Strapi dev
+    "strapi:build": "cd strapi && npm run build",  // ✅ Strapi build
+    "strapi:start": "cd strapi && npm run start"   // ✅ Strapi start
   }
 }
 ```
@@ -518,11 +640,12 @@ src/
 ## 📊 Estatísticas do Projeto
 
 ### Arquivos por Categoria
-- **Páginas**: 8 páginas (1 principal + 7 projetos)
-- **Componentes**: 3 layout + 45+ UI (Shadcn)
-- **Traduções**: 9 arquivos de tradução
+- **Páginas**: 9 páginas (1 principal + 7 projetos + 1 blog)
+- **Componentes**: 3 layout + 7 blog + 45+ UI (Shadcn)
+- **Traduções**: 10 arquivos de tradução (incluindo blog)
 - **Configurações**: 6 arquivos principais
 - **Assets**: 2 imagens
+- **Tipos**: 1 arquivo de tipos (blog)
 
 ### Complexidade
 - **Linhas de código**: ~3.000+ linhas (estimativa)
@@ -539,7 +662,7 @@ src/
 **O projeto GIFLABS está em excelente estado técnico:**
 
 #### ✅ **Pontos Fortes**
-- **Arquitetura sólida**: Next.js 15.2.4 + App Router bem implementado
+- **Arquitetura sólida**: Next.js 15.2.8 + App Router bem implementado
 - **Configurações otimizadas**: Todas as configurações foram corrigidas e estão prontas para produção
 - **Código limpo**: TypeScript strict mode, ESLint, estrutura bem organizada
 - **Sistema de design**: Tailwind + Shadcn UI consistente e profissional
@@ -557,8 +680,7 @@ src/
 
 **📁 Esta estrutura foi projetada para ser escalável e manutenível, permitindo crescimento organizado do projeto GIFLABS.**
 
-
-
+**Mateus de Oliveira Rodrigues (OFF)** — [github.com/ctrlshiftOFF](https://github.com/ctrlshiftOFF)
 
 
 

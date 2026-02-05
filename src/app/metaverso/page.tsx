@@ -11,7 +11,6 @@ import {
   BrainCircuit,
 } from "lucide-react";
 import Link from "next/link";
-import { Header } from "@/components/layout/header";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -19,7 +18,6 @@ export default function MetaversoPage() {
   const { t } = useLanguage();
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
-      <Header />
       <main>
         {/* Hero Section */}
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white">

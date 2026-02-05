@@ -43,7 +43,7 @@ export const homeTranslations = {
             "title": "Virtualia Magazine/Journal",
             "description": "Revista e Periódico Acadêmico sobre Arte, Tecnologia e Filosofia."
           },
-          "arqueologia_digital": {
+          "arquivologia_digital": {
             "title": "Arquivologia Digital",
             "description": "Recuperação e preservação do periódico acadêmico 'Investigação Filosófica' utilizando tecnologias de armazenamento descentralizado como Arweave e blockchain Base."
           },
@@ -62,6 +62,10 @@ export const homeTranslations = {
           "internacionalizacao": {
             "title": "Internacionalização",
             "description": "Programa internacional em Filosofia e Ética da Inteligência Artificial, promovendo colaboração acadêmica entre UniEduK, University of Kansas e Ryukoku University de Kyoto."
+          },
+          "blog": {
+            "title": "Blog",
+            "description": "Artigos, notícias e reflexões sobre filosofia, tecnologia e educação. Conteúdo acadêmico e cultural produzido pela equipe GIFLABS."
           }
         }
       },
@@ -100,8 +104,8 @@ export const homeTranslations = {
           },
           "mateus_rodrigues": {
             "name": "Mateus Rodrigues",
-            "role": "Responsável pela Infraestrutura Tecnológica",
-            "description": "Pesquisador em arte digital e modelos educacionais descentralizados, responsável pelo desenvolvimento de projetos experimentais do GIFLABS na interface entre Web3, educação e arte.",
+            "role": "Artista Visual e Desenvolvedor Web",
+            "description": "Bacharel em Artes Visuais e desenvolvedor full stack. No GIFLABS, atua no desenvolvimento e integração dos projetos do grupo no ambiente digital, articulando arte e tecnologias descentralizadas.",
             "badges": {
               "digital_art": "Arte Digital",
               "web3": "Web3",
@@ -155,6 +159,17 @@ export const homeTranslations = {
           "technicians": "Técnicos",
           "international": "Colaboradores Estrangeiros"
         }
+      },
+      "blog": {
+        "title": "Últimos Posts",
+        "description": "Confira os artigos mais recentes do nosso blog.",
+        "view_all": "Ver todos os posts",
+        "read_more": "Ler mais",
+        "empty_state": {
+          "title": "Pensar é revolucionário",
+          "tagline": "O blog existe. Os posts ainda não.",
+          "cta": "Acessar Blog"
+        }
       }
     }
   },
@@ -202,7 +217,7 @@ export const homeTranslations = {
             "title": "Virtualia Magazine/Journal",
             "description": "Magazine and Academic Journal about Art, Technology and Philosophy."
           },
-          "arqueologia_digital": {
+          "arquivologia_digital": {
             "title": "Digital Archivology",
             "description": "Recovery and preservation of the academic journal 'Philosophical Investigation' using decentralized storage technologies such as Arweave and Base blockchain."
           },
@@ -221,6 +236,10 @@ export const homeTranslations = {
           "internacionalizacao": {
             "title": "Internationalization",
             "description": "International program in Philosophy and Ethics of Artificial Intelligence, promoting academic collaboration between UniEduK, University of Kansas and Ryukoku University of Kyoto."
+          },
+          "blog": {
+            "title": "Blog",
+            "description": "Articles, news, and reflections on philosophy, technology, and education. Academic and cultural content produced by the GIFLABS team."
           }
         }
       },
@@ -259,8 +278,8 @@ export const homeTranslations = {
           },
           "mateus_rodrigues": {
             "name": "Mateus Rodrigues",
-            "role": "Technology Infrastructure Manager",
-            "description": "Researcher in digital art and decentralized educational models, responsible for the development of experimental projects at GIFLABS at the interface between Web3, education, and art.",
+            "role": "Visual Artist and Web Developer",
+            "description": "Bachelor in Visual Arts and full stack developer. At GIFLABS, works on the development and integration of the group's projects in the digital environment, articulating art and decentralized technologies.",
             "badges": {
               "digital_art": "Digital Art",
               "web3": "Web3",
@@ -313,6 +332,17 @@ export const homeTranslations = {
           "students": "Students",
           "technicians": "Technicians",
           "international": "International Collaborators"
+        }
+      },
+      "blog": {
+        "title": "Latest Posts",
+        "description": "Check out the latest articles from our blog.",
+        "view_all": "View all posts",
+        "read_more": "Read more",
+        "empty_state": {
+          "title": "Thinking is revolutionary",
+          "tagline": "The blog exists. The posts not yet.",
+          "cta": "Access Blog"
         }
       }
     }

@@ -2,7 +2,7 @@
 
 > **Desenvolvendo a educação crítica para um mundo descentralizado.**
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.2.4-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15.2.8-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-blue?style=flat-square&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
@@ -62,10 +62,13 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 ## 🛠️ Tecnologia
 
 ### 🏗️ Stack Principal
-- **Framework**: Next.js 15.2.4 (App Router), React 19, TypeScript 5
+- **Framework**: Next.js 15.2.8 (App Router), React 19, TypeScript 5
 - **Estilização**: Tailwind CSS 3.4, Shadcn UI
+- **CMS**: Strapi 5.33.4 (Community Edition) - Blog e gerenciamento de conteúdo
+- **Banco de Dados**: PostgreSQL (Railway)
 - **Internacionalização**: Sistema customizado PT/EN
-- **Deploy**: Vercel, Netlify, ou auto-hosting
+- **Deploy Frontend**: Vercel
+- **Deploy Backend**: Railway (Strapi + PostgreSQL)
 
 ### 📱 Características Técnicas
 - **Responsivo**: Mobile-first design
@@ -82,21 +85,22 @@ Ser reconhecido como referência em pesquisa e desenvolvimento de soluções edu
 
 ### 🚀 Guias de Desenvolvimento
 - **[📖 Documentação Completa](./docs/README.md)** - Índice principal da documentação
-- **[🛠️ Guia de Desenvolvimento](./docs/guides/DEVELOPMENT_GUIDE.md)** - Configuração, padrões e boas práticas
-- **[🏗️ Guia de Arquitetura](./docs/guides/ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
-- **[🎨 Sistema de Design](./docs/guides/DESIGN_SYSTEM.md)** - Componentes, cores e tipografia
-- **[🤝 Guia de Contribuição](./docs/guides/CONTRIBUTING.md)** - Como contribuir com o projeto
+- **[🛠️ Guia de Desenvolvimento](./docs/guides/development/DEVELOPMENT_GUIDE.md)** - Configuração, padrões e boas práticas
+- **[🏗️ Arquitetura do Sistema](./docs/guides/architecture/site/ARQUITETURA_SISTEMA.md)** - Visão geral da arquitetura
+- **[🏗️ Guia de Arquitetura](./docs/guides/architecture/site/ARCHITECTURE_GUIDE.md)** - Arquitetura técnica detalhada
+- **[🎨 Sistema de Design](./docs/guides/development/DESIGN_SYSTEM.md)** - Componentes, cores e tipografia
+- **[🤝 Guia de Contribuição](./docs/guides/development/CONTRIBUTING.md)** - Como contribuir com o projeto
 
 ### 📖 Referência Técnica
 - **[📁 Estrutura do Projeto](./docs/reference/PROJECT_STRUCTURE.md)** - Organização de arquivos e pastas
 - **[🔧 Configurações](./docs/reference/CONFIGURATIONS.md)** - Configurações de build, linting e deploy
-- **[🌐 Internacionalização](./docs/reference/INTERNATIONALIZATION.md)** - Sistema de traduções
-- **[⚡ Performance](./docs/reference/PERFORMANCE.md)** - Otimizações e benchmarks
+- **[🚂 Variáveis Railway](./docs/reference/RAILWAY_ENV_VARS.md)** - Como obter credenciais do Railway
+- **[📊 Status do Projeto](./docs/reference/PROJETO_STATUS_ATUAL.md)** - Análise do estado atual
 
-### 💡 Exemplos e Tutoriais
-- **[🧩 Criando Componentes](./docs/examples/CREATING_COMPONENTS.md)** - Como criar novos componentes
-- **[📝 Adicionando Projetos](./docs/examples/ADDING_PROJECTS.md)** - Como adicionar novos projetos
-- **[🌍 Adicionando Idiomas](./docs/examples/ADDING_LANGUAGES.md)** - Como adicionar novos idiomas
+### 📖 Tutoriais
+- **[🚀 Setup do Strapi](./docs/guides/tutorials/SETUP_STRAPI.md)** - Tutorial completo para configurar o Strapi
+- **[📝 Como Criar Posts](./docs/guides/tutorials/COMO_CRIAR_POSTS.md)** - Tutorial para criar posts no blog
+- **[👥 Como Criar Usuários](./docs/guides/tutorials/COMO_CRIAR_USUARIOS.md)** - Tutorial para criar usuários no Strapi
 
 ## 🚀 Começando
 
@@ -120,15 +124,43 @@ pnpm dev
 
 ### 🔧 Scripts Disponíveis
 ```bash
+# Next.js (Frontend)
 pnpm dev          # Servidor de desenvolvimento
 pnpm build        # Build de produção
 pnpm start        # Servidor de produção
 pnpm lint         # Verificação de código
+
+# Strapi (CMS/Blog)
+pnpm strapi:dev   # Strapi em desenvolvimento (usa npm internamente)
+pnpm strapi:build # Build do Strapi
+pnpm strapi:start # Strapi em produção
 ```
 
 ### 🌐 Acessando
-- **Desenvolvimento**: http://localhost:3000
-- **Produção**: https://giflabs.com (futuro)
+- **Frontend (Next.js)**: http://localhost:3000
+- **Admin (Strapi)**: http://localhost:1337/admin (local) | https://giflabs-production.up.railway.app/admin (produção)
+- **API (Strapi)**: http://localhost:1337/api (local) | https://giflabs-production.up.railway.app/api (produção)
+- **Blog**: http://localhost:3000/blog
+- **Produção**: https://giflabs.xyz
+
+### 📝 Strapi CMS (Blog)
+O projeto inclui o Strapi como sistema de gerenciamento de conteúdo para o blog, hospedado no Railway.
+
+```bash
+# Instalar dependências do Strapi
+cd strapi && npm install
+
+# Configurar banco de dados (Railway PostgreSQL)
+# Copie strapi/.env.example para strapi/.env e configure
+# Veja docs/reference/RAILWAY_ENV_VARS.md para detalhes
+
+# Executar Strapi localmente
+npm run develop
+```
+
+**Produção**: O Strapi está hospedado no Railway e acessível em `https://giflabs-production.up.railway.app`
+
+📖 Veja a [documentação completa do Strapi](./strapi/README.md) e o [tutorial de setup](./docs/guides/tutorials/SETUP_STRAPI.md) para mais detalhes.
 
 ## 🤝 Contribuindo
 
@@ -151,9 +183,10 @@ pnpm lint         # Verificação de código
 - 🔧 **Refactoring**: Melhorias na estrutura do código
 
 ### 📖 Leia Mais
-- **[Como Contribuir](./docs/guides/CONTRIBUTING.md)** - Guia completo de contribuição
-- **[Padrões de Desenvolvimento](./docs/guides/DEVELOPMENT_GUIDE.md)** - Padrões técnicos
-- **[Sistema de Design](./docs/guides/DESIGN_SYSTEM.md)** - Componentes e design
+- **[Como Contribuir](./docs/guides/development/CONTRIBUTING.md)** - Guia completo de contribuição
+- **[Padrões de Desenvolvimento](./docs/guides/development/DEVELOPMENT_GUIDE.md)** - Padrões técnicos
+- **[Sistema de Design](./docs/guides/development/DESIGN_SYSTEM.md)** - Componentes e design
+- **[Setup do Strapi](./docs/guides/tutorials/SETUP_STRAPI.md)** - Configuração do CMS
 
 ## 🌍 Internacionalização
 
@@ -189,22 +222,24 @@ pnpm build
 # Verificar build
 pnpm start
 
-# Variáveis de ambiente
-NEXT_PUBLIC_API_URL=https://api.giflabs.com
+# Variáveis de ambiente (Vercel)
+NEXT_PUBLIC_STRAPI_URL=https://giflabs-production.up.railway.app
 NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
 ```
 
-⚠️ **Nota**: Algumas configurações precisam ser ajustadas para produção. Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md).
+✅ **Nota**: Todas as configurações estão otimizadas para produção. Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md).
 
 ## 🔮 Roadmap
 
 ### 🎯 Fase 1: Consolidação (Atual)
-- [x] Estrutura base com Next.js 15.2.4
+- [x] Estrutura base com Next.js 15.2.8
 - [x] Sistema de internacionalização
 - [x] Component library com Shadcn UI
 - [x] Responsividade mobile-first
 - [x] Documentação completa
-- [ ] **Corrigir configurações de produção**
+- [x] Configurações de produção otimizadas
+- [x] Blog integrado com Strapi
+- [x] Deploy no Vercel e Railway
 
 ### 🚀 Fase 2: Otimização (Próximo)
 - [ ] Implementação de testes
@@ -229,8 +264,8 @@ NEXT_PUBLIC_GA_ID=GA_MEASUREMENT_ID
 ### 📈 Métricas do Projeto
 - **Contribuidores**: 5+ ativos
 - **Projetos**: 7 em desenvolvimento
-- **Páginas**: 8+ implementadas
-- **Componentes**: 45+ disponíveis (Shadcn UI)
+- **Páginas**: 9+ implementadas (incluindo blog)
+- **Componentes**: 50+ disponíveis (Shadcn UI + Blog)
 - **Traduções**: 2 idiomas (PT/EN)
 - **Documentação**: 95% de cobertura
 
@@ -299,14 +334,15 @@ Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](./LICENSE) p
 ## ⚠️ Notas Importantes
 
 ### Status das Configurações
-Este projeto contém algumas configurações que precisam ser ajustadas para produção:
+✅ **Todas as configurações estão otimizadas para produção:**
 
-- **TypeScript**: Modo não estrito (`"strict": false`)
-- **ESLint**: Ignorado durante builds
-- **Images**: Otimização desabilitada
-- **PostCSS**: Falta autoprefixer
+- **TypeScript**: Modo estrito habilitado (`"strict": true`)
+- **ESLint**: Verificação ativa durante builds
+- **Images**: Otimização habilitada com WebP
+- **PostCSS**: Autoprefixer configurado
+- **Next.js**: Todas as otimizações ativas
 
-Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md) para detalhes sobre como corrigir esses problemas.
+Consulte a [documentação de configurações](./docs/reference/CONFIGURATIONS.md) para detalhes.
 
 ---
 

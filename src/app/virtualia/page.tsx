@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { StaffList } from "./_components/staff-list";
 import { Badge } from "@/components/ui/badge";
-import { Header } from "@/components/layout/header";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ogSupporters = [
@@ -32,7 +31,6 @@ export default function VirtualiaPage() {
   
   return (
     <div className="bg-neutral-50 min-h-screen font-light">
-      <Header />
       <main className="space-y-20 md:space-y-28 pb-20">
         {/* Hero Section */}
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white">

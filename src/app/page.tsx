@@ -1,9 +1,14 @@
 "use client";
 
-import React from "react"
+import React, { Suspense, useEffect, useState } from "react"
+import { useSearchParams } from "next/navigation"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getPosts } from "@/lib/strapi";
+import type { PostPreview } from "@/types/blog";
+import { SloganLoader } from "@/components/ui/slogan-loader";
 import {
   Briefcase,
   ChevronDown,
@@ -27,9 +32,11 @@ import {
   Puzzle,
   Linkedin,
   Globe,
+  PenTool,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { PostCard } from "@/components/blog";
 
 const iconMap = {
   GraduationCap,
@@ -45,6 +52,7 @@ const iconMap = {
   Database,
   Globe,
   Mail,
+  PenTool,
 };
 
 const projects = [
@@ -69,14 +77,14 @@ const projects = [
     link: "/literatura",
   },
   {
-    id: "arqueologia-digital",
+    id: "arquivologia-digital",
     iconName: "Archive",
-    link: "/arqueologia-digital",
+    link: "/arquivologia-digital",
   },
   {
     id: "dao-channel",
     iconName: "PlayCircle",
-    link: "/giflabs",
+    link: "/youtube-channel",
   },
   {
     id: "metaverso",
@@ -301,6 +309,128 @@ const networkMembers = {
   ]
 };
 
+function LatestPosts() {
+  const { t } = useLanguage();
+  const searchParams = useSearchParams();
+  const [posts, setPosts] = useState<PostPreview[]>([]);
+  const [loading, setLoading] = useState(true);
+  const showEmptyPreview = searchParams?.get('preview') === 'empty';
+
+  useEffect(() => {
+    async function fetchLatestPosts() {
+      try {
+        const response = await getPosts({
+          language: 'pt-BR',
+          pageSize: 3,
+          page: 1,
+        });
+        const fetchedPosts = response.data || [];
+        setPosts(fetchedPosts);
+      } catch (error) {
+        console.error('Error fetching latest posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchLatestPosts();
+  }, []);
+
+  const isEmpty = showEmptyPreview || (posts.length === 0 && !loading);
+
+  return (
+    <section id="blog-preview" className="min-h-screen py-24 flex flex-col items-center justify-center bg-neutral-50 scroll-mt-19">
+      <div className="container mx-auto px-6 w-full flex flex-col items-center justify-center flex-1 min-h-0">
+        {/* Quando vazio: só slogan + tagline (sem título, descrição, botão) */}
+        {isEmpty ? (
+          <motion.div
+            initial={{ opacity: 0, y: 1 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex flex-col items-center justify-center flex-1 w-full text-center"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="mb-8"
+            >
+              <SloganLoader animate={false} size="lg" />
+            </motion.div>
+            <p className="text-neutral-600 text-lg md:text-xl font-light italic">
+              {t("home.blog.empty_state.tagline")}
+            </p>
+          </motion.div>
+        ) : (
+          <>
+            {/* Título e descrição: visíveis quando há posts */}
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-light tracking-tight">
+                {t("home.blog.title")}
+              </h2>
+              <p className="text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed text-lg">
+                {t("home.blog.description")}
+              </p>
+            </div>
+
+            {/* Conteúdo dinâmico: skeleton | posts */}
+            <div className="max-w-6xl mx-auto w-full">
+              <AnimatePresence mode="wait">
+                {loading && !showEmptyPreview ? (
+                  <motion.div
+                    key="loading"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+                  >
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="rounded-lg border border-neutral-200 bg-white overflow-hidden">
+                        <div className="aspect-video bg-neutral-200 animate-pulse" />
+                        <div className="p-5 space-y-3">
+                          <div className="flex gap-2">
+                            <div className="h-3 w-16 bg-neutral-200 rounded animate-pulse" />
+                            <div className="h-3 w-12 bg-neutral-200 rounded animate-pulse" />
+                          </div>
+                          <div className="h-5 w-full bg-neutral-200 rounded animate-pulse" />
+                          <div className="h-4 w-3/4 bg-neutral-200 rounded animate-pulse" />
+                          <div className="h-4 w-1/2 bg-neutral-200 rounded animate-pulse" />
+                        </div>
+                      </div>
+                    ))}
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="posts"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
+                  >
+                    {posts.slice(0, 3).map((post) => (
+                      <PostCard key={post.id} post={post} showLanguageBadge={false} />
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Botão: visível quando há posts */}
+            <div className="text-center mt-12">
+              <Button
+                asChild
+                className="bg-neutral-900 hover:bg-neutral-800 text-white"
+              >
+                <Link href="/blog">{t("home.blog.view_all")}</Link>
+              </Button>
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function Projects() {
   const { t } = useLanguage();
   
@@ -394,7 +524,7 @@ export default function GifLabsSite() {
       </section>
 
       {/* Sobre Section */}
-      <section id="sobre" className="py-24 bg-white scroll-mt-19">
+      <section id="sobre" className="min-h-screen py-24 flex flex-col justify-center bg-white scroll-mt-19">
         <div className="container mx-auto px-6">
           <div>
             <div className="text-center max-w-3xl mx-auto">
@@ -457,6 +587,11 @@ export default function GifLabsSite() {
           </div>
         </div>
       </section>
+
+      {/* Últimos Posts do Blog */}
+      <Suspense fallback={<section id="blog-preview" className="min-h-screen py-24 flex items-center justify-center bg-neutral-50" />}>
+        <LatestPosts />
+      </Suspense>
 
       {/* Áreas de Atuação */}
       <Projects />
