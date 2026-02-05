@@ -4,6 +4,7 @@ const defaultOrigins = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://giflabs.xyz',
+  'https://www.giflabs.xyz',
   'https://giflabs.vercel.app',
 ].join(',');
 
