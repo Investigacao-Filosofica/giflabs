@@ -17,10 +17,10 @@ A Fase 1 do DEA passa a ter a seguinte ordem (blog como primeira etapa; chat for
 | Etapa | Nome | Descrição |
 |-------|------|-----------|
 | **1** | **Blog** | Conteúdo editorial (posts, authors). Strapi + PostgreSQL (Railway). **Estado atual:** em produção no giflabs. |
-| **2** | **Perfil** | community_user, perfil público. A pessoa tem identidade/perfil antes de poder comentar. Módulo dedicado (PostgreSQL, ex.: Prisma). |
+| **2** | **Perfil** | community_user, perfil público. A pessoa tem identidade/perfil antes de poder comentar. Importação de credenciais acadêmicas. Módulo dedicado (PostgreSQL, ex.: Prisma). |
 | **3** | **Comentários/Discussão** | Fórum sob os posts do blog: threads, respostas, subrespostas. Quem tem perfil pode comentar nos posts. Módulo dedicado (Fórum). |
 | **4** | **Gamificação inicial** | XP, níveis, runas. Regras de pontuação e reconhecimento a partir de comentários e outras ações (ex.: +XP por comentário, runas por curadoria). **Já pensando em Web3 e estruturas de contratos** desde o desenho. Módulo dedicado (Gamificação). |
-| **5** | **[Em discussão]** | Próxima etapa a definir em grupo. Opções em aberto: Gamificação avançada + Web3, Curso básico/Onboarding, Cursos (Moodle), DAO/Governança, etc. |
+| **5** | **[Em discussão]** | Próxima etapa a definir em grupo. Opções em aberto: Gamificação avançada + Web3, Curso básico/Onboarding, Cursos (Moodle), DAO/Governança, registro de credenciais acadêmicas onchain etc. |
 
 **Chat:** fora do plano da Fase 1 (removido).
 

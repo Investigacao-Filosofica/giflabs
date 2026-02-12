@@ -398,6 +398,13 @@ function markdownToHtml(markdown: string): string {
     }
   );
 
+  // 3. Quebras de linha e parágrafos (evita texto corrido sem espaço)
+  // Dois ou mais \n = novo parágrafo; um \n = <br>
+  html = html.replace(/\r\n/g, '\n');
+  html = html.replace(/\n\n+/g, '</p><p>');
+  html = html.replace(/\n/g, '<br>');
+  html = `<p>${html}</p>`;
+
   return html;
 }
 
