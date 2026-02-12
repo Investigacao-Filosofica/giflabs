@@ -7,7 +7,7 @@ import { X } from 'lucide-react';
 import { PostList, PostListSkeleton, Pagination, CategoryBadge } from '@/components/blog';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useBlogFilters } from '@/contexts/BlogFiltersContext';
-import type { PostPreview, Category, Tag, StrapiResponse } from '@/types/blog';
+import type { PostPreview, Category, StrapiResponse } from '@/types/blog';
 
 // Client: usa proxy /api/strapi (mesma origem, evita CORS). Server: URL direta.
 const STRAPI_BASE =
@@ -22,7 +22,6 @@ function BlogContent() {
   
   const [posts, setPosts] = useState<PostPreview[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [tags, setTags] = useState<Tag[]>([]);
   const [pagination, setPagination] = useState({ page: 1, pageCount: 1, total: 0 });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -44,10 +43,9 @@ function BlogContent() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [showFilters, blogFilters]);
 
-  // Filtros da URL (suporte a múltiplos para category e tag)
+  // Filtros da URL (suporte a múltiplos para category)
   const currentPage = Number(searchParams.get('page')) || 1;
   const categoryFilters = searchParams.getAll('category').filter(Boolean);
-  const tagFilters = searchParams.getAll('tag').filter(Boolean);
   const authorFilter = searchParams.get('author') || '';
   const languageFilter = searchParams.get('language') || '';
   const searchQuery = searchParams.get('q') || '';
@@ -72,11 +70,6 @@ function BlogContent() {
         if (categoryFilters.length > 0) {
           categoryFilters.forEach((slug, i) => {
             params.append(`filters[categories][slug][$in][${i}]`, slug);
-          });
-        }
-        if (tagFilters.length > 0) {
-          tagFilters.forEach((slug, i) => {
-            params.append(`filters[tags][slug][$in][${i}]`, slug);
           });
         }
         if (authorFilter) {
@@ -118,49 +111,34 @@ function BlogContent() {
     }
 
     fetchPosts();
-  }, [currentPage, categoryFilters.join(','), tagFilters.join(','), authorFilter, languageFilter, searchQuery]);
+  }, [currentPage, categoryFilters.join(','), authorFilter, languageFilter, searchQuery]);
 
-  // Buscar categorias e tags
+  // Buscar categorias (para filtros)
   useEffect(() => {
     async function fetchFilters() {
       try {
-        const [catRes, tagRes] = await Promise.all([
-          fetch(`${STRAPI_BASE}/categories?pagination[pageSize]=100`, {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }),
-          fetch(`${STRAPI_BASE}/tags?pagination[pageSize]=100`, {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }),
-        ]);
+        const catRes = await fetch(`${STRAPI_BASE}/categories?pagination[pageSize]=100`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
 
         if (!catRes.ok) {
           throw new Error(`Failed to fetch categories: ${catRes.status} ${catRes.statusText}`);
         }
-        if (!tagRes.ok) {
-          throw new Error(`Failed to fetch tags: ${tagRes.status} ${tagRes.statusText}`);
-        }
 
         const catData: StrapiResponse<Category> = await catRes.json();
-        const tagData: StrapiResponse<Tag> = await tagRes.json();
-
         setCategories(catData.data || []);
-        setTags(tagData.data || []);
       } catch (error) {
         console.error('Error fetching filters:', error);
-        // Não quebrar a UI se os filtros falharem
         setCategories([]);
-        setTags([]);
       }
     }
 
     fetchFilters();
   }, []);
 
-  const hasActiveFilters = categoryFilters.length > 0 || tagFilters.length > 0 || authorFilter || languageFilter || searchQuery;
+  const hasActiveFilters = categoryFilters.length > 0 || authorFilter || languageFilter || searchQuery;
 
   // Helpers para toggle de filtros múltiplos
   const buildCategoryToggleUrl = (slug: string) => {
@@ -174,18 +152,6 @@ function BlogContent() {
     newCategories.forEach((c) => params.append('category', c));
     return `/blog?${params.toString()}`;
   };
-  const buildTagToggleUrl = (slug: string) => {
-    const params = new URLSearchParams(searchParams?.toString() || '');
-    params.set('page', '1');
-    const current = params.getAll('tag');
-    const newTags = current.includes(slug)
-      ? current.filter((t) => t !== slug)
-      : [...current, slug];
-    params.delete('tag');
-    newTags.forEach((t) => params.append('tag', t));
-    return `/blog?${params.toString()}`;
-  };
-
   const buildClearParamUrl = (param: string) => {
     const params = new URLSearchParams(searchParams?.toString() || '');
     params.set('page', '1');
@@ -222,19 +188,6 @@ function BlogContent() {
                           className="flex items-center gap-1 rounded-full bg-neutral-200 px-3 py-1 text-sm text-neutral-700 transition-colors hover:bg-neutral-300"
                         >
                           {cat?.name || slug}
-                          <X className="h-3 w-3" />
-                        </Link>
-                      );
-                    })}
-                    {tagFilters.map((slug) => {
-                      const tag = tags.find((t) => t.slug === slug);
-                      return (
-                        <Link
-                          key={slug}
-                          href={buildTagToggleUrl(slug)}
-                          className="flex items-center gap-1 rounded-full bg-neutral-200 px-3 py-1 text-sm text-neutral-700 transition-colors hover:bg-neutral-300"
-                        >
-                          #{tag?.name || slug}
                           <X className="h-3 w-3" />
                         </Link>
                       );
@@ -277,7 +230,7 @@ function BlogContent() {
 
                 {/* Filters Panel - opções de filtro */}
                 {showFilters && (
-                  <div className="grid gap-6 md:grid-cols-3">
+                  <div className="grid gap-6 md:grid-cols-2">
                     {/* Language */}
                     <div>
                       <h3 className="mb-3 font-semibold text-neutral-900">
@@ -335,30 +288,6 @@ function BlogContent() {
                       </div>
                     </div>
 
-                    {/* Tags - múltipla seleção */}
-                    <div>
-                      <h3 className="mb-3 font-semibold text-neutral-900">
-                        {t('blog.tags') || 'Tags'}
-                      </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {tags.slice(0, 15).map((tag) => (
-                          <Link
-                            key={tag.id}
-                            href={buildTagToggleUrl(tag.slug)}
-                            className={`rounded-full border px-3 py-1 text-xs transition-colors ${
-                              tagFilters.includes(tag.slug)
-                                ? 'border-neutral-900 bg-neutral-900 text-white'
-                                : 'border-neutral-300 text-neutral-600 hover:border-neutral-900 hover:text-neutral-900'
-                            }`}
-                          >
-                            #{tag.name}
-                          </Link>
-                        ))}
-                        {tags.length > 15 && (
-                          <span className="px-3 py-1 text-xs text-neutral-400">+{tags.length - 15}</span>
-                        )}
-                      </div>
-                    </div>
                   </div>
                 )}
               </div>

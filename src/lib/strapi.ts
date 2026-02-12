@@ -17,6 +17,13 @@ import type {
 // URL base do Strapi
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
+// Client (browser): usa proxy /api/strapi (mesma origem, evita CORS)
+// Server (SSR/ISR): usa URL direta do Strapi
+const STRAPI_API_BASE =
+  typeof window !== 'undefined'
+    ? '/api/strapi'                     // proxy Next.js (mesma origem)
+    : `${STRAPI_URL}/api`;              // server-side (sem CORS)
+
 /**
  * Função genérica para fazer requisições ao Strapi
  */
@@ -24,7 +31,10 @@ async function fetchStrapi<T>(
   endpoint: string,
   options?: RequestInit
 ): Promise<T> {
-  const url = `${STRAPI_URL}/api${endpoint}`;
+  const url = `${STRAPI_API_BASE}${endpoint}`;
+
+  // next.revalidate só funciona server-side; no browser usamos fetch normal
+  const isServer = typeof window === 'undefined';
   
   const res = await fetch(url, {
     ...options,
@@ -32,9 +42,7 @@ async function fetchStrapi<T>(
       'Content-Type': 'application/json',
       ...options?.headers,
     },
-    next: {
-      revalidate: 60, // Revalidar a cada 60 segundos (ISR)
-    },
+    ...(isServer ? { next: { revalidate: 60 } } : {}),
   });
 
   if (!res.ok) {

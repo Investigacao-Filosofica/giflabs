@@ -26,7 +26,7 @@ export function TagList({ tags, size = 'md', limit }: TagListProps) {
           href={`/blog?tag=${tag.slug}`}
           className={`rounded-full border border-neutral-300 px-3 py-1 text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900 ${sizes[size]}`}
         >
-          #{tag.name}
+          {tag.name}
         </Link>
       ))}
       {limit && tags.length > limit && (

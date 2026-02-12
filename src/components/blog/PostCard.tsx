@@ -121,7 +121,7 @@ export function PostCard({ post, featured = false, showLanguageBadge = true }: P
                 href={`/blog?tag=${tag.slug}`}
                 className="text-xs text-neutral-500 transition-colors hover:text-neutral-900"
               >
-                #{tag.name}
+                {tag.name}
               </Link>
             ))}
           </div>
