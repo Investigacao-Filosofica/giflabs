@@ -64,7 +64,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::post.post",
-      "inversedBy": "coauthors"
+      "mappedBy": "coauthors"
     }
   }
 }

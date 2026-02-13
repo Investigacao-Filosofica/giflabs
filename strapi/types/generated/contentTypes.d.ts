@@ -564,8 +564,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     share_count: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     subtitle: Schema.Attribute.String;
-    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'> &
-      Schema.Attribute.Required;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{

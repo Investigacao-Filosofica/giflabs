@@ -15,7 +15,6 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      enabled: true,
       origin: allowedOrigins,
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
